@@ -1,0 +1,158 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      5540,        150]
+NotebookOptionsPosition[      5191,        136]
+NotebookOutlinePosition[      5586,        152]
+CellTagsIndexPosition[      5543,        149]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"If", "[", 
+     RowBox[{"resetQ", ",", 
+      RowBox[{
+       RowBox[{"winQ", "=", "False"}], ";", 
+       RowBox[{"edges", "=", "initEdges"}], ";", 
+       RowBox[{"resetQ", "=", "False"}]}]}], "]"}], ";", 
+    RowBox[{"If", "[", 
+     RowBox[{"generateQ", ",", 
+      RowBox[{
+       RowBox[{"winQ", "=", "False"}], ";", 
+       RowBox[{"edges", "=", 
+        RowBox[{"initEdges", "=", 
+         RowBox[{"puzzlizeGraph", "[", 
+          RowBox[{"vertexNumber", ",", "redWeight"}], "]"}]}]}], ";", 
+       RowBox[{"initGraph", "=", 
+        RowBox[{"Graph", "[", 
+         RowBox[{"edges", ",", 
+          RowBox[{"GraphLayout", "->", "graphLayout"}]}], "]"}]}], ";", 
+       RowBox[{"vertexCo", "=", 
+        RowBox[{"Last", "[", 
+         RowBox[{"First", "[", 
+          RowBox[{"AbsoluteOptions", "[", 
+           RowBox[{"initGraph", ",", "VertexCoordinates"}], "]"}], "]"}], 
+         "]"}]}], ";", 
+       RowBox[{"generateQ", "=", "False"}]}]}], "]"}], ";", 
+    RowBox[{"Column", "[", 
+     RowBox[{"{", 
+      RowBox[{"progress", ",", 
+       RowBox[{"With", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"flippedEdges", "=", 
+           RowBox[{"Module", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"i", "=", "0"}], "}"}], ",", 
+             RowBox[{
+              RowBox[{"Function", "[", 
+               RowBox[{"edge", ",", 
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{"i", "++"}], ";", 
+                  RowBox[{"EventHandler", "[", 
+                   RowBox[{"edge", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"\"\<MouseClicked\>\"", ":>", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"edges", "=", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"flippableQ", "[", 
+                    RowBox[{"edge", ",", "edges"}], "]"}], ",", 
+                    RowBox[{
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"j", "\[Equal]", "winIndex"}], ",", 
+                    RowBox[{"winQ", "=", "True"}]}], "]"}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"MapAt", "[", 
+                    RowBox[{"edgeFlip", ",", "edges", ",", "j"}], "]"}]}], 
+                    ",", "edges"}], "]"}]}], ";"}], ")"}]}], "/.", 
+                    RowBox[{"j", "->", "i"}]}], "}"}]}], "]"}]}], ")"}]}], 
+               "]"}], "/@", "edges"}]}], "]"}]}], "}"}], ",", 
+         RowBox[{"Graph", "[", 
+          RowBox[{"flippedEdges", ",", 
+           RowBox[{"VertexCoordinates", "->", 
+            RowBox[{"moveBy", "[", 
+             RowBox[{"vertexCo", ",", 
+              RowBox[{"VertexList", "[", "initGraph", "]"}], ",", 
+              RowBox[{"VertexList", "[", "edges", "]"}]}], "]"}]}], ",", 
+           RowBox[{"EdgeShapeFunction", "->", 
+            RowBox[{"GraphElementData", "[", 
+             RowBox[{"\"\<ShortUnfilledArrow\>\"", ",", 
+              RowBox[{"\"\<ArrowSize\>\"", "->", ".15"}]}], "]"}]}], ",", 
+           RowBox[{"VertexSize", "->", 
+            RowBox[{"Scaled", "[", 
+             RowBox[{"redEdgeSize", "*", "vertexExpansion"}], "]"}]}], ",", 
+           RowBox[{"ImageSize", "->", 
+            RowBox[{"{", 
+             RowBox[{"350", ",", "350"}], "}"}]}]}], "]"}]}], "]"}], ",", 
+       RowBox[{"If", "[", 
+        RowBox[{"winQ", ",", "\"\<You Win!\>\""}], "]"}]}], "}"}], "]"}]}], 
+   ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"vertexNumber", ",", "8", ",", "\"\<Vertex Number\>\""}], "}"}],
+      ",", "4", ",", "28", ",", "2", ",", 
+     RowBox[{"Appearance", "->", "\"\<Open\>\""}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"generateQ", ",", "True", ",", "\"\<\>\""}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<Generate Puzzle\>\"", ",", 
+        RowBox[{"generateQ", "=", "True"}]}], "]"}], "&"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"resetQ", ",", "False", ",", "\"\<\>\""}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"Button", "[", 
+       RowBox[{"\"\<Reset Puzzle\>\"", ",", 
+        RowBox[{"resetQ", "=", "True"}]}], "]"}], "&"}]}], "}"}], ",", 
+   RowBox[{"SaveDefinitions", "->", "True"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.944600076847657*^9, 
+  3.944600076852289*^9}},ExpressionUUID->"a9240211-071f-4b4e-b050-\
+df2e370dc4d6"]
+},
+WindowSize->{808, 676},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"89821d36-4c66-4b8d-a760-112dd1668218"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 4629, 114, 451, "Input",ExpressionUUID->"a9240211-071f-4b4e-b050-df2e370dc4d6"]
+}
+]
+*)
+

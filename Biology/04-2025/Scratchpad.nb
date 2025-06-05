@@ -1,0 +1,263 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     10260,        255]
+NotebookOptionsPosition[      8845,        220]
+NotebookOutlinePosition[      9242,        236]
+CellTagsIndexPosition[      9199,        233]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"PacletInstall", "[", 
+  RowBox[{"\"\<WolframChemistry/ProteinVisualization\>\"", ",", 
+   RowBox[{"UpdatePacletSites", "->", "True"}]}], "]"}]], "Input",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellChangeTimes->{{3.918313842246168*^9, 3.9183138422489*^9}, 
+   3.918318674056824*^9, {3.918319758356841*^9, 3.91831976114063*^9}, 
+   3.918471986684074*^9, 3.91847202448708*^9, 3.9184729725718937`*^9},
+ CellLabel->"In[3]:=",
+ CellID->691351689,ExpressionUUID->"7751ab1b-2b02-4678-a73d-6c2bb21655e7"],
+
+Cell[BoxData[
+ RowBox[{"<<", "WolframChemistry`ProteinVisualization`"}]], "Input",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellChangeTimes->{{3.918313842246168*^9, 3.9183138422489*^9}, 
+   3.918318674056824*^9, 3.9184719866844273`*^9, 3.918472024487446*^9, 
+   3.918472972572239*^9},
+ CellLabel->"In[4]:=",
+ CellID->219377,ExpressionUUID->"e871fb0f-5d04-4d34-9fab-f68e4c2e1938"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sequenceFromPDB", "[", 
+   RowBox[{"ExternalIdentifier", "[", 
+    RowBox[{"\"\<PDBStructureID\>\"", ",", "id_"}], "]"}], "]"}], ":=", 
+  RowBox[{"Import", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+     "StringTemplate", 
+      "[", "\"\<http://www.rcsb.org/pdb/download/downloadFile.do?fileFormat=\
+pdb&structureId=`1`\>\"", "]"}], "[", "id", "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"\"\<PDB\>\"", ",", "\"\<Sequence\>\""}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellChangeTimes->{3.9184719866845913`*^9, 3.918472024487628*^9, 
+  3.918472972572419*^9},
+ CellLabel->"In[5]:=",
+ CellID->1539585592,ExpressionUUID->"36272bf9-8873-4c17-96ee-7e29224eac39"],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", "alignPdbWithPredicted", "]"}]], "Input",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellChangeTimes->{{3.918409567476819*^9, 3.9184095727489643`*^9}, 
+   3.918471986684705*^9, 3.918472024487765*^9, 3.918472972572541*^9},
+ CellLabel->"In[6]:=",
+ CellID->784582041,ExpressionUUID->"a7435b05-e34d-45ea-b588-815ff31d4ae6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"alignPdbWithPredicted", "[", 
+   RowBox[{"ei", ":", 
+    RowBox[{"ExternalIdentifier", "[", 
+     RowBox[{"\"\<PDBStructureID\>\"", ",", "id_"}], "]"}]}], "]"}], ":=", 
+  RowBox[{"Enclose", "[", "\[IndentingNewLine]", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "seq", ",", "p1", ",", "p2", ",", "pts1", ",", "pts2", ",", "err", ",", 
+       "t"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"seq", "=", 
+       RowBox[{"First", "[", 
+        RowBox[{
+         RowBox[{"sequenceFromPDB", "@", "ei"}], ",", "$Failed"}], "]"}]}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"ConfirmBy", "[", 
+       RowBox[{"seq", ",", "StringQ"}], "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"p1", "=", 
+       RowBox[{"Graphics3D", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Opacity", "[", ".25", "]"}], ",", 
+          RowBox[{
+           RowBox[{"ColorData", "[", "97", "]"}], "[", "1", "]"}], ",", 
+          RowBox[{"Tube", "[", 
+           RowBox[{
+            RowBox[{"Catenate", "@", 
+             RowBox[{
+              RowBox[{"MapAt", "[", 
+               RowBox[{"Rest", ",", 
+                RowBox[{"{", 
+                 RowBox[{"2", ";;"}], "}"}]}], "]"}], "@", 
+              RowBox[{"Cases", "[", 
+               RowBox[{
+                RowBox[{"AlphaCarbonPathPlot3D", "[", "ei", "]"}], ",", 
+                RowBox[{
+                 RowBox[{"Tube", "[", 
+                  RowBox[{"pts_", ",", "_"}], "]"}], ":>", "pts"}], ",", 
+                "All"}], "]"}]}]}], ",", "1"}], "]"}]}], "}"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"p2", "=", 
+       RowBox[{"Graphics3D", "[", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"ColorData", "[", "97", "]"}], "[", "2", "]"}], ",", 
+          RowBox[{"Tube", "[", 
+           RowBox[{
+            RowBox[{"Catenate", "@", 
+             RowBox[{
+              RowBox[{"MapAt", "[", 
+               RowBox[{"Rest", ",", 
+                RowBox[{"{", 
+                 RowBox[{"2", ";;"}], "}"}]}], "]"}], "@", 
+              RowBox[{"Cases", "[", 
+               RowBox[{
+                RowBox[{"AlphaCarbonPathPlot3D", "[", 
+                 RowBox[{"BioSequence", "[", 
+                  RowBox[{"\"\<Peptide\>\"", ",", "seq"}], "]"}], "]"}], ",", 
+                
+                RowBox[{
+                 RowBox[{"Tube", "[", 
+                  RowBox[{"pts_", ",", "_"}], "]"}], ":>", "pts"}], ",", 
+                "All"}], "]"}]}]}], ",", ".25"}], "]"}]}], "}"}], "]"}]}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"pts1", "=", 
+       RowBox[{
+        RowBox[{"First", "@", 
+         RowBox[{"ExtractBackboneCoordinates", "[", "ei", "]"}]}], "/", 
+        "100"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"pts2", "=", 
+       RowBox[{
+        RowBox[{"First", "@", 
+         RowBox[{"ExtractBackboneCoordinates", "[", 
+          RowBox[{"BioSequence", "[", 
+           RowBox[{"\"\<Peptide\>\"", ",", "seq"}], "]"}], "]"}]}], "/", 
+        "100"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"err", ",", "t"}], "}"}], "=", 
+       RowBox[{"FindGeometricTransform", "[", 
+        RowBox[{"pts1", ",", "pts2", ",", 
+         RowBox[{"TransformationClass", "->", "\"\<Affine\>\""}]}], "]"}]}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"DeleteCases", "[", 
+       RowBox[{
+        RowBox[{"Show", "[", 
+         RowBox[{"{", 
+          RowBox[{"p1", ",", " ", 
+           RowBox[{"Graphics3D", "[", 
+            RowBox[{"GeometricTransformation", "[", 
+             RowBox[{
+              RowBox[{"First", "@", "p2"}], ",", "t"}], "]"}], "]"}]}], "}"}],
+          "]"}], ",", 
+        RowBox[{"HoldPattern", "[", 
+         RowBox[{"\"\<ShrinkWrap\>\"", "->", "True"}], "]"}], ",", 
+        "Infinity"}], "]"}]}]}], "\[IndentingNewLine]", "]"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellChangeTimes->{{3.918319165447309*^9, 3.9183194284543037`*^9}, {
+   3.918319519965957*^9, 3.918319638707258*^9}, {3.918319670112788*^9, 
+   3.918319713006351*^9}, 3.918406308231948*^9, {3.918406427876541*^9, 
+   3.918406465457434*^9}, {3.9184065042813663`*^9, 3.9184066408630753`*^9}, 
+   3.918406774723406*^9, {3.918406960548823*^9, 3.918406963644885*^9}, {
+   3.918407431457883*^9, 3.918407436144537*^9}, {3.918407537468209*^9, 
+   3.918407617107419*^9}, {3.918407675717431*^9, 3.918407691867593*^9}, {
+   3.918407847879356*^9, 3.918407856801796*^9}, 3.918407924698881*^9, 
+   3.91847198668503*^9, 3.918472024488112*^9, {3.918472887654253*^9, 
+   3.918472890512635*^9}, {3.918472928624342*^9, 3.918472972572875*^9}},
+ CellLabel->"In[17]:=",
+ CellID->920770507,ExpressionUUID->"3bd7bb4f-27f3-4c98-b18f-d56be1d3388f"],
+
+Cell[BoxData[
+ RowBox[{"GraphicsRow", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"alignPdbWithPredicted", "[", 
+     RowBox[{"ExternalIdentifier", "[", 
+      RowBox[{"\"\<PDBStructureID\>\"", ",", "#"}], "]"}], "]"}], "&"}], "/@", 
+   RowBox[{"{", 
+    RowBox[{"\"\<1PPT\>\"", ",", " ", "\"\<1ZT5\>\"", ",", "\"\<2ZRR\>\""}], 
+    "}"}]}], "]"}]], "Input",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellChangeTimes->{{3.918471892465496*^9, 3.918471952290964*^9}, 
+   3.918471986685172*^9, 3.91847202448827*^9, 3.9184729725730267`*^9},
+ CellLabel->"In[8]:=",
+ CellID->2108484745,ExpressionUUID->"6f8c558a-e208-4d5e-8974-6d86ce172edb"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"GraphicsRow", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"alignPdbWithPredicted", "[", 
+     RowBox[{"ExternalIdentifier", "[", 
+      RowBox[{"\"\<PDBStructureID\>\"", ",", "#"}], "]"}], "]"}], "&"}], "/@", 
+   RowBox[{"{", 
+    RowBox[{"\"\<1ZX6\>\"", ",", "\"\<1ZVE\>\"", ",", "\"\<6FIV\>\""}], 
+    "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.918471892465496*^9, 3.918471952290964*^9}, 
+   3.918471986685172*^9, 3.918472446144014*^9, {3.9184724876362143`*^9, 
+   3.918472488331555*^9}, {3.918472521601*^9, 3.9184725270618973`*^9}},
+ CellLabel->"In[11]:=",
+ CellID->392839857,ExpressionUUID->"c2d1f500-eb1a-4b99-af61-68b9e163311c"]
+},
+WindowSize->{808, 673},
+WindowMargins->{{272, Automatic}, {9, Automatic}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"040edeee-37ff-4e64-8c89-702f2068f7a7"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 536, 9, 29, "Input",ExpressionUUID->"7751ab1b-2b02-4678-a73d-6c2bb21655e7",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellID->691351689],
+Cell[1115, 33, 394, 7, 29, "Input",ExpressionUUID->"e871fb0f-5d04-4d34-9fab-f68e4c2e1938",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellID->219377],
+Cell[1512, 42, 744, 19, 111, "Input",ExpressionUUID->"36272bf9-8873-4c17-96ee-7e29224eac39",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellID->1539585592],
+Cell[2259, 63, 369, 6, 29, "Input",ExpressionUUID->"a7435b05-e34d-45ea-b588-815ff31d4ae6",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellID->784582041],
+Cell[2631, 71, 4886, 114, 417, "Input",ExpressionUUID->"3bd7bb4f-27f3-4c98-b18f-d56be1d3388f",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellID->920770507],
+Cell[7520, 187, 646, 14, 49, "Input",ExpressionUUID->"6f8c558a-e208-4d5e-8974-6d86ce172edb",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellID->2108484745]
+}, Open  ]],
+Cell[8181, 204, 660, 14, 49, "Input",ExpressionUUID->"c2d1f500-eb1a-4b99-af61-68b9e163311c",
+ CellID->392839857]
+}
+]
+*)
+

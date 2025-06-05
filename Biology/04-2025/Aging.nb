@@ -1,0 +1,2429 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[    101066,       2421]
+NotebookOptionsPosition[     98673,       2372]
+NotebookOutlinePosition[     99072,       2388]
+CellTagsIndexPosition[     99029,       2385]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"ArrayPlot", "[", 
+  RowBox[{
+   RowBox[{"CellularAutomaton", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"4", ",", " ", "4", ",", " ", "1"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", " ", "1", ",", " ", "1", ",", " ", "1"}], "}"}], ",",
+        " ", "0"}], "}"}], ",", " ", "10"}], "]"}], ",", " ", 
+   RowBox[{"ColorRules", "->", 
+    RowBox[{
+     InterpretationBox[
+      TagBox[
+       FrameBox[
+        PaneBox[GridBox[{
+           {
+            StyleBox[
+             StyleBox[
+              AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+               BoxBaselineShift->-0.25,
+               BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+              FontColor->GrayLevel[0.45]],
+             ShowStringCharacters->False,
+             FontFamily->"Source Sans Pro Black",
+             FontSize->0.65 Inherited,
+             FontWeight->"Heavy",
+             PrivateFontOptions->{"OperatorSubstitution"->False}], 
+            StyleBox[
+             RowBox[{
+              StyleBox["\<\"CustomStyleData\"\>", "ResourceFunctionLabel"], 
+              " "}],
+             ShowAutoStyles->False,
+             ShowStringCharacters->False,
+             FontSize->0.9 Inherited,
+             FontColor->GrayLevel[0.1]]}
+          },
+          GridBoxSpacings->{"Columns" -> {{0.25}}}],
+         Alignment->Left,
+         BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+         BaselinePosition->Baseline,
+         FrameMargins->{{3, 0}, {0, 0}}],
+        Background->RGBColor[0.968627, 0.976471, 0.984314],
+        BaselinePosition->Baseline,
+        DefaultBaseStyle->{},
+        FrameMargins->{{0, 0}, {1, 1}},
+        FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+        RoundingRadius->4],
+       {"FunctionResourceBox", 
+        GrayLevel[0.45], "\"CustomStyleData\""},
+       TagBoxNote->"FunctionResourceBox"],
+      ResourceFunction[
+       ResourceObject[<|
+        "Name" -> "CustomStyleData", "UUID" -> 
+         "5a69d40c-6896-4aec-ba2b-152684659026", "ResourceType" -> "Function",
+          "ResourceLocations" -> {
+           CloudObject[
+           "https://www.wolframcloud.com/obj/sw-writings0/Resources/5a6/\
+5a69d40c-6896-4aec-ba2b-152684659026"]}, "Version" -> None, 
+         "DocumentationLink" -> 
+         URL["https://www.wolframcloud.com/obj/sw-writings0/\
+BiologicalEvolution/CustomStyleData"], "ExampleNotebookData" -> Automatic, 
+         "FunctionLocation" -> 
+         CloudObject[
+          "https://www.wolframcloud.com/obj/sw-writings0/Resources/5a6/\
+5a69d40c-6896-4aec-ba2b-152684659026/download/DefinitionData"], "ShortName" -> 
+         "CustomStyleData", "SymbolName" -> 
+         "FunctionRepository`$5a69d40c68964aecba2b152684659026`\
+CustomStyleData", "PageHeaderClickToCopy" -> 
+         "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/sw-\
+writings0/BiologicalEvolution/CustomStyleData\"]]"|>]],
+      Selectable->False], "[", "\"\<Colors\>\"", "]"}]}]}], "]"}]], "Input",
+ CellLabel->
+  "In[374]:=",ExpressionUUID->"fe93bb06-d8bc-4e46-84f8-d1d04bc5ac67"],
+
+Cell[BoxData[
+ GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmI+IAaxIeCDPdf1xQW2XNftGVDAB/tRmrr0aDjThx4N
+Z/rQo+FMH3o0nOlDj4YzfejRcKYPPRrO9KFHw5k+9Gg404fGFc6UigMAnuMy
+Aw==
+   "], {{0, 0}, {14, 11}}, {0, 1}],
+  Frame->Automatic,
+  FrameLabel->{None, None},
+  FrameTicks->{{None, None}, {None, None}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{
+   "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultPlotStyle" -> 
+    Automatic}]], "Output",
+ CellLabel->
+  "Out[374]=",ExpressionUUID->"27ae6e65-a26e-41b9-a229-afdc7a35b28e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"ArrayPlot", "[", 
+    RowBox[{
+     RowBox[{"CellularAutomaton", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"i", ",", " ", "4", ",", " ", "1"}], "}"}], ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Table", "[", 
+          RowBox[{"1", ",", " ", "10"}], "]"}], ",", " ", "0"}], "}"}], ",", 
+       " ", "10"}], "]"}], ",", " ", 
+     RowBox[{"ColorRules", "->", 
+      RowBox[{
+       InterpretationBox[
+        TagBox[
+         FrameBox[
+          PaneBox[GridBox[{
+             {
+              StyleBox[
+               StyleBox[
+                AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                 BoxBaselineShift->-0.25,
+                 BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                FontColor->GrayLevel[0.45]],
+               ShowStringCharacters->False,
+               FontFamily->"Source Sans Pro Black",
+               FontSize->0.65 Inherited,
+               FontWeight->"Heavy",
+               PrivateFontOptions->{"OperatorSubstitution"->False}], 
+              StyleBox[
+               RowBox[{
+                StyleBox["\<\"CustomStyleData\"\>", "ResourceFunctionLabel"], 
+                " "}],
+               ShowAutoStyles->False,
+               ShowStringCharacters->False,
+               FontSize->0.9 Inherited,
+               FontColor->GrayLevel[0.1]]}
+            },
+            GridBoxSpacings->{"Columns" -> {{0.25}}}],
+           Alignment->Left,
+           BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+           BaselinePosition->Baseline,
+           FrameMargins->{{3, 0}, {0, 0}}],
+          Background->RGBColor[0.968627, 0.976471, 0.984314],
+          BaselinePosition->Baseline,
+          DefaultBaseStyle->{},
+          FrameMargins->{{0, 0}, {1, 1}},
+          FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+          RoundingRadius->4],
+         {"FunctionResourceBox", 
+          GrayLevel[0.45], "\"CustomStyleData\""},
+         TagBoxNote->"FunctionResourceBox"],
+        ResourceFunction[
+         ResourceObject[<|
+          "Name" -> "CustomStyleData", "UUID" -> 
+           "5a69d40c-6896-4aec-ba2b-152684659026", "ResourceType" -> 
+           "Function", "ResourceLocations" -> {
+             CloudObject[
+             "https://www.wolframcloud.com/obj/sw-writings0/Resources/5a6/\
+5a69d40c-6896-4aec-ba2b-152684659026"]}, "Version" -> None, 
+           "DocumentationLink" -> 
+           URL["https://www.wolframcloud.com/obj/sw-writings0/\
+BiologicalEvolution/CustomStyleData"], "ExampleNotebookData" -> Automatic, 
+           "FunctionLocation" -> 
+           CloudObject[
+            "https://www.wolframcloud.com/obj/sw-writings0/Resources/5a6/\
+5a69d40c-6896-4aec-ba2b-152684659026/download/DefinitionData"], "ShortName" -> 
+           "CustomStyleData", "SymbolName" -> 
+           "FunctionRepository`$5a69d40c68964aecba2b152684659026`\
+CustomStyleData", "PageHeaderClickToCopy" -> 
+           "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/sw-\
+writings0/BiologicalEvolution/CustomStyleData\"]]"|>]],
+        Selectable->False], "[", "\"\<Colors\>\"", "]"}]}]}], "]"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"i", ",", " ", "1", ",", " ", "30"}], "}"}]}], "]"}]], "Input",
+ CellLabel->
+  "In[380]:=",ExpressionUUID->"4e808edc-7e20-4f2a-ae57-4e702b8d6a5d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIeIAaxIeCDPS6a6/riAluu6/YMKGD4io/S1KUHW/yO
+pp+hRQ+2+B1NP0OLHmzxO5p+hhY92OJ3NP0MLXqwxS+90w8AOPEPjQ==
+     "], {{0, 0}, {12, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIeIAaxIeCDPTodsEOu9XXgDXsGFDB8xUdp6tKDLX5H
+08/Qogdb/I6mn6FFD7b4HU0/Q4sebPE7mn6GJs11fXGBLdd1jPAeruLoNADN
+EjFX
+     "], {{0, 0}, {12, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIeIAaxIeCDPTq9zv1hlci69/Z6TMm1zJNf2xuEGmit
+FD4xbMVxhcMoTR492OJ3NP0MLXqwxe9o+hla9GCL39H0M7TowRa/o+lnaNJc
+1xcX2HJdh/JhYPiKo9MAQHoTYA==
+     "], {{0, 0}, {12, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIRIAaxIeCDPdf1xQW2XNftGVDAB/tRenjTo/E+MunR
+eB+Z9Gi8j0x6NN5HJj0a7yOTHo33kUmPxvvIpEfjfWTSo/E+Mmlc8T7cxAFj
+xyIk
+     "], {{0, 0}, {20, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmJ+IAaxIeCD/UDRXNcXF9hyXbdnQAGj4uSKj9L0oQdb
+vA9UuhpNt9SlaR0+gy1dDbbycDTdkkcPtngZ6uLUokfTLX56qNSPQ0V8lKYP
+PdjifaiL05sGANuOl7k=
+     "], {{0, 0}, {15, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIeIAaxIeCDPbF0wA651teBN+wZUMDQFyfVv6M0efRg
+i/fR9DO06MEW76PpZ2jRgy3eR9PP0KIHW7zTOv3AaK7riwtsua6PpiMSaVzh
+NlzF0WkA4dswqg==
+     "], {{0, 0}, {12, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIeIAaxIeCDPbH0OveHVSLr3tvrMSXXMk9+bW8QaqC1
+UvjEkBcn1b+khtsoDaEHW7yPpp+hRQ+2eB9NP0OLHmzxPpp+hhY92OKd1ukH
+RnNdX1xgy3UdyoeBgY+PwU7jCrfhKo5OAwAXmg4u
+     "], {{0, 0}, {12, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDghmIQGwI+2I/So/QoPUqP0qP0KD1Kj9Kk0QE75FpfB96A
+8mFg4N012Giu64sLbLmuY4TTcBMHAHq8upg=
+     "], {{0, 0}, {11, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIBIAaxIeCD/WCjua4vLrDlum7PgAKGrnjADrnW14E3
+MNQNtL2j9MDSgyV9Ukuc3PQ2ms7pQ+MKz4Gyd6iKUzu9jaZz6tKkxu9A2TvY
+xemV3kbTOXk0teJ9oOwdLOIDld5G0zlxNK3Tw0DZO9jE6U0DAKddyko=
+     "], {{0, 0}, {16, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDghmIQGwI+2KPTATvkWl8H3rBnQAFDX3yUJo8ebPE4mh4G
+lh5s8TiaHgaWHmzxOJoeBpYebPE4mh7oS3NdX1xgy3UdI/yGqzg6DQBgawIn
+
+     "], {{0, 0}, {11, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIeIAaxIeCDPbH0OveHVSLr3tvrMSXXMk9+bW8QaqC1
+UvjEkBcn1b+khtsoDaEHW7yPpp+hRQ+2eB9NP0OLHmzxPpp+hhY92OKd1ukn
+YIdc6+vAG1A+DAx8PAwVmuv64gJbrusY4TdcxdFpAKFKDts=
+     "], {{0, 0}, {12, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDghmIQGwI+2I/So/QoPUqP0qP0KD1Kj9Kk0evcH1aJrHtv
+r8eUXMs8+bW9QaiB1krhEwPursFGc11fXGDLdR3Kh4HhJw4AkEW/HQ==
+     "], {{0, 0}, {11, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIBIAaxIeCD/WCjua4vLrDlum7PgAKGrvg694dVIuve
+2+sxJdcyT35tbxBqoLVS+ATN/UvI3lF6YOnBkj6pJU5uehtN5/ShcYXnQNk7
+VMWpnd5G0zl1aVLjd6DsHezi9Epvo+mcPJpa8T5Q9g4W8YFKb6PpnDia1ulh
+oOwdbOL0pgE6gvd8
+     "], {{0, 0}, {16, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIeIAaxIeCDPbF0wA651teBN+wZUMDQFyfVv6M0efRg
+i/fR9DO06MEW76PpZ2jRgy3eR9PP0KIHW7zTOv2sc39YJbLuvb0eU3It8+TX
+9gahBlorhU8MeDwMFZrr+uICW67rGOE9XMXRaQBaIjXc
+     "], {{0, 0}, {12, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDghmIQGwI+2KPT69wfVomse2+vx5Rcyzz5tb1BqIHWSuET
+Q14cl39Hafz0YIvH0fQwsPRgi8fR9DCw9GCLx9H0MLD0YIvH0fRAX5rr+uIC
+W67rUD4MDF9xdBoAuEPNiA==
+     "], {{0, 0}, {11, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIuIAaxIeCD/Sg9So/So/QoPUqP0qP0KE1dmuv64gJb
+rutQPgwMP3EAh1SR6A==
+     "], {{0, 0}, {10, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIeIAaxIeCDPS6a6/riAluu6/YMKGD4io/S1KUHW/yO
+pp+hRQ+2+B1NP0OLHmzxO5p+hhY92OJ3NP0MLXqwxS+90w8AOPEPjQ==
+     "], {{0, 0}, {12, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIBIAaxIeCDPb3pgB1yra8Db9gzoIDhKw6jua4vLrDl
+ug6Xp7X56PKjNH3pwZYOByqdo8vTy/xRGkITCk9amT9cxWE0pelwNJ1TlyY3
+Hmll/lAXh9G0Toej6Zw0mtrxSyvzh4o4jB5Nh4OLple846JxpYfhKk5vGgBk
+w/Ai
+     "], {{0, 0}, {16, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIeIAaxIeCDPTq9zv1hlci69/Z6TMm1zJNf2xuEGmit
+FD4xbMVxhcMoTR492OJ3NP0MLXqwxe9o+hla9GCL39H0M7TowRa/o+lnaNJc
+1xcX2HJdh/JhYPiKo9MAQHoTYA==
+     "], {{0, 0}, {12, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIRIAaxIeCDPdf1xQW2XNftGVDAB/tRenjTo/E+MunR
+eB+Z9Gi8j0x6NN5HJj0a7yOTHo33kUmPxvvIpEfjfWTSo/E+Mmlc8T7cxAFj
+xyIk
+     "], {{0, 0}, {20, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmJ+IAaxIeCD/UDRXNcXF9hyXbdnQAGj4uSKj9L0oQdb
+vA9UuhpNt9SlaR0+gy1dDbbycDTdkkcPtngZ6uLUokfTLX56qNSPQ0V8lKYP
+PdjifaiL05sGANuOl7k=
+     "], {{0, 0}, {15, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIBIAaxIeCD/WChA3bItb4OvGHPgAKGvjiM5rq+uMCW
+6zpcfqDsRZcfpelLD7b0OVDpbTSd04cmFG70tneoi8NoStPbaDqnLk1ueNLb
+3qEiDqNpld5G0zl5NLXjl972DjZxGD1Q6W00nWOn6RXvuGhc8TJcxelNAwAs
+f+91
+     "], {{0, 0}, {16, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIeIAaxIeCDPbH0OveHVSLr3tvrMSXXMk9+bW8QaqC1
+UvjEkBcn1b+khtsoDaEHW7yPpp+hRQ+2eB9NP0OLHmzxPpp+hhY92OKd1ukH
+RnNdX1xgy3UdyoeBgY+PwU7jCrfhKo5OAwAXmg4u
+     "], {{0, 0}, {12, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIRIAaxIeCDPdf1xQW2XNftGVDAB/tRenjSATvkWl8H
+3hiN7xFKj+b3kUWP5veRTY/m95FFj+b3kU2P5veRRY/m95FNj+b3kUWP5veR
+TePK78NNHADpkCWF
+     "], {{0, 0}, {20, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIBIAaxIeCD/WCjua4vLrDlum7PgAKGrnjADrnW14E3
+MNQNtL2j9MDSgyV9Ukuc3PQ2ms7pQ+MKz4Gyd6iKUzu9jaZz6tKkxu9A2TvY
+xemV3kbTOXk0teJ9oOwdLOIDld5G0zlxNK3Tw0DZO9jE6U0DAKddyko=
+     "], {{0, 0}, {16, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmJ+IAaxIeCDPb3pgB1yra8Db9gzoIChLw6jua4vLrDl
+ug6Xp7X56PKjNG3owZbeBipdjaZb6tKEwo1W5g91cRhNaboaTbfk0eTGF63M
+HyriMJrW6Wo03WKnqR2PtDJ/sInD6NF0NTD0QMfvcBWnNw0AUQPA8g==
+     "], {{0, 0}, {15, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIeIAaxIeCDPbH0OveHVSLr3tvrMSXXMk9+bW8QaqC1
+UvjEkBcn1b+khtsoDaEHW7yPpp+hRQ+2eB9NP0OLHmzxPpp+hhY92OKd1ukn
+YIdc6+vAG1A+DAx8PAwVmuv64gJbrusY4TdcxdFpAKFKDts=
+     "], {{0, 0}, {12, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDghmIQGwI+2I/So/QoPUqP0qP0KD1Kj9Kk0evcH1aJrHtv
+r8eUXMs8+bW9QaiB1krhEwPursFGc11fXGDLdR3Kh4HhJw4AkEW/HQ==
+     "], {{0, 0}, {11, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIBIAaxIeCD/WCjua4vLrDlum7PgAKGrvg694dVIuve
+2+sxJdcyT35tbxBqoLVS+ATN/UvI3lF6YOnBkj6pJU5uehtN5/ShcYXnQNk7
+VMWpnd5G0zl1aVLjd6DsHezi9Epvo+mcPJpa8T5Q9g4W8YFKb6PpnDia1ulh
+oOwdbOL0pgE6gvd8
+     "], {{0, 0}, {16, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIBIAaxIeCD/WChA3bItb4OvGHPgAKGvjiM5rq+uMCW
+6zpcfqDsRZcfpelLD7b0OVDpbTSd04cmFG70tneoi8NoStPbaDqnLk1ueNLb
+3qEiDqNpld5G0zl5NLXjl972DjZxGE3v9LbO/WGVyLr39npMybXMk1/bG4Qa
+aK0UPjHg6Wuw0PSKd1w0rvQwXMXpTQMAinP0pw==
+     "], {{0, 0}, {16, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}]}], "}"}]], "Output",
+ CellLabel->
+  "Out[380]=",ExpressionUUID->"038984d6-2c76-45d3-b872-5ad4354293ce"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Row", "[", 
+  RowBox[{
+   RowBox[{"With", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"ru", "=", 
+        RowBox[{"{", 
+         RowBox[{
+         "299459058088077823758143088095350287424", ",", "4", ",", "1"}], 
+         "}"}]}], ",", 
+       RowBox[{"pt", "=", 
+        RowBox[{"\[LeftAssociation]", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"15", ",", "206"}], "}"}], "\[Rule]", "0"}], 
+         "\[RightAssociation]"}]}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        InterpretationBox[
+         TagBox[
+          FrameBox[
+           PaneBox[GridBox[{
+              {
+               StyleBox[
+                StyleBox[
+                 AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                  BoxBaselineShift->-0.25,
+                  BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                 FontColor->GrayLevel[0.45]],
+                ShowStringCharacters->False,
+                FontFamily->"Source Sans Pro Black",
+                FontSize->0.65 Inherited,
+                FontWeight->"Heavy",
+                PrivateFontOptions->{"OperatorSubstitution"->False}], 
+               StyleBox[
+                RowBox[{
+                 StyleBox["\<\"PlotCA\"\>", "ResourceFunctionLabel"], " "}],
+                ShowAutoStyles->False,
+                ShowStringCharacters->False,
+                FontSize->0.9 Inherited,
+                FontColor->GrayLevel[0.1]]}
+             },
+             GridBoxSpacings->{"Columns" -> {{0.25}}}],
+            Alignment->Left,
+            BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+            BaselinePosition->Baseline,
+            FrameMargins->{{3, 0}, {0, 0}}],
+           Background->RGBColor[0.968627, 0.976471, 0.984314],
+           BaselinePosition->Baseline,
+           DefaultBaseStyle->{},
+           FrameMargins->{{0, 0}, {1, 1}},
+           FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+           RoundingRadius->4],
+          {"FunctionResourceBox", 
+           GrayLevel[0.45], "\"PlotCA\""},
+          TagBoxNote->"FunctionResourceBox"],
+         ResourceFunction[
+          
+          ResourceObject[<|
+           "DocumentationLink" -> 
+            URL["https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+PlotCA"], "ResourceLocations" -> {
+              CloudObject[
+              "https://www.wolframcloud.com/obj/sw-writings/Resources/1b8/\
+1b8faff3-54dd-4625-93bc-3220a769d195"]}, "Name" -> "PlotCA", "UUID" -> 
+            "1b8faff3-54dd-4625-93bc-3220a769d195", "ResourceType" -> 
+            "Function", "Version" -> None, "DefinitionNotebook" -> 
+            CloudObject[
+             "https://www.wolframcloud.com/obj/sw-writings/Medicine/PlotCA/\
+PlotCA-DefinitionNotebook.nb"], "ExampleNotebookData" -> Automatic, 
+            "FunctionLocation" -> 
+            CloudObject[
+             "https://www.wolframcloud.com/obj/sw-writings/Resources/1b8/\
+1b8faff3-54dd-4625-93bc-3220a769d195/download/DefinitionData"], "ShortName" -> 
+            "PlotCA", "SymbolName" -> 
+            "FunctionRepository`$1b8faff354dd462593bc3220a769d195`PlotCA", 
+            "PageHeaderClickToCopy" -> 
+            "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/sw-\
+writings/Medicine/PlotCA\"]]"|>]],
+         Selectable->False], "[", 
+        RowBox[{"ru", ",", 
+         RowBox[{"\"\<Steps\>\"", "->", "24"}], ",", 
+         RowBox[{"ImageSize", "->", 
+          RowBox[{"{", 
+           RowBox[{"Automatic", ",", "200"}], "}"}]}], ",", 
+         RowBox[{"Mesh", "->", "All"}], ",", 
+         RowBox[{"MeshStyle", "->", 
+          RowBox[{"Opacity", "[", ".1", "]"}]}]}], "]"}], ",", 
+       RowBox[{
+        InterpretationBox[
+         TagBox[
+          FrameBox[
+           PaneBox[GridBox[{
+              {
+               StyleBox[
+                StyleBox[
+                 AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                  BoxBaselineShift->-0.25,
+                  BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                 FontColor->GrayLevel[0.45]],
+                ShowStringCharacters->False,
+                FontFamily->"Source Sans Pro Black",
+                FontSize->0.65 Inherited,
+                FontWeight->"Heavy",
+                PrivateFontOptions->{"OperatorSubstitution"->False}], 
+               StyleBox[
+                RowBox[{
+                 StyleBox["\<\"PlotCA\"\>", "ResourceFunctionLabel"], " "}],
+                ShowAutoStyles->False,
+                ShowStringCharacters->False,
+                FontSize->0.9 Inherited,
+                FontColor->GrayLevel[0.1]]}
+             },
+             GridBoxSpacings->{"Columns" -> {{0.25}}}],
+            Alignment->Left,
+            BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+            BaselinePosition->Baseline,
+            FrameMargins->{{3, 0}, {0, 0}}],
+           Background->RGBColor[0.968627, 0.976471, 0.984314],
+           BaselinePosition->Baseline,
+           DefaultBaseStyle->{},
+           FrameMargins->{{0, 0}, {1, 1}},
+           FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+           RoundingRadius->4],
+          {"FunctionResourceBox", 
+           GrayLevel[0.45], "\"PlotCA\""},
+          TagBoxNote->"FunctionResourceBox"],
+         ResourceFunction[
+          
+          ResourceObject[<|
+           "DocumentationLink" -> 
+            URL["https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+PlotCA"], "ResourceLocations" -> {
+              CloudObject[
+              "https://www.wolframcloud.com/obj/sw-writings/Resources/1b8/\
+1b8faff3-54dd-4625-93bc-3220a769d195"]}, "Name" -> "PlotCA", "UUID" -> 
+            "1b8faff3-54dd-4625-93bc-3220a769d195", "ResourceType" -> 
+            "Function", "Version" -> None, "DefinitionNotebook" -> 
+            CloudObject[
+             "https://www.wolframcloud.com/obj/sw-writings/Medicine/PlotCA/\
+PlotCA-DefinitionNotebook.nb"], "ExampleNotebookData" -> Automatic, 
+            "FunctionLocation" -> 
+            CloudObject[
+             "https://www.wolframcloud.com/obj/sw-writings/Resources/1b8/\
+1b8faff3-54dd-4625-93bc-3220a769d195/download/DefinitionData"], "ShortName" -> 
+            "PlotCA", "SymbolName" -> 
+            "FunctionRepository`$1b8faff354dd462593bc3220a769d195`PlotCA", 
+            "PageHeaderClickToCopy" -> 
+            "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/sw-\
+writings/Medicine/PlotCA\"]]"|>]],
+         Selectable->False], "[", 
+        RowBox[{"ru", ",", 
+         RowBox[{"\"\<Steps\>\"", "->", "105"}], ",", 
+         RowBox[{"ImageSize", "->", 
+          RowBox[{"{", 
+           RowBox[{"Automatic", ",", "450"}], "}"}]}], ",", 
+         RowBox[{"Mesh", "->", "All"}], ",", 
+         RowBox[{"MeshStyle", "->", 
+          RowBox[{"Opacity", "[", ".1", "]"}]}]}], "]"}], ",", 
+       RowBox[{"Spacer", "[", "20", "]"}], ",", 
+       RowBox[{
+        InterpretationBox[
+         TagBox[
+          FrameBox[
+           PaneBox[GridBox[{
+              {
+               StyleBox[
+                StyleBox[
+                 AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                  BoxBaselineShift->-0.25,
+                  BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                 FontColor->GrayLevel[0.45]],
+                ShowStringCharacters->False,
+                FontFamily->"Source Sans Pro Black",
+                FontSize->0.65 Inherited,
+                FontWeight->"Heavy",
+                PrivateFontOptions->{"OperatorSubstitution"->False}], 
+               StyleBox[
+                RowBox[{
+                 StyleBox["\<\"PlotCA\"\>", "ResourceFunctionLabel"], " "}],
+                ShowAutoStyles->False,
+                ShowStringCharacters->False,
+                FontSize->0.9 Inherited,
+                FontColor->GrayLevel[0.1]]}
+             },
+             GridBoxSpacings->{"Columns" -> {{0.25}}}],
+            Alignment->Left,
+            BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+            BaselinePosition->Baseline,
+            FrameMargins->{{3, 0}, {0, 0}}],
+           Background->RGBColor[0.968627, 0.976471, 0.984314],
+           BaselinePosition->Baseline,
+           DefaultBaseStyle->{},
+           FrameMargins->{{0, 0}, {1, 1}},
+           FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+           RoundingRadius->4],
+          {"FunctionResourceBox", 
+           GrayLevel[0.45], "\"PlotCA\""},
+          TagBoxNote->"FunctionResourceBox"],
+         ResourceFunction[
+          
+          ResourceObject[<|
+           "DocumentationLink" -> 
+            URL["https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+PlotCA"], "ResourceLocations" -> {
+              CloudObject[
+              "https://www.wolframcloud.com/obj/sw-writings/Resources/1b8/\
+1b8faff3-54dd-4625-93bc-3220a769d195"]}, "Name" -> "PlotCA", "UUID" -> 
+            "1b8faff3-54dd-4625-93bc-3220a769d195", "ResourceType" -> 
+            "Function", "Version" -> None, "DefinitionNotebook" -> 
+            CloudObject[
+             "https://www.wolframcloud.com/obj/sw-writings/Medicine/PlotCA/\
+PlotCA-DefinitionNotebook.nb"], "ExampleNotebookData" -> Automatic, 
+            "FunctionLocation" -> 
+            CloudObject[
+             "https://www.wolframcloud.com/obj/sw-writings/Resources/1b8/\
+1b8faff3-54dd-4625-93bc-3220a769d195/download/DefinitionData"], "ShortName" -> 
+            "PlotCA", "SymbolName" -> 
+            "FunctionRepository`$1b8faff354dd462593bc3220a769d195`PlotCA", 
+            "PageHeaderClickToCopy" -> 
+            "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/sw-\
+writings/Medicine/PlotCA\"]]"|>]],
+         Selectable->False], "[", 
+        RowBox[{
+         RowBox[{
+          InterpretationBox[
+           TagBox[
+            FrameBox[
+             PaneBox[GridBox[{
+                {
+                 StyleBox[
+                  StyleBox[
+                   AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                   FontColor->GrayLevel[0.45]],
+                  ShowStringCharacters->False,
+                  FontFamily->"Source Sans Pro Black",
+                  FontSize->0.65 Inherited,
+                  FontWeight->"Heavy",
+                  PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                 StyleBox[
+                  RowBox[{
+                   
+                   StyleBox["\<\"PerturbedCellularAutomaton\"\>", 
+                    "ResourceFunctionLabel"], " "}],
+                  ShowAutoStyles->False,
+                  ShowStringCharacters->False,
+                  FontSize->0.9 Inherited,
+                  FontColor->GrayLevel[0.1]]}
+               },
+               GridBoxSpacings->{"Columns" -> {{0.25}}}],
+              Alignment->Left,
+              BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+              BaselinePosition->Baseline,
+              FrameMargins->{{3, 0}, {0, 0}}],
+             Background->RGBColor[0.968627, 0.976471, 0.984314],
+             BaselinePosition->Baseline,
+             DefaultBaseStyle->{},
+             FrameMargins->{{0, 0}, {1, 1}},
+             FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+             RoundingRadius->4],
+            {"FunctionResourceBox", 
+             GrayLevel[0.45], "\"PerturbedCellularAutomaton\""},
+            TagBoxNote->"FunctionResourceBox"],
+           ResourceFunction[
+            
+            ResourceObject[<|
+             "DocumentationLink" -> 
+              URL["https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+PerturbedCellularAutomaton"], "ResourceLocations" -> {
+                CloudObject[
+                "https://www.wolframcloud.com/obj/sw-writings/Resources/8bd/\
+8bd8189c-23e3-4dfb-9604-667c370d5616"]}, "Name" -> 
+              "PerturbedCellularAutomaton", "UUID" -> 
+              "8bd8189c-23e3-4dfb-9604-667c370d5616", "ResourceType" -> 
+              "Function", "Version" -> None, "DefinitionNotebook" -> 
+              CloudObject[
+               "https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+PerturbedCellularAutomaton/PerturbedCellularAutomaton-DefinitionNotebook.nb"],
+               "ExampleNotebookData" -> Automatic, "FunctionLocation" -> 
+              CloudObject[
+               "https://www.wolframcloud.com/obj/sw-writings/Resources/8bd/\
+8bd8189c-23e3-4dfb-9604-667c370d5616/download/DefinitionData"], "ShortName" -> 
+              "PerturbedCellularAutomaton", "SymbolName" -> 
+              "FunctionRepository`$8bd8189c23e34dfb9604667c370d5616`\
+PerturbedCellularAutomaton", "PageHeaderClickToCopy" -> 
+              "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/\
+sw-writings/Medicine/PerturbedCellularAutomaton\"]]"|>]],
+           Selectable->False], "[", 
+          RowBox[{"ru", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", "1", "}"}], ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"24", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "200"}], ",", "200"}], "}"}]}], "}"}], ",", 
+           "pt"}], "]"}], ",", 
+         RowBox[{"Mesh", "->", "All"}], ",", 
+         RowBox[{"MeshStyle", "->", 
+          RowBox[{"Opacity", "[", ".1", "]"}]}], ",", 
+         RowBox[{"ImageSize", "->", 
+          RowBox[{"{", 
+           RowBox[{"Automatic", ",", "200"}], "}"}]}]}], "]"}], ",", 
+       RowBox[{
+        InterpretationBox[
+         TagBox[
+          FrameBox[
+           PaneBox[GridBox[{
+              {
+               StyleBox[
+                StyleBox[
+                 AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                  BoxBaselineShift->-0.25,
+                  BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                 FontColor->GrayLevel[0.45]],
+                ShowStringCharacters->False,
+                FontFamily->"Source Sans Pro Black",
+                FontSize->0.65 Inherited,
+                FontWeight->"Heavy",
+                PrivateFontOptions->{"OperatorSubstitution"->False}], 
+               StyleBox[
+                RowBox[{
+                 StyleBox["\<\"PlotCA\"\>", "ResourceFunctionLabel"], " "}],
+                ShowAutoStyles->False,
+                ShowStringCharacters->False,
+                FontSize->0.9 Inherited,
+                FontColor->GrayLevel[0.1]]}
+             },
+             GridBoxSpacings->{"Columns" -> {{0.25}}}],
+            Alignment->Left,
+            BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+            BaselinePosition->Baseline,
+            FrameMargins->{{3, 0}, {0, 0}}],
+           Background->RGBColor[0.968627, 0.976471, 0.984314],
+           BaselinePosition->Baseline,
+           DefaultBaseStyle->{},
+           FrameMargins->{{0, 0}, {1, 1}},
+           FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+           RoundingRadius->4],
+          {"FunctionResourceBox", 
+           GrayLevel[0.45], "\"PlotCA\""},
+          TagBoxNote->"FunctionResourceBox"],
+         ResourceFunction[
+          
+          ResourceObject[<|
+           "DocumentationLink" -> 
+            URL["https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+PlotCA"], "ResourceLocations" -> {
+              CloudObject[
+              "https://www.wolframcloud.com/obj/sw-writings/Resources/1b8/\
+1b8faff3-54dd-4625-93bc-3220a769d195"]}, "Name" -> "PlotCA", "UUID" -> 
+            "1b8faff3-54dd-4625-93bc-3220a769d195", "ResourceType" -> 
+            "Function", "Version" -> None, "DefinitionNotebook" -> 
+            CloudObject[
+             "https://www.wolframcloud.com/obj/sw-writings/Medicine/PlotCA/\
+PlotCA-DefinitionNotebook.nb"], "ExampleNotebookData" -> Automatic, 
+            "FunctionLocation" -> 
+            CloudObject[
+             "https://www.wolframcloud.com/obj/sw-writings/Resources/1b8/\
+1b8faff3-54dd-4625-93bc-3220a769d195/download/DefinitionData"], "ShortName" -> 
+            "PlotCA", "SymbolName" -> 
+            "FunctionRepository`$1b8faff354dd462593bc3220a769d195`PlotCA", 
+            "PageHeaderClickToCopy" -> 
+            "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/sw-\
+writings/Medicine/PlotCA\"]]"|>]],
+         Selectable->False], "[", 
+        RowBox[{
+         RowBox[{
+          InterpretationBox[
+           TagBox[
+            FrameBox[
+             PaneBox[GridBox[{
+                {
+                 StyleBox[
+                  StyleBox[
+                   AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                   FontColor->GrayLevel[0.45]],
+                  ShowStringCharacters->False,
+                  FontFamily->"Source Sans Pro Black",
+                  FontSize->0.65 Inherited,
+                  FontWeight->"Heavy",
+                  PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                 StyleBox[
+                  RowBox[{
+                   
+                   StyleBox["\<\"PerturbedCellularAutomaton\"\>", 
+                    "ResourceFunctionLabel"], " "}],
+                  ShowAutoStyles->False,
+                  ShowStringCharacters->False,
+                  FontSize->0.9 Inherited,
+                  FontColor->GrayLevel[0.1]]}
+               },
+               GridBoxSpacings->{"Columns" -> {{0.25}}}],
+              Alignment->Left,
+              BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+              BaselinePosition->Baseline,
+              FrameMargins->{{3, 0}, {0, 0}}],
+             Background->RGBColor[0.968627, 0.976471, 0.984314],
+             BaselinePosition->Baseline,
+             DefaultBaseStyle->{},
+             FrameMargins->{{0, 0}, {1, 1}},
+             FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+             RoundingRadius->4],
+            {"FunctionResourceBox", 
+             GrayLevel[0.45], "\"PerturbedCellularAutomaton\""},
+            TagBoxNote->"FunctionResourceBox"],
+           ResourceFunction[
+            
+            ResourceObject[<|
+             "DocumentationLink" -> 
+              URL["https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+PerturbedCellularAutomaton"], "ResourceLocations" -> {
+                CloudObject[
+                "https://www.wolframcloud.com/obj/sw-writings/Resources/8bd/\
+8bd8189c-23e3-4dfb-9604-667c370d5616"]}, "Name" -> 
+              "PerturbedCellularAutomaton", "UUID" -> 
+              "8bd8189c-23e3-4dfb-9604-667c370d5616", "ResourceType" -> 
+              "Function", "Version" -> None, "DefinitionNotebook" -> 
+              CloudObject[
+               "https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+PerturbedCellularAutomaton/PerturbedCellularAutomaton-DefinitionNotebook.nb"],
+               "ExampleNotebookData" -> Automatic, "FunctionLocation" -> 
+              CloudObject[
+               "https://www.wolframcloud.com/obj/sw-writings/Resources/8bd/\
+8bd8189c-23e3-4dfb-9604-667c370d5616/download/DefinitionData"], "ShortName" -> 
+              "PerturbedCellularAutomaton", "SymbolName" -> 
+              "FunctionRepository`$8bd8189c23e34dfb9604667c370d5616`\
+PerturbedCellularAutomaton", "PageHeaderClickToCopy" -> 
+              "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/\
+sw-writings/Medicine/PerturbedCellularAutomaton\"]]"|>]],
+           Selectable->False], "[", 
+          RowBox[{"ru", ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", "1", "}"}], ",", "0"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"105", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"-", "200"}], ",", "200"}], "}"}]}], "}"}], ",", 
+           "pt"}], "]"}], ",", 
+         RowBox[{"Mesh", "->", "All"}], ",", 
+         RowBox[{"MeshStyle", "->", 
+          RowBox[{"Opacity", "[", ".1", "]"}]}], ",", 
+         RowBox[{"ImageSize", "->", 
+          RowBox[{"{", 
+           RowBox[{"Automatic", ",", "450"}], "}"}]}]}], "]"}]}], "}"}]}], 
+    "]"}], ",", 
+   RowBox[{"Spacer", "[", "10", "]"}], ",", 
+   RowBox[{"Alignment", "->", "Bottom"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.945912507104978*^9, 3.945912545925407*^9}, {
+  3.945912810534136*^9, 3.945912878689125*^9}, {3.94591293070411*^9, 
+  3.9459130242012377`*^9}, {3.94591317059307*^9, 3.9459132722160597`*^9}, {
+  3.945913313793453*^9, 3.945913314414687*^9}, {3.946319639261158*^9, 
+  3.946319706185124*^9}, {3.9463197444870377`*^9, 3.946319749406274*^9}, {
+  3.946395197753004*^9, 3.946395201138051*^9}, {3.946576845467071*^9, 
+  3.946576867102124*^9}},
+ CellLabel->"In[142]:=",
+ CellID->728579801,ExpressionUUID->"41902ed8-2cdf-4b99-8970-72b6e2253a33"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pcas", " ", "=", " ", 
+   RowBox[{"With", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"ru", "=", 
+       RowBox[{"{", 
+        RowBox[{
+        "299459058088077823758143088095350287424", ",", "4", ",", "1"}], 
+        "}"}]}], "}"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        InterpretationBox[
+         TagBox[
+          FrameBox[
+           PaneBox[GridBox[{
+              {
+               StyleBox[
+                StyleBox[
+                 AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                  BoxBaselineShift->-0.25,
+                  BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                 FontColor->GrayLevel[0.45]],
+                ShowStringCharacters->False,
+                FontFamily->"Source Sans Pro Black",
+                FontSize->0.65 Inherited,
+                FontWeight->"Heavy",
+                PrivateFontOptions->{"OperatorSubstitution"->False}], 
+               StyleBox[
+                RowBox[{
+                 
+                 StyleBox["\<\"PerturbedCellularAutomaton\"\>", 
+                  "ResourceFunctionLabel"], " "}],
+                ShowAutoStyles->False,
+                ShowStringCharacters->False,
+                FontSize->0.9 Inherited,
+                FontColor->GrayLevel[0.1]]}
+             },
+             GridBoxSpacings->{"Columns" -> {{0.25}}}],
+            Alignment->Left,
+            BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+            BaselinePosition->Baseline,
+            FrameMargins->{{3, 0}, {0, 0}}],
+           Background->RGBColor[0.968627, 0.976471, 0.984314],
+           BaselinePosition->Baseline,
+           DefaultBaseStyle->{},
+           FrameMargins->{{0, 0}, {1, 1}},
+           FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+           RoundingRadius->4],
+          {"FunctionResourceBox", 
+           GrayLevel[0.45], "\"PerturbedCellularAutomaton\""},
+          TagBoxNote->"FunctionResourceBox"],
+         ResourceFunction[
+          
+          ResourceObject[<|
+           "DocumentationLink" -> 
+            URL["https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+PerturbedCellularAutomaton"], "ResourceLocations" -> {
+              CloudObject[
+              "https://www.wolframcloud.com/obj/sw-writings/Resources/8bd/\
+8bd8189c-23e3-4dfb-9604-667c370d5616"]}, "Name" -> 
+            "PerturbedCellularAutomaton", "UUID" -> 
+            "8bd8189c-23e3-4dfb-9604-667c370d5616", "ResourceType" -> 
+            "Function", "Version" -> None, "DefinitionNotebook" -> 
+            CloudObject[
+             "https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+PerturbedCellularAutomaton/PerturbedCellularAutomaton-DefinitionNotebook.nb"],
+             "ExampleNotebookData" -> Automatic, "FunctionLocation" -> 
+            CloudObject[
+             "https://www.wolframcloud.com/obj/sw-writings/Resources/8bd/\
+8bd8189c-23e3-4dfb-9604-667c370d5616/download/DefinitionData"], "ShortName" -> 
+            "PerturbedCellularAutomaton", "SymbolName" -> 
+            "FunctionRepository`$8bd8189c23e34dfb9604667c370d5616`\
+PerturbedCellularAutomaton", "PageHeaderClickToCopy" -> 
+            "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/sw-\
+writings/Medicine/PerturbedCellularAutomaton\"]]"|>]],
+         Selectable->False], "[", 
+        RowBox[{"ru", ",", " ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", "1", "}"}], ",", " ", "0"}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"400", ",", " ", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "30"}], ",", " ", "40"}], "}"}]}], "}"}], ",", " ", 
+         "#"}], "]"}], "&"}], "/@", " ", 
+      RowBox[{
+       InterpretationBox[
+        TagBox[
+         FrameBox[
+          PaneBox[GridBox[{
+             {
+              StyleBox[
+               StyleBox[
+                AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                 BoxBaselineShift->-0.25,
+                 BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                FontColor->GrayLevel[0.45]],
+               ShowStringCharacters->False,
+               FontFamily->"Source Sans Pro Black",
+               FontSize->0.65 Inherited,
+               FontWeight->"Heavy",
+               PrivateFontOptions->{"OperatorSubstitution"->False}], 
+              StyleBox[
+               RowBox[{
+                StyleBox["\<\"allperts\"\>", "ResourceFunctionLabel"], " "}],
+               ShowAutoStyles->False,
+               ShowStringCharacters->False,
+               FontSize->0.9 Inherited,
+               FontColor->GrayLevel[0.1]]}
+            },
+            GridBoxSpacings->{"Columns" -> {{0.25}}}],
+           Alignment->Left,
+           BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+           BaselinePosition->Baseline,
+           FrameMargins->{{3, 0}, {0, 0}}],
+          Background->RGBColor[0.968627, 0.976471, 0.984314],
+          BaselinePosition->Baseline,
+          DefaultBaseStyle->{},
+          FrameMargins->{{0, 0}, {1, 1}},
+          FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+          RoundingRadius->4],
+         {"FunctionResourceBox", 
+          GrayLevel[0.45], "\"allperts\""},
+         TagBoxNote->"FunctionResourceBox"],
+        ResourceFunction[
+         ResourceObject[<|
+          "Name" -> "allperts", "UUID" -> 
+           "ef0a888b-b6b7-4e40-bdae-2147b79a0241", "ResourceType" -> 
+           "Function", "ResourceLocations" -> {
+             CloudObject[
+             "https://www.wolframcloud.com/obj/sw-writings/Resources/ef0/\
+ef0a888b-b6b7-4e40-bdae-2147b79a0241"]}, "Version" -> None, 
+           "DefinitionNotebook" -> 
+           CloudObject[
+            "https://www.wolframcloud.com/obj/sw-writings/Medicine/allperts/\
+allperts-DefinitionNotebook.nb"], "DocumentationLink" -> 
+           URL["https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+allperts"], "ExampleNotebookData" -> Automatic, "FunctionLocation" -> 
+           CloudObject[
+            "https://www.wolframcloud.com/obj/sw-writings/Resources/ef0/\
+ef0a888b-b6b7-4e40-bdae-2147b79a0241/download/DefinitionData"], 
+           "PageHeaderClickToCopy" -> 
+           "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/sw-\
+writings/Medicine/allperts\"]]", "ShortName" -> "allperts", "SymbolName" -> 
+           "FunctionRepository`$ef0a888bb6b74e40bdae2147b79a0241`allperts"|>]],
+        Selectable->False], "[", 
+       RowBox[{"CellularAutomaton", "[", 
+        RowBox[{"ru", ",", " ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", "1", "}"}], ",", " ", "0"}], "}"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"400", ",", " ", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"-", "30"}], ",", " ", "40"}], "}"}]}], "}"}]}], "]"}], 
+       "]"}]}]}], "]"}]}], ";"}]], "Input",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellChangeTimes->{{3.946389650482959*^9, 3.946389677138139*^9}, 
+   3.946389718550373*^9, {3.946389884825449*^9, 3.946389890298617*^9}, {
+   3.946390012757352*^9, 3.94639002981542*^9}, {3.946390174192655*^9, 
+   3.9463901807152243`*^9}, {3.9463903155769653`*^9, 3.946390318908869*^9}, {
+   3.94639566680834*^9, 3.9463956897296543`*^9}, 3.946395727329576*^9, {
+   3.9464176201563683`*^9, 3.9464176881436167`*^9}, 3.9464199469829187`*^9},
+ CellLabel->"In[264]:=",
+ CellID->179514713,ExpressionUUID->"11c13ed8-1b47-4ec9-82f3-1c8649a9b044"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"widths", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Length", "[", "#", "]"}], "===", "0"}], ",", "0", ",", 
+           RowBox[{
+            RowBox[{"Last", "[", "#", "]"}], "-", 
+            RowBox[{"First", "[", "#", "]"}], "+", "1"}]}], "]"}], "&"}], "[", 
+        RowBox[{
+         InterpretationBox[
+          TagBox[
+           FrameBox[
+            PaneBox[GridBox[{
+               {
+                StyleBox[
+                 StyleBox[
+                  AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                   BoxBaselineShift->-0.25,
+                   BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                  FontColor->GrayLevel[0.45]],
+                 ShowStringCharacters->False,
+                 FontFamily->"Source Sans Pro Black",
+                 FontSize->0.65 Inherited,
+                 FontWeight->"Heavy",
+                 PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                StyleBox[
+                 RowBox[{
+                  StyleBox["\<\"nonzeroRange\"\>", "ResourceFunctionLabel"], 
+                  " "}],
+                 ShowAutoStyles->False,
+                 ShowStringCharacters->False,
+                 FontSize->0.9 Inherited,
+                 FontColor->GrayLevel[0.1]]}
+              },
+              GridBoxSpacings->{"Columns" -> {{0.25}}}],
+             Alignment->Left,
+             BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+             BaselinePosition->Baseline,
+             FrameMargins->{{3, 0}, {0, 0}}],
+            Background->RGBColor[0.968627, 0.976471, 0.984314],
+            BaselinePosition->Baseline,
+            DefaultBaseStyle->{},
+            FrameMargins->{{0, 0}, {1, 1}},
+            FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+            RoundingRadius->4],
+           {"FunctionResourceBox", 
+            GrayLevel[0.45], "\"nonzeroRange\""},
+           TagBoxNote->"FunctionResourceBox"],
+          ResourceFunction[
+           
+           ResourceObject[<|
+            "Name" -> "nonzeroRange", "UUID" -> 
+             "28facfc4-cc64-44a6-bb8e-9136068fc04b", "ResourceType" -> 
+             "Function", "ResourceLocations" -> {
+               CloudObject[
+               "https://www.wolframcloud.com/obj/sw-writings/Resources/28f/\
+28facfc4-cc64-44a6-bb8e-9136068fc04b"]}, "Version" -> None, 
+             "DefinitionNotebook" -> 
+             CloudObject[
+              "https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+nonzeroRange/nonzeroRange-DefinitionNotebook.nb"], "DocumentationLink" -> 
+             URL["https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+nonzeroRange"], "ExampleNotebookData" -> Automatic, "FunctionLocation" -> 
+             CloudObject[
+              "https://www.wolframcloud.com/obj/sw-writings/Resources/28f/\
+28facfc4-cc64-44a6-bb8e-9136068fc04b/download/DefinitionData"], 
+             "PageHeaderClickToCopy" -> 
+             "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/\
+sw-writings/Medicine/nonzeroRange\"]]", "ShortName" -> "nonzeroRange", 
+             "SymbolName" -> 
+             "FunctionRepository`$28facfc4cc6444a6bb8e9136068fc04b`\
+nonzeroRange"|>]],
+          Selectable->False], "[", "#", "]"}], "]"}], "&"}], "/@", "#"}], 
+     "&"}], "/@", 
+    RowBox[{"pcas", "[", 
+     RowBox[{"[", 
+      RowBox[{"All", ",", "1"}], "]"}], "]"}]}]}], ";"}]], "Input",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellChangeTimes->{{3.94641772511665*^9, 3.946417842029113*^9}, 
+   3.946419946983019*^9},
+ CellLabel->"In[265]:=",
+ CellID->403672007,ExpressionUUID->"73fbd299-89bf-4403-bbf3-663780478791"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"width0", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Length", "[", "#", "]"}], "===", "0"}], ",", "0", ",", 
+         RowBox[{
+          RowBox[{"Last", "[", "#", "]"}], "-", 
+          RowBox[{"First", "[", "#", "]"}], "+", "1"}]}], "]"}], "&"}], "[", 
+      RowBox[{
+       InterpretationBox[
+        TagBox[
+         FrameBox[
+          PaneBox[GridBox[{
+             {
+              StyleBox[
+               StyleBox[
+                AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                 BoxBaselineShift->-0.25,
+                 BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                FontColor->GrayLevel[0.45]],
+               ShowStringCharacters->False,
+               FontFamily->"Source Sans Pro Black",
+               FontSize->0.65 Inherited,
+               FontWeight->"Heavy",
+               PrivateFontOptions->{"OperatorSubstitution"->False}], 
+              StyleBox[
+               RowBox[{
+                StyleBox["\<\"nonzeroRange\"\>", "ResourceFunctionLabel"], 
+                " "}],
+               ShowAutoStyles->False,
+               ShowStringCharacters->False,
+               FontSize->0.9 Inherited,
+               FontColor->GrayLevel[0.1]]}
+            },
+            GridBoxSpacings->{"Columns" -> {{0.25}}}],
+           Alignment->Left,
+           BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+           BaselinePosition->Baseline,
+           FrameMargins->{{3, 0}, {0, 0}}],
+          Background->RGBColor[0.968627, 0.976471, 0.984314],
+          BaselinePosition->Baseline,
+          DefaultBaseStyle->{},
+          FrameMargins->{{0, 0}, {1, 1}},
+          FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+          RoundingRadius->4],
+         {"FunctionResourceBox", 
+          GrayLevel[0.45], "\"nonzeroRange\""},
+         TagBoxNote->"FunctionResourceBox"],
+        ResourceFunction[
+         ResourceObject[<|
+          "Name" -> "nonzeroRange", "UUID" -> 
+           "28facfc4-cc64-44a6-bb8e-9136068fc04b", "ResourceType" -> 
+           "Function", "ResourceLocations" -> {
+             CloudObject[
+             "https://www.wolframcloud.com/obj/sw-writings/Resources/28f/\
+28facfc4-cc64-44a6-bb8e-9136068fc04b"]}, "Version" -> None, 
+           "DefinitionNotebook" -> 
+           CloudObject[
+            "https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+nonzeroRange/nonzeroRange-DefinitionNotebook.nb"], "DocumentationLink" -> 
+           URL["https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+nonzeroRange"], "ExampleNotebookData" -> Automatic, "FunctionLocation" -> 
+           CloudObject[
+            "https://www.wolframcloud.com/obj/sw-writings/Resources/28f/\
+28facfc4-cc64-44a6-bb8e-9136068fc04b/download/DefinitionData"], 
+           "PageHeaderClickToCopy" -> 
+           "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/sw-\
+writings/Medicine/nonzeroRange\"]]", "ShortName" -> "nonzeroRange", 
+           "SymbolName" -> 
+           "FunctionRepository`$28facfc4cc6444a6bb8e9136068fc04b`\
+nonzeroRange"|>]],
+        Selectable->False], "[", "#", "]"}], "]"}], "&"}], "/@", 
+    RowBox[{
+     InterpretationBox[
+      TagBox[
+       FrameBox[
+        PaneBox[GridBox[{
+           {
+            StyleBox[
+             StyleBox[
+              AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+               BoxBaselineShift->-0.25,
+               BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+              FontColor->GrayLevel[0.45]],
+             ShowStringCharacters->False,
+             FontFamily->"Source Sans Pro Black",
+             FontSize->0.65 Inherited,
+             FontWeight->"Heavy",
+             PrivateFontOptions->{"OperatorSubstitution"->False}], 
+            StyleBox[
+             RowBox[{
+              
+              StyleBox["\<\"PerturbedCellularAutomaton\"\>", 
+               "ResourceFunctionLabel"], " "}],
+             ShowAutoStyles->False,
+             ShowStringCharacters->False,
+             FontSize->0.9 Inherited,
+             FontColor->GrayLevel[0.1]]}
+          },
+          GridBoxSpacings->{"Columns" -> {{0.25}}}],
+         Alignment->Left,
+         BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+         BaselinePosition->Baseline,
+         FrameMargins->{{3, 0}, {0, 0}}],
+        Background->RGBColor[0.968627, 0.976471, 0.984314],
+        BaselinePosition->Baseline,
+        DefaultBaseStyle->{},
+        FrameMargins->{{0, 0}, {1, 1}},
+        FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+        RoundingRadius->4],
+       {"FunctionResourceBox", 
+        GrayLevel[0.45], "\"PerturbedCellularAutomaton\""},
+       TagBoxNote->"FunctionResourceBox"],
+      ResourceFunction[
+       ResourceObject[<|
+        "DocumentationLink" -> 
+         URL["https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+PerturbedCellularAutomaton"], "ResourceLocations" -> {
+           CloudObject[
+           "https://www.wolframcloud.com/obj/sw-writings/Resources/8bd/\
+8bd8189c-23e3-4dfb-9604-667c370d5616"]}, "Name" -> 
+         "PerturbedCellularAutomaton", "UUID" -> 
+         "8bd8189c-23e3-4dfb-9604-667c370d5616", "ResourceType" -> "Function",
+          "Version" -> None, "DefinitionNotebook" -> 
+         CloudObject[
+          "https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+PerturbedCellularAutomaton/PerturbedCellularAutomaton-DefinitionNotebook.nb"],
+          "ExampleNotebookData" -> Automatic, "FunctionLocation" -> 
+         CloudObject[
+          "https://www.wolframcloud.com/obj/sw-writings/Resources/8bd/\
+8bd8189c-23e3-4dfb-9604-667c370d5616/download/DefinitionData"], "ShortName" -> 
+         "PerturbedCellularAutomaton", "SymbolName" -> 
+         "FunctionRepository`$8bd8189c23e34dfb9604667c370d5616`\
+PerturbedCellularAutomaton", "PageHeaderClickToCopy" -> 
+         "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/sw-\
+writings/Medicine/PerturbedCellularAutomaton\"]]"|>]],
+      Selectable->False], "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+       "299459058088077823758143088095350287424", ",", "4", ",", "1"}], "}"}],
+       ",", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", "1", "}"}], ",", " ", "0"}], "}"}], ",", " ", 
+      RowBox[{"{", 
+       RowBox[{"400", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"-", "30"}], ",", " ", "40"}], "}"}]}], "}"}], ",", " ", 
+      RowBox[{"<|", "|>"}]}], "]"}]}]}], ";"}]], "Input",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellChangeTimes->{{3.9464182435382433`*^9, 3.946418276806183*^9}, 
+   3.946419946983053*^9},
+ CellLabel->"In[16]:=",
+ CellID->908827252,ExpressionUUID->"a427cd79-d4b2-4a58-8fee-a31216d046b6"],
+
+Cell[BoxData[
+ RowBox[{"GraphicsRow", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Show", "[", 
+     RowBox[{
+      RowBox[{"ListStepPlot", "[", 
+       RowBox[{
+        RowBox[{"Pick", "[", 
+         RowBox[{"widths", ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"widths", "[", 
+               RowBox[{"[", 
+                RowBox[{"#", ",", "25"}], "]"}], "]"}], "<", "12"}], "&&", 
+             RowBox[{
+              RowBox[{"widths", "[", 
+               RowBox[{"[", 
+                RowBox[{"#", ",", "25"}], "]"}], "]"}], "!=", "0"}]}], "&"}], 
+           "/@", 
+           RowBox[{"Range", "[", 
+            RowBox[{"Length", "[", "pcas", "]"}], "]"}]}]}], "]"}], ",", 
+        RowBox[{"PlotRange", "->", "#"}], ",", 
+        RowBox[{"PlotStyle", "->", 
+         TemplateBox[<|"color" -> RGBColor[0.95, 0.627, 0.1425]|>,
+          "RGBColorSwatchTemplate"]}], ",", 
+        RowBox[{"AspectRatio", "->", ".4"}], ",", 
+        RowBox[{"Frame", "->", "True"}], ",", 
+        RowBox[{"FrameLabel", "->", 
+         RowBox[{"{", 
+          RowBox[{"\"\<time\>\"", ",", "\"\<width\>\""}], "}"}]}]}], "]"}], ",", 
+      RowBox[{"ListStepPlot", "[", 
+       RowBox[{"width0", ",", 
+        RowBox[{"PlotStyle", "->", 
+         TemplateBox[<|"color" -> RGBColor[0.24, 0.6, 0.8]|>,
+          "RGBColorSwatchTemplate"]}]}], "]"}]}], "]"}], "&"}], "/@", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "50"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"0", ",", "30"}], "}"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "240"}], "}"}], ",", "Automatic"}], "}"}]}], 
+    "}"}]}], "]"}]], "Input",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellChangeTimes->{{3.946419157529649*^9, 3.9464191873515043`*^9}, {
+   3.94641923321625*^9, 3.946419338973559*^9}, {3.946419395336195*^9, 
+   3.946419427593288*^9}, {3.9464194847207193`*^9, 3.946419506141692*^9}, {
+   3.946419551865376*^9, 3.946419567565563*^9}, {3.946419784320183*^9, 
+   3.9464198304029408`*^9}, 3.946419946983086*^9, {3.946840083460689*^9, 
+   3.946840083737267*^9}},
+ CellLabel->"In[17]:=",
+ CellID->464950949,ExpressionUUID->"493274a0-6a5c-49a1-b1c8-e40b915d952f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ResourceFunction", "[", "\"\<PerturbedCellularAutomaton\>\"", 
+  "]"}]], "Input",
+ CellLabel->
+  "In[381]:=",ExpressionUUID->"592c9e73-5951-4ea5-ab74-a4acb85d0fb1"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TagBox[
+    DynamicModuleBox[{Typeset`open = False}, 
+     FrameBox[
+      PaneSelectorBox[{False->GridBox[{
+         {
+          PaneBox[GridBox[{
+             {
+              StyleBox[
+               StyleBox[
+                AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                 BoxBaselineShift->-0.25,
+                 BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                
+                FontColor->RGBColor[
+                 0.8745098039215686, 0.2784313725490196, 0.03137254901960784]],
+               
+               ShowStringCharacters->False,
+               FontFamily->"Source Sans Pro Black",
+               FontSize->0.6538461538461539 Inherited,
+               FontWeight->"Heavy",
+               PrivateFontOptions->{"OperatorSubstitution"->False}], 
+              StyleBox[
+               RowBox[{
+                
+                StyleBox["PerturbedCellularAutomaton", 
+                 "ResourceFunctionLabel"], " "}],
+               ShowAutoStyles->False,
+               ShowStringCharacters->False,
+               FontSize->Rational[12, 13] Inherited,
+               FontColor->GrayLevel[0.1]]}
+            },
+            GridBoxSpacings->{"Columns" -> {{0.25}}}],
+           Alignment->Left,
+           BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+           BaselinePosition->Baseline,
+           FrameMargins->{{3, 0}, {0, 0}}], 
+          ItemBox[
+           PaneBox[
+            TogglerBox[Dynamic[Typeset`open], {True->
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "IconizeCloser"],
+              
+              ImageSizeCache->{
+               11., {0.878509521484375, 10.121490478515625`}}], False->
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "IconizeOpener"],
+              
+              ImageSizeCache->{
+               11., {0.878509521484375, 10.121490478515625`}}]},
+             Appearance->None,
+             BaselinePosition->Baseline,
+             ContentPadding->False,
+             FrameMargins->0],
+            Alignment->Left,
+            BaselinePosition->Baseline,
+            FrameMargins->{{1, 1}, {0, 0}}],
+           Frame->{{
+              RGBColor[
+              0.8313725490196079, 0.8470588235294118, 0.8509803921568627, 
+               0.5], False}, {False, False}}]}
+        },
+        BaselinePosition->{1, 1},
+        GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{0}}, "Rows" -> {{0}}}], True->
+       GridBox[{
+         {GridBox[{
+            {
+             PaneBox[GridBox[{
+                {
+                 StyleBox[
+                  AdjustmentBox[
+                   
+                   StyleBox["\<\"[\[FilledSmallSquare]]\"\>", 
+                    "ResourceFunctionIcon",
+                    
+                    FontColor->RGBColor[
+                    0.8745098039215686, 0.2784313725490196, 
+                    0.03137254901960784]],
+                   BoxBaselineShift->-0.25,
+                   BoxMargins->{{0, 0}, {-1, -1}}],
+                  ShowStringCharacters->False,
+                  FontFamily->"Source Sans Pro Black",
+                  FontSize->0.6538461538461539 Inherited,
+                  FontWeight->"Heavy",
+                  PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                 StyleBox[
+                  RowBox[{
+                   
+                   StyleBox["PerturbedCellularAutomaton", 
+                    "ResourceFunctionLabel"], " "}],
+                  ShowAutoStyles->False,
+                  ShowStringCharacters->False,
+                  FontSize->Rational[12, 13] Inherited,
+                  FontColor->GrayLevel[0.1]]}
+               },
+               GridBoxSpacings->{"Columns" -> {{0.25}}}],
+              Alignment->Left,
+              BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+              BaselinePosition->Baseline,
+              FrameMargins->{{3, 0}, {0, 0}}], 
+             ItemBox[
+              PaneBox[
+               TogglerBox[Dynamic[Typeset`open], {True->
+                DynamicBox[FEPrivate`FrontEndResource[
+                 "FEBitmaps", "IconizeCloser"]], False->
+                
+                DynamicBox[FEPrivate`FrontEndResource[
+                 "FEBitmaps", "IconizeOpener"]]},
+                Appearance->None,
+                BaselinePosition->Baseline,
+                ContentPadding->False,
+                FrameMargins->0],
+               Alignment->Left,
+               BaselinePosition->Baseline,
+               FrameMargins->{{1, 1}, {0, 0}}],
+              Frame->{{
+                 RGBColor[
+                 0.8313725490196079, 0.8470588235294118, 0.8509803921568627, 
+                  0.5], False}, {False, False}}]}
+           },
+           BaselinePosition->{1, 1},
+           GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+           
+           GridBoxItemSize->{
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+           GridBoxSpacings->{"Columns" -> {{0}}, "Rows" -> {{0}}}]},
+         {
+          StyleBox[
+           PaneBox[GridBox[{
+              {
+               RowBox[{
+                TagBox["\<\"Version (latest): \"\>",
+                 "IconizedLabel"], " ", 
+                TagBox["\<\"1.0.0\"\>",
+                 "IconizedItem"]}]},
+              {
+               TagBox[
+                
+                TemplateBox[{
+                 "\"Documentation \[RightGuillemet]\"", 
+                  "https://resources.wolframcloud.com/FunctionRepository/\
+resources/9cddc4ab-c939-43c9-a92d-685e3d9a055e/"},
+                 "HyperlinkURL"],
+                "IconizedItem"]}
+             },
+             DefaultBaseStyle->"Column",
+             GridBoxAlignment->{"Columns" -> {{Left}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+            Alignment->Left,
+            BaselinePosition->Baseline,
+            FrameMargins->{{5, 4}, {0, 4}}], "DialogStyle",
+           FontFamily->"Roboto",
+           FontSize->11]}
+        },
+        BaselinePosition->{1, 1},
+        GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+        GridBoxDividers->{"Columns" -> {{None}}, "Rows" -> {False, {
+             GrayLevel[0.8]}, False}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+       Typeset`open],
+       BaselinePosition->Baseline,
+       ImageSize->Automatic],
+      Background->RGBColor[
+       0.9686274509803922, 0.9764705882352941, 0.984313725490196],
+      BaselinePosition->Baseline,
+      DefaultBaseStyle->{},
+      FrameMargins->{{0, 0}, {1, 0}},
+      FrameStyle->RGBColor[
+       0.8313725490196079, 0.8470588235294118, 0.8509803921568627],
+      RoundingRadius->4]],
+    #& ,
+    TagBoxNote->" "],
+   {"FunctionResourceBox", 
+    RGBColor[0.8745098039215686, 0.2784313725490196, 0.03137254901960784], 
+    "PerturbedCellularAutomaton"},
+   TagBoxNote->"FunctionResourceBox"],
+  ResourceFunction[
+   ResourceObject[<|
+    "Name" -> "PerturbedCellularAutomaton", "ShortName" -> 
+     "PerturbedCellularAutomaton", "UUID" -> 
+     "9cddc4ab-c939-43c9-a92d-685e3d9a055e", "ResourceType" -> "Function", 
+     "Version" -> "1.0.0", "Description" -> 
+     "Evolve a cellular automaton with changes to certain cells", 
+     "RepositoryLocation" -> 
+     URL["https://www.wolframcloud.com/obj/resourcesystem/api/1.0"], 
+     "SymbolName" -> 
+     "FunctionRepository`$513bd26ce7db4064866340872f653a14`\
+PerturbedCellularAutomaton", "FunctionLocation" -> 
+     CloudObject[
+      "https://www.wolframcloud.com/obj/178542b7-b709-450b-b48b-8b2acc928e59"]\
+|>, ResourceSystemBase -> Automatic]],
+  Selectable->False]], "Output",
+ CellLabel->
+  "Out[381]=",ExpressionUUID->"8bc68695-d042-4191-86be-80712e0fc149"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  InterpretationBox[
+   TagBox[
+    FrameBox[
+     PaneBox[GridBox[{
+        {
+         StyleBox[
+          StyleBox[
+           AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+            BoxBaselineShift->-0.25,
+            BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+           FontColor->GrayLevel[0.45]],
+          ShowStringCharacters->False,
+          FontFamily->"Source Sans Pro Black",
+          FontSize->0.65 Inherited,
+          FontWeight->"Heavy",
+          PrivateFontOptions->{"OperatorSubstitution"->False}], 
+         StyleBox[
+          RowBox[{
+           StyleBox["\<\"nonzeroRange\"\>", "ResourceFunctionLabel"], " "}],
+          ShowAutoStyles->False,
+          ShowStringCharacters->False,
+          FontSize->0.9 Inherited,
+          FontColor->GrayLevel[0.1]]}
+       },
+       GridBoxSpacings->{"Columns" -> {{0.25}}}],
+      Alignment->Left,
+      BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+      BaselinePosition->Baseline,
+      FrameMargins->{{3, 0}, {0, 0}}],
+     Background->RGBColor[0.968627, 0.976471, 0.984314],
+     BaselinePosition->Baseline,
+     DefaultBaseStyle->{},
+     FrameMargins->{{0, 0}, {1, 1}},
+     FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+     RoundingRadius->4],
+    {"FunctionResourceBox", 
+     GrayLevel[0.45], "\"nonzeroRange\""},
+    TagBoxNote->"FunctionResourceBox"],
+   ResourceFunction[
+    ResourceObject[<|
+     "Name" -> "nonzeroRange", "UUID" -> 
+      "28facfc4-cc64-44a6-bb8e-9136068fc04b", "ResourceType" -> "Function", 
+      "ResourceLocations" -> {
+        CloudObject[
+        "https://www.wolframcloud.com/obj/sw-writings/Resources/28f/28facfc4-\
+cc64-44a6-bb8e-9136068fc04b"]}, "Version" -> None, "DefinitionNotebook" -> 
+      CloudObject[
+       "https://www.wolframcloud.com/obj/sw-writings/Medicine/nonzeroRange/\
+nonzeroRange-DefinitionNotebook.nb"], "DocumentationLink" -> 
+      URL["https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+nonzeroRange"], "ExampleNotebookData" -> Automatic, "FunctionLocation" -> 
+      CloudObject[
+       "https://www.wolframcloud.com/obj/sw-writings/Resources/28f/28facfc4-\
+cc64-44a6-bb8e-9136068fc04b/download/DefinitionData"], 
+      "PageHeaderClickToCopy" -> 
+      "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/sw-\
+writings/Medicine/nonzeroRange\"]]", "ShortName" -> "nonzeroRange", 
+      "SymbolName" -> 
+      "FunctionRepository`$28facfc4cc6444a6bb8e9136068fc04b`nonzeroRange"|>]],
+   
+   Selectable->False], "[", 
+  RowBox[{"{", 
+   RowBox[{
+   "0", ",", " ", "0", ",", " ", "1", ",", "1", ",", " ", "2", ",", " ", 
+    "0"}], "}"}], "]"}]], "Input",
+ CellLabel->
+  "In[382]:=",ExpressionUUID->"d72fc359-d3e3-42fa-b2a9-9e73de6bf56c"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"3", ",", "5"}], "}"}]], "Output",
+ CellLabel->
+  "Out[382]=",ExpressionUUID->"b9db9eb8-2f0d-4456-94e9-eb8b824ecd7c"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"AliveQ", "[", "row_", "]"}], ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"ridx", " ", "=", " ", 
+       RowBox[{
+        InterpretationBox[
+         TagBox[
+          FrameBox[
+           PaneBox[GridBox[{
+              {
+               StyleBox[
+                StyleBox[
+                 AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                  BoxBaselineShift->-0.25,
+                  BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                 FontColor->GrayLevel[0.45]],
+                ShowStringCharacters->False,
+                FontFamily->"Source Sans Pro Black",
+                FontSize->0.65 Inherited,
+                FontWeight->"Heavy",
+                PrivateFontOptions->{"OperatorSubstitution"->False}], 
+               StyleBox[
+                RowBox[{
+                 StyleBox["\<\"nonzeroRange\"\>", "ResourceFunctionLabel"], 
+                 " "}],
+                ShowAutoStyles->False,
+                ShowStringCharacters->False,
+                FontSize->0.9 Inherited,
+                FontColor->GrayLevel[0.1]]}
+             },
+             GridBoxSpacings->{"Columns" -> {{0.25}}}],
+            Alignment->Left,
+            BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+            BaselinePosition->Baseline,
+            FrameMargins->{{3, 0}, {0, 0}}],
+           Background->RGBColor[0.968627, 0.976471, 0.984314],
+           BaselinePosition->Baseline,
+           DefaultBaseStyle->{},
+           FrameMargins->{{0, 0}, {1, 1}},
+           FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+           RoundingRadius->4],
+          {"FunctionResourceBox", 
+           GrayLevel[0.45], "\"nonzeroRange\""},
+          TagBoxNote->"FunctionResourceBox"],
+         ResourceFunction[
+          
+          ResourceObject[<|
+           "Name" -> "nonzeroRange", "UUID" -> 
+            "28facfc4-cc64-44a6-bb8e-9136068fc04b", "ResourceType" -> 
+            "Function", "ResourceLocations" -> {
+              CloudObject[
+              "https://www.wolframcloud.com/obj/sw-writings/Resources/28f/\
+28facfc4-cc64-44a6-bb8e-9136068fc04b"]}, "Version" -> None, 
+            "DefinitionNotebook" -> 
+            CloudObject[
+             "https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+nonzeroRange/nonzeroRange-DefinitionNotebook.nb"], "DocumentationLink" -> 
+            URL["https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+nonzeroRange"], "ExampleNotebookData" -> Automatic, "FunctionLocation" -> 
+            CloudObject[
+             "https://www.wolframcloud.com/obj/sw-writings/Resources/28f/\
+28facfc4-cc64-44a6-bb8e-9136068fc04b/download/DefinitionData"], 
+            "PageHeaderClickToCopy" -> 
+            "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/sw-\
+writings/Medicine/nonzeroRange\"]]", "ShortName" -> "nonzeroRange", 
+            "SymbolName" -> 
+            "FunctionRepository`$28facfc4cc6444a6bb8e9136068fc04b`\
+nonzeroRange"|>]],
+         Selectable->False], "[", "row", "]"}]}], ",", " ", "body"}], "}"}], ",",
+     " ", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"body", " ", "=", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"row", "[", 
+         RowBox[{"[", "#", "]"}], "]"}], "&"}], "@@", "ridx"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Max", "[", 
+       RowBox[{"Length", "/@", " ", 
+        RowBox[{"Split", "[", "body", "]"}]}], "]"}], ">", "5"}]}]}], 
+   "]"}]}]], "Input",
+ CellLabel->
+  "In[384]:=",ExpressionUUID->"3cf18a68-022c-4da6-ad10-0f02267ca644"],
+
+Cell[BoxData["RandomCellularAutomatonRule"], "Input",ExpressionUUID->"b9fd1ad5-5911-4b9c-8ce8-affc4ccc0331"],
+
+Cell[BoxData[
+ RowBox[{"RandomChoice", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", " ", "1", ",", " ", "2", ",", " ", "3"}], "}"}], ",", 
+   " ", 
+   RowBox[{"{", 
+    RowBox[{"15", " ", ",", " ", 
+     RowBox[{
+      RowBox[{"4", "^", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", "*", "1"}], "+", "1"}], ")"}]}], " ", "-", " ", "1"}]}],
+     "}"}]}], "]"}]], "Input",ExpressionUUID->"985fe54d-5309-45be-b24b-\
+b92da68bae40"],
+
+Cell[BoxData[
+ InterpretationBox[
+  TagBox[
+   TagBox[
+    DynamicModuleBox[{Typeset`open = False}, 
+     FrameBox[
+      PaneSelectorBox[{False->GridBox[{
+         {
+          PaneBox[GridBox[{
+             {
+              StyleBox[
+               StyleBox[
+                AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                 BoxBaselineShift->-0.25,
+                 BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                
+                FontColor->RGBColor[
+                 0.8745098039215686, 0.2784313725490196, 0.03137254901960784]],
+               
+               ShowStringCharacters->False,
+               FontFamily->"Source Sans Pro Black",
+               FontSize->0.6538461538461539 Inherited,
+               FontWeight->"Heavy",
+               PrivateFontOptions->{"OperatorSubstitution"->False}], 
+              StyleBox[
+               RowBox[{
+                
+                StyleBox["PerturbedCellularAutomaton", 
+                 "ResourceFunctionLabel"], " "}],
+               ShowAutoStyles->False,
+               ShowStringCharacters->False,
+               FontSize->Rational[12, 13] Inherited,
+               FontColor->GrayLevel[0.1]]}
+            },
+            GridBoxSpacings->{"Columns" -> {{0.25}}}],
+           Alignment->Left,
+           BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+           BaselinePosition->Baseline,
+           FrameMargins->{{3, 0}, {0, 0}}], 
+          ItemBox[
+           PaneBox[
+            TogglerBox[Dynamic[Typeset`open], {True->
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "IconizeCloser"],
+              
+              ImageSizeCache->{
+               11., {0.878509521484375, 10.121490478515625`}}], False->
+             
+             DynamicBox[FEPrivate`FrontEndResource[
+              "FEBitmaps", "IconizeOpener"],
+              
+              ImageSizeCache->{
+               11., {0.878509521484375, 10.121490478515625`}}]},
+             Appearance->None,
+             BaselinePosition->Baseline,
+             ContentPadding->False,
+             FrameMargins->0],
+            Alignment->Left,
+            BaselinePosition->Baseline,
+            FrameMargins->{{1, 1}, {0, 0}}],
+           Frame->{{
+              RGBColor[
+              0.8313725490196079, 0.8470588235294118, 0.8509803921568627, 
+               0.5], False}, {False, False}}]}
+        },
+        BaselinePosition->{1, 1},
+        GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+        GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+        GridBoxSpacings->{"Columns" -> {{0}}, "Rows" -> {{0}}}], True->
+       GridBox[{
+         {GridBox[{
+            {
+             PaneBox[GridBox[{
+                {
+                 StyleBox[
+                  AdjustmentBox[
+                   
+                   StyleBox["\<\"[\[FilledSmallSquare]]\"\>", 
+                    "ResourceFunctionIcon",
+                    
+                    FontColor->RGBColor[
+                    0.8745098039215686, 0.2784313725490196, 
+                    0.03137254901960784]],
+                   BoxBaselineShift->-0.25,
+                   BoxMargins->{{0, 0}, {-1, -1}}],
+                  ShowStringCharacters->False,
+                  FontFamily->"Source Sans Pro Black",
+                  FontSize->0.6538461538461539 Inherited,
+                  FontWeight->"Heavy",
+                  PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                 StyleBox[
+                  RowBox[{
+                   
+                   StyleBox["PerturbedCellularAutomaton", 
+                    "ResourceFunctionLabel"], " "}],
+                  ShowAutoStyles->False,
+                  ShowStringCharacters->False,
+                  FontSize->Rational[12, 13] Inherited,
+                  FontColor->GrayLevel[0.1]]}
+               },
+               GridBoxSpacings->{"Columns" -> {{0.25}}}],
+              Alignment->Left,
+              BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+              BaselinePosition->Baseline,
+              FrameMargins->{{3, 0}, {0, 0}}], 
+             ItemBox[
+              PaneBox[
+               TogglerBox[Dynamic[Typeset`open], {True->
+                DynamicBox[FEPrivate`FrontEndResource[
+                 "FEBitmaps", "IconizeCloser"]], False->
+                
+                DynamicBox[FEPrivate`FrontEndResource[
+                 "FEBitmaps", "IconizeOpener"]]},
+                Appearance->None,
+                BaselinePosition->Baseline,
+                ContentPadding->False,
+                FrameMargins->0],
+               Alignment->Left,
+               BaselinePosition->Baseline,
+               FrameMargins->{{1, 1}, {0, 0}}],
+              Frame->{{
+                 RGBColor[
+                 0.8313725490196079, 0.8470588235294118, 0.8509803921568627, 
+                  0.5], False}, {False, False}}]}
+           },
+           BaselinePosition->{1, 1},
+           GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+           
+           GridBoxItemSize->{
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+           GridBoxSpacings->{"Columns" -> {{0}}, "Rows" -> {{0}}}]},
+         {
+          StyleBox[
+           PaneBox[GridBox[{
+              {
+               RowBox[{
+                TagBox["\<\"Version (latest): \"\>",
+                 "IconizedLabel"], " ", 
+                TagBox["\<\"1.0.0\"\>",
+                 "IconizedItem"]}]},
+              {
+               TagBox[
+                
+                TemplateBox[{
+                 "\"Documentation \[RightGuillemet]\"", 
+                  "https://resources.wolframcloud.com/FunctionRepository/\
+resources/9cddc4ab-c939-43c9-a92d-685e3d9a055e/"},
+                 "HyperlinkURL"],
+                "IconizedItem"]}
+             },
+             DefaultBaseStyle->"Column",
+             GridBoxAlignment->{"Columns" -> {{Left}}},
+             
+             GridBoxItemSize->{
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+            Alignment->Left,
+            BaselinePosition->Baseline,
+            FrameMargins->{{5, 4}, {0, 4}}], "DialogStyle",
+           FontFamily->"Roboto",
+           FontSize->11]}
+        },
+        BaselinePosition->{1, 1},
+        GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+        GridBoxDividers->{"Columns" -> {{None}}, "Rows" -> {False, {
+             GrayLevel[0.8]}, False}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}]}, Dynamic[
+       Typeset`open],
+       BaselinePosition->Baseline,
+       ImageSize->Automatic],
+      Background->RGBColor[
+       0.9686274509803922, 0.9764705882352941, 0.984313725490196],
+      BaselinePosition->Baseline,
+      DefaultBaseStyle->{},
+      FrameMargins->{{0, 0}, {1, 0}},
+      FrameStyle->RGBColor[
+       0.8313725490196079, 0.8470588235294118, 0.8509803921568627],
+      RoundingRadius->4]],
+    #& ,
+    TagBoxNote->" "],
+   {"FunctionResourceBox", 
+    RGBColor[0.8745098039215686, 0.2784313725490196, 0.03137254901960784], 
+    "PerturbedCellularAutomaton"},
+   TagBoxNote->"FunctionResourceBox"],
+  ResourceFunction[
+   ResourceObject[<|
+    "Name" -> "PerturbedCellularAutomaton", "ShortName" -> 
+     "PerturbedCellularAutomaton", "UUID" -> 
+     "9cddc4ab-c939-43c9-a92d-685e3d9a055e", "ResourceType" -> "Function", 
+     "Version" -> "1.0.0", "Description" -> 
+     "Evolve a cellular automaton with changes to certain cells", 
+     "RepositoryLocation" -> 
+     URL["https://www.wolframcloud.com/obj/resourcesystem/api/1.0"], 
+     "SymbolName" -> 
+     "FunctionRepository`$513bd26ce7db4064866340872f653a14`\
+PerturbedCellularAutomaton", "FunctionLocation" -> 
+     CloudObject[
+      "https://www.wolframcloud.com/obj/178542b7-b709-450b-b48b-8b2acc928e59"]\
+|>, ResourceSystemBase -> Automatic]],
+  Selectable->False]], "Input",ExpressionUUID->"e1ffc624-7321-4ab5-8a8b-\
+fc2bb87c796f"]
+},
+WindowSize->{808, 673},
+WindowMargins->{{134, Automatic}, {-74, Automatic}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"faca5d86-bbe7-4866-add3-e1c815dac047"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 3138, 75, 63, "Input",ExpressionUUID->"fe93bb06-d8bc-4e46-84f8-d1d04bc5ac67"],
+Cell[3717, 99, 901, 22, 302, "Output",ExpressionUUID->"27ae6e65-a26e-41b9-a229-afdc7a35b28e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4655, 126, 3381, 79, 63, "Input",ExpressionUUID->"4e808edc-7e20-4f2a-ae57-4e702b8d6a5d"],
+Cell[8039, 207, 25887, 603, 2054, "Output",ExpressionUUID->"038984d6-2c76-45d3-b872-5ad4354293ce"]
+}, Open  ]],
+Cell[33941, 813, 20840, 466, 249, "Input",ExpressionUUID->"41902ed8-2cdf-4b99-8970-72b6e2253a33",
+ CellID->728579801],
+Cell[CellGroupData[{
+Cell[54806, 1283, 7484, 169, 88, "Input",ExpressionUUID->"11c13ed8-1b47-4ec9-82f3-1c8649a9b044",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellID->179514713],
+Cell[62293, 1454, 3800, 89, 57, "Input",ExpressionUUID->"73fbd299-89bf-4403-bbf3-663780478791",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellID->403672007],
+Cell[66096, 1545, 6815, 161, 82, "Input",ExpressionUUID->"a427cd79-d4b2-4a58-8fee-a31216d046b6",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellID->908827252],
+Cell[72914, 1708, 2321, 59, 131, "Input",ExpressionUUID->"493274a0-6a5c-49a1-b1c8-e40b915d952f",
+ CellGroupingRules->{"GroupTogetherGrouping", 10000.},
+ CellID->464950949]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[75272, 1772, 188, 4, 29, "Input",ExpressionUUID->"592c9e73-5951-4ea5-ab74-a4acb85d0fb1"],
+Cell[75463, 1778, 8041, 202, 36, "Output",ExpressionUUID->"8bc68695-d042-4191-86be-80712e0fc149"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[83541, 1985, 2749, 68, 33, "Input",ExpressionUUID->"d72fc359-d3e3-42fa-b2a9-9e73de6bf56c"],
+Cell[86293, 2055, 156, 4, 33, "Output",ExpressionUUID->"b9db9eb8-2f0d-4456-94e9-eb8b824ecd7c"]
+}, Open  ]],
+Cell[86464, 2062, 3621, 87, 83, "Input",ExpressionUUID->"3cf18a68-022c-4da6-ad10-0f02267ca644"],
+Cell[90088, 2151, 108, 0, 29, "Input",ExpressionUUID->"b9fd1ad5-5911-4b9c-8ce8-affc4ccc0331"],
+Cell[90199, 2153, 453, 14, 29, "Input",ExpressionUUID->"985fe54d-5309-45be-b24b-b92da68bae40"],
+Cell[90655, 2169, 8014, 201, 32, "Input",ExpressionUUID->"e1ffc624-7321-4ab5-8a8b-fc2bb87c796f"]
+}
+]
+*)
+

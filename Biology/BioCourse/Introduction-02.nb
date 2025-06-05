@@ -1,0 +1,62 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      1879,         54]
+NotebookOptionsPosition[      1313,         36]
+NotebookOutlinePosition[      1710,         52]
+CellTagsIndexPosition[      1667,         49]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Wolfram Biology Course", "Title",ExpressionUUID->"c5ea4a8c-a24c-44a4-aaad-7ae2acd682d5"],
+
+Cell["Willem Nielsen", "Subtitle",ExpressionUUID->"9af2db53-ed3f-4939-85c4-866f9222ce3c"],
+
+Cell["\<\
+Over the past thirty years, Stephen Wolfram has done a lot of what I view as \
+groundbreaking work in biology. And, I believe, the computational foundations \
+that he\[CloseCurlyQuote]s laid down, have important practical implications \
+for the fields of medicine across many different domains like oncology, \
+immunology, virology and psychology. Beyond medicine, I think his work is  \
+very relevant to human performance and the science of expertise. \
+\>", "Text",ExpressionUUID->"cd64d965-3052-4600-860b-3090ac40d80a"]
+}, Open  ]]
+},
+WindowSize->{808, 673},
+WindowMargins->{{237, Automatic}, {1, Automatic}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"5a161b21-f398-40e8-905a-d4cecf03570e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 94, 0, 96, "Title",ExpressionUUID->"c5ea4a8c-a24c-44a4-aaad-7ae2acd682d5"],
+Cell[673, 24, 89, 0, 52, "Subtitle",ExpressionUUID->"9af2db53-ed3f-4939-85c4-866f9222ce3c"],
+Cell[765, 26, 532, 7, 99, "Text",ExpressionUUID->"cd64d965-3052-4600-860b-3090ac40d80a"]
+}, Open  ]]
+}
+]
+*)
+

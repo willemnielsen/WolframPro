@@ -1,0 +1,2825 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    118488,       2817]
+NotebookOptionsPosition[    107950,       2624]
+NotebookOutlinePosition[    108343,       2640]
+CellTagsIndexPosition[    108300,       2637]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Structure", "Subsection",
+ CellChangeTimes->{{3.797628330873962*^9, 
+  3.797628332593787*^9}},ExpressionUUID->"b8b89563-8420-400b-866c-\
+c027c93a6b4a"],
+
+Cell[CellGroupData[{
+
+Cell["Tablet", "Subsubsection",
+ CellChangeTimes->{{3.797626812541707*^9, 3.7976268129996967`*^9}, {
+  3.797628263711183*^9, 
+  3.797628264339122*^9}},ExpressionUUID->"00485494-f8ad-4574-86ba-\
+8b3f94668370"],
+
+Cell[BoxData[
+ RowBox[{"<|", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"\"\<TabletID\>\"", "\[Rule]", 
+    RowBox[{"Evaluate", "[", 
+     RowBox[{"Placeholder", "[", "\"\<Oracc ID\>\"", "]"}], "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"\"\<Creator\>\"", "\[Rule]", 
+    RowBox[{"Evaluate", "[", 
+     RowBox[{"Placeholder", "[", "\"\<creator name\>\"", "]"}], "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"\"\<Months\>\"", "\[Rule]", 
+    RowBox[{"{", "\[IndentingNewLine]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"Placeholder", "[", "\"\<months\>\"", "]"}], "]"}], 
+     "\[IndentingNewLine]", "}"}]}]}], "\[IndentingNewLine]", "|>"}]], "Input",\
+
+ CellChangeTimes->{{3.798136768484768*^9, 3.798136775236416*^9}, {
+  3.798732828025743*^9, 
+  3.798732854156636*^9}},ExpressionUUID->"dbd2fba2-c2de-4879-8c09-\
+da2e11b5f6bf"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Month", "Subsubsection",
+ CellChangeTimes->{{3.79762831566782*^9, 
+  3.7976283160941153`*^9}},ExpressionUUID->"4c764ded-a9dc-4ac2-ad72-\
+67e2a1873ca7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<BabylonianYear\>\"", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<King\>\"", "]"}], "]"}], ",", 
+       
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<year\>\""}], "]"}], "]"}]}], 
+      "}"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<BabylonianMonth\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"DiaryInputTemplate", "[", 
+       RowBox[{"\"\<Row\>\"", ",", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<I\>\"", ",", "\"\<II\>\"", ",", "\"\<III\>\"", ",", 
+          "\"\<IV\>\"", ",", "\"\<V\>\"", ",", "\"\<VI\>\"", ",", 
+          "\"\<VI2\>\"", ",", "\"\<VII\>\"", ",", "\"\<VIII\>\"", ",", 
+          "\"\<IX\>\"", ",", "\"\<X\>\"", ",", "\"\<XI\>\"", ",", 
+          "\"\<XII\>\"", ",", "\"\<XII2\>\""}], "}"}]}], "]"}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Observations\>\"", "\[Rule]", 
+     RowBox[{"{", "\[IndentingNewLine]", 
+      TagBox[
+       FrameBox["\<\"observations\"\>"],
+       "Placeholder"], "\[IndentingNewLine]", "}"}]}]}], 
+   "\[IndentingNewLine]", "|>"}], ",", "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next month\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.797629041724348*^9, 3.797629050004558*^9}, {
+   3.798134437976548*^9, 3.798134457710205*^9}, {3.79813454646778*^9, 
+   3.79813456592587*^9}, {3.798135906459812*^9, 3.79813592541088*^9}, {
+   3.798136054412571*^9, 3.798136058922209*^9}, {3.798136543745376*^9, 
+   3.798136544922724*^9}, {3.798686950252726*^9, 3.798687216114582*^9}, {
+   3.7986911050442543`*^9, 3.798691125402939*^9}, {3.798729760661256*^9, 
+   3.798729762532365*^9}, {3.7987370260170383`*^9, 3.798737033190825*^9}, {
+   3.7987371169126*^9, 3.798737117578718*^9}, {3.798738274971512*^9, 
+   3.798738289056059*^9}, {3.798739900948255*^9, 3.798739957887911*^9}, {
+   3.798740062526314*^9, 3.7987400643908863`*^9}, {3.798740184530448*^9, 
+   3.7987401951657753`*^9}, {3.79874022957953*^9, 3.798740232112566*^9}, 
+   3.79874027398851*^9, {3.7987531743871813`*^9, 3.798753179059272*^9}, {
+   3.7987532513863497`*^9, 3.7987532769571857`*^9}, {3.798753311388714*^9, 
+   3.798753323273457*^9}, {3.798753555506345*^9, 3.798753561444303*^9}, {
+   3.79875368324963*^9, 3.798753684175941*^9}, {3.808403881844685*^9, 
+   3.808403881849752*^9}, {3.808500271503693*^9, 3.808500306789812*^9}, 
+   3.808619041026249*^9, 
+   3.808619197364159*^9},ExpressionUUID->"d2073d21-2e65-4013-81d3-\
+2cf787b1fefa"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Common objects", "Subsection",
+ CellChangeTimes->{{3.797628324396891*^9, 
+  3.7976283397528143`*^9}},ExpressionUUID->"0d4190cb-69b5-4def-8424-\
+5669011e4a04"],
+
+Cell[CellGroupData[{
+
+Cell["MonthlyDate", "Subsubsection",
+ CellChangeTimes->{{3.798135363968684*^9, 
+  3.798135367591504*^9}},ExpressionUUID->"9e7d27ad-cf89-4344-8738-\
+17d4cd3138ea"],
+
+Cell[BoxData[
+ RowBox[{"DiaryInputDate", "[", 
+  RowBox[{
+   RowBox[{"Evaluate", "[", 
+    RowBox[{"DiaryInputTemplate", "[", 
+     RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+   RowBox[{"Evaluate", "[", 
+    RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.7981353692703238`*^9, 3.7981353818279877`*^9}, {
+   3.7986872901950502`*^9, 3.798687378265437*^9}, {3.7987382979232817`*^9, 
+   3.798738303668898*^9}, 3.798740309463965*^9, {3.79875341011273*^9, 
+   3.798753433393773*^9}, {3.798753469973431*^9, 3.798753490205743*^9}, {
+   3.798753539281579*^9, 3.798753542103861*^9}, {3.798753742650484*^9, 
+   3.7987537451336803`*^9}, {3.798753911440547*^9, 3.7987539162065067`*^9}, {
+   3.798754472875761*^9, 3.7987544789274263`*^9}, {3.7987545117602043`*^9, 
+   3.7987545319809628`*^9}, {3.7987545817451344`*^9, 3.798754582471336*^9}, {
+   3.798754615714778*^9, 3.798754616471554*^9}, {3.798754767731213*^9, 
+   3.798754772093021*^9}, 3.808403564847562*^9, {3.808403881850634*^9, 
+   3.808403881851241*^9}},ExpressionUUID->"1c37438f-e295-47f0-b3ee-\
+d6adae45cd37"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["DiaryCombinedDate", "Subsubsection",
+ CellChangeTimes->{{3.797628440374751*^9, 3.79762844443155*^9}, {
+  3.808500076838005*^9, 
+  3.808500077970084*^9}},ExpressionUUID->"55b4c259-bb43-48a5-ac69-\
+d70903e57140"],
+
+Cell[BoxData[
+ RowBox[{"DiaryCombinedDate", "[", 
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<JulianDate\>\"", "\[Rule]", 
+     RowBox[{"DiaryJulianDate", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", 
+          RowBox[{"\"\<Missing\>\"", ",", "\"\<year AD\>\""}], "]"}], "]"}], 
+        ",", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", 
+          RowBox[{"\"\<Missing\>\"", ",", "\"\<month\>\""}], "]"}], "]"}], 
+        ",", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", 
+          RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}]}], 
+       "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<BabylonianDate\>\"", "\[Rule]", 
+     RowBox[{"DiaryBabylonianDate", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"Evaluate", "[", 
+           RowBox[{"DiaryInputTemplate", "[", "\"\<King\>\"", "]"}], "]"}], 
+          ",", "\[IndentingNewLine]", 
+          RowBox[{"Evaluate", "[", 
+           RowBox[{"DiaryInputTemplate", "[", 
+            RowBox[{"\"\<Missing\>\"", ",", "\"\<year\>\""}], "]"}], "]"}]}], 
+         "}"}], ",", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", 
+          RowBox[{"\"\<Row\>\"", ",", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<I\>\"", ",", "\"\<II\>\"", ",", "\"\<III\>\"", ",", 
+             "\"\<IV\>\"", ",", "\"\<V\>\"", ",", "\"\<VI\>\"", ",", 
+             "\"\<VI2\>\"", ",", "\"\<VII\>\"", ",", "\"\<VIII\>\"", ",", 
+             "\"\<IX\>\"", ",", "\"\<X\>\"", ",", "\"\<XI\>\"", ",", 
+             "\"\<XII\>\"", ",", "\"\<XII2\>\""}], "}"}]}], "]"}], "]"}], ",", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", 
+          RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}]}], 
+       "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Time\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}]}], 
+   "\[IndentingNewLine]", "|>"}], "]"}]], "Input",
+ CellChangeTimes->{{3.808500098859435*^9, 3.808500124026775*^9}, {
+  3.808500180287471*^9, 
+  3.8085002222398*^9}},ExpressionUUID->"1c8ec035-4476-4b15-afa7-aae457aa5bab"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["DiaryDistance", "Subsubsection",
+ CellChangeTimes->{{3.797628717308303*^9, 
+  3.7976287191403913`*^9}},ExpressionUUID->"b5c49c6b-626f-4ecf-acad-\
+746349eff814"],
+
+Cell[BoxData[
+ RowBox[{"DiaryDistance", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"Evaluate", "[", 
+     RowBox[{"DiaryInputTemplate", "[", 
+      RowBox[{"\"\<Missing\>\"", ",", "\"\<cubits\>\""}], "]"}], "]"}], ",", 
+    RowBox[{"Evaluate", "[", 
+     RowBox[{"DiaryInputTemplate", "[", 
+      RowBox[{"\"\<Missing\>\"", ",", "\"\<fingers\>\""}], "]"}], "]"}]}], 
+   "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.797628720592025*^9, 3.7976287372191267`*^9}, {
+  3.79874064099725*^9, 3.798740647575302*^9}, {3.7987548595174303`*^9, 
+  3.798754873346438*^9}, {3.8084038818600883`*^9, 
+  3.808403881860649*^9}},ExpressionUUID->"fdb6508c-4b72-4d76-b8e4-\
+4d197322836f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["DiaryDuration", "Subsubsection",
+ CellChangeTimes->{{3.797628849181427*^9, 
+  3.797628851396104*^9}},ExpressionUUID->"c4b49f59-86b7-4af3-849e-\
+e9ade50f788c"],
+
+Cell[BoxData[
+ RowBox[{"DiaryDuration", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"Evaluate", "[", 
+     RowBox[{"DiaryInputTemplate", "[", 
+      RowBox[{"\"\<Missing\>\"", ",", "\"\<degrees\>\""}], "]"}], "]"}], ",", 
+    
+    RowBox[{"Evaluate", "[", 
+     RowBox[{"DiaryInputTemplate", "[", 
+      RowBox[{"\"\<Missing\>\"", ",", "\"\<NINDA\>\""}], "]"}], "]"}]}], 
+   "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.797628853865858*^9, 3.7976288757842073`*^9}, {
+   3.798742200367798*^9, 3.798742206869487*^9}, 3.7987422434425592`*^9, {
+   3.798754907137673*^9, 3.798754913006341*^9}, {3.808403881862054*^9, 
+   3.808403881862605*^9}},ExpressionUUID->"12174a6a-a7a8-4f74-9e69-\
+b529f5cb2df5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["DiaryCapacity", "Subsubsection",
+ CellChangeTimes->{{3.7976288872416153`*^9, 
+  3.797628889587859*^9}},ExpressionUUID->"8973a062-337d-442f-add0-\
+5f4e76695a42"],
+
+Cell[BoxData[
+ RowBox[{"DiaryCapacity", "[", 
+  RowBox[{"{", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Evaluate", "[", 
+     RowBox[{"DiaryInputTemplate", "[", 
+      RowBox[{"\"\<Missing\>\"", ",", "\"\<kur\>\""}], "]"}], "]"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Evaluate", "[", 
+     RowBox[{"DiaryInputTemplate", "[", 
+      RowBox[{"\"\<Missing\>\"", ",", "\"\<p\[ABar]n\>\""}], "]"}], "]"}], 
+    ",", "\[IndentingNewLine]", 
+    RowBox[{"Evaluate", "[", 
+     RowBox[{"DiaryInputTemplate", "[", 
+      RowBox[{"\"\<Missing\>\"", ",", "\"\<s\:016bt\>\""}], "]"}], "]"}], ",",
+     "\[IndentingNewLine]", 
+    RowBox[{"Evaluate", "[", 
+     RowBox[{"DiaryInputTemplate", "[", 
+      RowBox[{"\"\<Missing\>\"", ",", "\"\<qa\>\""}], "]"}], "]"}]}], 
+   "\[IndentingNewLine]", "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7976288901133757`*^9, 3.7976289246699123`*^9}, {
+  3.798742208803718*^9, 3.798742238422176*^9}, {3.798754915522156*^9, 
+  3.798754942019023*^9}, {3.808403881864428*^9, 
+  3.80840388186628*^9}},ExpressionUUID->"de03670d-ec45-4e65-ba55-\
+05875217bddd"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Missing", "Subsection",
+ CellChangeTimes->{{3.797628710970417*^9, 
+  3.7976287117025747`*^9}},ExpressionUUID->"262b5d47-bfdc-4f9d-a673-\
+8173204b8a41"],
+
+Cell[CellGroupData[{
+
+Cell["Missing[]", "Subsubsection",
+ CellChangeTimes->{{3.797628934553999*^9, 
+  3.797628935409823*^9}},ExpressionUUID->"613df0ac-ee02-4eb0-918e-\
+9689a3c80bac"],
+
+Cell[BoxData[
+ RowBox[{"Missing", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.797628930266481*^9, 
+  3.797628931265707*^9}},ExpressionUUID->"1f046a0a-a3c8-46a3-a94d-\
+8d455cb3b2cb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Missing[\[OpenCurlyDoubleQuote]Destroyed\[CloseCurlyDoubleQuote]]", \
+"Subsubsection",
+ CellChangeTimes->{{3.7976289411282682`*^9, 
+  3.797628945199242*^9}},ExpressionUUID->"2b4f9841-ef35-4de9-a0a7-\
+823eb882a877"],
+
+Cell[BoxData[
+ RowBox[{"Missing", "[", "\"\<Destroyed\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.797628945952016*^9, 
+  3.7976289489584627`*^9}},ExpressionUUID->"cea7d7e3-9ac9-4bc1-a052-\
+1163a7bd9ace"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Missing[\[OpenCurlyDoubleQuote]Unmentioned\[CloseCurlyDoubleQuote]]", \
+"Subsubsection",
+ CellChangeTimes->{{3.797628950532898*^9, 
+  3.797628954661954*^9}},ExpressionUUID->"399da85d-e6e3-430b-a193-\
+3fd9d9d5e1ed"],
+
+Cell[BoxData[
+ RowBox[{"Missing", "[", "\"\<Unmentioned\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.797628971168285*^9, 
+  3.797628977293681*^9}},ExpressionUUID->"1c1d6a32-c2a6-4fbc-b204-\
+de34387f7e30"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Observations", "Subsection",
+ CellChangeTimes->{{3.797629058430977*^9, 
+  3.797629061299774*^9}},ExpressionUUID->"da2ec88f-d261-4340-bf72-\
+af86ddb889fd"],
+
+Cell[CellGroupData[{
+
+Cell["DiaryObservation", "Subsubsection",
+ CellChangeTimes->{{3.797629063877516*^9, 3.797629067764888*^9}, {
+  3.7976293513580637`*^9, 
+  3.7976293570490303`*^9}},ExpressionUUID->"e5c31154-373e-4b10-b036-\
+a2cbc878205e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"DiaryObservation", "[", 
+   RowBox[{"<|", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"\"\<Type\>\"", "\[Rule]", 
+      TagBox[
+       FrameBox["\<\"type\"\>"],
+       "Placeholder"]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+      RowBox[{"Evaluate", "[", 
+       RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+     
+     RowBox[{"\"\<Content\>\"", "\[Rule]", 
+      RowBox[{"<|", 
+       TagBox[
+        FrameBox["\<\"content\"\>"],
+        "Placeholder"], "|>"}]}], ",", "\[IndentingNewLine]", 
+     RowBox[{"\"\<Date\>\"", "\[Rule]", 
+      RowBox[{"DiaryCombinedDate", "[", 
+       RowBox[{"<|", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"\"\<JulianDate\>\"", "\[Rule]", 
+          RowBox[{"DiaryJulianDate", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Evaluate", "[", 
+              RowBox[{"DiaryInputTemplate", "[", 
+               RowBox[{"\"\<Missing\>\"", ",", "\"\<year AD\>\""}], "]"}], 
+              "]"}], ",", 
+             RowBox[{"Evaluate", "[", 
+              RowBox[{"DiaryInputTemplate", "[", 
+               RowBox[{"\"\<Missing\>\"", ",", "\"\<month\>\""}], "]"}], 
+              "]"}], ",", 
+             RowBox[{"Evaluate", "[", 
+              RowBox[{"DiaryInputTemplate", "[", 
+               RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], 
+              "]"}]}], "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+         RowBox[{"\"\<BabylonianDate\>\"", "\[Rule]", 
+          RowBox[{"DiaryBabylonianDate", "[", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"Evaluate", "[", 
+                RowBox[{"DiaryInputTemplate", "[", "\"\<King\>\"", "]"}], 
+                "]"}], ",", "\[IndentingNewLine]", 
+               RowBox[{"Evaluate", "[", 
+                RowBox[{"DiaryInputTemplate", "[", 
+                 RowBox[{"\"\<Missing\>\"", ",", "\"\<year\>\""}], "]"}], 
+                "]"}]}], "}"}], ",", 
+             RowBox[{"Evaluate", "[", 
+              RowBox[{"DiaryInputTemplate", "[", 
+               RowBox[{"\"\<Row\>\"", ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                 "\"\<I\>\"", ",", "\"\<II\>\"", ",", "\"\<III\>\"", ",", 
+                  "\"\<IV\>\"", ",", "\"\<V\>\"", ",", "\"\<VI\>\"", ",", 
+                  "\"\<VI2\>\"", ",", "\"\<VII\>\"", ",", "\"\<VIII\>\"", 
+                  ",", "\"\<IX\>\"", ",", "\"\<X\>\"", ",", "\"\<XI\>\"", 
+                  ",", "\"\<XII\>\"", ",", "\"\<XII2\>\""}], "}"}]}], "]"}], 
+              "]"}], ",", 
+             RowBox[{"Evaluate", "[", 
+              RowBox[{"DiaryInputTemplate", "[", 
+               RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], 
+              "]"}]}], "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+         RowBox[{"\"\<Time\>\"", "\[Rule]", 
+          RowBox[{"Evaluate", "[", 
+           RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], 
+           "]"}]}]}], "\[IndentingNewLine]", "|>"}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"\"\<Provenance\>\"", "\[Rule]", 
+      RowBox[{"<|", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"\"\<Creator\>\"", "\[Rule]", 
+         TagBox[
+          FrameBox["\<\"creator\"\>"],
+          "Placeholder"]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"\"\<TabletID\>\"", "\[Rule]", 
+         TagBox[
+          FrameBox["\<\"Oracc ID\"\>"],
+          "Placeholder"]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+         TagBox[
+          FrameBox["\<\"line\"\>"],
+          "Placeholder"]}], ",", "\[IndentingNewLine]", 
+        RowBox[{"\"\<Reviewed\>\"", "\[Rule]", "False"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+         RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}]}]}],
+     "\[IndentingNewLine]", "|>"}], "]"}], ",", "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.7976290793864927`*^9, 3.797629190293107*^9}, {
+   3.798132859422874*^9, 3.79813286638201*^9}, {3.7981345845210123`*^9, 
+   3.7981345905837297`*^9}, {3.7981359502177*^9, 3.7981359580499*^9}, {
+   3.798731229635159*^9, 3.798731268533154*^9}, {3.798742581272726*^9, 
+   3.798742585003924*^9}, {3.798742925657514*^9, 3.798742926454834*^9}, {
+   3.798754999324829*^9, 3.798755024815456*^9}, {3.808184346105761*^9, 
+   3.808184346533725*^9}, {3.808403881871849*^9, 3.808403881879217*^9}, 
+   3.808500353043137*^9, {3.808619014020859*^9, 
+   3.808619014122841*^9}},ExpressionUUID->"bebe4476-edd7-4f53-9018-\
+1971b733faa3"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["General template", "Subsubsection",
+ CellChangeTimes->{{3.797629336616393*^9, 
+  3.797629360363035*^9}},ExpressionUUID->"d6727262-29ec-43c4-b43d-\
+66262607be86"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"type\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", 
+      TagBox[
+       FrameBox["\<\"content\"\>"],
+       "Placeholder"], "|>"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.7981346272975197`*^9, 3.7981346964160223`*^9}, {
+   3.798135960760219*^9, 3.798135963487362*^9}, 3.798731227324964*^9, {
+   3.79874284299193*^9, 3.798742898107295*^9}, {3.798755039066945*^9, 
+   3.798755045831102*^9}, {3.808184356807446*^9, 3.808184356830714*^9}, 
+   3.808403564856729*^9, {3.808403881881133*^9, 3.808403881881693*^9}, {
+   3.808590959440775*^9, 3.8085909614716454`*^9}, {3.808619017530567*^9, 
+   3.808619017648705*^9}},ExpressionUUID->"638c9672-08b6-4d79-ac88-\
+b06eb0be0ecb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["RelativePosition", "Subsubsection",
+ CellChangeTimes->{{3.797629336616393*^9, 3.797629360363035*^9}, {
+  3.798755071424232*^9, 
+  3.798755073103799*^9}},ExpressionUUID->"5ff4fb49-8ab1-4d19-a1e8-\
+13a11f686262"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<RelativePosition\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Object\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Object\>\"", "]"}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Reference\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Object\>\"", "]"}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Displacements\>\"", "\[Rule]", 
+        RowBox[{"{", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"DiaryDistance", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Evaluate", "[", 
+                RowBox[{"DiaryInputTemplate", "[", 
+                 RowBox[{"\"\<Missing\>\"", ",", "\"\<cubits\>\""}], "]"}], 
+                "]"}], ",", 
+               RowBox[{"Evaluate", "[", 
+                RowBox[{"DiaryInputTemplate", "[", 
+                 RowBox[{"\"\<Missing\>\"", ",", "\"\<fingers\>\""}], "]"}], 
+                "]"}]}], "}"}], "]"}], ",", 
+            RowBox[{"Evaluate", "[", 
+             RowBox[{"DiaryInputTemplate", "[", 
+              RowBox[{"\"\<Row\>\"", ",", 
+               RowBox[{"{", 
+                RowBox[{
+                "\"\<InFrontOf\>\"", ",", "\"\<Behind\>\"", ",", 
+                 "\"\<East\>\"", ",", "\"\<West\>\"", ",", "\"\<Above\>\"", 
+                 ",", "\"\<Below\>\"", ",", "\"\<North\>\"", ",", 
+                 "\"\<South\>\"", ",", 
+                 RowBox[{"Missing", "[", "\"\<Destroyed\>\"", "]"}], ",", 
+                 RowBox[{"Missing", "[", "\"\<Unmentioned\>\"", "]"}]}], 
+                "}"}]}], "]"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"DiaryDistance", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Evaluate", "[", 
+                RowBox[{"DiaryInputTemplate", "[", 
+                 RowBox[{"\"\<Missing\>\"", ",", "\"\<cubits\>\""}], "]"}], 
+                "]"}], ",", 
+               RowBox[{"Evaluate", "[", 
+                RowBox[{"DiaryInputTemplate", "[", 
+                 RowBox[{"\"\<Missing\>\"", ",", "\"\<fingers\>\""}], "]"}], 
+                "]"}]}], "}"}], "]"}], ",", 
+            RowBox[{"Evaluate", "[", 
+             RowBox[{"DiaryInputTemplate", "[", 
+              RowBox[{"\"\<Row\>\"", ",", 
+               RowBox[{"{", 
+                RowBox[{
+                "\"\<InFrontOf\>\"", ",", "\"\<Behind\>\"", ",", 
+                 "\"\<East\>\"", ",", "\"\<West\>\"", ",", "\"\<Above\>\"", 
+                 ",", "\"\<Below\>\"", ",", "\"\<North\>\"", ",", 
+                 "\"\<South\>\"", ",", 
+                 RowBox[{"Missing", "[", "\"\<Destroyed\>\"", "]"}], ",", 
+                 RowBox[{"Missing", "[", "\"\<Unmentioned\>\"", "]"}]}], 
+                "}"}]}], "]"}], "]"}]}], "}"}]}], "}"}]}]}], 
+      "\[IndentingNewLine]", "|>"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.7981346272975197`*^9, 3.7981346964160223`*^9}, {
+   3.798135960760219*^9, 3.798135963487362*^9}, 3.798731227324964*^9, {
+   3.79874284299193*^9, 3.798742898107295*^9}, {3.798755039066945*^9, 
+   3.798755045831102*^9}, {3.798755103535336*^9, 3.7987551871663017`*^9}, {
+   3.798768560300425*^9, 3.7987685623380623`*^9}, {3.798819779816802*^9, 
+   3.7988197823110313`*^9}, {3.7988327272800083`*^9, 
+   3.7988328169204893`*^9}, {3.808184354985529*^9, 3.808184355028233*^9}, 
+   3.808403564861787*^9, {3.808403881884735*^9, 3.8084038818929243`*^9}, {
+   3.808590964630579*^9, 3.808590968923401*^9}, {3.80861905273218*^9, 
+   3.808619052853137*^9}},ExpressionUUID->"19e721b4-3b3c-4d05-9d5c-\
+720bca3b45e5"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["ZodiacalPosition", "Subsubsection",
+ CellChangeTimes->{{3.797629336616393*^9, 3.797629360363035*^9}, 
+   3.797629678979354*^9},ExpressionUUID->"d1293c60-764b-4131-b9bd-\
+712cb66934bb"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<ZodiacalPosition\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Object\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Planet\>\"", "]"}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Sign\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<ZodiacSign\>\"", "]"}], 
+         "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Entering\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], "]"}]}],
+        ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<PositionInSign\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", 
+          RowBox[{"\"\<Row\>\"", ",", 
+           RowBox[{"{", 
+            RowBox[{"\"\<Beginning\>\"", ",", "\"\<End\>\"", ",", 
+             RowBox[{"Missing", "[", "\"\<Destroyed\>\"", "]"}], ",", 
+             RowBox[{"Missing", "[", "\"\<Unmentioned\>\"", "]"}]}], "}"}]}], 
+          "]"}], "]"}]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.7987554870904303`*^9, 3.798755504618033*^9}, {
+   3.7987555664830914`*^9, 3.798755589485599*^9}, {3.7987556295075207`*^9, 
+   3.798755646301715*^9}, {3.7987680604892*^9, 3.798768072031209*^9}, {
+   3.8081843629695663`*^9, 3.808184363005885*^9}, 3.808403564865073*^9, {
+   3.8084038818951597`*^9, 3.808403881898573*^9}, {3.808616157013381*^9, 
+   3.808616161144367*^9}, {3.8086190549658318`*^9, 
+   3.808619055074169*^9}},ExpressionUUID->"65d7c544-43ae-48bc-972e-\
+3e692a2fa422"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["NamedPosition", "Subsubsection",
+ CellChangeTimes->{{3.798129043425126*^9, 
+  3.7981290462573433`*^9}},ExpressionUUID->"82a9887d-6c1b-49cf-81fb-\
+04bf332b598a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<NamedPosition\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Object\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Planet\>\"", "]"}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Name\>\"", "\[Rule]", 
+        TagBox[
+         FrameBox["\<\"name\"\>"],
+         "Placeholder"]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.7987556746624527`*^9, 3.798755700507113*^9}, {
+   3.808184366466022*^9, 3.808184366485587*^9}, 3.80840356486761*^9, {
+   3.808403881900362*^9, 3.8084038819014874`*^9}, {3.808616164259799*^9, 
+   3.808616166256732*^9}, {3.808619056878544*^9, 
+   3.808619056977059*^9}},ExpressionUUID->"f4a703d2-db77-410d-9c24-\
+bf8ef41fd21b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Visible", "Subsubsection",
+ CellChangeTimes->{{3.7976297578711987`*^9, 3.797629759827265*^9}, {
+  3.798343104590294*^9, 
+  3.7983431048948507`*^9}},ExpressionUUID->"333b0ca5-29d4-498a-b3ef-\
+136d96db9e76"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Visible\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{"\"\<Object\>\"", "\[Rule]", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Planet\>\"", "]"}], "]"}]}], 
+      "\[IndentingNewLine]", "|>"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.7987557150411158`*^9, 3.798755735241493*^9}, {
+   3.808184369410534*^9, 3.8081843694265203`*^9}, 3.808403564869882*^9, {
+   3.808403881903195*^9, 3.8084038819043427`*^9}, {3.808616168401712*^9, 
+   3.80861617011938*^9}, {3.8086190591433496`*^9, 
+   3.808619059256803*^9}},ExpressionUUID->"b83c3fb1-d3d0-4b2c-90ae-\
+dfd061008ee9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["NotVisible", "Subsubsection",
+ CellChangeTimes->{{3.7976297578711987`*^9, 
+  3.797629759827265*^9}},ExpressionUUID->"564714e5-5384-4d3e-b630-\
+ca8683eb5ccc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<NotVisible\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{"\"\<Object\>\"", "\[Rule]", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Planet\>\"", "]"}], "]"}]}], 
+      "\[IndentingNewLine]", "|>"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.798135226522873*^9, 3.798135227347618*^9}, {
+   3.7981353293550167`*^9, 3.7981353302797318`*^9}, 3.798135970423805*^9, 
+   3.798731220720804*^9, {3.7987557634940567`*^9, 3.798755767287738*^9}, {
+   3.808184372210024*^9, 3.8081843722486343`*^9}, 3.808403564872251*^9, {
+   3.8084038819061527`*^9, 3.808403881907235*^9}, {3.808616172119608*^9, 
+   3.808616173966023*^9}, {3.8086190613846188`*^9, 
+   3.8086190614920053`*^9}},ExpressionUUID->"cd3fb1c3-e233-44f0-87dc-\
+615e1e317185"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Solstice", "Subsubsection",
+ CellChangeTimes->{{3.797860975715654*^9, 
+  3.797860978906447*^9}},ExpressionUUID->"75b62c08-ff40-4464-9f37-\
+38b2795a4ea6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Solstice\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<IdealDate\>\"", "\[Rule]", 
+        RowBox[{"DiaryInputDate", "[", 
+         RowBox[{
+          RowBox[{"Evaluate", "[", 
+           RowBox[{"DiaryInputTemplate", "[", 
+            RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], 
+          ",", 
+          RowBox[{"Missing", "[", "\"\<Unmentioned\>\"", "]"}]}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<DidNotWatch\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], 
+         "]"}]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.79875577623141*^9, 3.79875582681699*^9}, {
+  3.8081843747660007`*^9, 3.808184374801434*^9}, {3.808403564874708*^9, 
+  3.8084035648753653`*^9}, {3.808403881909127*^9, 3.808403881910988*^9}, {
+  3.808616176589657*^9, 3.808616178034387*^9}, {3.8086190644513073`*^9, 
+  3.808619064573007*^9}},ExpressionUUID->"58b051eb-4394-41ad-9c52-\
+de483a5e4a89"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Equinox", "Subsubsection",
+ CellChangeTimes->{{3.7978609805032663`*^9, 
+  3.7978609818602962`*^9}},ExpressionUUID->"ae70ac56-5bb8-4370-8e1a-\
+034942b2628f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Equinox\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<IdealDate\>\"", "\[Rule]", 
+        RowBox[{"DiaryInputDate", "[", 
+         RowBox[{
+          RowBox[{"Evaluate", "[", 
+           RowBox[{"DiaryInputTemplate", "[", 
+            RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], 
+          ",", 
+          RowBox[{"Missing", "[", "\"\<Unmentioned\>\"", "]"}]}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<DidNotWatch\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], 
+         "]"}]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.79875577623141*^9, 3.7987558494723186`*^9}, {
+  3.808184377189683*^9, 3.808184377213478*^9}, {3.808403564877982*^9, 
+  3.808403564878685*^9}, {3.808403881912983*^9, 3.808403881914761*^9}, {
+  3.808616180075156*^9, 3.8086161816213627`*^9}, {3.8086190669263287`*^9, 
+  3.80861906703983*^9}},ExpressionUUID->"407f27b3-1919-4944-8a25-\
+164e8ce01f57"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Eclipse", "Subsubsection",
+ CellChangeTimes->{{3.798343135821282*^9, 
+  3.798343136730813*^9}},ExpressionUUID->"bb0f95f3-e7ce-48fb-9c15-\
+554343da0ece"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "|>"}], 
+  RowBox[{"(*", 
+   RowBox[{"not", " ", "yet", " ", "added"}], "*)"}]}]], "Input",
+ CellChangeTimes->{{3.7983431604986134`*^9, 
+  3.798343170968855*^9}},ExpressionUUID->"419593e1-0482-4553-a137-\
+2711c9ce39ac"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["FirstAppearenceEast (\[CapitalGamma])", "Subsubsection",
+ CellChangeTimes->{
+  3.797629816209622*^9},ExpressionUUID->"9ae7221d-c47d-4d56-9f56-\
+be005e6ff62c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<FirstAppearenceEast\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Object\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Planet\>\"", "]"}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<VisibilityDuration\>\"", "\[Rule]", 
+        RowBox[{"DiaryDuration", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<degrees\>\""}], "]"}], 
+            "]"}], ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<NINDA\>\""}], "]"}], 
+            "]"}]}], "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<DidNotWatch\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], "]"}]}],
+        ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<IdealDate\>\"", "\[Rule]", 
+        RowBox[{"DiaryInputDate", "[", 
+         RowBox[{
+          RowBox[{"Evaluate", "[", 
+           RowBox[{"DiaryInputTemplate", "[", 
+            RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], 
+          ",", 
+          RowBox[{"Missing", "[", "\"\<Unmentioned\>\"", "]"}]}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Position\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", 
+          RowBox[{
+          "\"\<Missing\>\"", ",", "\"\<subobservation of position\>\""}], 
+          "]"}], "]"}]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.798755971449375*^9, 3.798756041546782*^9}, 
+   3.79875633164818*^9, {3.8081843882545033`*^9, 3.8081843882855*^9}, {
+   3.808403564882526*^9, 3.808403564883306*^9}, {3.808403881917427*^9, 
+   3.8084038819227047`*^9}, {3.80861618511137*^9, 3.8086161866981993`*^9}, {
+   3.808619069132326*^9, 
+   3.808619069250238*^9}},ExpressionUUID->"a86d4847-749d-4ea8-af1e-\
+c899c05b47e7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["FirstAppearenceWest (\[CapitalXi])", "Subsubsection",
+ CellChangeTimes->{{3.797616190981967*^9, 3.797616194825499*^9}, {
+  3.7976172371885433`*^9, 3.797617239983081*^9}, {3.797617477069441*^9, 
+  3.797617478215665*^9}, {3.797618552604311*^9, 
+  3.79761856888844*^9}},ExpressionUUID->"0094f795-abf1-482c-a820-\
+542f3d21b347"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<FirstAppearenceWest\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Object\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Planet\>\"", "]"}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<VisibilityDuration\>\"", "\[Rule]", 
+        RowBox[{"DiaryDuration", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<degrees\>\""}], "]"}], 
+            "]"}], ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<NINDA\>\""}], "]"}], 
+            "]"}]}], "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<DidNotWatch\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], "]"}]}],
+        ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<IdealDate\>\"", "\[Rule]", 
+        RowBox[{"DiaryInputDate", "[", 
+         RowBox[{
+          RowBox[{"Evaluate", "[", 
+           RowBox[{"DiaryInputTemplate", "[", 
+            RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], 
+          ",", 
+          RowBox[{"Missing", "[", "\"\<Unmentioned\>\"", "]"}]}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Position\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", 
+          RowBox[{
+          "\"\<Missing\>\"", ",", "\"\<subobservation of position\>\""}], 
+          "]"}], "]"}]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.798755971449375*^9, 3.798756059657113*^9}, 
+   3.79875632850231*^9, {3.808184390820772*^9, 3.8081843908401823`*^9}, {
+   3.808403564886664*^9, 3.808403564887438*^9}, {3.8084038819250402`*^9, 
+   3.808403881930019*^9}, {3.808616189522224*^9, 3.808616191262466*^9}, {
+   3.808619073483366*^9, 
+   3.808619073595837*^9}},ExpressionUUID->"93c9dd8d-97d0-4a4b-b1af-\
+8e4e1b676c1a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["LastAppearenceEast (\[CapitalSigma])", "Subsubsection",
+ CellChangeTimes->{{3.797616190981967*^9, 3.797616194825499*^9}, {
+  3.797616977094586*^9, 3.797616977560151*^9}, {3.797618522088674*^9, 
+  3.7976185235308657`*^9}, {3.797618573743082*^9, 
+  3.797618576699368*^9}},ExpressionUUID->"2d4814ef-ac26-447a-9306-\
+9ef45d7b50d6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<LastAppearenceEast\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Object\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Planet\>\"", "]"}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<VisibilityDuration\>\"", "\[Rule]", 
+        RowBox[{"DiaryDuration", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<degrees\>\""}], "]"}], 
+            "]"}], ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<NINDA\>\""}], "]"}], 
+            "]"}]}], "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<DidNotWatch\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], "]"}]}],
+        ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<IdealDate\>\"", "\[Rule]", 
+        RowBox[{"DiaryInputDate", "[", 
+         RowBox[{
+          RowBox[{"Evaluate", "[", 
+           RowBox[{"DiaryInputTemplate", "[", 
+            RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], 
+          ",", 
+          RowBox[{"Missing", "[", "\"\<Unmentioned\>\"", "]"}]}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Position\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", 
+          RowBox[{
+          "\"\<Missing\>\"", ",", "\"\<subobservation of position\>\""}], 
+          "]"}], "]"}]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.798755971449375*^9, 3.7987560792991467`*^9}, 
+   3.798756326239686*^9, {3.808184393798761*^9, 3.808184393825946*^9}, {
+   3.808403564890546*^9, 3.808403564891295*^9}, {3.80840388193246*^9, 
+   3.8084038819373627`*^9}, {3.808616193575465*^9, 3.8086161951561937`*^9}, {
+   3.808619075607574*^9, 
+   3.808619075732758*^9}},ExpressionUUID->"98b7d1b9-5056-4cd9-aae0-\
+44d30b6a1003"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["LastAppearenceWest (\[CapitalOmega])", "Subsubsection",
+ CellChangeTimes->{{3.797616190981967*^9, 3.797616194825499*^9}, {
+  3.797616977094586*^9, 3.797616977560151*^9}, {3.797618522088674*^9, 
+  3.7976185373516483`*^9}, {3.79761857879736*^9, 
+  3.797618582207581*^9}},ExpressionUUID->"4720f486-637c-4da1-8414-\
+64e5e0b7bb7d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<LastAppearenceWest\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Object\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Planet\>\"", "]"}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<VisibilityDuration\>\"", "\[Rule]", 
+        RowBox[{"DiaryDuration", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<degrees\>\""}], "]"}], 
+            "]"}], ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<NINDA\>\""}], "]"}], 
+            "]"}]}], "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<DidNotWatch\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], "]"}]}],
+        ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<IdealDate\>\"", "\[Rule]", 
+        RowBox[{"DiaryInputDate", "[", 
+         RowBox[{
+          RowBox[{"Evaluate", "[", 
+           RowBox[{"DiaryInputTemplate", "[", 
+            RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], 
+          ",", 
+          RowBox[{"Missing", "[", "\"\<Unmentioned\>\"", "]"}]}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Position\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", 
+          RowBox[{
+          "\"\<Missing\>\"", ",", "\"\<subobservation of position\>\""}], 
+          "]"}], "]"}]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.798755971449375*^9, 3.7987561000516987`*^9}, 
+   3.798756323517824*^9, {3.808184396708394*^9, 3.808184397516418*^9}, {
+   3.80840356489429*^9, 3.808403564895013*^9}, {3.8084038819398746`*^9, 
+   3.80840388194477*^9}, {3.808616197885273*^9, 3.808616199499062*^9}, {
+   3.808619077784195*^9, 
+   3.808619077892126*^9}},ExpressionUUID->"a2d934e5-ebfc-417c-be4d-\
+9f230955eef4"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["FirstStationaryPoint (\[CapitalPhi])", "Subsubsection",
+ CellChangeTimes->{{3.797616190981967*^9, 3.797616194825499*^9}, {
+  3.7976172371885433`*^9, 3.797617239983081*^9}, {3.797618547978442*^9, 
+  3.797618550997417*^9}, {3.797623402676403*^9, 
+  3.797623411738996*^9}},ExpressionUUID->"c5dd4682-fb17-410f-bafa-\
+0dd79eb950f5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<FirstStationaryPoint\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Object\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Planet\>\"", "]"}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<DidNotWatch\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], "]"}]}],
+        ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<IdealDate\>\"", "\[Rule]", 
+        RowBox[{"DiaryInputDate", "[", 
+         RowBox[{
+          RowBox[{"Evaluate", "[", 
+           RowBox[{"DiaryInputTemplate", "[", 
+            RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], 
+          ",", 
+          RowBox[{"Missing", "[", "\"\<Unmentioned\>\"", "]"}]}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Position\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", 
+          RowBox[{
+          "\"\<Missing\>\"", ",", "\"\<subobservation of position\>\""}], 
+          "]"}], "]"}]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.798755971449375*^9, 3.7987561271952467`*^9}, 
+   3.7987563210837584`*^9, {3.808184400048726*^9, 3.8081844001038303`*^9}, {
+   3.8084035648975554`*^9, 3.8084035648981867`*^9}, {3.8084038819470243`*^9, 
+   3.8084038819501534`*^9}, {3.808616201872305*^9, 3.8086162035248957`*^9}, {
+   3.808619079751243*^9, 
+   3.808619079872547*^9}},ExpressionUUID->"061d7a81-16d2-4c66-9c12-\
+093fdb9bf6f8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["SecondStationaryPoint (\[CapitalPsi])", "Subsubsection",
+ CellChangeTimes->{{3.797616190981967*^9, 3.797616194825499*^9}, {
+  3.7976172371885433`*^9, 3.797617239983081*^9}, {3.797618547978442*^9, 
+  3.797618550997417*^9}, {3.797623402676403*^9, 3.797623411738996*^9}, {
+  3.7976234500004*^9, 
+  3.7976234551621037`*^9}},ExpressionUUID->"488d9961-34c3-4e5a-b5a6-\
+a28e845596fc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<SecondStationaryPoint\>\""}], ",",
+     "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Object\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Planet\>\"", "]"}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<DidNotWatch\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], "]"}]}],
+        ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<IdealDate\>\"", "\[Rule]", 
+        RowBox[{"DiaryInputDate", "[", 
+         RowBox[{
+          RowBox[{"Evaluate", "[", 
+           RowBox[{"DiaryInputTemplate", "[", 
+            RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], 
+          ",", 
+          RowBox[{"Missing", "[", "\"\<Unmentioned\>\"", "]"}]}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Position\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", 
+          RowBox[{
+          "\"\<Missing\>\"", ",", "\"\<subobservation of position\>\""}], 
+          "]"}], "]"}]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.798755971449375*^9, 3.7987561271952467`*^9}, 
+   3.798756229630862*^9, 3.798756315966724*^9, {3.8081844023441896`*^9, 
+   3.808184402376507*^9}, {3.808403564900671*^9, 3.80840356490128*^9}, {
+   3.808403881952376*^9, 3.808403881955907*^9}, {3.808616205611795*^9, 
+   3.808616207214843*^9}, {3.8086190818948917`*^9, 
+   3.80861908201939*^9}},ExpressionUUID->"aa3b338b-a6d2-4583-84a6-\
+43dc6e0a48ef"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["AcronychalRising (\[CapitalTheta])", "Subsubsection",
+ CellChangeTimes->{{3.797616190981967*^9, 3.797616194825499*^9}, {
+  3.7976172371885433`*^9, 3.797617239983081*^9}, {3.797618547978442*^9, 
+  3.797618550997417*^9}, {3.797623402676403*^9, 3.797623411738996*^9}, {
+  3.7976234500004*^9, 3.7976234551621037`*^9}, {3.797623522799769*^9, 
+  3.7976235559196777`*^9}, {3.797623954039689*^9, 
+  3.797623955542878*^9}},ExpressionUUID->"4c29ec6a-b50d-4507-8d87-\
+88af266d824e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<AcronychalRising\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Object\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Planet\>\"", "]"}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<DidNotWatch\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], "]"}]}],
+        ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<IdealDate\>\"", "\[Rule]", 
+        RowBox[{"DiaryInputDate", "[", 
+         RowBox[{
+          RowBox[{"Evaluate", "[", 
+           RowBox[{"DiaryInputTemplate", "[", 
+            RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], 
+          ",", 
+          RowBox[{"Missing", "[", "\"\<Unmentioned\>\"", "]"}]}], "]"}]}]}], 
+      "\[IndentingNewLine]", "|>"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.798755971449375*^9, 3.7987561271952467`*^9}, 
+   3.798756229630862*^9, {3.798756288599201*^9, 3.798756311379015*^9}, {
+   3.80818440487792*^9, 3.808184404944869*^9}, {3.80840356490355*^9, 
+   3.80840356490412*^9}, {3.808403881958082*^9, 3.8084038819606037`*^9}, {
+   3.808616209236207*^9, 3.808616210763832*^9}, {3.808619083988875*^9, 
+   3.808619084098632*^9}},ExpressionUUID->"9dd11aee-eddb-4787-869f-\
+b32dccf8754b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["SunsetToMoonset", "Subsubsection",
+ CellChangeTimes->{
+  3.7976300894930763`*^9},ExpressionUUID->"d1a9e563-3a3c-4ebc-915e-\
+48f2b66f3a25"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<SunsetToMoonset\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Duration\>\"", "\[Rule]", 
+        RowBox[{"DiaryDuration", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<degrees\>\""}], "]"}], 
+            "]"}], ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<NINDA\>\""}], "]"}], 
+            "]"}]}], "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<DidNotWatch\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], "]"}]}],
+        ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Measured\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], 
+         "]"}]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.7987564340944023`*^9, 3.798756451478079*^9}, {
+   3.808184407570937*^9, 3.8081844075901613`*^9}, 3.808403564906329*^9, {
+   3.808403881962821*^9, 3.808403881965953*^9}, {3.80861621524323*^9, 
+   3.8086162165311327`*^9}, {3.808619085920965*^9, 
+   3.808619086022397*^9}},ExpressionUUID->"ed85393c-2852-48fe-9f32-\
+4bf64dc7145e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["MoonsetToSunrise", "Subsubsection",
+ CellChangeTimes->{{3.7974389212244596`*^9, 
+  3.79743892460367*^9}},ExpressionUUID->"5847682a-b2d0-4772-8ed7-\
+b56c32774824"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<MoonsetToSunrise\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Duration\>\"", "\[Rule]", 
+        RowBox[{"DiaryDuration", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<degrees\>\""}], "]"}], 
+            "]"}], ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<NINDA\>\""}], "]"}], 
+            "]"}]}], "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<DidNotWatch\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], "]"}]}],
+        ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Measured\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], 
+         "]"}]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.7987564340944023`*^9, 3.798756480739883*^9}, {
+   3.808184409786923*^9, 3.8081844098063583`*^9}, 3.808403564908371*^9, {
+   3.808403881967987*^9, 3.808403881971319*^9}, {3.808616218417729*^9, 
+   3.808616220651173*^9}, {3.8086190879151382`*^9, 
+   3.808619088022665*^9}},ExpressionUUID->"173ab7f9-3982-4102-9735-\
+0bfc6479fed2"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["SunriseToMoonset", "Subsubsection",
+ CellChangeTimes->{{3.7974389212244596`*^9, 3.79743892460367*^9}, {
+  3.797438956262776*^9, 
+  3.79743895842909*^9}},ExpressionUUID->"86950bcc-ffde-4b8a-8e85-\
+69f65474f6d2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<SunriseToMoonset\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Duration\>\"", "\[Rule]", 
+        RowBox[{"DiaryDuration", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<degrees\>\""}], "]"}], 
+            "]"}], ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<NINDA\>\""}], "]"}], 
+            "]"}]}], "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<DidNotWatch\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], "]"}]}],
+        ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Measured\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], 
+         "]"}]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.7987564340944023`*^9, 3.798756486084196*^9}, {
+   3.808184412414735*^9, 3.808184412433105*^9}, 3.8084035649107847`*^9, {
+   3.808403881973428*^9, 3.808403881976494*^9}, {3.808616222310246*^9, 
+   3.8086162236890087`*^9}, {3.808619089946807*^9, 
+   3.8086190900845327`*^9}},ExpressionUUID->"70851a75-753e-4749-a926-\
+7fd00e3f4024"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["MoonriseToSunset", "Subsubsection",
+ CellChangeTimes->{{3.7974389212244596`*^9, 3.79743892460367*^9}, {
+  3.797438956262776*^9, 3.79743895842909*^9}, {3.79743901204202*^9, 
+  3.797439015265204*^9}},ExpressionUUID->"658539ca-a88e-438b-a34f-\
+2d73b5ab7ec9"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<MoonriseToSunset\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Duration\>\"", "\[Rule]", 
+        RowBox[{"DiaryDuration", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<degrees\>\""}], "]"}], 
+            "]"}], ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<NINDA\>\""}], "]"}], 
+            "]"}]}], "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<DidNotWatch\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], "]"}]}],
+        ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Measured\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], 
+         "]"}]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.7987564340944023`*^9, 3.798756491858615*^9}, {
+   3.8081844148977623`*^9, 3.808184414920484*^9}, 3.808403564913105*^9, {
+   3.808403881978643*^9, 3.808403881981711*^9}, {3.808616225360787*^9, 
+   3.808616226795855*^9}, {3.808619092070685*^9, 
+   3.8086190923791523`*^9}},ExpressionUUID->"426fda00-f766-4781-b892-\
+909165d7d2fa"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["SunsetToMoonrise", "Subsubsection",
+ CellChangeTimes->{{3.7974389212244596`*^9, 3.79743892460367*^9}, {
+  3.797438956262776*^9, 3.79743895842909*^9}, {3.79743901204202*^9, 
+  3.7974390326429043`*^9}},ExpressionUUID->"287251dd-0471-4e1b-a12d-\
+6716e91c50a8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<SunsetToMoonrise\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Duration\>\"", "\[Rule]", 
+        RowBox[{"DiaryDuration", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<degrees\>\""}], "]"}], 
+            "]"}], ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<NINDA\>\""}], "]"}], 
+            "]"}]}], "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<DidNotWatch\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], "]"}]}],
+        ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Measured\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], 
+         "]"}]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.7987564340944023`*^9, 3.7987564965025*^9}, {
+   3.808184420242565*^9, 3.808184420269217*^9}, 3.808403564915255*^9, {
+   3.808403881983754*^9, 3.808403881986842*^9}, {3.8086162285123367`*^9, 
+   3.808616229896654*^9}, {3.808619094380968*^9, 
+   3.808619094529125*^9}},ExpressionUUID->"4e7b32f4-21ea-4ff6-9748-\
+b3c9c3b3dfc8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["MoonriseToSunrise", "Subsubsection",
+ CellChangeTimes->{{3.7974389212244596`*^9, 3.79743892460367*^9}, {
+  3.797438956262776*^9, 3.79743895842909*^9}, {3.79743901204202*^9, 
+  3.7974390326429043`*^9}, {3.797439107136971*^9, 
+  3.797439109927928*^9}},ExpressionUUID->"3c4e2764-f185-4f77-8248-\
+e8481f940d1a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<MoonriseToSunrise\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Duration\>\"", "\[Rule]", 
+        RowBox[{"DiaryDuration", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<degrees\>\""}], "]"}], 
+            "]"}], ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<NINDA\>\""}], "]"}], 
+            "]"}]}], "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<DidNotWatch\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], "]"}]}],
+        ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Measured\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", "\"\<Boolean\>\"", "]"}], 
+         "]"}]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.7987564340944023`*^9, 3.79875650147633*^9}, {
+   3.8081844240153017`*^9, 3.8081844240492783`*^9}, 3.808403564917309*^9, {
+   3.808403881988894*^9, 3.808403881991959*^9}, {3.808616231900885*^9, 
+   3.808616234058036*^9}, {3.8086190987242928`*^9, 
+   3.808619098850978*^9}},ExpressionUUID->"d3bd1f47-270d-4f0d-975c-\
+c6d58ecbcaf1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["WindDirection", "Subsubsection",
+ CellChangeTimes->{{3.7976302677224493`*^9, 
+  3.797630293671213*^9}},ExpressionUUID->"b3fbead7-86ed-4520-959e-\
+56b3ae2a7ddc"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<WindDirection\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{"\"\<Direction\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", 
+          RowBox[{"\"\<Row\>\"", ",", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<North\>\"", ",", "\"\<South\>\"", ",", "\"\<East\>\"", ",", 
+             "\"\<West\>\""}], "}"}]}], "]"}], "]"}], "}"}]}], 
+      "\[IndentingNewLine]", "|>"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.798756555743911*^9, 3.798756598630454*^9}, {
+   3.808184426950849*^9, 3.8081844269780283`*^9}, 3.8084035649193287`*^9, {
+   3.808403881993813*^9, 3.8084038819949837`*^9}, {3.808616236134645*^9, 
+   3.808616237503017*^9}, {3.80861910084638*^9, 3.808619100979762*^9}, {
+   3.808873255467368*^9, 
+   3.80887325763177*^9}},ExpressionUUID->"585a8d1c-01f4-4fb7-9329-\
+31cfe1449903"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Weather", "Subsubsection",
+ CellChangeTimes->{{3.797630308298627*^9, 
+  3.797630309120798*^9}},ExpressionUUID->"92b3e113-c56e-40e8-b9b1-\
+5301be1d35fd"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Weather\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{"\"\<Tag\>\"", "\[Rule]", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Row\>\"", ",", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<Mist\>\"", ",", "\"\<Rain\>\"", ",", "\"\<Clouds\>\"", ",", 
+            "\"\<ThinClouds\>\"", ",", "\"\<CrossingClouds\>\"", ",", 
+            "\"\<HeavyClouds\>\"", ",", "\"\<Fog\>\"", ",", 
+            "\"\<HeavyFog\>\"", ",", "\"\<Lightning\>\"", ",", 
+            "\"\<Thunder\>\"", ",", "\"\<Haze\>\"", ",", "\"\<Mud\>\"", ",", 
+            "\"\<ThickRain\>\"", ",", "\"\<Hail\>\"", ",", "\"\<Dew\>\"", 
+            ",", "\"\<Cloudburst\>\"", ",", "\"\<Cold\>\"", ",", 
+            "\"\<ColdWind\>\"", ",", "\"\<Overcast\>\"", ",", 
+            "\"\<Locusts\>\"", ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<Rainbow\>\"", ",", 
+              RowBox[{
+              "\"\<North\>\"", "|", "\"\<South\>\"", "|", "\"\<East\>\"", 
+               "|", "\"\<West\>\"", "|", "_Missing"}]}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"\"\<Halo\>\"", ",", 
+              RowBox[{
+              "\"\<North\>\"", "|", "\"\<South\>\"", "|", "\"\<East\>\"", 
+               "|", "\"\<West\>\"", "|", "_Missing"}]}], "}"}]}], "}"}]}], 
+         "]"}], "]"}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.7987566374607773`*^9, 3.798756656405671*^9}, {
+   3.7987566995457706`*^9, 3.798756752935259*^9}, {3.8081844294264193`*^9, 
+   3.808184429453869*^9}, 3.8084035649219627`*^9, {3.808403881997444*^9, 
+   3.808403881998672*^9}, {3.80861624509776*^9, 3.808616246666675*^9}, {
+   3.80861910329559*^9, 
+   3.808619103439828*^9}},ExpressionUUID->"4e85c80a-57e5-4f83-b8b2-\
+510d09d7e847"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["MarketRates", "Subsubsection",
+ CellChangeTimes->{{3.7976303698737993`*^9, 
+  3.797630371231476*^9}},ExpressionUUID->"1d96b4cd-da1c-4c47-8cc4-\
+14e502ee9c8d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Missing", "[", "\"\<Unmentioned\>\"", "]"}]}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<MarketRates\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Barley\>\"", "\[Rule]", 
+        RowBox[{"DiaryCapacity", "[", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<kur\>\""}], "]"}], "]"}], 
+           ",", "\[IndentingNewLine]", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<p\[ABar]n\>\""}], "]"}], 
+            "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<s\:016bt\>\""}], "]"}], 
+            "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<qa\>\""}], "]"}], "]"}]}], 
+          "\[IndentingNewLine]", "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Dates\>\"", "\[Rule]", 
+        RowBox[{"DiaryCapacity", "[", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<kur\>\""}], "]"}], "]"}], 
+           ",", "\[IndentingNewLine]", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<p\[ABar]n\>\""}], "]"}], 
+            "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<s\:016bt\>\""}], "]"}], 
+            "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<qa\>\""}], "]"}], "]"}]}], 
+          "\[IndentingNewLine]", "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Mustard\>\"", "\[Rule]", 
+        RowBox[{"DiaryCapacity", "[", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<kur\>\""}], "]"}], "]"}], 
+           ",", "\[IndentingNewLine]", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<p\[ABar]n\>\""}], "]"}], 
+            "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<s\:016bt\>\""}], "]"}], 
+            "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<qa\>\""}], "]"}], "]"}]}], 
+          "\[IndentingNewLine]", "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Cress\>\"", "\[Rule]", 
+        RowBox[{"DiaryCapacity", "[", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<kur\>\""}], "]"}], "]"}], 
+           ",", "\[IndentingNewLine]", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<p\[ABar]n\>\""}], "]"}], 
+            "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<s\:016bt\>\""}], "]"}], 
+            "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<qa\>\""}], "]"}], "]"}]}], 
+          "\[IndentingNewLine]", "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Sesame\>\"", "\[Rule]", 
+        RowBox[{"DiaryCapacity", "[", 
+         RowBox[{"{", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<kur\>\""}], "]"}], "]"}], 
+           ",", "\[IndentingNewLine]", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<p\[ABar]n\>\""}], "]"}], 
+            "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<s\:016bt\>\""}], "]"}], 
+            "]"}], ",", "\[IndentingNewLine]", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<qa\>\""}], "]"}], "]"}]}], 
+          "\[IndentingNewLine]", "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Wool\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", 
+          RowBox[{"\"\<Missing\>\"", ",", "\"\<minas\>\""}], "]"}], "]"}]}]}],
+       "\[IndentingNewLine]", "|>"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.798756781043231*^9, 3.7987568317897577`*^9}, {
+   3.798756866709988*^9, 3.798756873346529*^9}, {3.798769902759227*^9, 
+   3.798769903264241*^9}, {3.8081844319980288`*^9, 3.808184432020323*^9}, 
+   3.808403564926325*^9, {3.808403882002317*^9, 3.808403882025326*^9}, {
+   3.80861624860268*^9, 3.808616250813799*^9}, {3.8086191064217463`*^9, 
+   3.808619106543943*^9}},ExpressionUUID->"5b48ff58-8b3f-4d41-b9de-\
+5e4dac63396e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["RiverLevelDirection", "Subsubsection",
+ CellChangeTimes->{{3.798343216297233*^9, 
+  3.798343219341906*^9}},ExpressionUUID->"12c327df-c2ba-4521-924e-\
+eed78722613f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<RiverLevelDirection\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{"\"\<Direction\>\"", "\[Rule]", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Row\>\"", ",", 
+          RowBox[{"{", 
+           RowBox[{
+           "\"\<Rising\>\"", ",", "\"\<Falling\>\"", ",", "\"\<Standing\>\"", 
+            ",", 
+            RowBox[{"Missing", "[", "\"\<Destroyed\>\"", "]"}], ",", 
+            RowBox[{"Missing", "[", "\"\<Unmentioned\>\"", "]"}]}], "}"}]}], 
+         "]"}], "]"}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.7987675323972797`*^9, 3.798767538602664*^9}, 
+   3.798767571111012*^9, {3.798768588529954*^9, 3.7987685893347387`*^9}, {
+   3.8081844364309273`*^9, 3.808184436450224*^9}, 3.808403564928295*^9, {
+   3.808403882027562*^9, 3.808403882029174*^9}, {3.808616252565021*^9, 
+   3.808616254392907*^9}, {3.808619110341868*^9, 
+   3.80861911046602*^9}},ExpressionUUID->"b5c4cab8-b6f0-4603-9483-\
+f3b22e867ff9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["RiverLevelChange", "Subsubsection",
+ CellChangeTimes->{{3.798343216297233*^9, 3.798343219341906*^9}, {
+  3.798343260851798*^9, 
+  3.7983432613992767`*^9}},ExpressionUUID->"7ea59de4-af37-4955-ab6d-\
+cbd7a016cf5e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<RiverLevelChange\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<StartDate\>\"", "\[Rule]", 
+        RowBox[{"DiaryInputDate", "[", 
+         RowBox[{
+          RowBox[{"Evaluate", "[", 
+           RowBox[{"DiaryInputTemplate", "[", 
+            RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], 
+          ",", 
+          RowBox[{"Missing", "[", "\"\<Unmentioned\>\"", "]"}]}], "]"}]}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Direction\>\"", "\[Rule]", 
+        RowBox[{"Evaluate", "[", 
+         RowBox[{"DiaryInputTemplate", "[", 
+          RowBox[{"\"\<Row\>\"", ",", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<Rising\>\"", ",", "\"\<Falling\>\"", ",", "\"\<Standing\>\"",
+              ",", 
+             RowBox[{"Missing", "[", "\"\<Destroyed\>\"", "]"}], ",", 
+             RowBox[{"Missing", "[", "\"\<Unmentioned\>\"", "]"}]}], "}"}]}], 
+          "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Distance\>\"", "\[Rule]", 
+        RowBox[{"DiaryDistance", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<cubits\>\""}], "]"}], "]"}],
+            ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<fingers\>\""}], "]"}], 
+            "]"}]}], "}"}], "]"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Remainder\>\"", "\[Rule]", 
+        RowBox[{"DiaryDistance", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<cubits\>\""}], "]"}], "]"}],
+            ",", 
+           RowBox[{"Evaluate", "[", 
+            RowBox[{"DiaryInputTemplate", "[", 
+             RowBox[{"\"\<Missing\>\"", ",", "\"\<fingers\>\""}], "]"}], 
+            "]"}]}], "}"}], "]"}]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.7987675888222857`*^9, 3.798767621961668*^9}, {
+  3.798768598134094*^9, 3.798768598385545*^9}, {3.808184439571012*^9, 
+  3.808184439591745*^9}, {3.808403564930932*^9, 3.808403564931657*^9}, {
+  3.808403882031762*^9, 3.808403882037015*^9}, {3.808616266120105*^9, 
+  3.8086162683660173`*^9}, {3.808619113443707*^9, 
+  3.8086191135738583`*^9}},ExpressionUUID->"3aa603d5-e001-4633-a979-\
+43e81abf84a9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["RiverLevel", "Subsubsection",
+ CellChangeTimes->{{3.798343216297233*^9, 3.798343219341906*^9}, {
+   3.798343260851798*^9, 3.7983432613992767`*^9}, 
+   3.7983433283535337`*^9},ExpressionUUID->"5dbd8f1c-ff99-4ef2-bb22-\
+fcba1b33baf8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<RiverLevel\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{"\"\<Value\>\"", "\[Rule]", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<na value\>\""}], "]"}], "]"}]}],
+       "\[IndentingNewLine]", "|>"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.7987676891749897`*^9, 3.79876771661397*^9}, {
+   3.808184443293851*^9, 3.808184443365039*^9}, 3.808403564933373*^9, {
+   3.808403882038858*^9, 3.8084038820399714`*^9}, {3.808616270410718*^9, 
+   3.808616271735026*^9}, {3.8086191156960707`*^9, 
+   3.808619115836438*^9}},ExpressionUUID->"4b8da220-b9f1-4213-a5d6-\
+186e8586c481"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["HistoricalEvent", "Subsubsection",
+ CellChangeTimes->{{3.798343353194203*^9, 
+  3.798343356135715*^9}},ExpressionUUID->"3b01dfa8-f20d-4b41-9e5e-\
+1b1c1effafe6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<HistoricalEvent\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<EndLine\>\"", "\[Rule]", 
+        TagBox[
+         FrameBox["\<\"end line\"\>"],
+         "Placeholder"]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Tags\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         RowBox[{
+          TagBox[
+           FrameBox["\<\"tags\"\>"],
+           "Placeholder"], "|", "\"\<War\>\"", "|", 
+          "\"\<ReligiousCeremony\>\"", "|", "\"\<Famine\>\"", "|", 
+          "\"\<Celebration\>\""}], "}"}]}]}], "\[IndentingNewLine]", "|>"}]}],
+     ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.798767729331914*^9, 3.79876778421898*^9}, {
+   3.808184488086978*^9, 3.808184488109569*^9}, 3.80840356493587*^9, {
+   3.808403882041868*^9, 3.808403882042438*^9}, {3.808616276706449*^9, 
+   3.8086162804469767`*^9}, {3.808619118204999*^9, 
+   3.808619118340399*^9}},ExpressionUUID->"4c891740-cfc5-4306-a295-\
+0d0958f0fb28"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Error", "Subsubsection",
+ CellChangeTimes->{{3.7976304350873833`*^9, 
+  3.7976304356801023`*^9}},ExpressionUUID->"61fbc2f7-730e-43d8-8db9-\
+9ae3567b25a3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Error\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Type\>\"", "\[Rule]", 
+        TagBox[
+         FrameBox["\<\"type\"\>"],
+         "Placeholder"]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Note\>\"", "\[Rule]", 
+        TagBox[
+         FrameBox["\<\"notes\"\>"],
+         "Placeholder"]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.7987678319117537`*^9, 3.79876784030267*^9}, {
+   3.8081844916618023`*^9, 3.8081844916771507`*^9}, 3.808403564937684*^9, {
+   3.808403882044396*^9, 3.80840388204494*^9}, {3.808616282389935*^9, 
+   3.80861628389349*^9}, {3.808619120734889*^9, 
+   3.808619120870215*^9}},ExpressionUUID->"518b6955-0c49-47ad-817a-\
+e2b0433af04f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Other", "Subsubsection",
+ CellChangeTimes->{{3.797630455361574*^9, 
+  3.797630455775199*^9}},ExpressionUUID->"b03cfd44-2c27-4fa4-af8e-\
+92547213281f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<UUID\>\"", "\[Rule]", 
+     RowBox[{"Evaluate", "[", 
+      RowBox[{"CreateUUID", "[", "]"}], "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<LineNumber\>\"", "\[Rule]", 
+     TagBox[
+      FrameBox["\<\"line\"\>"],
+      "Placeholder"]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Date\>\"", "\[Rule]", 
+     RowBox[{"DiaryInputDate", "[", 
+      RowBox[{
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", 
+         RowBox[{"\"\<Missing\>\"", ",", "\"\<day\>\""}], "]"}], "]"}], ",", 
+       RowBox[{"Evaluate", "[", 
+        RowBox[{"DiaryInputTemplate", "[", "\"\<Time\>\"", "]"}], "]"}]}], 
+      "]"}]}], ",", "\[IndentingNewLine]", 
+    RowBox[{"\"\<Type\>\"", "\[Rule]", "\"\<Other\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Content\>\"", "\[Rule]", 
+     RowBox[{"<|", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\"\<Tags\>\"", "\[Rule]", 
+        RowBox[{"{", 
+         TagBox[
+          FrameBox["\<\"tags\"\>"],
+          "Placeholder"], "}"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{"\"\<Note\>\"", "\[Rule]", 
+        TagBox[
+         FrameBox["\<\"notes\"\>"],
+         "Placeholder"]}]}], "\[IndentingNewLine]", "|>"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Notes\>\"", "\[Rule]", 
+     RowBox[{"Missing", "[", "]"}]}]}], "\[IndentingNewLine]", "|>"}], ",", 
+  "\[IndentingNewLine]", 
+  TagBox[
+   FrameBox["\<\"next observation\"\>"],
+   "Placeholder"]}]], "Input",
+ CellChangeTimes->{{3.7987678541012917`*^9, 3.798767858576819*^9}, {
+   3.808184494410758*^9, 3.8081844944336977`*^9}, 3.808403564939598*^9, {
+   3.808403882046677*^9, 3.8084038820472193`*^9}, {3.8086162858368473`*^9, 
+   3.808616287571047*^9}, {3.808619124242798*^9, 
+   3.808619124402143*^9}},ExpressionUUID->"aac3f65e-7f53-4391-b563-\
+3fc30e52bef3"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 905},
+WindowMargins->{{Automatic, 330}, {44, Automatic}},
+FrontEndVersion->"12.1 for Mac OS X x86 (64-bit) (June 9, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"75474755-8c1b-4fde-bd7c-e58093f8fb45"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 157, 3, 54, "Subsection",ExpressionUUID->"b8b89563-8420-400b-866c-c027c93a6b4a"],
+Cell[CellGroupData[{
+Cell[762, 29, 208, 4, 45, "Subsubsection",ExpressionUUID->"00485494-f8ad-4574-86ba-8b3f94668370"],
+Cell[973, 35, 853, 20, 157, "Input",ExpressionUUID->"dbd2fba2-c2de-4879-8c09-da2e11b5f6bf"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1863, 60, 157, 3, 45, "Subsubsection",ExpressionUUID->"4c764ded-a9dc-4ac2-ad72-67e2a1873ca7"],
+Cell[2023, 65, 2673, 53, 270, "Input",ExpressionUUID->"d2073d21-2e65-4013-81d3-2cf787b1fefa"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4745, 124, 164, 3, 54, "Subsection",ExpressionUUID->"0d4190cb-69b5-4def-8424-5669011e4a04"],
+Cell[CellGroupData[{
+Cell[4934, 131, 162, 3, 45, "Subsubsection",ExpressionUUID->"9e7d27ad-cf89-4344-8738-17d4cd3138ea"],
+Cell[5099, 136, 1144, 20, 52, "Input",ExpressionUUID->"1c37438f-e295-47f0-b3ee-d6adae45cd37"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6280, 161, 216, 4, 45, "Subsubsection",ExpressionUUID->"55b4c259-bb43-48a5-ac69-d70903e57140"],
+Cell[6499, 167, 2400, 53, 283, "Input",ExpressionUUID->"1c8ec035-4476-4b15-afa7-aae457aa5bab"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8936, 225, 166, 3, 45, "Subsubsection",ExpressionUUID->"b5c49c6b-626f-4ecf-acad-746349eff814"],
+Cell[9105, 230, 671, 15, 52, "Input",ExpressionUUID->"fdb6508c-4b72-4d76-b8e4-4d197322836f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9813, 250, 164, 3, 45, "Subsubsection",ExpressionUUID->"c4b49f59-86b7-4af3-849e-e9ade50f788c"],
+Cell[9980, 255, 699, 16, 52, "Input",ExpressionUUID->"12174a6a-a7a8-4f74-9e69-b529f5cb2df5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10716, 276, 166, 3, 45, "Subsubsection",ExpressionUUID->"8973a062-337d-442f-add0-5f4e76695a42"],
+Cell[10885, 281, 1094, 24, 136, "Input",ExpressionUUID->"de03670d-ec45-4e65-ba55-05875217bddd"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12028, 311, 157, 3, 54, "Subsection",ExpressionUUID->"262b5d47-bfdc-4f9d-a673-8173204b8a41"],
+Cell[CellGroupData[{
+Cell[12210, 318, 160, 3, 45, "Subsubsection",ExpressionUUID->"613df0ac-ee02-4eb0-918e-9689a3c80bac"],
+Cell[12373, 323, 181, 4, 30, "Input",ExpressionUUID->"1f046a0a-a3c8-46a3-a94d-8d455cb3b2cb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12591, 332, 220, 4, 45, "Subsubsection",ExpressionUUID->"2b4f9841-ef35-4de9-a0a7-823eb882a877"],
+Cell[12814, 338, 204, 4, 30, "Input",ExpressionUUID->"cea7d7e3-9ac9-4bc1-a052-1163a7bd9ace"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13055, 347, 220, 4, 45, "Subsubsection",ExpressionUUID->"399da85d-e6e3-430b-a193-3fd9d9d5e1ed"],
+Cell[13278, 353, 204, 4, 30, "Input",ExpressionUUID->"1c1d6a32-c2a6-4fbc-b204-de34387f7e30"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[13531, 363, 160, 3, 54, "Subsection",ExpressionUUID->"da2ec88f-d261-4340-bf72-af86ddb889fd"],
+Cell[CellGroupData[{
+Cell[13716, 370, 220, 4, 45, "Subsubsection",ExpressionUUID->"e5c31154-373e-4b10-b036-a2cbc878205e"],
+Cell[13939, 376, 4755, 103, 551, "Input",ExpressionUUID->"bebe4476-edd7-4f53-9018-1971b733faa3"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18731, 484, 167, 3, 45, "Subsubsection",ExpressionUUID->"d6727262-29ec-43c4-b43d-66262607be86"],
+Cell[18901, 489, 1825, 42, 228, "Input",ExpressionUUID->"638c9672-08b6-4d79-ac88-b06eb0be0ecb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[20763, 536, 216, 4, 45, "Subsubsection",ExpressionUUID->"5ff4fb49-8ab1-4d19-a1e8-13a11f686262"],
+Cell[20982, 542, 4904, 103, 518, "Input",ExpressionUUID->"19e721b4-3b3c-4d05-9d5c-720bca3b45e5"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25923, 650, 190, 3, 45, "Subsubsection",ExpressionUUID->"d1293c60-764b-4131-b9bd-712cb66934bb"],
+Cell[26116, 655, 2796, 60, 371, "Input",ExpressionUUID->"65d7c544-43ae-48bc-972e-3e692a2fa422"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[28949, 720, 166, 3, 45, "Subsubsection",ExpressionUUID->"82a9887d-6c1b-49cf-81fb-04bf332b598a"],
+Cell[29118, 725, 1927, 45, 289, "Input",ExpressionUUID->"f4a703d2-db77-410d-9c24-bf8ef41fd21b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[31082, 775, 211, 4, 45, "Subsubsection",ExpressionUUID->"333b0ca5-29d4-498a-b3ef-136d96db9e76"],
+Cell[31296, 781, 1749, 39, 266, "Input",ExpressionUUID->"b83c3fb1-d3d0-4b2c-90ae-dfd061008ee9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[33082, 825, 163, 3, 45, "Subsubsection",ExpressionUUID->"564714e5-5384-4d3e-b630-ca8683eb5ccc"],
+Cell[33248, 830, 1903, 41, 266, "Input",ExpressionUUID->"cd3fb1c3-e233-44f0-87dc-615e1e317185"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[35188, 876, 159, 3, 45, "Subsubsection",ExpressionUUID->"75b62c08-ff40-4464-9f37-38b2795a4ea6"],
+Cell[35350, 881, 2194, 50, 308, "Input",ExpressionUUID->"58b051eb-4394-41ad-9c52-de483a5e4a89"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[37581, 936, 162, 3, 45, "Subsubsection",ExpressionUUID->"ae70ac56-5bb8-4370-8e1a-034942b2628f"],
+Cell[37746, 941, 2193, 50, 308, "Input",ExpressionUUID->"407f27b3-1919-4944-8a25-164e8ce01f57"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39976, 996, 158, 3, 45, "Subsubsection",ExpressionUUID->"bb0f95f3-e7ce-48fb-9c15-554343da0ece"],
+Cell[40137, 1001, 259, 7, 30, "Input",ExpressionUUID->"419593e1-0482-4553-a137-2711c9ce39ac"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[40433, 1013, 164, 3, 45, "Subsubsection",ExpressionUUID->"9ae7221d-c47d-4d56-9f56-be005e6ff62c"],
+Cell[40600, 1018, 3245, 73, 413, "Input",ExpressionUUID->"a86d4847-749d-4ea8-af1e-c899c05b47e7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[43882, 1096, 330, 5, 45, "Subsubsection",ExpressionUUID->"0094f795-abf1-482c-a820-542f3d21b347"],
+Cell[44215, 1103, 3246, 73, 413, "Input",ExpressionUUID->"93c9dd8d-97d0-4a4b-b1af-8e4e1b676c1a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47498, 1181, 333, 5, 45, "Subsubsection",ExpressionUUID->"2d4814ef-ac26-447a-9306-9ef45d7b50d6"],
+Cell[47834, 1188, 3247, 73, 413, "Input",ExpressionUUID->"98b7d1b9-5056-4cd9-aae0-44d30b6a1003"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[51118, 1266, 332, 5, 45, "Subsubsection",ExpressionUUID->"4720f486-637c-4da1-8414-64e5e0b7bb7d"],
+Cell[51453, 1273, 3244, 73, 413, "Input",ExpressionUUID->"a2d934e5-ebfc-417c-be4d-9f230955eef4"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[54734, 1351, 333, 5, 45, "Subsubsection",ExpressionUUID->"c5dd4682-fb17-410f-bafa-0dd79eb950f5"],
+Cell[55070, 1358, 2715, 61, 350, "Input",ExpressionUUID->"061d7a81-16d2-4c66-9c12-093fdb9bf6f8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[57822, 1424, 383, 6, 45, "Subsubsection",ExpressionUUID->"488d9961-34c3-4e5a-b5a6-a28e845596fc"],
+Cell[58208, 1432, 2726, 61, 350, "Input",ExpressionUUID->"aa3b338b-a6d2-4583-84a6-43dc6e0a48ef"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[60971, 1498, 477, 7, 45, "Subsubsection",ExpressionUUID->"4c29ec6a-b50d-4507-8d87-88af266d824e"],
+Cell[61451, 1507, 2461, 54, 329, "Input",ExpressionUUID->"9dd11aee-eddb-4787-869f-b32dccf8754b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[63949, 1566, 144, 3, 45, "Subsubsection",ExpressionUUID->"d1a9e563-3a3c-4ebc-915e-48f2b66f3a25"],
+Cell[64096, 1571, 2521, 57, 329, "Input",ExpressionUUID->"ed85393c-2852-48fe-9f32-4bf64dc7145e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[66654, 1633, 168, 3, 45, "Subsubsection",ExpressionUUID->"5847682a-b2d0-4772-8ed7-b56c32774824"],
+Cell[66825, 1638, 2523, 57, 329, "Input",ExpressionUUID->"173ab7f9-3982-4102-9735-0bfc6479fed2"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[69385, 1700, 216, 4, 45, "Subsubsection",ExpressionUUID->"86950bcc-ffde-4b8a-8e85-69f65474f6d2"],
+Cell[69604, 1706, 2525, 57, 329, "Input",ExpressionUUID->"70851a75-753e-4749-a926-7fd00e3f4024"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[72166, 1768, 261, 4, 45, "Subsubsection",ExpressionUUID->"658539ca-a88e-438b-a34f-2d73b5ab7ec9"],
+Cell[72430, 1774, 2523, 57, 329, "Input",ExpressionUUID->"426fda00-f766-4781-b892-909165d7d2fa"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[74990, 1836, 263, 4, 45, "Subsubsection",ExpressionUUID->"287251dd-0471-4e1b-a12d-6716e91c50a8"],
+Cell[75256, 1842, 2519, 57, 329, "Input",ExpressionUUID->"4e7b32f4-21ea-4ff6-9748-b3c9c3b3dfc8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[77812, 1904, 313, 5, 45, "Subsubsection",ExpressionUUID->"3c4e2764-f185-4f77-8248-e8481f940d1a"],
+Cell[78128, 1911, 2525, 57, 329, "Input",ExpressionUUID->"d3bd1f47-270d-4f0d-975c-c6d58ecbcaf1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[80690, 1973, 166, 3, 45, "Subsubsection",ExpressionUUID->"b3fbead7-86ed-4520-959e-56b3ae2a7ddc"],
+Cell[80859, 1978, 2021, 46, 287, "Input",ExpressionUUID->"585a8d1c-01f4-4fb7-9329-31cfe1449903"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[82917, 2029, 158, 3, 45, "Subsubsection",ExpressionUUID->"92b3e113-c56e-40e8-b9b1-5301be1d35fd"],
+Cell[83078, 2034, 2942, 63, 392, "Input",ExpressionUUID->"4e85c80a-57e5-4f83-b8b2-510d09d7e847"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[86057, 2102, 164, 3, 45, "Subsubsection",ExpressionUUID->"1d96b4cd-da1c-4c47-8cc4-14e502ee9c8d"],
+Cell[86224, 2107, 6906, 141, 896, "Input",ExpressionUUID->"5b48ff58-8b3f-4d41-b9de-5e4dac63396e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[93167, 2253, 170, 3, 45, "Subsubsection",ExpressionUUID->"12c327df-c2ba-4521-924e-eed78722613f"],
+Cell[93340, 2258, 2151, 48, 308, "Input",ExpressionUUID->"b5c4cab8-b6f0-4603-9483-f3b22e867ff9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[95528, 2311, 218, 4, 45, "Subsubsection",ExpressionUUID->"7ea59de4-af37-4955-ab6d-cbd7a016cf5e"],
+Cell[95749, 2317, 3638, 82, 455, "Input",ExpressionUUID->"3aa603d5-e001-4633-a979-43e81abf84a9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[99424, 2404, 238, 4, 45, "Subsubsection",ExpressionUUID->"5dbd8f1c-ff99-4ef2-bb22-fcba1b33baf8"],
+Cell[99665, 2410, 1795, 40, 266, "Input",ExpressionUUID->"4b8da220-b9f1-4213-a5d6-186e8586c481"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[101497, 2455, 166, 3, 45, "Subsubsection",ExpressionUUID->"3b01dfa8-f20d-4b41-9e5e-1b1c1effafe6"],
+Cell[101666, 2460, 2071, 49, 292, "Input",ExpressionUUID->"4c891740-cfc5-4306-a295-0d0958f0fb28"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[103774, 2514, 160, 3, 45, "Subsubsection",ExpressionUUID->"61fbc2f7-730e-43d8-8db9-9ae3567b25a3"],
+Cell[103937, 2519, 1876, 45, 291, "Input",ExpressionUUID->"518b6955-0c49-47ad-817a-e2b0433af04f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[105850, 2569, 156, 3, 45, "Subsubsection",ExpressionUUID->"b03cfd44-2c27-4fa4-af8e-92547213281f"],
+Cell[106009, 2574, 1913, 46, 291, "Input",ExpressionUUID->"aac3f65e-7f53-4391-b563-3fc30e52bef3"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

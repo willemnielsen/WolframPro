@@ -1,0 +1,264 @@
+measure_id,measure_name,location_id,location_name,sex_id,sex_name,age_id,age_name,cause_id,cause_name,metric_id,metric_name,year,val,upper,lower
+6,Incidence,1,Global,3,Both,22,All ages,845,Acute lymphoid leukemia,1,Number,2021,103727.20932018568,122516.719462713,71606.72954891388
+6,Incidence,1,Global,3,Both,22,All ages,302,Diarrheal diseases,1,Number,2021,4438577275.334881,4980469022.728959,3956867911.973208
+6,Incidence,1,Global,3,Both,22,All ages,850,Non-melanoma skin cancer (basal-cell carcinoma),1,Number,2021,4436939.0411388455,4955955.194370894,3907156.8475189833
+6,Incidence,1,Global,3,Both,22,All ages,934,Drug-susceptible tuberculosis,1,Number,2021,7939416.969712325,9018495.11443537,7009965.208089945
+6,Incidence,1,Global,3,Both,22,All ages,544,Parkinson's disease,1,Number,2021,1335142.1154918878,1485216.838998584,1196373.0419269523
+6,Incidence,1,Global,3,Both,22,All ages,536,Gastroesophageal reflux disease,1,Number,2021,324139599.33694553,358912515.95264244,287693228.7284794
+6,Incidence,1,Global,3,Both,22,All ages,543,Alzheimer's disease and other dementias,1,Number,2021,9837055.83831615,11163699.620942663,8620519.199358491
+6,Incidence,1,Global,3,Both,22,All ages,329,Otitis media,1,Number,2021,391325569.6538724,525454763.7657745,292407883.6805783
+6,Incidence,1,Global,3,Both,22,All ages,943,Other leukemia,1,Number,2021,59231.92205224217,74747.01183235194,42495.963476281264
+6,Incidence,1,Global,3,Both,22,All ages,946,Multidrug-resistant tuberculosis without extensive drug resistance,1,Number,2021,443679.90662338975,766545.3711548144,259195.79980466695
+6,Incidence,1,Global,3,Both,22,All ages,533,Vascular intestinal disorders,1,Number,2021,1347020.544105701,1532644.510669144,1178808.6822853775
+6,Incidence,1,Global,3,Both,22,All ages,535,Pancreatitis,1,Number,2021,2747368.16462777,3133076.3070991533,2413877.6266699936
+6,Incidence,1,Global,3,Both,22,All ages,545,Idiopathic epilepsy,1,Number,2021,3272733.660133112,4125118.7483812585,2403802.4268406974
+6,Incidence,1,Global,3,Both,22,All ages,547,Migraine,1,Number,2021,90183386.870021,101838162.4804554,78857600.45503128
+6,Incidence,1,Global,3,Both,22,All ages,554,Motor neuron disease,1,Number,2021,64177.72717852947,70270.30313344226,58506.16020619031
+6,Incidence,1,Global,3,Both,22,All ages,300,HIV/AIDS resulting in other diseases,1,Number,2021,1645332.5648110646,1822432.032139137,1484720.986824579
+6,Incidence,1,Global,3,Both,22,All ages,319,Typhoid fever,1,Number,2021,7154555.332012578,9234542.453300122,5567666.702337571
+6,Incidence,1,Global,3,Both,22,All ages,322,Lower respiratory infections,1,Number,2021,343606787.3877178,363517284.7504956,325214314.01210463
+6,Incidence,1,Global,3,Both,22,All ages,846,Chronic lymphoid leukemia,1,Number,2021,117987.13358463302,132718.48777267174,98330.46900798446
+6,Incidence,1,Global,3,Both,22,All ages,546,Multiple sclerosis,1,Number,2021,62920.10625596968,70635.06580992442,56015.04467687175
+6,Incidence,1,Global,3,Both,22,All ages,320,Paratyphoid fever,1,Number,2021,2166062.958039866,2958610.482711277,1559799.891614819
+6,Incidence,1,Global,3,Both,22,All ages,848,Chronic myeloid leukemia,1,Number,2021,35830.86594049321,42581.447832900274,27938.94644520695
+6,Incidence,1,Global,3,Both,22,All ages,847,Acute myeloid leukemia,1,Number,2021,144645.60366596922,164851.49374840502,126237.20578132548
+6,Incidence,1,Global,3,Both,22,All ages,849,Non-melanoma skin cancer (squamous-cell carcinoma),1,Number,2021,1899907.0543376887,2150029.5720757158,1688002.7401476717
+6,Incidence,1,Global,3,Both,22,All ages,338,Diphtheria,1,Number,2021,13312.90948937339,18499.995187979453,8940.051182291194
+6,Incidence,1,Global,3,Both,22,All ages,559,Schizophrenia,1,Number,2021,1223221.0313858208,1473083.2669144804,1008219.0268838172
+6,Incidence,1,Global,3,Both,22,All ages,340,Tetanus,1,Number,2021,51191.49710908218,80349.07729287018,22500.26995800064
+6,Incidence,1,Global,3,Both,22,All ages,854,Police conflict and executions,1,Number,2021,2755843.336420145,3639809.695068002,2141373.425892669
+6,Incidence,1,Global,3,Both,22,All ages,328,Upper respiratory infections,1,Number,2021,12822251510.836342,14464017730.05543,11429364621.601902
+6,Incidence,1,Global,3,Both,22,All ages,936,Guinea worm disease,1,Number,2021,50.354950638410486,65.2781980764998,37.89101914205077
+6,Incidence,1,Global,3,Both,22,All ages,337,Encephalitis,1,Number,2021,1492767.7199860648,1654928.6070717103,1364664.2667389964
+6,Incidence,1,Global,3,Both,22,All ages,339,Pertussis,1,Number,2021,7224175.757756948,10251853.466466753,5124218.581255087
+6,Incidence,1,Global,3,Both,22,All ages,548,Tension-type headache,1,Number,2021,719043093.3245538,804949048.8264616,629219079.8651311
+6,Incidence,1,Global,3,Both,22,All ages,342,Varicella and herpes zoster,1,Number,2021,86678086.71384835,92207569.3106219,81687120.8697366
+6,Incidence,1,Global,3,Both,22,All ages,557,Other neurological disorders,1,Number,2021,0.0,0.0,0.0
+6,Incidence,1,Global,3,Both,22,All ages,560,Alcohol use disorders,1,Number,2021,55779737.35959958,64314072.654016726,46555775.1280079
+6,Incidence,1,Global,3,Both,22,All ages,563,Cocaine use disorders,1,Number,2021,219145.4067725976,298956.5989085763,158098.0973667741
+6,Incidence,1,Global,3,Both,22,All ages,332,Meningitis,1,Number,2021,2264858.110208336,2568202.515401684,1991578.2359602663
+6,Incidence,1,Global,3,Both,22,All ages,345,Malaria,1,Number,2021,249116628.35962808,315017150.9842253,200358941.85208493
+6,Incidence,1,Global,3,Both,22,All ages,346,Chagas disease,1,Number,2021,160315.3422414442,183478.2603134853,140377.12462272414
+6,Incidence,1,Global,3,Both,22,All ages,564,Amphetamine use disorders,1,Number,2021,1069011.047384338,1482513.9746908045,757796.9201192752
+6,Incidence,1,Global,3,Both,22,All ages,566,Other drug use disorders,1,Number,2021,6753173.199811408,8590638.305027688,5195841.702881442
+6,Incidence,1,Global,3,Both,22,All ages,964,"Myelodysplastic, myeloproliferative, and other hematopoietic neoplasms",1,Number,2021,341016.5996415925,401897.2419813906,290884.2639005192
+6,Incidence,1,Global,3,Both,22,All ages,348,Visceral leishmaniasis,1,Number,2021,30217.653666575607,38445.90432954461,24629.637018972728
+6,Incidence,1,Global,3,Both,22,All ages,350,African trypanosomiasis,1,Number,2021,1630.4104373677264,2405.209433601821,1104.5304868465018
+6,Incidence,1,Global,3,Both,22,All ages,565,Cannabis use disorders,1,Number,2021,3625507.4080374218,4737132.255413415,2738090.170003264
+6,Incidence,1,Global,3,Both,22,All ages,562,Opioid use disorders,1,Number,2021,1942525.315236239,2328363.1687322957,1643342.288752511
+6,Incidence,1,Global,3,Both,22,All ages,568,Major depressive disorder,1,Number,2021,341115863.2558224,400624089.156463,296307636.6558488
+6,Incidence,1,Global,3,Both,22,All ages,935,Zika virus,1,Number,2021,169733.6205923804,427780.15393477504,62448.753751340126
+6,Incidence,1,Global,3,Both,22,All ages,942,Myocarditis,1,Number,2021,1319703.607852706,1618747.9859735633,1072475.4168833727
+6,Incidence,1,Global,3,Both,22,All ages,945,Conflict and terrorism,1,Number,2021,12503431.240159469,15863539.367826922,9726950.893578457
+6,Incidence,1,Global,3,Both,22,All ages,357,Dengue,1,Number,2021,58964184.93410243,106885036.4029386,15473438.963303467
+6,Incidence,1,Global,3,Both,22,All ages,948,HIV/AIDS - Drug-susceptible Tuberculosis,1,Number,2021,955220.5986433956,1075239.9445861457,854660.5203937104
+6,Incidence,1,Global,3,Both,22,All ages,571,Anxiety disorders,1,Number,2021,53917371.009163365,65978474.7685382,44990957.61972459
+6,Incidence,1,Global,3,Both,22,All ages,353,Cystic echinococcosis,1,Number,2021,148520.90112693715,183224.15887623327,119837.68352995937
+6,Incidence,1,Global,3,Both,22,All ages,358,Yellow fever,1,Number,2021,86508.96480653556,180500.6804453894,34105.76780227848
+6,Incidence,1,Global,3,Both,22,All ages,341,Measles,1,Number,2021,4816991.209868645,5440479.951235406,4240978.917782613
+6,Incidence,1,Global,3,Both,22,All ages,573,Anorexia nervosa,1,Number,2021,1267302.4697290142,1736633.5517784182,890139.134301601
+6,Incidence,1,Global,3,Both,22,All ages,575,Autism spectrum disorders,1,Number,2021,1163706.0266784537,1371347.251320321,981645.3831362956
+6,Incidence,1,Global,3,Both,22,All ages,585,Other mental disorders,1,Number,2021,0.0,0.0,0.0
+6,Incidence,1,Global,3,Both,22,All ages,384,Hemolytic disease and other neonatal jaundice,1,Number,2021,566715.0861882175,746849.7798435601,429506.8764829495
+6,Incidence,1,Global,3,Both,22,All ages,947,Extensively drug-resistant tuberculosis,1,Number,2021,24036.081715520417,34586.565478636265,17144.48173819219
+6,Incidence,1,Global,3,Both,22,All ages,949,HIV/AIDS - Multidrug-resistant Tuberculosis without extensive drug resistance,1,Number,2021,45589.40191811138,66723.02087411165,31326.348342005705
+6,Incidence,1,Global,3,Both,22,All ages,570,Bipolar disorder,1,Number,2021,2564001.396458484,3051281.8632964743,2151042.666530573
+6,Incidence,1,Global,3,Both,22,All ages,369,Maternal hypertensive disorders,1,Number,2021,18050085.26030078,21519203.9636259,15356123.721978234
+6,Incidence,1,Global,3,Both,22,All ages,950,HIV/AIDS - Extensively drug-resistant Tuberculosis,1,Number,2021,1606.419599649059,2182.833215956432,1163.9390419875524
+6,Incidence,1,Global,3,Both,22,All ages,569,Dysthymia,1,Number,2021,16322866.37636854,20590097.90511953,12955382.50674292
+6,Incidence,1,Global,3,Both,22,All ages,349,Cutaneous and mucocutaneous leishmaniasis,1,Number,2021,1066642.199710871,1211203.3641041915,942282.9820411452
+6,Incidence,1,Global,3,Both,22,All ages,388,Iodine deficiency,1,Number,2021,8079841.244912019,9808708.636152595,6550429.307102185
+6,Incidence,1,Global,3,Both,22,All ages,969,Non-rheumatic degenerative mitral valve disease,1,Number,2021,1162557.793739189,1244874.028627067,1084357.9404716042
+6,Incidence,1,Global,3,Both,22,All ages,959,Invasive Non-typhoidal Salmonella (iNTS),1,Number,2021,509975.88411620696,606167.2456279212,413360.6861066539
+6,Incidence,1,Global,3,Both,22,All ages,368,Maternal sepsis and other maternal infections,1,Number,2021,19047404.0403724,24086485.61036749,14608562.993913123
+6,Incidence,1,Global,3,Both,22,All ages,971,Nonalcoholic fatty liver disease including cirrhosis,1,Number,2021,48310980.9718881,52313164.6524815,44191373.5563712
+6,Incidence,1,Global,3,Both,22,All ages,592,Chronic kidney disease due to glomerulonephritis,1,Number,2021,357288.00436327065,388483.4806061506,329226.0209692067
+6,Incidence,1,Global,3,Both,22,All ages,588,Acute glomerulonephritis,1,Number,2021,528368.1648039467,613210.8898292186,446739.0372247836
+6,Incidence,1,Global,3,Both,22,All ages,591,Chronic kidney disease due to hypertension,1,Number,2021,1282204.531167472,1366295.8974325708,1195230.067238629
+6,Incidence,1,Global,3,Both,22,All ages,396,Gonococcal infection,1,Number,2021,86277273.395501,108998324.39747496,66593812.71179794
+6,Incidence,1,Global,3,Both,22,All ages,374,Ectopic pregnancy,1,Number,2021,8376809.52966792,10424088.697769728,6651560.964127792
+6,Incidence,1,Global,3,Both,22,All ages,574,Bulimia nervosa,1,Number,2021,8227657.097034446,12166545.862124458,5128548.815723617
+6,Incidence,1,Global,3,Both,22,All ages,1028,Total burden related to Non-alcoholic fatty liver disease (NAFLD),1,Number,2021,48353272.3459562,52358017.4373465,44229138.5125482
+6,Incidence,1,Global,3,Both,22,All ages,578,Attention-deficit/hyperactivity disorder,1,Number,2021,4111621.023858782,5954940.96555675,2775202.64795898
+6,Incidence,1,Global,3,Both,22,All ages,977,Atopic dermatitis,1,Number,2021,16006680.599402012,16819872.23403558,15211259.968563017
+6,Incidence,1,Global,3,Both,22,All ages,383,Neonatal sepsis and other neonatal infections,1,Number,2021,3880833.919821562,3990587.9339627074,3786666.7507097535
+6,Incidence,1,Global,3,Both,22,All ages,976,Diabetes mellitus type 2,1,Number,2021,23911320.584328555,25788088.77359475,22140751.31450385
+6,Incidence,1,Global,3,Both,22,All ages,978,Contact dermatitis,1,Number,2021,253304736.14816883,316547750.24907494,204699259.67220613
+6,Incidence,1,Global,3,Both,22,All ages,394,Syphilis,1,Number,2021,18696009.144525893,24331643.867720403,14033725.79325232
+6,Incidence,1,Global,3,Both,22,All ages,604,Uterine fibroids,1,Number,2021,10100270.81413094,13285676.684713133,7350444.394681288
+6,Incidence,1,Global,3,Both,22,All ages,359,Rabies,1,Number,2021,10180.669215085363,14293.427846165068,6080.470809132055
+6,Incidence,1,Global,3,Both,22,All ages,367,Maternal hemorrhage,1,Number,2021,13960249.964432074,17749443.310414962,10898097.092173325
+6,Incidence,1,Global,3,Both,22,All ages,579,Conduct disorder,1,Number,2021,14484106.437445976,18526891.12180121,10438500.79977136
+6,Incidence,1,Global,3,Both,22,All ages,995,Maternal abortion and miscarriage,1,Number,2021,38639539.70672748,48577264.36693943,29946050.847715937
+6,Incidence,1,Global,3,Both,22,All ages,596,Urolithiasis,1,Number,2021,105983780.31677105,128645155.20466776,88349355.86316743
+6,Incidence,1,Global,3,Both,22,All ages,398,Genital herpes,1,Number,2021,40172738.72580766,46023911.06829929,33994980.024842866
+6,Incidence,1,Global,3,Both,22,All ages,965,Benign and in situ intestinal neoplasms,1,Number,2021,1559666.332263857,2027121.5634522368,1220103.1520518458
+6,Incidence,1,Global,3,Both,22,All ages,399,Other sexually transmitted infections,1,Number,2021,0.0,0.0,0.0
+6,Incidence,1,Global,3,Both,22,All ages,966,Benign and in situ cervical and uterine neoplasms,1,Number,2021,591854.5938988086,763525.7384169893,437925.61042879627
+6,Incidence,1,Global,3,Both,22,All ages,968,Non-rheumatic calcific aortic valve disease,1,Number,2021,1044370.4420184306,1179672.1000330732,906614.873000019
+6,Incidence,1,Global,3,Both,22,All ages,401,Acute hepatitis A,1,Number,2021,160860121.68889195,170430684.15061322,152201084.9682494
+6,Incidence,1,Global,3,Both,22,All ages,403,Acute hepatitis C,1,Number,2021,7009910.020154443,7885766.814296725,6182801.024118055
+6,Incidence,1,Global,3,Both,22,All ages,1005,Hepatoblastoma,1,Number,2021,4048.421300271612,5000.454437147037,3252.4512851221107
+6,Incidence,1,Global,3,Both,22,All ages,1007,Other non-Hodgkin lymphoma,1,Number,2021,585481.2142447861,625825.7312683552,543811.6301988715
+6,Incidence,1,Global,3,Both,22,All ages,967,Other benign and in situ neoplasms (internal),1,Number,2021,40420824.37184708,49166637.13603824,32370365.017077196
+6,Incidence,1,Global,3,Both,22,All ages,404,Acute hepatitis E,1,Number,2021,19370700.67945657,23239012.270780176,16103891.318374204
+6,Incidence,1,Global,3,Both,22,All ages,595,Urinary tract infections and interstitial nephritis,1,Number,2021,449102228.54266,499843231.5529086,400893641.260514
+6,Incidence,1,Global,3,Both,22,All ages,597,Benign prostatic hyperplasia,1,Number,2021,13787559.558922973,17015020.658498876,10907858.84467261
+6,Incidence,1,Global,3,Both,22,All ages,408,Other unspecified infectious diseases,1,Number,2021,0.0,0.0,0.0
+6,Incidence,1,Global,3,Both,22,All ages,996,Liver cancer due to NASH,1,Number,2021,42291.374068055935,51129.45012063808,34032.64455592133
+6,Incidence,1,Global,3,Both,22,All ages,395,Chlamydial infection,1,Number,2021,235690237.73138225,334690522.0818216,172881033.17127067
+6,Incidence,1,Global,3,Both,22,All ages,975,Diabetes mellitus type 1,1,Number,2021,530859.4512750272,622954.9330749635,455261.0547556544
+6,Incidence,1,Global,3,Both,22,All ages,605,Polycystic ovarian syndrome,1,Number,2021,2301505.6422455814,3167177.813846602,1655989.242295546
+6,Incidence,1,Global,3,Both,22,All ages,616,G6PD deficiency,1,Number,2021,8548771.973567346,9462072.025344696,7734371.760322857
+6,Incidence,1,Global,3,Both,22,All ages,608,Genital prolapse,1,Number,2021,13971720.531314136,16614082.408406865,11651598.21299464
+6,Incidence,1,Global,3,Both,22,All ages,1012,Malignant neoplasm of bone and articular cartilage,1,Number,2021,91375.05707282203,102469.659286999,73780.36536051499
+6,Incidence,1,Global,3,Both,22,All ages,429,Breast cancer,1,Number,2021,2121564.3227317906,2268722.629530899,1982142.6427765307
+6,Incidence,1,Global,3,Both,22,All ages,370,Maternal obstructed labor and uterine rupture,1,Number,2021,13471093.16972806,19008282.32214893,8938373.026286814
+6,Incidence,1,Global,3,Both,22,All ages,979,Seborrhoeic dermatitis,1,Number,2021,135710440.97271967,145731935.72976053,125371044.37497409
+6,Incidence,1,Global,3,Both,22,All ages,609,Premenstrual syndrome,1,Number,2021,259098000.03224048,312886613.078138,206109372.85411444
+6,Incidence,1,Global,3,Both,22,All ages,615,Sickle cell disorders,1,Number,2021,524216.7470744652,634188.8735126688,439374.32093262015
+6,Incidence,1,Global,3,Both,22,All ages,438,Prostate cancer,1,Number,2021,1324382.902949716,1400222.166127075,1217320.9337821156
+6,Incidence,1,Global,3,Both,22,All ages,998,Chronic kidney disease due to diabetes mellitus type 2,1,Number,2021,2012024.5269916365,2154287.7152277986,1857800.0438069568
+6,Incidence,1,Global,3,Both,22,All ages,614,Thalassemias,1,Number,2021,119679.06027419971,153985.2893699045,93217.99048788851
+6,Incidence,1,Global,3,Both,22,All ages,381,Neonatal preterm birth,1,Number,2021,21553770.757577185,21730108.45254361,21378909.71434137
+6,Incidence,1,Global,3,Both,22,All ages,382,Neonatal encephalopathy due to birth asphyxia and trauma,1,Number,2021,1061448.1521498542,1076766.1119810052,1047815.174502404
+6,Incidence,1,Global,3,Both,22,All ages,648,Other chromosomal abnormalities,1,Number,2021,450742.3620995812,548114.0084876225,371860.317239791
+6,Incidence,1,Global,3,Both,22,All ages,649,Congenital musculoskeletal and limb anomalies,1,Number,2021,2437890.1187247657,3355568.449974056,1737729.8483384713
+6,Incidence,1,Global,3,Both,22,All ages,619,"Endocrine, metabolic, blood, and immune disorders",1,Number,2021,79473878.42849551,98633108.24715357,63335600.24380693
+6,Incidence,1,Global,3,Both,22,All ages,1006,Burkitt lymphoma,1,Number,2021,19072.930588302264,32508.92938044459,9650.58530784865
+6,Incidence,1,Global,3,Both,22,All ages,405,Leprosy,1,Number,2021,48054.59325577745,55980.74242677332,41284.132857593264
+6,Incidence,1,Global,3,Both,22,All ages,419,Liver cancer due to hepatitis C,1,Number,2021,154061.55841608517,177255.10112927656,131916.0882205199
+6,Incidence,1,Global,3,Both,22,All ages,630,Low back pain,1,Number,2021,266873320.7771847,299406380.3325901,235369488.7455485
+6,Incidence,1,Global,3,Both,22,All ages,632,Gout,1,Number,2021,9401585.49037733,11731815.433090126,7438816.889054618
+6,Incidence,1,Global,3,Both,22,All ages,421,Liver cancer due to other causes,1,Number,2021,22891.70361758626,27801.39940225683,18374.88766683325
+6,Incidence,1,Global,3,Both,22,All ages,997,Chronic kidney disease due to diabetes mellitus type 1,1,Number,2021,95139.57247298358,111471.11647768696,82236.5486706073
+6,Incidence,1,Global,3,Both,22,All ages,1004,Pulmonary Arterial Hypertension,1,Number,2021,43251.38894917586,52441.10130971932,34704.70397549379
+6,Incidence,1,Global,3,Both,22,All ages,387,Protein-energy malnutrition,1,Number,2021,108857028.31128764,130570454.18012246,91319665.28668728
+6,Incidence,1,Global,3,Both,22,All ages,389,Vitamin A deficiency,1,Number,2021,469192517.42344856,487302090.0128764,452515933.9802486
+6,Incidence,1,Global,3,Both,22,All ages,414,Stomach cancer,1,Number,2021,1230232.6087569068,1409969.658515687,1052350.052297329
+6,Incidence,1,Global,3,Both,22,All ages,418,Liver cancer due to hepatitis B,1,Number,2021,206365.73830070815,252049.90160628583,169400.9082127532
+6,Incidence,1,Global,3,Both,22,All ages,426,"Tracheal, bronchus, and lung cancer",1,Number,2021,2280688.2160554742,2509739.7279127026,2063251.874000018
+6,Incidence,1,Global,3,Both,22,All ages,435,Uterine cancer,1,Number,2021,473613.85180723417,513666.884511488,429915.5683365334
+6,Incidence,1,Global,3,Both,22,All ages,631,Neck pain,1,Number,2021,43286060.82322638,52883959.02666916,33941593.5710699
+6,Incidence,1,Global,3,Both,22,All ages,593,Chronic kidney disease due to other and unspecified causes,1,Number,2021,16188381.129355036,17180105.54843834,15192359.3334461
+6,Incidence,1,Global,3,Both,22,All ages,1011,Soft tissue and other extraosseous sarcomas,1,Number,2021,96200.95615242656,116184.8668372734,83423.50655914689
+6,Incidence,1,Global,3,Both,22,All ages,659,Fungal skin diseases,1,Number,2021,1729224008.6711488,1894666052.625076,1562709709.0613627
+6,Incidence,1,Global,3,Both,22,All ages,661,Acne vulgaris,1,Number,2021,124266429.80870368,141551957.34146038,110490151.99879542
+6,Incidence,1,Global,3,Both,22,All ages,397,Trichomoniasis,1,Number,2021,341916383.3315317,464294523.0832887,258045848.3244431
+6,Incidence,1,Global,3,Both,22,All ages,1013,Neuroblastoma and other peripheral nervous cell tumors,1,Number,2021,10867.403777451564,13556.989549204893,8279.039076966472
+6,Incidence,1,Global,3,Both,22,All ages,453,Gallbladder and biliary tract cancer,1,Number,2021,216768.34523702043,245237.5988424356,181887.986934734
+6,Incidence,1,Global,3,Both,22,All ages,459,Malignant skin melanoma,1,Number,2021,303104.6079212229,318904.816796458,281717.6387552156
+6,Incidence,1,Global,3,Both,22,All ages,1010,Other eye cancers,1,Number,2021,27675.80088060992,33668.65753230442,21826.177955361083
+6,Incidence,1,Global,3,Both,22,All ages,468,Testicular cancer,1,Number,2021,91507.37933523855,95709.71814309328,87965.91882683756
+6,Incidence,1,Global,3,Both,22,All ages,645,Down syndrome,1,Number,2021,59806.67291661364,69713.588331418,50578.00871551704
+6,Incidence,1,Global,3,Both,22,All ages,1009,Retinoblastoma,1,Number,2021,6274.971548355072,8381.780846136324,3854.9634713985374
+6,Incidence,1,Global,3,Both,22,All ages,646,Turner syndrome,1,Number,2021,23928.981041866,32035.34056590238,17948.411234166502
+6,Incidence,1,Global,3,Both,22,All ages,647,Klinefelter syndrome,1,Number,2021,68357.49367807388,90236.1414937954,48581.36873431607
+6,Incidence,1,Global,3,Both,22,All ages,642,Neural tube defects,1,Number,2021,120932.0395780954,135884.36383913254,106318.25117760556
+6,Incidence,1,Global,3,Both,22,All ages,643,Congenital heart anomalies,1,Number,2021,2300327.374697204,2967225.2122961152,1813141.510727396
+6,Incidence,1,Global,3,Both,22,All ages,650,Urogenital congenital anomalies,1,Number,2021,1094236.4606304695,1438204.65047836,823142.891183926
+6,Incidence,1,Global,3,Both,22,All ages,656,Cellulitis,1,Number,2021,55968148.178983554,59370369.995860055,52579678.75206271
+6,Incidence,1,Global,3,Both,22,All ages,657,Pyoderma,1,Number,2021,824863216.1075028,850304156.9914017,800211831.6821692
+6,Incidence,1,Global,3,Both,22,All ages,444,Lip and oral cavity cancer,1,Number,2021,421577.106709329,449782.0607854663,389878.7946927639
+6,Incidence,1,Global,3,Both,22,All ages,450,Other pharynx cancer,1,Number,2021,169819.52174976224,179704.1910053582,159847.1238717956
+6,Incidence,1,Global,3,Both,22,All ages,1014,Osteoarthritis hip,1,Number,2021,1796781.41393522,2284910.0220593503,1368838.767578124
+6,Incidence,1,Global,3,Both,22,All ages,1016,Osteoarthritis hand,1,Number,2021,10367241.353965184,13251881.072835471,7686290.997944303
+6,Incidence,1,Global,3,Both,22,All ages,456,Pancreatic cancer,1,Number,2021,508532.704079969,547207.6227474719,462090.8947233668
+6,Incidence,1,Global,3,Both,22,All ages,1015,Osteoarthritis knee,1,Number,2021,30845890.762967966,35188904.81669322,26534151.153534144
+6,Incidence,1,Global,3,Both,22,All ages,1017,Osteoarthritis other,1,Number,2021,3622230.838411164,4655164.144070603,2883048.46439058
+6,Incidence,1,Global,3,Both,22,All ages,402,Acute hepatitis B,1,Number,2021,63533725.97054111,78878535.07026036,50445999.41104129
+6,Incidence,1,Global,3,Both,22,All ages,658,Scabies,1,Number,2021,622473574.4509832,694992043.0645441,556234882.6814088
+6,Incidence,1,Global,3,Both,22,All ages,411,Esophageal cancer,1,Number,2021,576529.2776778279,645648.4621065578,509492.069037404
+6,Incidence,1,Global,3,Both,22,All ages,1056,Other unintentional injuries,1,Number,2021,42987424.67142365,51646300.17114507,35106892.86449723
+6,Incidence,1,Global,3,Both,22,All ages,607,Endometriosis,1,Number,2021,3447125.8775722613,4611504.039348151,2436259.342474023
+6,Incidence,1,Global,3,Both,22,All ages,1027,Total burden related to hepatitis C,1,Number,2021,11641346.00614437,13202806.403520685,10131857.777797917
+6,Incidence,1,Global,3,Both,22,All ages,664,Urticaria,1,Number,2021,117014586.680102,131017655.60597354,104106687.54509915
+6,Incidence,1,Global,3,Both,22,All ages,1029,Total cancers,1,Number,2021,23566245.369677685,24847937.20784179,22200038.16287862
+6,Incidence,1,Global,3,Both,22,All ages,668,Other skin and subcutaneous diseases,1,Number,2021,629360593.1340238,646196541.5838609,613196679.8810122
+6,Incidence,1,Global,3,Both,22,All ages,679,Other sense organ diseases,1,Number,2021,214542.83493900648,479939.8072724872,101374.1964442581
+6,Incidence,1,Global,3,Both,22,All ages,480,Thyroid cancer,1,Number,2021,249538.02112691847,274638.1705617816,223290.34543570815
+6,Incidence,1,Global,3,Both,22,All ages,484,Hodgkin lymphoma,1,Number,2021,65182.009185848656,77142.97600200883,53167.4310277835
+6,Incidence,1,Global,3,Both,22,All ages,663,Pruritus,1,Number,2021,62528828.31167251,70329578.98696782,55866535.68816893
+6,Incidence,1,Global,3,Both,22,All ages,665,Decubitus ulcer,1,Number,2021,2468317.4732273053,2720436.6899696887,2255077.2552637225
+6,Incidence,1,Global,3,Both,22,All ages,483,Mesothelioma,1,Number,2021,31907.886040552963,34115.30061160297,29643.1265067465
+6,Incidence,1,Global,3,Both,22,All ages,420,Liver cancer due to alcohol use,1,Number,2021,99543.66558757886,120401.86916582126,80957.4039187762
+6,Incidence,1,Global,3,Both,22,All ages,423,Larynx cancer,1,Number,2021,200883.03650051847,216097.5621370475,186941.1115321514
+6,Incidence,1,Global,3,Both,22,All ages,682,Caries of permanent teeth,1,Number,2021,2370414031.8439226,2661346387.7118464,2099098156.0880923
+6,Incidence,1,Global,3,Both,22,All ages,681,Caries of deciduous teeth,1,Number,2021,1253255083.9613488,1637292359.0766487,978655131.4422522
+6,Incidence,1,Global,3,Both,22,All ages,495,Ischemic stroke,1,Number,2021,7804449.401432242,8943692.092981681,6719760.382388141
+6,Incidence,1,Global,3,Both,22,All ages,1026,Total burden related to hepatitis B,1,Number,2021,68508067.06746426,84190350.17022453,54909915.96110152
+6,Incidence,1,Global,3,Both,22,All ages,497,Subarachnoid hemorrhage,1,Number,2021,697486.4927319683,795785.2587628618,614334.1638083749
+6,Incidence,1,Global,3,Both,22,All ages,489,Other malignant neoplasms,1,Number,2021,422295.0236156829,462634.86783807207,380537.1523759118
+6,Incidence,1,Global,3,Both,22,All ages,1059,Total Cancers excluding Non-melanoma skin cancer,1,Number,2021,17229399.274201177,18333270.174079165,16081547.573220702
+6,Incidence,1,Global,3,Both,22,All ages,690,Pedestrian road injuries,1,Number,2021,11521027.20351622,13320860.165122893,10037724.584473088
+6,Incidence,1,Global,3,Both,22,All ages,684,Edentulism,1,Number,2021,26527330.867987998,31167558.11630436,22613423.10718004
+6,Incidence,1,Global,3,Both,22,All ages,465,Ovarian cancer,1,Number,2021,298875.9981054876,324501.0164740654,270729.8249513295
+6,Incidence,1,Global,3,Both,22,All ages,691,Cyclist road injuries,1,Number,2021,9767471.41195338,11649554.413178723,8281233.158523805
+6,Incidence,1,Global,3,Both,22,All ages,612,Other gynecological diseases,1,Number,2021,474521181.5156034,558191710.5412884,395808998.4257788
+6,Incidence,1,Global,3,Both,22,All ages,509,Chronic obstructive pulmonary disease,1,Number,2021,16895444.792579837,18335690.52224456,15471347.31447099
+6,Incidence,1,Global,3,Both,22,All ages,1048,COVID-19,1,Number,2021,2279717767.545374,2372460274.956961,2181359055.585976
+6,Incidence,1,Global,3,Both,22,All ages,432,Cervical cancer,1,Number,2021,667426.3959575087,726422.065878846,613030.0917355665
+6,Incidence,1,Global,3,Both,22,All ages,627,Rheumatoid arthritis,1,Number,2021,1000319.4866087516,1114212.6340908478,902687.4355938644
+6,Incidence,1,Global,3,Both,22,All ages,695,Other transport injuries,1,Number,2021,2843333.2426547115,3568481.552070915,2278468.330869356
+6,Incidence,1,Global,3,Both,22,All ages,697,Falls,1,Number,2021,215566471.5486884,238982230.14002505,195267829.98192543
+6,Incidence,1,Global,3,Both,22,All ages,693,Motor vehicle road injuries,1,Number,2021,19518750.48051573,21949354.57002663,17507391.650274456
+6,Incidence,1,Global,3,Both,22,All ages,474,Bladder cancer,1,Number,2021,540309.7293178497,582579.4432771344,494720.8870573823
+6,Incidence,1,Global,3,Both,22,All ages,441,Colon and rectum cancer,1,Number,2021,2194143.2496612896,2359390.087671456,2001271.823681398
+6,Incidence,1,Global,3,Both,22,All ages,447,Nasopharynx cancer,1,Number,2021,118877.91000335604,135884.3705415361,104836.07173475595
+6,Incidence,1,Global,3,Both,22,All ages,471,Kidney cancer,1,Number,2021,387828.715593053,406635.2473655081,365359.7090389708
+6,Incidence,1,Global,3,Both,22,All ages,496,Intracerebral hemorrhage,1,Number,2021,3444338.0491955685,3812043.447866363,3053009.1148974886
+6,Incidence,1,Global,3,Both,22,All ages,477,Brain and central nervous system cancer,1,Number,2021,357482.2970745518,407432.5710093197,310456.67881825776
+6,Incidence,1,Global,3,Both,22,All ages,644,Orofacial clefts,1,Number,2021,183302.4080797801,241690.8214562212,135255.4271317355
+6,Incidence,1,Global,3,Both,22,All ages,701,Poisoning by carbon monoxide,1,Number,2021,600640.0271054885,822849.4548435148,421641.9412649687
+6,Incidence,1,Global,3,Both,22,All ages,514,Other pneumoconiosis,1,Number,2021,9407.531059265106,10866.589948935194,8079.0423688989
+6,Incidence,1,Global,3,Both,22,All ages,486,Multiple myeloma,1,Number,2021,148754.62688850457,162049.22698722663,131780.42508745776
+6,Incidence,1,Global,3,Both,22,All ages,493,Ischemic heart disease,1,Number,2021,31872778.179137733,38267834.29509022,26284920.94053075
+6,Incidence,1,Global,3,Both,22,All ages,651,Digestive congenital anomalies,1,Number,2021,459018.3198364783,585158.3593095406,364141.4050955554
+6,Incidence,1,Global,3,Both,22,All ages,698,Drowning,1,Number,2021,856135.4464376854,963562.7886303816,764345.5748692339
+6,Incidence,1,Global,3,Both,22,All ages,513,Coal workers pneumoconiosis,1,Number,2021,7455.707193723025,8404.756486402877,6504.252631360539
+6,Incidence,1,Global,3,Both,22,All ages,710,Venomous animal contact,1,Number,2021,15524932.776110675,19807965.90220205,11659218.31996058
+6,Incidence,1,Global,3,Both,22,All ages,703,Poisoning by other means,1,Number,2021,1824208.253775176,2281145.548946332,1457819.923152557
+6,Incidence,1,Global,3,Both,22,All ages,655,Psoriasis,1,Number,2021,5099418.337029605,5254031.025417071,4945748.062208722
+6,Incidence,1,Global,3,Both,22,All ages,502,Lower extremity peripheral arterial disease,1,Number,2021,10038811.410300173,11601743.951449843,8689418.239746964
+6,Incidence,1,Global,3,Both,22,All ages,707,Other exposure to mechanical forces,1,Number,2021,120679305.34978196,139779786.26899812,102584646.56548733
+6,Incidence,1,Global,3,Both,22,All ages,515,Asthma,1,Number,2021,37864175.440182365,46919993.68334465,31381240.96352847
+6,Incidence,1,Global,3,Both,22,All ages,492,Rheumatic heart disease,1,Number,2021,3854686.35491052,4783797.728396123,3056084.815858652
+6,Incidence,1,Global,3,Both,22,All ages,523,Chronic hepatitis C including cirrhosis,1,Number,2021,4477374.427573838,5356718.084173141,3691726.159348794
+6,Incidence,1,Global,3,Both,22,All ages,525,Cirrhosis due to other causes,1,Number,2021,397988.9183387368,461312.1009244451,338934.7097959207
+6,Incidence,1,Global,3,Both,22,All ages,660,Viral skin diseases,1,Number,2021,84730444.82714571,87586946.28929853,82132966.32645941
+6,Incidence,1,Global,3,Both,22,All ages,524,Cirrhosis due to alcohol,1,Number,2021,462685.9165384048,543247.3308922778,380016.8242712944
+6,Incidence,1,Global,3,Both,22,All ages,500,Atrial fibrillation and flutter,1,Number,2021,4484926.307985571,5706019.355594989,3610620.3018603073
+6,Incidence,1,Global,3,Both,22,All ages,711,Non-venomous animal contact,1,Number,2021,35022939.07967708,43052620.23854448,28357698.69613889
+6,Incidence,1,Global,3,Both,22,All ages,662,Alopecia areata,1,Number,2021,30893047.024900537,31819276.695107736,29948975.046007328
+6,Incidence,1,Global,3,Both,22,All ages,530,Paralytic ileus and intestinal obstruction,1,Number,2021,15778197.75482437,16340916.876419138,15227795.78838849
+6,Incidence,1,Global,3,Both,22,All ages,531,"Inguinal, femoral, and abdominal hernia",1,Number,2021,7241108.152032214,8601083.600436002,6021589.874978957
+6,Incidence,1,Global,3,Both,22,All ages,503,Endocarditis,1,Number,2021,1042477.4548981916,1204150.0203186409,893665.109772573
+6,Incidence,1,Global,3,Both,22,All ages,532,Inflammatory bowel disease,1,Number,2021,375139.746993921,436925.1425233875,327686.16827958723
+6,Incidence,1,Global,3,Both,22,All ages,512,Asbestosis,1,Number,2021,10520.312910091649,11918.27071543918,9198.308640568705
+6,Incidence,1,Global,3,Both,22,All ages,511,Silicosis,1,Number,2021,35482.90253604502,40382.7503931278,30527.07181517469
+6,Incidence,1,Global,3,Both,22,All ages,714,Foreign body in eyes,1,Number,2021,28670245.525208358,41677028.11880122,20731714.523062944
+6,Incidence,1,Global,3,Both,22,All ages,516,Interstitial lung disease and pulmonary sarcoidosis,1,Number,2021,390267.1067241628,433403.2701820532,346393.41531494295
+6,Incidence,1,Global,3,Both,22,All ages,725,Physical violence by firearm,1,Number,2021,1266596.3754577844,1559751.703106169,1030645.7302756977
+6,Incidence,1,Global,3,Both,22,All ages,727,Physical violence by other means,1,Number,2021,20952300.73761356,23674722.290990174,18361518.332833115
+6,Incidence,1,Global,3,Both,22,All ages,726,Physical violence by sharp object,1,Number,2021,7179572.5502388505,8451564.088782724,6068842.759993529
+6,Incidence,1,Global,3,Both,22,All ages,837,Thalassemias trait,1,Number,2021,5379938.305698814,6117061.897569096,4720270.524561329
+6,Incidence,1,Global,3,Both,22,All ages,842,Environmental heat and cold exposure,1,Number,2021,3428280.714860958,4456245.646626471,2635848.3953702897
+6,Incidence,1,Global,3,Both,22,All ages,683,Periodontal diseases,1,Number,2021,89613533.89232408,101005641.51985423,79069090.86145481
+6,Incidence,1,Global,3,Both,22,All ages,522,Chronic hepatitis B including cirrhosis,1,Number,2021,4767975.358622485,5423253.825542608,4076108.4693131233
+6,Incidence,1,Global,3,Both,22,All ages,527,Peptic ulcer disease,1,Number,2021,2854369.825064615,3264251.9367753854,2438230.7206490403
+6,Incidence,1,Global,3,Both,22,All ages,529,Appendicitis,1,Number,2021,16963610.73833672,21634236.20406321,13791021.101453282
+6,Incidence,1,Global,3,Both,22,All ages,721,Self-harm by firearm,1,Number,2021,115867.44431251784,163789.33510220738,76813.80369235037
+6,Incidence,1,Global,3,Both,22,All ages,692,Motorcyclist road injuries,1,Number,2021,6707770.220385641,7771815.462678226,5745632.678749316
+6,Incidence,1,Global,3,Both,22,All ages,694,Other road injuries,1,Number,2021,2730655.0876203603,3367026.696017348,2102304.242303707
+6,Incidence,1,Global,3,Both,22,All ages,699,"Fire, heat, and hot substances",1,Number,2021,9198163.891018838,10784349.739691189,7592028.173762441
+6,Incidence,1,Global,3,Both,22,All ages,528,Gastritis and duodenitis,1,Number,2021,27202523.82908176,33647646.83205042,21851452.8878623
+6,Incidence,1,Global,3,Both,22,All ages,838,Sickle cell trait,1,Number,2021,9293969.17109495,10184490.950882904,8463740.724872421
+6,Incidence,1,Global,3,Both,22,All ages,839,G6PD trait,1,Number,2021,18934147.33051068,19606543.66064945,18253544.50900385
+6,Incidence,1,Global,3,Both,22,All ages,534,Gallbladder and biliary diseases,1,Number,2021,73246893.43480626,84905970.20929822,63105083.56030476
+6,Incidence,1,Global,3,Both,22,All ages,705,Unintentional firearm injuries,1,Number,2021,1785264.5736444064,2365962.786534286,1269795.4725967448
+6,Incidence,1,Global,3,Both,22,All ages,708,Adverse effects of medical treatment,1,Number,2021,12481276.34166306,14290629.874617826,10886792.690528134
+6,Incidence,1,Global,3,Both,22,All ages,713,Pulmonary aspiration and foreign body in airway,1,Number,2021,1243441.808626666,1551580.4485067404,992476.749494068
+6,Incidence,1,Global,3,Both,22,All ages,715,Foreign body in other body part,1,Number,2021,13923297.52405296,18487544.28548722,10316020.20865916
+6,Incidence,1,Global,3,Both,22,All ages,723,Self-harm by other specified means (internal),1,Number,2021,5371898.043825839,6363553.222836366,4503001.044583376
+6,Incidence,1,Global,3,Both,22,All ages,729,Exposure to forces of nature,1,Number,2021,763058.9927261034,924631.9436564082,650370.5260530342
+6,Incidence,1,Global,3,Both,22,All ages,843,Ebola,1,Number,2021,93.93364760732013,105.49540774863608,82.09622660560791

@@ -1,0 +1,332 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     12719,        324]
+NotebookOptionsPosition[     11692,        293]
+NotebookOutlinePosition[     12451,        319]
+CellTagsIndexPosition[     12374,        314]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"Options", "[", "PerturbedArrayPlot", "]"}], " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<ArrowStyle\>\"", "->", 
+      RowBox[{"Directive", "[", 
+       RowBox[{"Red", ",", " ", 
+        RowBox[{"Arrowheads", "[", ".075", "]"}]}], "]"}]}], ",", 
+     RowBox[{"\"\<ArrowDirection\>\"", "->", "Automatic"}], ",", " ", 
+     RowBox[{"\"\<InitialIndex\>\"", "->", "1"}]}], "}"}]}], ";"}]], "Input",
+ TaggingRules->{},
+ CellLabel->"In[63]:=",
+ CellID->1419443166,ExpressionUUID->"b1291e6c-15ed-4544-b6de-dbc8525ebd07"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Single", " ", "arrow"}], " ", "*)"}], " ", "\[IndentingNewLine]", 
+  
+  RowBox[{
+   RowBox[{"PerturbedArrayPlot", "[", 
+    RowBox[{
+     RowBox[{"array", ":", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"_", "?", "NumericQ"}], ".."}], "}"}], ".."}], "}"}]}], ",",
+      " ", 
+     RowBox[{"{", 
+      RowBox[{"i_Integer", ",", " ", "j_Integer"}], "}"}], ",", " ", 
+     RowBox[{"ops", ":", " ", 
+      RowBox[{"OptionsPattern", "[", 
+       RowBox[{"{", 
+        RowBox[{"PerturbedArrayPlot", ",", " ", "ArrayPlot"}], "}"}], 
+       "]"}]}]}], "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"allops", "  ", "=", 
+       RowBox[{"Merge", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Options", "[", "PerturbedArrayPlot", "]"}], ",", "ops"}], 
+          "}"}], ",", "Last"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ArrayPlot", "[", 
+      RowBox[{"array", ",", 
+       RowBox[{"FilterRules", "[", 
+        RowBox[{
+         RowBox[{"Normal", "[", "allops", "]"}], ",", " ", 
+         RowBox[{"Options", "[", "ArrayPlot", "]"}]}], "]"}], ",", " ", 
+       RowBox[{"Mesh", "->", "True"}], ",", " ", 
+       RowBox[{"Epilog", "->", 
+        RowBox[{"(", 
+         RowBox[{"{", 
+          RowBox[{"Red", ",", " ", 
+           RowBox[{"Arrowheads", "[", ".075", "]"}], ",", 
+           RowBox[{"allops", "[", "\"\<ArrowStyle\>\"", "]"}], ",", " ", 
+           RowBox[{"With", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"start", " ", "=", " ", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"allops", "[", "\"\<ArrowDirection\>\"", "]"}], " ",
+                   "===", " ", "Automatic"}], ",", " ", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{"j", "<=", 
+                    RowBox[{"Ceiling", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"Length", "[", 
+                    RowBox[{"array", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], ")"}], "/", "2"}], 
+                    "]"}]}], ",", " ", "0", ",", " ", 
+                   RowBox[{"Length", "[", 
+                    RowBox[{"array", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "]"}], ",", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"allops", "[", "\"\<ArrowDirection\>\"", "]"}], 
+                    " ", "===", " ", "\"\<Right\>\""}], ",", " ", "0", ",", 
+                   RowBox[{"Length", "[", 
+                    RowBox[{"array", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}]}], "]"}]}], "]"}]}],
+               "}"}], ",", " ", 
+             RowBox[{"Arrow", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"start", ",", " ", 
+                  RowBox[{
+                   RowBox[{"Length", "[", "array", "]"}], " ", "-", " ", "i", 
+                   " ", "+", " ", ".5", "  ", "+", " ", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"allops", "[", "\"\<InitialIndex\>\"", "]"}], " ",
+                     "-", " ", "1"}], ")"}]}]}], "}"}], ",", 
+                RowBox[{"{", 
+                 RowBox[{
+                  RowBox[{"j", "-", ".5"}], " ", ",", 
+                  RowBox[{
+                   RowBox[{"Length", "[", "array", "]"}], " ", "-", " ", "i", 
+                   " ", "+", ".5", "  ", "+", " ", 
+                   RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"allops", "[", "\"\<InitialIndex\>\"", "]"}], " ",
+                     "-", " ", "1"}], ")"}]}]}], "}"}]}], "}"}], "]"}]}], 
+            "]"}]}], "}"}], ")"}]}]}], "]"}]}], "]"}]}]}]], "Input",
+ TaggingRules->{},
+ CellTags->"DefaultContent",
+ CellLabel->"In[64]:=",
+ CellID->876320555,ExpressionUUID->"56001e2a-59c5-4854-99ac-ed4a391218e4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{"Multiple", " ", "arrows"}], " ", "*)"}], " ", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"PerturbedArrayPlot", "[", 
+    RowBox[{
+     RowBox[{"array", ":", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"_", "?", "NumericQ"}], ".."}], "}"}], ".."}], "}"}]}], ",",
+      " ", 
+     RowBox[{"reps", ":", " ", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"_Integer", ",", " ", "_Integer"}], "}"}], "..."}], "}"}]}], 
+     ",", " ", 
+     RowBox[{"ops", ":", 
+      RowBox[{"OptionsPattern", "[", 
+       RowBox[{"{", 
+        RowBox[{"PerturbedArrayPlot", ",", " ", "ArrayPlot"}], "}"}], 
+       "]"}]}]}], "]"}], ":=", "\[IndentingNewLine]", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"allops", "  ", "=", 
+       RowBox[{"Merge", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Options", "[", "PerturbedArrayPlot", "]"}], ",", "ops"}], 
+          "}"}], ",", "Last"}], "]"}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"ArrayPlot", "[", 
+      RowBox[{"array", ",", 
+       RowBox[{"FilterRules", "[", 
+        RowBox[{
+         RowBox[{"Normal", "[", "allops", "]"}], ",", " ", 
+         RowBox[{"Options", "[", "ArrayPlot", "]"}]}], "]"}], ",", 
+       RowBox[{"Mesh", "->", "True"}], ",", " ", 
+       RowBox[{"Epilog", "->", 
+        RowBox[{"(", 
+         RowBox[{"{", 
+          RowBox[{"Red", ",", " ", 
+           RowBox[{"Arrowheads", "[", ".075", "]"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"Function", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{
+               "i", ",", " ", "j", ",", " ", "style", ",", " ", "direction"}],
+                "}"}], ",", "\[IndentingNewLine]", 
+              RowBox[{"With", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"start", " ", "=", " ", "\[IndentingNewLine]", 
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{"direction", " ", "===", " ", "Automatic"}], ",", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"j", "<=", 
+                    RowBox[{"Ceiling", "[", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{"Length", "[", 
+                    RowBox[{"array", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}], "]"}], ")"}], "/", "2"}], 
+                    "]"}]}], ",", " ", "0", ",", " ", 
+                    RowBox[{"Length", "[", 
+                    RowBox[{"array", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "]"}], ",", 
+                    RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{"direction", " ", "===", " ", "\"\<Right\>\""}], ",",
+                     " ", "0", ",", " ", 
+                    RowBox[{"Length", "[", 
+                    RowBox[{"array", "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], "]"}]}], "]"}]}], "]"}]}],
+                  "}"}], ",", " ", "\[IndentingNewLine]", 
+                RowBox[{"Style", "[", "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"Arrow", "[", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"start", ",", " ", 
+                    RowBox[{
+                    RowBox[{"Length", "[", "array", "]"}], " ", "-", " ", "i",
+                     " ", "+", " ", ".5", "  ", "+", " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"allops", "[", "\"\<InitialIndex\>\"", "]"}], " ",
+                     "-", " ", "1"}], ")"}]}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"j", "-", ".5"}], " ", ",", 
+                    RowBox[{
+                    RowBox[{"Length", "[", "array", "]"}], " ", "-", " ", "i",
+                     " ", "+", ".5", " ", "+", " ", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"allops", "[", "\"\<InitialIndex\>\"", "]"}], " ",
+                     "-", " ", "1"}], ")"}]}]}], "}"}]}], "}"}], "]"}], ",", 
+                  " ", "style"}], "]"}]}], "\[IndentingNewLine]", "]"}]}], 
+             "]"}], "@@@", "\[IndentingNewLine]", 
+            RowBox[{"MapThread", "[", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"Join", "[", 
+                RowBox[{"#1", ",", " ", 
+                 RowBox[{"{", 
+                  RowBox[{"#2", ",", " ", "#3"}], "}"}]}], "]"}], "&"}], ",", 
+              " ", 
+              RowBox[{"{", 
+               RowBox[{"reps", ",", " ", 
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{"ListQ", "[", 
+                   RowBox[{"allops", "[", "\"\<ArrowStyle\>\"", "]"}], "]"}], 
+                  ",", " ", 
+                  RowBox[{"allops", "[", "\"\<ArrowStyle\>\"", "]"}], ",", 
+                  " ", 
+                  RowBox[{"Table", "[", 
+                   RowBox[{
+                    RowBox[{"allops", "[", "\"\<ArrowStyle\>\"", "]"}], ",", 
+                    " ", 
+                    RowBox[{"Length", "[", "reps", "]"}]}], "]"}]}], "]"}], ",",
+                 "\[IndentingNewLine]", 
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{"ListQ", "[", 
+                   RowBox[{"allops", "[", "\"\<ArrowDirection\>\"", "]"}], 
+                   "]"}], ",", " ", 
+                  RowBox[{"allops", "[", "\"\<ArrowDirection\>\"", "]"}], ",",
+                   " ", 
+                  RowBox[{"Table", "[", 
+                   RowBox[{
+                    RowBox[{"allops", "[", "\"\<ArrowDirection\>\"", "]"}], ",",
+                     " ", 
+                    RowBox[{"Length", "[", "reps", "]"}]}], "]"}]}], "]"}]}], 
+               "\[IndentingNewLine]", "}"}]}], "]"}]}]}], "}"}], ")"}]}]}], 
+      "]"}]}], "]"}]}]}]], "Input",
+ TaggingRules->{},
+ CellTags->"DefaultContent",
+ CellLabel->"In[65]:=",
+ CellID->1643924747,ExpressionUUID->"1506466f-5a14-4c77-a81e-db32882b3e11"]
+},
+WindowSize->{780, 673},
+WindowMargins->{{Automatic, 175}, {Automatic, 12}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"55b54a80-f0f3-49c9-b6b8-e2522fed9f40"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "DefaultContent"->{
+  Cell[1136, 36, 4194, 102, 254, "Input",ExpressionUUID->"56001e2a-59c5-4854-99ac-ed4a391218e4",
+   CellTags->"DefaultContent",
+   CellID->876320555],
+  Cell[5333, 140, 6355, 151, 458, "Input",ExpressionUUID->"1506466f-5a14-4c77-a81e-db32882b3e11",
+   CellTags->"DefaultContent",
+   CellID->1643924747]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"DefaultContent", 12046, 304}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 579, 14, 70, "Input",ExpressionUUID->"b1291e6c-15ed-4544-b6de-dbc8525ebd07",
+ CellID->1419443166],
+Cell[1136, 36, 4194, 102, 254, "Input",ExpressionUUID->"56001e2a-59c5-4854-99ac-ed4a391218e4",
+ CellTags->"DefaultContent",
+ CellID->876320555],
+Cell[5333, 140, 6355, 151, 458, "Input",ExpressionUUID->"1506466f-5a14-4c77-a81e-db32882b3e11",
+ CellTags->"DefaultContent",
+ CellID->1643924747]
+}
+]
+*)
+

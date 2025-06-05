@@ -1,0 +1,101 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      3150,         93]
+NotebookOptionsPosition[      2339,         74]
+NotebookOutlinePosition[      2737,         90]
+CellTagsIndexPosition[      2694,         87]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"perspec", ",", "perbitfunc"}], "}"}]], "Input",
+ CellChangeTimes->{{3.94313683760078*^9, 
+  3.943136843277087*^9}},ExpressionUUID->"891051c2-cd1e-40af-b36d-\
+7076c60c3044"],
+
+Cell[BoxData[
+ RowBox[{"func", "[", "  ", 
+  RowBox[{"{", 
+   RowBox[{
+   "0", ",", "1", ",", "2", ",", "0", ",", "1", ",", "0", ",", "1", ",", "1", 
+    ",", "1", ",", "0"}], "}"}], "  ", "]"}]], "Input",
+ CellChangeTimes->{{3.9431368505591908`*^9, 
+  3.943136896761382*^9}},ExpressionUUID->"2a158302-dc35-4d6e-b5a3-\
+9d36d182da39"],
+
+Cell["\<\
+Pertbitfunc: 
+\[OpenCurlyDoubleQuote]Random\[CloseCurlyDoubleQuote]
+\[OpenCurlyDoubleQuote]SetValue\[CloseCurlyDoubleQuote] -> i
+\[OpenCurlyDoubleQuote]AddValue\[CloseCurlyDoubleQuote] -> \[Delta]\
+\>", "Text",
+ CellChangeTimes->{{3.943136920580963*^9, 3.9431369250558453`*^9}, {
+  3.943136955279694*^9, 
+  3.9431369926883173`*^9}},ExpressionUUID->"ca9cfcd4-bc0c-410d-b588-\
+bee66a9e8ea6"],
+
+Cell[BoxData["CellularAutomaton"], "Input",
+ CellChangeTimes->{{3.943137058857139*^9, 
+  3.943137064081712*^9}},ExpressionUUID->"2af1ea1a-959f-4ba7-b310-\
+30faf0e468ed"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"extractKR", "[", "n_Integer", "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"2", ",", "1"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.9431371966167917`*^9, 
+  3.94313722899688*^9}},ExpressionUUID->"0e0b3e3d-d6b3-49a2-bd47-\
+d764daeeb8ca"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"extractKR", "[", 
+   RowBox[{"{", 
+    RowBox[{"_", ",", "k_Integer", ",", "r_Integer"}], "}"}], "]"}], ":=", 
+  RowBox[{"{", 
+   RowBox[{"k", ",", "r"}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.943137211942665*^9, 3.9431372518289747`*^9}, {
+  3.943137315631584*^9, 
+  3.943137329032552*^9}},ExpressionUUID->"967a81d1-e2eb-42b6-971b-\
+1fb8df722cde"]
+},
+WindowSize->{808, 911},
+WindowMargins->{{800, Automatic}, {120, Automatic}},
+FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (December 6, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"5e3e4155-2737-480a-89e6-04d5637364f2"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 212, 5, 29, "Input",ExpressionUUID->"891051c2-cd1e-40af-b36d-7076c60c3044"],
+Cell[769, 27, 333, 8, 29, "Input",ExpressionUUID->"2a158302-dc35-4d6e-b5a3-9d36d182da39"],
+Cell[1105, 37, 399, 9, 99, "Text",ExpressionUUID->"ca9cfcd4-bc0c-410d-b588-bee66a9e8ea6"],
+Cell[1507, 48, 169, 3, 29, "Input",ExpressionUUID->"2af1ea1a-959f-4ba7-b310-30faf0e468ed"],
+Cell[1679, 53, 268, 7, 29, "Input",ExpressionUUID->"0e0b3e3d-d6b3-49a2-bd47-d764daeeb8ca"],
+Cell[1950, 62, 385, 10, 29, "Input",ExpressionUUID->"967a81d1-e2eb-42b6-971b-1fb8df722cde"]
+}
+]
+*)
+

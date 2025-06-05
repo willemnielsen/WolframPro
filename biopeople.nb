@@ -1,0 +1,293 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     10430,        285]
+NotebookOptionsPosition[      7246,        232]
+NotebookOutlinePosition[      7644,        248]
+CellTagsIndexPosition[      7601,        245]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Mohammed AlQuraishi", "Section",
+ FontWeight->"Bold",ExpressionUUID->"56fa6eeb-6842-499f-afa3-2080e7649228"],
+
+Cell["Lifecycle: Null", "Text",ExpressionUUID->"655f04c4-3a3b-4644-bcad-68ce0565c62a"],
+
+Cell[TextData[{
+ "Email: ",
+ ButtonBox["Null",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["mailto:" <> Null], None},
+  ButtonNote->"mailto:" <> Null]
+}], "Text",ExpressionUUID->"43aa4fc6-c336-4a52-bae8-40b6e8f94439"],
+
+Cell[TextData[{
+ "LinkedIn Profile: ",
+ ButtonBox["https://www.linkedin.com/in/alquraishi/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.linkedin.com/in/alquraishi/"], None},
+  ButtonNote->"https://www.linkedin.com/in/alquraishi/"]
+}], "Text",ExpressionUUID->"727c6851-bcf5-4af2-9fda-3a6c48da2b32"],
+
+Cell[TextData[{
+ "Wolfram Community Profile: ",
+ ButtonBox["Null",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL[Null], None},
+  ButtonNote->Null]
+}], "Text",ExpressionUUID->"d5584e31-1286-4836-b982-ad148316f287"],
+
+Cell["\<\
+Summary: Assistant Professor of Systems Biology at Columbia University
+Cat Boucher introduced him to us.
+Worked at WRI for a year as designing computational biology functionality.\
+\>", "Text",ExpressionUUID->"a45764a3-3545-4c75-8874-adb1b33049ed"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Luis Zaman", "Section",
+ FontWeight->"Bold",ExpressionUUID->"033c38ed-018a-4531-ab1d-845a7fd4cb01"],
+
+Cell["Lifecycle: Lead (for Institute)", "Text",ExpressionUUID->"93cae35b-7a77-40bc-bd80-0a8831c19d29"],
+
+Cell[TextData[{
+ "Email: ",
+ ButtonBox["zamanlh@umich.edu",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["mailto:zamanlh@umich.edu"], None},
+  ButtonNote->"mailto:zamanlh@umich.edu"]
+}], "Text",ExpressionUUID->"a35ca476-c562-4ea5-bfdc-711d2a65a5c8"],
+
+Cell[TextData[{
+ "LinkedIn Profile: ",
+ ButtonBox["Null",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL[Null], None},
+  ButtonNote->Null]
+}], "Text",ExpressionUUID->"dbf5933e-5117-43ae-9829-de149fff06be"],
+
+Cell[TextData[{
+ "Wolfram Community Profile: ",
+ ButtonBox["Null",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL[Null], None},
+  ButtonNote->Null]
+}], "Text",ExpressionUUID->"3783a5ed-bfef-43a6-a028-aaa9d95ea1c3"],
+
+Cell["\<\
+Summary: Aspiration: connect with bio research
+Ph.D., Computer Science and Ecology, Evolutionary Biology and Behavior, \
+Michigan State University
+B.S., Computer Science, Xavier University\
+\>", "Text",ExpressionUUID->"d3b73b20-0be9-4785-9c98-45889ad51e16"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Hector Zenil", "Section",
+ FontWeight->"Bold",ExpressionUUID->"45bec0bf-d652-47cf-8400-defa6350765e"],
+
+Cell["Lifecycle: Lead", "Text",ExpressionUUID->"13f97f17-4671-419b-9fc7-ebecbfc7d069"],
+
+Cell[TextData[{
+ "Email: ",
+ ButtonBox["hzenilc@gmail.com",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["mailto:hzenilc@gmail.com"], None},
+  ButtonNote->"mailto:hzenilc@gmail.com"]
+}], "Text",ExpressionUUID->"5007cf86-56db-460e-abfe-306f45aa62f2"],
+
+Cell[TextData[{
+ "LinkedIn Profile: ",
+ ButtonBox["https://www.linkedin.com/in/zenil/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.linkedin.com/in/zenil/"], None},
+  ButtonNote->"https://www.linkedin.com/in/zenil/"]
+}], "Text",ExpressionUUID->"2880b1e5-882f-4174-b011-ac93dfb2da61"],
+
+Cell[TextData[{
+ "Wolfram Community Profile: ",
+ ButtonBox["https://community.wolfram.com/web/hectorz/home?p_p_id=user_WAR_\
+userportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-\
+1&p_p_col_count=1&tabs1=Profile",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://community.wolfram.com/web/hectorz/home?p_p_id=user_WAR_\
+userportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-\
+1&p_p_col_count=1&tabs1=Profile"], None},
+  ButtonNote->
+   "https://community.wolfram.com/web/hectorz/home?p_p_id=user_WAR_\
+userportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-\
+1&p_p_col_count=1&tabs1=Profile"]
+}], "Text",ExpressionUUID->"a4f98455-85c6-4fa6-b479-e5f185577818"],
+
+Cell["\<\
+Summary: Associate Professor | Founder & Academic Entrepreneur | Chief \
+Visionary Officer | UK National AI Advisor | Lab Leader
+Editor of Journal for Complex Systems
+Aspiration: mentoring AffRes, review papers\
+\>", "Text",ExpressionUUID->"b5c329d7-2dbc-4ec9-a4a0-28de09fec992"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Andres Ortiz", "Section",
+ FontWeight->"Bold",ExpressionUUID->"8d651fb2-d9a9-4ca6-9393-0f51abbab8a1"],
+
+Cell["Lifecycle: Community Member (Discord)", "Text",ExpressionUUID->"a183576f-8913-4deb-8a51-ec1ac39f52df"],
+
+Cell[TextData[{
+ "Email: ",
+ ButtonBox["andortiz19@gmail.com",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["mailto:andortiz19@gmail.com"], None},
+  ButtonNote->"mailto:andortiz19@gmail.com"]
+}], "Text",ExpressionUUID->"ab842aba-c96a-4dce-9250-3ac40e1a1291"],
+
+Cell[TextData[{
+ "LinkedIn Profile: ",
+ ButtonBox["Null",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL[Null], None},
+  ButtonNote->Null]
+}], "Text",ExpressionUUID->"80b18956-d172-44e8-8410-28aad04f5d91"],
+
+Cell[TextData[{
+ "Wolfram Community Profile: ",
+ ButtonBox["Null",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL[Null], None},
+  ButtonNote->Null]
+}], "Text",ExpressionUUID->"2aa7c790-6d9e-4f1e-a582-55fc42d27504"],
+
+Cell["\<\
+Summary: \|01f3afwrite some bridge papers on Theo Bio
+\|01f3afinvite to present on livestream when he has compelling research to \
+present
+
+declined our work opportunity for post-grad theo bio role - JKW 2025-02-04\
+\>", "Text",ExpressionUUID->"7994f2d8-0d30-4098-b4f3-b8cea3db1e5d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Kieth Cheng", "Section",
+ FontWeight->"Bold",ExpressionUUID->"b2d9ddd4-4a9a-49fb-8b93-98ef60f6da35"],
+
+Cell["Lifecycle: ", "Text",ExpressionUUID->"a29e8118-6b92-4276-a9a5-481cb0bd5064"],
+
+Cell["Email: kcheng76@gmail.com", "Text",ExpressionUUID->"3992de5f-390b-485b-8557-7d0742314590"],
+
+Cell[TextData[{
+ "LinkedIn Profile: ",
+ ButtonBox["Null",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL[Null], None},
+  ButtonNote->Null]
+}], "Text",ExpressionUUID->"c2f8ed8b-e0e0-42e6-8de0-69768cd7f993"],
+
+Cell[TextData[{
+ "Wolfram Community Profile: ",
+ ButtonBox["Null",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL[Null], None},
+  ButtonNote->Null]
+}], "Text",ExpressionUUID->"b8384025-5578-4020-9e21-41431405dd58"],
+
+Cell["\<\
+Summary: 
+Distinguished Professor, Department of Pathology and Laboratory Medicine
+Division of Experimental Pathology
+Distinguished Professor, Department of Molecular and Precision Medicine
+Aspiration: Integrate his anatomy data into wolfram language to help continue \
+to concretize our theo bio effort\
+\>", "Text",ExpressionUUID->"94f39ca0-6aeb-4295-8f28-0826a1a2760b"]
+}, Open  ]]
+},
+WindowSize->{808, 673},
+WindowMargins->{{137, Automatic}, {41, Automatic}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"de8e8b18-1374-4c18-a5ef-2b3523d04b90"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 114, 1, 66, "Section",ExpressionUUID->"56fa6eeb-6842-499f-afa3-2080e7649228"],
+Cell[693, 25, 86, 0, 33, "Text",ExpressionUUID->"655f04c4-3a3b-4644-bcad-68ce0565c62a"],
+Cell[782, 27, 223, 7, 33, "Text",ExpressionUUID->"43aa4fc6-c336-4a52-bae8-40b6e8f94439"],
+Cell[1008, 36, 317, 7, 33, "Text",ExpressionUUID->"727c6851-bcf5-4af2-9fda-3a6c48da2b32"],
+Cell[1328, 45, 217, 7, 33, "Text",ExpressionUUID->"d5584e31-1286-4836-b982-ad148316f287"],
+Cell[1548, 54, 258, 4, 77, "Text",ExpressionUUID->"a45764a3-3545-4c75-8874-adb1b33049ed"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1843, 63, 105, 1, 66, "Section",ExpressionUUID->"033c38ed-018a-4531-ab1d-845a7fd4cb01"],
+Cell[1951, 66, 102, 0, 33, "Text",ExpressionUUID->"93cae35b-7a77-40bc-bd80-0a8831c19d29"],
+Cell[2056, 68, 254, 7, 33, "Text",ExpressionUUID->"a35ca476-c562-4ea5-bfdc-711d2a65a5c8"],
+Cell[2313, 77, 208, 7, 33, "Text",ExpressionUUID->"dbf5933e-5117-43ae-9829-de149fff06be"],
+Cell[2524, 86, 217, 7, 33, "Text",ExpressionUUID->"3783a5ed-bfef-43a6-a028-aaa9d95ea1c3"],
+Cell[2744, 95, 267, 5, 77, "Text",ExpressionUUID->"d3b73b20-0be9-4785-9c98-45889ad51e16"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3048, 105, 107, 1, 66, "Section",ExpressionUUID->"45bec0bf-d652-47cf-8400-defa6350765e"],
+Cell[3158, 108, 86, 0, 33, "Text",ExpressionUUID->"13f97f17-4671-419b-9fc7-ebecbfc7d069"],
+Cell[3247, 110, 254, 7, 33, "Text",ExpressionUUID->"5007cf86-56db-460e-abfe-306f45aa62f2"],
+Cell[3504, 119, 302, 7, 33, "Text",ExpressionUUID->"2880b1e5-882f-4174-b011-ac93dfb2da61"],
+Cell[3809, 128, 738, 14, 77, "Text",ExpressionUUID->"a4f98455-85c6-4fa6-b479-e5f185577818"],
+Cell[4550, 144, 289, 5, 99, "Text",ExpressionUUID->"b5c329d7-2dbc-4ec9-a4a0-28de09fec992"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4876, 154, 107, 1, 66, "Section",ExpressionUUID->"8d651fb2-d9a9-4ca6-9393-0f51abbab8a1"],
+Cell[4986, 157, 108, 0, 33, "Text",ExpressionUUID->"a183576f-8913-4deb-8a51-ec1ac39f52df"],
+Cell[5097, 159, 263, 7, 33, "Text",ExpressionUUID->"ab842aba-c96a-4dce-9250-3ac40e1a1291"],
+Cell[5363, 168, 208, 7, 33, "Text",ExpressionUUID->"80b18956-d172-44e8-8410-28aad04f5d91"],
+Cell[5574, 177, 217, 7, 33, "Text",ExpressionUUID->"2aa7c790-6d9e-4f1e-a582-55fc42d27504"],
+Cell[5794, 186, 293, 6, 99, "Text",ExpressionUUID->"7994f2d8-0d30-4098-b4f3-b8cea3db1e5d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6124, 197, 106, 1, 66, "Section",ExpressionUUID->"b2d9ddd4-4a9a-49fb-8b93-98ef60f6da35"],
+Cell[6233, 200, 82, 0, 33, "Text",ExpressionUUID->"a29e8118-6b92-4276-a9a5-481cb0bd5064"],
+Cell[6318, 202, 96, 0, 33, "Text",ExpressionUUID->"3992de5f-390b-485b-8557-7d0742314590"],
+Cell[6417, 204, 208, 7, 33, "Text",ExpressionUUID->"c2f8ed8b-e0e0-42e6-8de0-69768cd7f993"],
+Cell[6628, 213, 217, 7, 33, "Text",ExpressionUUID->"b8384025-5578-4020-9e21-41431405dd58"],
+Cell[6848, 222, 382, 7, 121, "Text",ExpressionUUID->"94f39ca0-6aeb-4295-8f28-0826a1a2760b"]
+}, Open  ]]
+}
+]
+*)
+

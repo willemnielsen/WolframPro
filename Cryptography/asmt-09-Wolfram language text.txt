@@ -1,0 +1,29 @@
+Unit 9 Project 11 - RSA Encryption Implementation
+
+In[7]:= (*Generate RSA key pair*)keyPair = GenerateAsymmetricKeyPair["RSA"];
+
+(*Message to encrypt*)
+message = "Hello, world!";
+
+(*Encrypt with public key*)
+encrypted = Encrypt[keyPair["PublicKey"], message];
+
+(*Decrypt with private key*)
+decrypted = Decrypt[keyPair["PrivateKey"], encrypted]
+
+Out[10]= "Hello, world!"
+
+Unit 9 Project 12 - Hash generator
+
+In[11]:= (*Simple custom hash function:convert to character codes,then to hex,\
+and apply formula*)
+myHashFunction[str_String] := 
+ Module[{hexValues, hashed}, 
+  hexValues = IntegerString[ToCharacterCode[str], 16, 2];
+  hashed = StringJoin[IntegerString[Mod[ToCharacterCode[str] + 7, 256], 16, 2]];
+  hashed]
+
+(*Example*)
+myHashFunction["hello"]
+
+Out[12]= "6f6c737376"

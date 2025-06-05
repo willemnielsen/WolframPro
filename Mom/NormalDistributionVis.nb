@@ -1,0 +1,46 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[       992,         36]
+NotebookOptionsPosition[       638,         22]
+NotebookOutlinePosition[      1039,         38]
+CellTagsIndexPosition[       996,         35]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["", "ChatInput",ExpressionUUID->"15161c2f-1548-452d-8fa4-100fe4a8fddb"]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{556, Automatic}, {70, Automatic}},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Chatbook.nb",
+ExpressionUUID->"a18ba31b-7207-43fe-bfd8-781e403d4110"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 76, 0, 82, "ChatInput",ExpressionUUID->"15161c2f-1548-452d-8fa4-100fe4a8fddb"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

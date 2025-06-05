@@ -1,0 +1,499 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     20384,        491]
+NotebookOptionsPosition[     18045,        456]
+NotebookOutlinePosition[     18446,        472]
+CellTagsIndexPosition[     18403,        469]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"programs", "=", " ", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\</Users/erichegonzales/Projects/Wolfram/Email_Programs.csv\>\"", ",", 
+     " ", "\"\<Dataset\>\"", ",", " ", 
+     RowBox[{"\"\<HeaderLines\>\"", "->", " ", "1"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.921801742629943*^9, 3.921801792840588*^9}, 
+   3.921801824277893*^9},
+ CellLabel->"In[19]:=",ExpressionUUID->"3b5d2f8a-8bdf-48de-bcfa-40e62c7e5978"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"programs", "=", 
+   RowBox[{"DeleteCases", "[", 
+    RowBox[{"programs", ",", 
+     RowBox[{"_", "?", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"StringContainsQ", "[", 
+         RowBox[{
+          RowBox[{"#", "[", "\"\<Name\>\"", "]"}], ",", "\"\<DNR\>\""}], 
+         "]"}], "&"}], ")"}]}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"programs", "=", 
+   RowBox[{"DeleteCases", "[", 
+    RowBox[{"programs", ",", 
+     RowBox[{"_", "?", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"#", "[", "\"\<Name\>\"", "]"}], "==", 
+         "\"\<[Hoop Academy] Sat 3:30pm-5:00pm (Gr. 6th-8th)\>\""}], "&"}], 
+       ")"}]}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"programs", " ", "=", " ", 
+   RowBox[{"SortBy", "[", 
+    RowBox[{"programs", ",", " ", "\"\<Name\>\""}], "]"}]}], ";"}]}], "Input",\
+
+ CellChangeTimes->{{3.921801826665279*^9, 3.921801843072179*^9}, {
+   3.921801963273732*^9, 3.921801992681835*^9}, {3.921802039361595*^9, 
+   3.921802040191938*^9}, {3.921802240441554*^9, 3.92180224090207*^9}, 
+   3.921802284341495*^9, {3.921802528336039*^9, 3.921802542480135*^9}, 
+   3.921802648435215*^9, 3.921808011614654*^9},
+ CellLabel->"In[20]:=",ExpressionUUID->"056a9eb8-92c4-4471-9b81-0840d18a2c72"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ageIntervals", " ", "=", " ", 
+   RowBox[{"<|", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"6308", "->", 
+      RowBox[{"Interval", "[", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", " ", "6"}], "}"}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"6309", "->", 
+      RowBox[{"Interval", "[", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", " ", "6"}], "}"}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"6310", "->", 
+      RowBox[{"Interval", "[", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", " ", "6"}], "}"}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"6311", "->", 
+      RowBox[{"Interval", "[", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", " ", "6"}], "}"}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"6313", "->", 
+      RowBox[{"Interval", "[", 
+       RowBox[{"{", 
+        RowBox[{"8", ",", " ", "11"}], "}"}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"6314", "->", 
+      RowBox[{"Interval", "[", 
+       RowBox[{"{", 
+        RowBox[{"7", ",", " ", "10"}], "}"}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"6315", "->", 
+      RowBox[{"Interval", "[", 
+       RowBox[{"{", 
+        RowBox[{"6", ",", " ", "9"}], "}"}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"6316", "->", 
+      RowBox[{"Interval", "[", 
+       RowBox[{"{", 
+        RowBox[{"8", ",", " ", "11"}], "}"}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"6286", "->", 
+      RowBox[{"Interval", "[", 
+       RowBox[{"{", 
+        RowBox[{"7", ",", " ", "9"}], "}"}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"6285", "->", 
+      RowBox[{"Interval", "[", 
+       RowBox[{"{", 
+        RowBox[{"9", ",", " ", "11"}], "}"}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"6288", "->", 
+      RowBox[{"Interval", "[", 
+       RowBox[{"{", 
+        RowBox[{"6", ",", " ", "9"}], "}"}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"6303", "->", 
+      RowBox[{"Interval", "[", 
+       RowBox[{"{", 
+        RowBox[{"5", ",", " ", "8"}], "}"}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"6304", "->", 
+      RowBox[{"Interval", "[", 
+       RowBox[{"{", 
+        RowBox[{"5", ",", " ", "8"}], "}"}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"6305", "->", 
+      RowBox[{"Interval", "[", 
+       RowBox[{"{", 
+        RowBox[{"5", ",", " ", "8"}], "}"}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"6306", "->", 
+      RowBox[{"Interval", "[", 
+       RowBox[{"{", 
+        RowBox[{"5", ",", " ", "8"}], "}"}], "]"}]}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"6307", "->", 
+      RowBox[{"Interval", "[", 
+       RowBox[{"{", 
+        RowBox[{"6", ",", " ", "8"}], "}"}], "]"}]}]}], "\[IndentingNewLine]",
+     "|>"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.921801878041032*^9, 3.92180193858364*^9}, {
+   3.9218020614050217`*^9, 3.921802172848665*^9}, {3.921802203339583*^9, 
+   3.921802211651568*^9}, {3.9218023502138968`*^9, 3.921802451444228*^9}, 
+   3.921802750354155*^9, {3.921804003425188*^9, 3.921804163891114*^9}, 
+   3.9218084061874437`*^9},ExpressionUUID->"3c61ac55-3835-4c07-9820-\
+afc78e5eccc2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"programs", " ", "=", 
+   RowBox[{"programs", "[", 
+    RowBox[{"All", ",", " ", 
+     RowBox[{
+      RowBox[{"Append", "[", 
+       RowBox[{"#", ",", 
+        RowBox[{"\"\<Age Range\>\"", "->", 
+         RowBox[{"ageIntervals", "[", "#ID", "]"}]}]}], "]"}], "&"}]}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.921804482204043*^9, 3.921804483302346*^9}, 
+   3.921808409659494*^9},ExpressionUUID->"370df460-7bbc-4a8a-b8ab-\
+2fae7cc082f8"],
+
+Cell[BoxData[
+ RowBox[{"programs", "=", 
+  RowBox[{"DeleteCases", "[", 
+   RowBox[{"programs", ",", 
+    RowBox[{"_", "?", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"#Flags", "==", "\"\<Full\>\""}], "||", 
+        RowBox[{"#Flags", "==", "\"\<Over\>\""}]}], " ", "&"}], ")"}]}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.921807844861936*^9, 3.921807986027172*^9}, {
+   3.921808077545142*^9, 3.92180809459064*^9}, {3.921808142639243*^9, 
+   3.921808145002186*^9}, 3.921808411662531*^9, 3.921809883623752*^9},
+ CellLabel->
+  "In[101]:=",ExpressionUUID->"78756610-9aa0-4d42-8927-391592e39fe0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"nonSignups", " ", "=", " ", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\</Users/erichegonzales/Projects/Wolfram/24-WI-Classes-Sub-SP.csv\>\"",
+      ",", " ", "\"\<Dataset\>\"", ",", " ", 
+     RowBox[{"\"\<HeaderLines\>\"", "->", " ", "1"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.921804755430826*^9, 3.921804775271969*^9}, {
+   3.9218048137305717`*^9, 3.9218048729537277`*^9}, 3.921808413238641*^9, 
+   3.92195119208088*^9},
+ CellLabel->"In[29]:=",ExpressionUUID->"5ccf64dd-6e08-4a0c-9c0e-2fba0bc258dd"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"nonSignups", "=", 
+   RowBox[{"nonSignups", "[", 
+    RowBox[{"Select", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"#", "[", "\"\<Email?\>\"", "]"}], "===", "\"\<Yes\>\""}], 
+      "&"}], "]"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.921807361201438*^9, 3.921807388686013*^9}, {
+   3.921808387009965*^9, 3.921808388190374*^9}, 3.921808418360785*^9},
+ CellLabel->"In[30]:=",ExpressionUUID->"26bcc4cb-9dcd-4608-ae15-9eec01c16c4f"],
+
+Cell[BoxData[
+ RowBox[{"nonSignups", " ", "=", " ", 
+  RowBox[{"DeleteCases", "[", 
+   RowBox[{"nonSignups", ",", 
+    RowBox[{"_", "?", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"#CID", "==", "53915"}], "||", 
+        RowBox[{"#CID", "==", "17731"}]}], " ", "&"}], ")"}]}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.921808191031664*^9, 3.921808258050446*^9}, 
+   3.921808288560459*^9, {3.921808390776833*^9, 3.921808394194562*^9}, 
+   3.921808424881683*^9, 3.921808721922497*^9},
+ CellLabel->"In[36]:=",ExpressionUUID->"d38942a9-a670-4eb0-8fd3-ffd1000636bf"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"optIn", " ", "=", " ", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\</Users/erichegonzales/Projects/Wolfram/24-WI-Classes-Sub-SP-Optin.\
+csv\>\"", ",", " ", "\"\<Dataset\>\"", ",", " ", 
+     RowBox[{"\"\<HeaderLines\>\"", "->", " ", "1"}]}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.921808478859892*^9, 3.921808489104416*^9}},
+ CellLabel->"In[43]:=",ExpressionUUID->"d2cb8721-61b9-4125-b84c-3d306373ce96"],
+
+Cell[BoxData[
+ RowBox[{"nonSignups", " ", "=", " ", 
+  RowBox[{"DeleteCases", "[", 
+   RowBox[{"nonSignups", ",", 
+    RowBox[{"_", "?", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{"ContainsNone", "[", 
+        RowBox[{
+         RowBox[{"{", "#CID", "}"}], ",", 
+         RowBox[{"Normal", "[", 
+          RowBox[{"optIn", "[", 
+           RowBox[{"All", ",", " ", "\"\<CID\>\""}], "]"}], "]"}]}], "]"}], 
+       "&"}], ")"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.921808502745776*^9, 3.921808667845046*^9}, 
+   3.921808806983098*^9, {3.921808873921422*^9, 3.921808877782724*^9}, 
+   3.921808955930895*^9, {3.921809020997741*^9, 3.921809052680862*^9}, {
+   3.921809187419509*^9, 3.921809215902538*^9}},
+ CellLabel->"In[50]:=",ExpressionUUID->"97d1f0cc-fff0-4a16-9d02-ba70aad0013b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"nonSignups", " ", "=", 
+   RowBox[{"nonSignups", "[", 
+    RowBox[{"All", ",", " ", 
+     RowBox[{
+      RowBox[{"Append", "[", 
+       RowBox[{"#", ",", 
+        RowBox[{"\"\<Age\>\"", "->", 
+         RowBox[{"N", "[", 
+          RowBox[{"QuantityMagnitude", "[", 
+           RowBox[{
+            RowBox[{"DateDifference", "[", 
+             RowBox[{
+              RowBox[{"DateObject", "[", "#Birthdate", "]"}], ",", "Today"}], 
+             "]"}], ",", "\"\<Years\>\""}], "]"}], "]"}]}]}], "]"}], "&"}]}], 
+    "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.9218095436929417`*^9, 3.921809582405652*^9}, {
+  3.921809632529366*^9, 3.92180966087615*^9}, {3.921809709890757*^9, 
+  3.921809711438127*^9}, {3.921809746449045*^9, 3.921809747587489*^9}},
+ CellLabel->"In[67]:=",ExpressionUUID->"399d17d0-6cf0-4930-9922-517120e42d06"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"linkify", " ", "[", "program_", "]"}], ":=", " ", 
+  RowBox[{"Hyperlink", "[", 
+   RowBox[{
+    RowBox[{"program", "[", "\"\<Name\>\"", "]"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<https://apps.daysmartrecreation.com/dash/index.php?Action=\
+signupSwitch/index&teamID=\>\"", "<>", 
+     RowBox[{"ToString", "[", 
+      RowBox[{"program", "[", "\"\<ID\>\"", "]"}], "]"}], "<>", 
+     "\"\<&isPrivate=&originalURL=1&company=fastbreak\>\""}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.921814332044983*^9, 3.921814365875173*^9}, {
+  3.921814401532798*^9, 3.92181442848372*^9}, {3.921814498677739*^9, 
+  3.921814548794202*^9}, {3.921814589997802*^9, 3.9218145976179037`*^9}, {
+  3.921814656825719*^9, 3.921814664567954*^9}, {3.921814735003211*^9, 
+  3.921814805495117*^9}, {3.9218148739894247`*^9, 3.921814905692225*^9}, {
+  3.9218149373965797`*^9, 3.9218150567160263`*^9}, {3.921815161356489*^9, 
+  3.921815199643805*^9}, {3.921815478189218*^9, 3.921815523336815*^9}, {
+  3.921815562992778*^9, 3.921815563838678*^9}, {3.9218156284583607`*^9, 
+  3.92181569628967*^9}, {3.921815729523745*^9, 3.921815776035524*^9}, {
+  3.921815826415299*^9, 3.921815845244076*^9}, {3.921816107550617*^9, 
+  3.9218161646468983`*^9}, {3.921816554855728*^9, 3.921816587260838*^9}},
+ CellLabel->
+  "In[134]:=",ExpressionUUID->"02619296-bbb8-4625-822d-43c467de6cf8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"programsFor", "[", "age_", "]"}], ":=", 
+  RowBox[{"Select", "[", 
+   RowBox[{"programs", ",", 
+    RowBox[{
+     RowBox[{"IntervalMemberQ", "[", 
+      RowBox[{
+       RowBox[{"#", "[", "\"\<Age Range\>\"", "]"}], ",", "age"}], "]"}], 
+     "&"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.921811710274782*^9, 3.921811714549576*^9}, {
+  3.9218123688705873`*^9, 3.92181241320183*^9}, {3.921812537257337*^9, 
+  3.9218125393129463`*^9}, {3.921813297733221*^9, 3.92181329945039*^9}, {
+  3.9218160794309063`*^9, 3.9218160851255903`*^9}},
+ CellLabel->
+  "In[136]:=",ExpressionUUID->"7bcbfb7b-db8b-432a-b99e-05f67473819b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"htmlify", "[", "program_", "]"}], " ", ":=", " ", 
+  RowBox[{"StringForm", "[", 
+   RowBox[{
+   "\"\<<li><a href=``>``</a></li>\>\"", ",", " ", "\[IndentingNewLine]", 
+    RowBox[{
+    "\"\<https://apps.daysmartrecreation.com/dash/index.php?Action=\
+signupSwitch/index&teamID=\>\"", "<>", 
+     RowBox[{"ToString", "[", 
+      RowBox[{"program", "[", "\"\<ID\>\"", "]"}], "]"}], "<>", 
+     "\"\<&isPrivate=&originalURL=1&company=fastbreak\>\""}], ",", 
+    "\[IndentingNewLine]", " ", 
+    RowBox[{"program", "[", "\"\<Name\>\"", "]"}]}], " ", "]"}]}]], "Input",
+ CellChangeTimes->{{3.92181903735854*^9, 3.921819125952979*^9}},
+ CellLabel->
+  "In[169]:=",ExpressionUUID->"8f616166-ae70-4123-a245-974fd572e99d"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"nonSignups", " ", "=", " ", "\[IndentingNewLine]", 
+   RowBox[{"nonSignups", "[", 
+    RowBox[{"All", ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"Append", "[", "\[IndentingNewLine]", 
+       RowBox[{"#", ",", "  ", "\[IndentingNewLine]", 
+        RowBox[{"\"\<Recommended\>\"", "->", 
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"\"\<<ul>\\n\>\"", ",", 
+           RowBox[{"StringRiffle", "[", 
+            RowBox[{
+             RowBox[{"Normal", "[", 
+              RowBox[{"Map", "[", 
+               RowBox[{"htmlify", ",", " ", 
+                RowBox[{"programsFor", "[", "#Age", "]"}]}], "]"}], "]"}], 
+             ",", " ", "\"\<\\n\>\""}], "]"}], ",", "\"\<\\n</ul>\>\""}], 
+          "]"}]}]}], "\[IndentingNewLine]", "]"}], "&"}]}], 
+    "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQB2IQLWG29LGTxVvHSS81noDomt5j70F00JWDn0C02Ab+
+XyD6k9hOdmcgvW01Fy+IzukylgDR/9R+q4Lo2Q0uaiCad4WlLogWnV0Mppdd
+m+AMonWEJrqB6BTVK9UgesHjXTUg+scOxQ4QHaB9ugtEs0rYTgHR519OA9Ma
+zlN3gWhzszVgOmgr1w8QLSdS/RNEH/vRlOgCpEUy5JJBdMqP4ghXIN0krRMH
+onfk6BwA0d+9t4HpRwuXLXMD0l3flNaA6Labhw6A6LobtmdAtPdp2Qsg2mVW
+xXUQnXMv6DaIfvZqLZhWeGj7EERv5tr3FET/u3r6PYh+9fbqRxBdo/7wK4ju
++W74DURXZM3d7Q6k71jvBNMAK0GxnQ==
+  "],
+ CellLabel->
+  "In[193]:=",ExpressionUUID->"953a779b-0542-4667-991b-a10c5e5f47c9"],
+
+Cell[BoxData[
+ RowBox[{"nonSignups", " ", "=", " ", 
+  RowBox[{"DeleteCases", "[", 
+   RowBox[{"nonSignups", ",", 
+    RowBox[{"_", "?", 
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Length", "[", "#Recommended", "]"}], " ", "==", " ", "0"}], 
+       " ", "&"}], ")"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.921812959426387*^9, 3.921813015744626*^9}, 
+   3.921813068718092*^9, {3.92181310376076*^9, 3.921813136286578*^9}, {
+   3.921813184126727*^9, 3.921813216801073*^9}},
+ CellLabel->"In[97]:=",ExpressionUUID->"aadd0796-c0e1-420a-a099-328cfb9cf0ea"],
+
+Cell[BoxData[
+ RowBox[{"genericRetentionEmailTemplate", " ", "=", "\[IndentingNewLine]", 
+  "\"\<\nDear `Parent First`,\n\nCoach Will from Fastbreak here. Just wanted \
+to let you know that`First Name`'s `Current` winter basketball class has \n\
+finished and I noticed you guys weren't signed up for the spring. If you are \
+interested in spring hoops here are\n our classes that still have spots for \
+`First Name`'s age group:\n\n`Recommended`\n\nLet me know if you have any \
+questions.\n\nThank you,\n\>\"", " "}]], "Input",
+ CellLabel->"In[76]:=",ExpressionUUID->"12922786-ded8-4091-ae6b-1dc9a4361038"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "htmlGenericRetention", " ", "=", " ", 
+   "\"\<<p>Dear `Parent First`,</p>\n\n<p>\nCoach Will from Fastbreak here. \
+Just wanted to let you know that `First Name`'s `Group` winter basketball \
+class has \nfinished and I noticed you guys weren't signed up for the spring.\
+\n</p>\n<p>\nIf you are interested in spring hoops here are\nour classes that \
+still have spots for `First Name`'s age group:\n</p>\n\n`Recommended`\n\n\
+<p>Let me know if you have any questions. Feel free to call or email to talk \
+through it all, I'm happy to help. You can also visit our <a \
+href='https://fastbreakkids.com/basketball/afterschoolbasketball/'>classes \
+page</a> for more information.</p>\n\nThank you,<br>\nWillem Nielsen<br>\n\
+Fastbreak Sports | 212-724-3278<br>\n<a \
+href='https://www.fastbreakkids.com'>www.fastbreakkids.com</a>\>\""}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.921819778022472*^9, 3.921819830667388*^9}, {
+   3.921819935798597*^9, 3.921819956866024*^9}, {3.921820202669968*^9, 
+   3.921820230158134*^9}, {3.9218202893484573`*^9, 3.921820290060457*^9}, {
+   3.9218207591478853`*^9, 3.92182075997505*^9}, 3.921820820699784*^9, {
+   3.921822176220594*^9, 3.92182230018789*^9}, {3.921824016947658*^9, 
+   3.92182410525397*^9}, {3.921824328197006*^9, 3.921824344214446*^9}, {
+   3.9218243794815407`*^9, 3.9218244047057467`*^9}, {3.921824442167584*^9, 
+   3.921824529245682*^9}},
+ CellLabel->
+  "In[237]:=",ExpressionUUID->"3a40a1e8-4e32-4a13-a10e-a737691183b2"],
+
+Cell[BoxData[
+ RowBox[{"EmbeddedHTML", "[", "%", "]"}]], "Input",
+ CellChangeTimes->{{3.921824365693699*^9, 3.921824369437571*^9}},
+ CellLabel->
+  "In[238]:=",ExpressionUUID->"0a6ac325-fbc5-4105-a128-8b43158401c4"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.924176548098215*^9, 
+  3.924176565706224*^9}},ExpressionUUID->"747e4bf6-c85c-4468-a3cb-\
+c1d6aeb5cdeb"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9218210687412*^9, 
+  3.9218210725981817`*^9}},ExpressionUUID->"e4d4fdf1-8264-4e65-b236-\
+899d602c6aea"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.921951400037806*^9, 
+  3.921951406371723*^9}},ExpressionUUID->"715661dc-e047-4eea-9883-\
+aef0dde96e7f"]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{316, Automatic}, {Automatic, 50}},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Chatbook.nb",
+ExpressionUUID->"059460f3-8311-42e7-a621-72f399afb3c2"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 471, 11, 30, "Input",ExpressionUUID->"3b5d2f8a-8bdf-48de-bcfa-40e62c7e5978"],
+Cell[1032, 33, 1316, 33, 73, "Input",ExpressionUUID->"056a9eb8-92c4-4471-9b81-0840d18a2c72"],
+Cell[2351, 68, 3237, 90, 388, "Input",ExpressionUUID->"3c61ac55-3835-4c07-9820-afc78e5eccc2"],
+Cell[5591, 160, 481, 13, 30, "Input",ExpressionUUID->"370df460-7bbc-4a8a-b8ab-2fae7cc082f8"],
+Cell[6075, 175, 620, 15, 30, "Input",ExpressionUUID->"78756610-9aa0-4d42-8927-391592e39fe0"],
+Cell[6698, 192, 559, 12, 30, "Input",ExpressionUUID->"5ccf64dd-6e08-4a0c-9c0e-2fba0bc258dd"],
+Cell[7260, 206, 479, 11, 30, "Input",ExpressionUUID->"26bcc4cb-9dcd-4608-ae15-9eec01c16c4f"],
+Cell[7742, 219, 589, 14, 30, "Input",ExpressionUUID->"d38942a9-a670-4eb0-8fd3-ffd1000636bf"],
+Cell[8334, 235, 455, 10, 30, "Input",ExpressionUUID->"d2cb8721-61b9-4125-b84c-3d306373ce96"],
+Cell[8792, 247, 794, 18, 30, "Input",ExpressionUUID->"97d1f0cc-fff0-4a16-9d02-ba70aad0013b"],
+Cell[9589, 267, 864, 20, 30, "Input",ExpressionUUID->"399d17d0-6cf0-4930-9922-517120e42d06"],
+Cell[10456, 289, 1390, 25, 52, "Input",ExpressionUUID->"02619296-bbb8-4625-822d-43c467de6cf8"],
+Cell[11849, 316, 652, 15, 30, "Input",ExpressionUUID->"7bcbfb7b-db8b-432a-b99e-05f67473819b"],
+Cell[12504, 333, 746, 16, 73, "Input",ExpressionUUID->"8f616166-ae70-4123-a245-974fd572e99d"],
+Cell[13253, 351, 1400, 30, 178, "Input",ExpressionUUID->"953a779b-0542-4667-991b-a10c5e5f47c9"],
+Cell[14656, 383, 580, 13, 30, "Input",ExpressionUUID->"aadd0796-c0e1-420a-a099-328cfb9cf0ea"],
+Cell[15239, 398, 607, 8, 304, "Input",ExpressionUUID->"12922786-ded8-4091-ae6b-1dc9a4361038"],
+Cell[15849, 408, 1510, 25, 430, "Input",ExpressionUUID->"3a40a1e8-4e32-4a13-a10e-a737691183b2"],
+Cell[17362, 435, 214, 4, 30, "Input",ExpressionUUID->"0a6ac325-fbc5-4105-a128-8b43158401c4"],
+Cell[17579, 441, 152, 3, 30, "Input",ExpressionUUID->"747e4bf6-c85c-4468-a3cb-c1d6aeb5cdeb"],
+Cell[17734, 446, 152, 3, 30, "Input",ExpressionUUID->"e4d4fdf1-8264-4e65-b236-899d602c6aea"],
+Cell[17889, 451, 152, 3, 30, "Input",ExpressionUUID->"715661dc-e047-4eea-9883-aef0dde96e7f"]
+}
+]
+*)
+

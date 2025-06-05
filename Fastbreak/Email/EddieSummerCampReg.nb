@@ -1,0 +1,946 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     47224,        938]
+NotebookOptionsPosition[     41907,        868]
+NotebookOutlinePosition[     42307,        884]
+CellTagsIndexPosition[     42264,        881]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"ns", " ", "=", " ", 
+  RowBox[{"Import", "[", 
+   RowBox[{
+   "\"\<Projects/Wolfram/Fastbreak/BballSU23ExcludeSU24-2.csv\>\"", ",", " ", 
+    "\"\<Dataset\>\"", ",", " ", 
+    RowBox[{"\"\<HeaderLines\>\"", "->", " ", "1"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.921804755430826*^9, 3.921804775271969*^9}, {
+   3.9218048137305717`*^9, 3.9218048729537277`*^9}, 3.921808413238641*^9, 
+   3.92195119208088*^9, {3.924176262553278*^9, 3.924176304598206*^9}, {
+   3.9241766655641603`*^9, 3.924176665684321*^9}, {3.9241768658880672`*^9, 
+   3.924176866123247*^9}, {3.9246127853334007`*^9, 3.924612786687851*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"c6303883-5a79-427e-a6b4-4660cc1fca2a"],
+
+Cell[BoxData[
+ RowBox[{"Map", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"#", "[", 
+     RowBox[{"[", "\"\<Email\>\"", "]"}], "]"}], "&"}], ",", " ", "ns"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.924179268389428*^9, 3.924179277110104*^9}},
+ CellLabel->
+  "In[129]:=",ExpressionUUID->"1fda899e-33a7-4918-b6a3-30140323410a"],
+
+Cell[BoxData[
+ RowBox[{"nsSingles", " ", "=", " ", 
+  RowBox[{"Select", "[", 
+   RowBox[{"ns", ",", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"#", "[", 
+       RowBox[{"[", "\"\<Parent First\>\"", "]"}], "]"}], " ", "!=", " ", 
+      "\"\<\>\""}], "&"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.924623843805059*^9, 3.9246239313977003`*^9}, {
+  3.924624016209305*^9, 3.924624027241444*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"275ec1bf-44f6-4fd6-89d0-01a58926e34a"],
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "nsSingles", "]"}]], "Input",
+ CellChangeTimes->{{3.924623937989038*^9, 3.924623941599725*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"4467f643-4484-4e1f-99ec-6fb12af7ef3b"],
+
+Cell[BoxData[
+ RowBox[{"nsSingles2", " ", "=", 
+  RowBox[{"DeleteDuplicatesBy", "[", 
+   RowBox[{"nsSingles", ",", 
+    RowBox[{
+     RowBox[{"#", "[", 
+      RowBox[{"[", "\"\<Email\>\"", "]"}], "]"}], "&"}]}], " ", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.924179211048315*^9, 3.924179303834182*^9}, {
+  3.9246239711913776`*^9, 3.924623979246298*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"a5b38c5e-4091-4092-9ffd-47f6c8e05390"],
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "nsSingles2", "]"}]], "Input",
+ CellChangeTimes->{{3.924623987256271*^9, 3.924623990560974*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"1af29b91-0008-4a15-9f71-ca069b774254"],
+
+Cell[BoxData[
+ RowBox[{"nsEmails", " ", "=", " ", 
+  RowBox[{"nsSingles2", "[", 
+   RowBox[{"All", ",", " ", "\"\<Email\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.924176668379912*^9, 3.9241766823361692`*^9}, {
+   3.924179315825097*^9, 3.924179323527643*^9}, 3.924624149313384*^9},
+ CellLabel->"In[6]:=",ExpressionUUID->"7f57730f-6e39-4f1c-bae8-edee7f3b5d5b"],
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "nsEmails", "]"}]], "Input",
+ CellChangeTimes->{{3.924624152054694*^9, 3.924624154628562*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"ae707b24-1eb5-4b1c-a096-48b14a7fc2a5"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9241770819703627`*^9, 
+  3.924177124290761*^9}},ExpressionUUID->"cc3b4cb8-1520-418d-b2cc-\
+e4706868ddd1"],
+
+Cell[BoxData[
+ RowBox[{"nsChildFirstName", " ", "=", " ", 
+  RowBox[{"nsSingles2", "[", 
+   RowBox[{"All", ",", "\"\<First Name\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.924176689859329*^9, 3.924176710710169*^9}, {
+   3.924179336307838*^9, 3.924179338637428*^9}, 3.9246241677912*^9},
+ CellLabel->"In[8]:=",ExpressionUUID->"c50cdd4e-79e5-4a63-a583-422fa3884704"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.924622000164587*^9, 
+  3.924622006437111*^9}},ExpressionUUID->"42f339d9-610d-45f1-8361-\
+741c1514cbfd"],
+
+Cell[BoxData[
+ RowBox[{"nsChildFirstName", "=", " ", 
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Capitalize", "[", 
+      RowBox[{"ToLowerCase", "[", "#", "]"}], "]"}], "&"}], ",", " ", 
+    "nsChildFirstName"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.924177696288212*^9, 3.924177700126004*^9}, {
+  3.924177758831069*^9, 3.924177834843325*^9}, {3.924177871875699*^9, 
+  3.924177921922636*^9}, {3.924178031491086*^9, 3.924178034950832*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"8d15a771-4335-493c-bfa7-6ccbec2df7c7"],
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "nsChildFirstName", "]"}]], "Input",
+ CellChangeTimes->{{3.924621982225767*^9, 3.924621990972791*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"a3aca682-2852-4b71-a1e8-3d3c9100d5e4"],
+
+Cell[BoxData[
+ RowBox[{"nsParentFirst", " ", "=", 
+  RowBox[{"Normal", "[", 
+   RowBox[{"nsSingles2", "[", 
+    RowBox[{"All", ",", "\"\<Parent First\>\""}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.924176915700543*^9, 3.924176927389605*^9}, {
+   3.924177401169883*^9, 3.924177492830019*^9}, {3.9241793709450417`*^9, 
+   3.924179378289519*^9}, {3.924179408913787*^9, 3.924179412335725*^9}, 
+   3.924624184248513*^9},
+ CellLabel->"In[11]:=",ExpressionUUID->"7acd3d43-0b72-48a5-8d1f-4c8ee89ef7c7"],
+
+Cell[BoxData[
+ RowBox[{"nsParentFirstE2", " ", "=", " ", 
+  RowBox[{"{", 
+   RowBox[{
+   "\"\<Dale\>\"", ",", "\"\<Maria\>\"", ",", "\"\<Alexandra\>\"", ",", 
+    "\"\<Elizabeth\>\"", ",", "\"\<David\>\"", ",", "\"\<Begum\>\"", ",", 
+    "\"\<Tracey\>\"", ",", "\"\<Kavita\>\"", ",", "\"\<Melody\>\"", ",", 
+    "\"\<Lisa\>\"", ",", "\"\<Jennifer\>\"", ",", "\"\<Amy\>\"", ",", 
+    "\"\<Perah\>\"", ",", "\"\<Janis\>\"", ",", "\"\<Claudia\>\"", ",", 
+    "\"\<Anna Maria \>\"", ",", "\"\<Janette\>\"", ",", "\"\<Rekha\>\"", ",", 
+    "\"\<Sarah\>\"", ",", "\"\<Alexandra\>\"", ",", "\"\<Marni\>\"", ",", 
+    "\"\<Nicole\>\"", ",", "\"\<Lilach\>\"", ",", "\"\<John\>\"", ",", 
+    "\"\<Sharlynn\>\"", ",", "\"\<Revaz\>\"", ",", "\"\<Elizabeth\>\"", ",", 
+    "\"\<Barbara\>\"", ",", "\"\<Mark\>\"", ",", "\"\<Jennifer\>\"", ",", 
+    "\"\<Jennifer\>\"", ",", "\"\<Andrew\>\"", ",", "\"\<Natalie\>\"", ",", 
+    "\"\<Tanja\>\"", ",", "\"\<Danielle\>\"", ",", "\"\<Jennie\>\"", ",", 
+    "\"\<Christopher\>\"", ",", "\"\<Sheila\>\"", ",", "\"\<Blythe\>\"", ",", 
+    "\"\<Morgan\>\"", ",", "\"\<Shireen\>\"", ",", "\"\<Nicole\>\"", ",", 
+    "\"\<Mark\>\"", ",", "\"\<Jacob\>\"", ",", "\"\<Jennifer\>\"", ",", 
+    "\"\<Ellen\>\"", ",", "\"\<Natasha\>\"", ",", "\"\<Natasha\>\"", ",", 
+    "\"\<Ashley\>\"", ",", "\"\<Louise\>\"", ",", "\"\<Tia\>\"", ",", 
+    "\"\<Nicole\>\"", ",", "\"\<Chana\>\"", ",", "\"\<Gloria\>\"", ",", 
+    "\"\<Heather\>\"", ",", "\"\<Emma\>\"", ",", "\"\<Jonathan\>\"", ",", 
+    "\"\<Kira\>\"", ",", "\"\<Yan\>\"", ",", "\"\<Lisa\>\"", ",", 
+    "\"\<Amy\>\"", ",", "\"\<Jessica\>\"", ",", "\"\<Michelle\>\"", ",", 
+    "\"\<Antonia\>\"", ",", "\"\<Jossety\>\"", ",", "\"\<Ana\>\"", ",", 
+    "\"\<Elizabeth\>\"", ",", "\"\<Manoj\>\"", ",", "\"\<Sophia\>\"", ",", 
+    "\"\<Erin\>\"", ",", "\"\<Belinda\>\"", ",", "\"\<Lori\>\"", ",", 
+    "\"\<Rachel\>\"", ",", "\"\<Jonathan\>\"", ",", "\"\<Ruth\>\"", ",", 
+    "\"\<Nicole\>\"", ",", "\"\<Revivo\>\"", ",", "\"\<Lisa\>\"", ",", 
+    "\"\<Lisa\>\"", ",", "\"\<Sanaz\>\"", ",", "\"\<Arielle\>\"", ",", 
+    "\"\<Liz\>\"", ",", "\"\<Annie\>\"", ",", "\"\<Pratiksha\>\"", ",", 
+    "\"\<Lauren\>\"", ",", "\"\<Rena\>\"", ",", "\"\<Jennifer\>\"", ",", 
+    "\"\<Jaime\>\"", ",", "\"\<Allison\>\"", ",", "\"\<Greg\>\"", ",", 
+    "\"\<Julia\>\"", ",", "\"\<Clifton\>\"", ",", "\"\<Lovina\>\"", ",", 
+    "\"\<Puja\>\"", ",", "\"\<Anna\>\"", ",", "\"\<Natasha\>\"", ",", 
+    "\"\<Christina\>\"", ",", "\"\<Sandra\>\"", ",", "\"\<Jennifer\>\"", ",", 
+    "\"\<Christine\>\"", ",", "\"\<Gaurica\>\"", ",", "\"\<Jim\>\"", ",", 
+    "\"\<Kirana\>\"", ",", "\"\<Amy\>\"", ",", "\"\<Davina\>\"", ",", 
+    "\"\<Nicole\>\"", ",", "\"\<Gisela\>\"", ",", "\"\<Reut\>\"", ",", 
+    "\"\<Alison\>\"", ",", "\"\<Riva\>\"", ",", "\"\<Kara\>\"", ",", 
+    "\"\<AC\>\"", ",", "\"\<Magda\>\"", ",", "\"\<Nicole\>\"", ",", 
+    "\"\<Michelle\>\"", ",", "\"\<Naila\>\"", ",", "\"\<Lauren\>\"", ",", 
+    "\"\<Ben\>\"", ",", "\"\<Matthew\>\"", ",", "\"\<Priya\>\"", ",", 
+    "\"\<Marilou\>\"", ",", "\"\<Judy\>\"", ",", "\"\<Heena\>\"", ",", 
+    "\"\<Apeksha\>\"", ",", "\"\<Larissa\>\"", ",", "\"\<Gina\>\"", ",", 
+    "\"\<Kate\>\"", ",", "\"\<Alana\>\"", ",", "\"\<Jinwoo\>\"", ",", 
+    "\"\<Melissa\>\"", ",", "\"\<Pamela\>\"", ",", "\"\<Brian\>\"", ",", 
+    "\"\<Jerome\>\"", ",", "\"\<Jennifer\>\"", ",", "\"\<Jesse\>\"", ",", 
+    "\"\<Elad\>\"", ",", "\"\<Tracy\>\"", ",", "\"\<Moriah\>\"", ",", 
+    "\"\<Fareeha\>\"", ",", "\"\<Joia\>\"", ",", "\"\<Mesi\>\"", ",", 
+    "\"\<Leigh\>\"", ",", "\"\<Jessica\>\"", ",", "\"\<Irene\>\"", ",", 
+    "\"\<Brianna\>\"", ",", "\"\<Jerome\>\"", ",", "\"\<Amir\>\"", ",", 
+    "\"\<Christina\>\"", ",", "\"\<Aditi\>\"", ",", "\"\<Irena\>\"", ",", 
+    "\"\<Liz\>\"", ",", "\"\<Joanna\>\"", ",", "\"\<Corinne\>\"", ",", 
+    "\"\<Erin\>\"", ",", "\"\<Elizabeth\>\"", ",", "\"\<Aparna\>\"", ",", 
+    "\"\<Lauren\>\"", ",", "\"\<John\>\"", ",", "\"\<Wray\>\"", ",", 
+    "\"\<Amit\>\"", ",", "\"\<Sarah\>\"", ",", "\"\<Betty\>\"", ",", 
+    "\"\<Deidra\>\"", ",", "\"\<Elizabeth\>\"", ",", "\"\<David\>\"", ",", 
+    "\"\<Gregory\>\"", ",", "\"\<Matt\>\"", ",", "\"\<Rachel\>\"", ",", 
+    "\"\<Dean\>\"", ",", "\"\<Nataliya\>\"", ",", "\"\<Shikha\>\"", ",", 
+    "\"\<Lauren\>\"", ",", "\"\<Jonathan\>\"", ",", "\"\<Derek\>\"", ",", 
+    "\"\<Marija\>\"", ",", "\"\<Ves\>\"", ",", "\"\<Amy\>\"", ",", 
+    "\"\<Suzanne\>\"", ",", "\"\<Valentina\>\"", ",", "\"\<Alex\>\"", ",", 
+    "\"\<Sarah\>\"", ",", "\"\<Jill\>\"", ",", "\"\<Regina\>\"", ",", 
+    "\"\<Nick\>\"", ",", "\"\<Yael\>\"", ",", "\"\<Puja\>\"", ",", 
+    "\"\<Zolenny\>\"", ",", "\"\<Raymond\>\"", ",", "\"\<Nitzan\>\"", ",", 
+    "\"\<Abigail\>\"", ",", "\"\<Zachary\>\"", ",", "\"\<Yakov\>\"", ",", 
+    "\"\<Choung\>\"", ",", "\"\<Eugenie\>\"", ",", "\"\<Corey\>\"", ",", 
+    "\"\<Rachel\>\"", ",", "\"\<Joseph\>\"", ",", "\"\<Erica\>\"", ",", 
+    "\"\<Boram\>\"", ",", "\"\<Kimberly\>\"", ",", "\"\<Cari\>\"", ",", 
+    "\"\<Melissa\>\"", ",", "\"\<Oksana\>\"", ",", "\"\<Sharice\>\"", ",", 
+    "\"\<Katie\>\"", ",", "\"\<Emily\>\"", ",", "\"\<Chris\>\""}], 
+   "}"}]}]], "Input",
+ CellChangeTimes->{{3.924624493425147*^9, 3.924624533591592*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"807084e9-05a9-4e51-81d2-28fad3b73e32"],
+
+Cell[BoxData[
+ RowBox[{"nsParentFirst", " ", "=", 
+  RowBox[{"Map", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Capitalize", "[", 
+      RowBox[{"ToLowerCase", "[", "#", "]"}], "]"}], "&"}], ",", " ", 
+    "nsParentFirst"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.924624402278846*^9, 3.9246244131767473`*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"e6f74c25-a6eb-491e-a5a6-f78b74c7bb38"],
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "nsParentFirst", "]"}]], "Input",
+ CellChangeTimes->{{3.924621970998391*^9, 3.9246219736556273`*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"9c0ab3ac-dbf9-4d5b-8644-4a7f4a7f52c4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"nsParentFirstE", " ", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "\"\<Dale\>\"", ",", "\"\<Maria\>\"", ",", "\"\<Alexandra\>\"", ",", 
+     "\"\<Elizabeth\>\"", ",", "\"\<David\>\"", ",", "\"\<Begum\>\"", ",", 
+     "\"\<Tracey\>\"", ",", "\"\<Kavita\>\"", ",", "\"\<Melody\>\"", ",", 
+     "\"\<Lisa\>\"", ",", "\"\<Jennifer\>\"", ",", "\"\<Amy\>\"", ",", 
+     "\"\<Perah\>\"", ",", "\"\<Janis\>\"", ",", "\"\<Claudia\>\"", ",", 
+     "\"\<Anna Maria \>\"", ",", "\"\<Janette\>\"", ",", "\"\<Rekha\>\"", 
+     ",", "\"\<Sarah\>\"", ",", "\"\<Alexandra\>\"", ",", "\"\<Marni\>\"", 
+     ",", "\"\<Nicole\>\"", ",", "\"\<Lilach\>\"", ",", "\"\<John\>\"", ",", 
+     "\"\<Sharlynn\>\"", ",", "\"\<\>\"", ",", "\"\<Revaz\>\"", ",", 
+     "\"\<Elizabeth\>\"", ",", "\"\<Barbara\>\"", ",", "\"\<Mark\>\"", ",", 
+     "\"\<Jennifer\>\"", ",", "\"\<Jennifer\>\"", ",", "\"\<Andrew\>\"", ",", 
+     "\"\<Natalie\>\"", ",", "\"\<Tanja\>\"", ",", "\"\<Danielle\>\"", ",", 
+     "\"\<Jennie\>\"", ",", "\"\<Christopher\>\"", ",", "\"\<Sheila\>\"", 
+     ",", "\"\<Blythe\>\"", ",", "\"\<Morgan\>\"", ",", "\"\<Nicole\>\"", 
+     ",", "\"\<Mark\>\"", ",", "\"\<Jacob\>\"", ",", "\"\<Jennifer\>\"", ",", 
+     "\"\<Ellen\>\"", ",", "\"\<Natasha\>\"", ",", "\"\<Natasha\>\"", ",", 
+     "\"\<Ashley\>\"", ",", "\"\<Louise\>\"", ",", "\"\<Tia\>\"", ",", 
+     "\"\<Nicole\>\"", ",", "\"\<Chana\>\"", ",", "\"\<Gloria\>\"", ",", 
+     "\"\<Heather\>\"", ",", "\"\<Emma\>\"", ",", "\"\<Jonathan\>\"", ",", 
+     "\"\<Kira\>\"", ",", "\"\<Yan\>\"", ",", "\"\<Lisa\>\"", ",", 
+     "\"\<Amy\>\"", ",", "\"\<Jessica\>\"", ",", "\"\<Michelle\>\"", ",", 
+     "\"\<Antonia\>\"", ",", "\"\<Jossety\>\"", ",", "\"\<Ana\>\"", ",", 
+     "\"\<Elizabeth\>\"", ",", "\"\<Manoj\>\"", ",", "\"\<Sophia\>\"", ",", 
+     "\"\<\>\"", ",", "\"\<Erin\>\"", ",", "\"\<Belinda\>\"", ",", 
+     "\"\<Lori\>\"", ",", "\"\<Rachel\>\"", ",", "\"\<Jonathan\>\"", ",", 
+     "\"\<Ruth\>\"", ",", "\"\<Nicole\>\"", ",", "\"\<Revivo\>\"", ",", 
+     "\"\<Lisa\>\"", ",", "\"\<Lisa\>\"", ",", "\"\<Sanaz\>\"", ",", 
+     "\"\<Arielle\>\"", ",", "\"\<Liz\>\"", ",", "\"\<Annie\>\"", ",", 
+     "\"\<Pratiksha\>\"", ",", "\"\<Lauren\>\"", ",", "\"\<Rena\>\"", ",", 
+     "\"\<Jennifer\>\"", ",", "\"\<Jaime\>\"", ",", "\"\<Allison\>\"", ",", 
+     "\"\<Greg\>\"", ",", "\"\<Julia\>\"", ",", "\"\<Clifton\>\"", ",", 
+     "\"\<Lovina\>\"", ",", "\"\<Puja\>\"", ",", "\"\<Anna\>\"", ",", 
+     "\"\<Natasha\>\"", ",", "\"\<Christina\>\"", ",", "\"\<Sandra\>\"", ",", 
+     "\"\<Jennifer\>\"", ",", "\"\<Christine\>\"", ",", "\"\<Gaurica\>\"", 
+     ",", "\"\<Jim\>\"", ",", "\"\<Kirana\>\"", ",", "\"\<Amy\>\"", ",", 
+     "\"\<Davina\>\"", ",", "\"\<Nicole\>\"", ",", "\"\<Gisela\>\"", ",", 
+     "\"\<Reut\>\"", ",", "\"\<Alison\>\"", ",", "\"\<Riva\>\"", ",", 
+     "\"\<Kara\>\"", ",", "\"\<AC\>\"", ",", "\"\<Magda\>\"", ",", 
+     "\"\<Nicole\>\"", ",", "\"\<Michelle\>\"", ",", "\"\<Naila\>\"", ",", 
+     "\"\<Lauren\>\"", ",", "\"\<Ben\>\"", ",", "\"\<Matthew\>\"", ",", 
+     "\"\<Priya\>\"", ",", "\"\<Marilou\>\"", ",", "\"\<Judy\>\"", ",", 
+     "\"\<Heena\>\"", ",", "\"\<Apeksha\>\"", ",", "\"\<Larissa\>\"", ",", 
+     "\"\<Gina\>\"", ",", "\"\<Kate\>\"", ",", "\"\<Alana\>\"", ",", 
+     "\"\<Jinwoo\>\"", ",", "\"\<Melissa\>\"", ",", "\"\<Pamela\>\"", ",", 
+     "\"\<Brian\>\"", ",", "\"\<Jerome\>\"", ",", "\"\<Jennifer\>\"", ",", 
+     "\"\<Jesse\>\"", ",", "\"\<Elad\>\"", ",", "\"\<Tracy\>\"", ",", 
+     "\"\<Moriah\>\"", ",", "\"\<Fareeha\>\"", ",", "\"\<Joia\>\"", ",", 
+     "\"\<\>\"", ",", "\"\<Leigh\>\"", ",", "\"\<Jessica\>\"", ",", 
+     "\"\<Irene\>\"", ",", "\"\<Brianna\>\"", ",", "\"\<Jerome\>\"", ",", 
+     "\"\<Amir\>\"", ",", "\"\<Christina\>\"", ",", "\"\<Aditi\>\"", ",", 
+     "\"\<Irena\>\"", ",", "\"\<Liz\>\"", ",", "\"\<Joanna\>\"", ",", 
+     "\"\<Corinne\>\"", ",", "\"\<Erin\>\"", ",", "\"\<Elizabeth\>\"", ",", 
+     "\"\<Aparna\>\"", ",", "\"\<Lauren\>\"", ",", "\"\<John\>\"", ",", 
+     "\"\<Wray\>\"", ",", "\"\<Amit\>\"", ",", "\"\<Sarah\>\"", ",", 
+     "\"\<Betty\>\"", ",", "\"\<Deidra\>\"", ",", "\"\<Elizabeth\>\"", ",", 
+     "\"\<David\>\"", ",", "\"\<Gregory\>\"", ",", "\"\<Matt\>\"", ",", 
+     "\"\<Rachel\>\"", ",", "\"\<Dean\>\"", ",", "\"\<Nataliya\>\"", ",", 
+     "\"\<Shikha\>\"", ",", "\"\<Lauren\>\"", ",", "\"\<Jonathan\>\"", ",", 
+     "\"\<Derek\>\"", ",", "\"\<Marija\>\"", ",", "\"\<Ves\>\"", ",", 
+     "\"\<Amy\>\"", ",", "\"\<Suzanne\>\"", ",", "\"\<Valentina\>\"", ",", 
+     "\"\<Alex\>\"", ",", "\"\<Sarah\>\"", ",", "\"\<Jill\>\"", ",", 
+     "\"\<Regina\>\"", ",", "\"\<Nick\>\"", ",", "\"\<Yael\>\"", ",", 
+     "\"\<Puja\>\"", ",", "\"\<Zolenny\>\"", ",", "\"\<Raymond\>\"", ",", 
+     "\"\<Nitzan\>\"", ",", "\"\<Abigail\>\"", ",", "\"\<Zachary\>\"", ",", 
+     "\"\<Yakov\>\"", ",", "\"\<Choung\>\"", ",", "\"\<Eugenie\>\"", ",", 
+     "\"\<Corey\>\"", ",", "\"\<Rachel\>\"", ",", "\"\<Joseph\>\"", ",", 
+     "\"\<Erica\>\"", ",", "\"\<Boram\>\"", ",", "\"\<Kimberly\>\"", ",", 
+     "\"\<Cari\>\"", ",", "\"\<Melissa\>\"", ",", "\"\<Oksana\>\"", ",", 
+     "\"\<Sharice\>\"", ",", "\"\<Katie\>\"", ",", "\"\<Emily\>\"", ",", 
+     "\"\<Chris\>\""}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.924179460272459*^9, 3.924179516952335*^9}},
+ CellLabel->"In[57]:=",ExpressionUUID->"6acdca38-ee5f-4aff-ba82-232d552cb57c"],
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "nsParentFirstE2", "]"}]], "Input",
+ CellChangeTimes->{{3.9241795184440737`*^9, 3.924179523602811*^9}, 
+   3.924624597944872*^9},
+ CellLabel->
+  "In[153]:=",ExpressionUUID->"c2b51ce3-23cf-432c-9765-7898c61b62a7"],
+
+Cell[BoxData[
+ RowBox[{"nsChildAndParent", "=", " ", 
+  RowBox[{"MapThread", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"#1", ",", " ", "#2"}], "}"}], "&"}], ",", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"Normal", "[", "nsChildFirstName", "]"}], ",", " ", 
+      RowBox[{"Normal", "[", "nsParentFirstE2", "]"}]}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.924176947872154*^9, 3.924176949051424*^9}, {
+   3.92417697984792*^9, 3.924177058120695*^9}, {3.924177134060713*^9, 
+   3.924177170126424*^9}, 3.924177641519603*^9, 3.924624609274684*^9},
+ CellLabel->"In[15]:=",ExpressionUUID->"c26a7e2d-8504-44c9-bae4-891d4ff26f5b"],
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "nsChildAndParent", "]"}]], "Input",
+ CellChangeTimes->{{3.924177339613812*^9, 3.92417734199863*^9}},
+ CellLabel->"In[16]:=",ExpressionUUID->"e27491dd-35d7-4ccf-8d78-dfcd7ec38782"],
+
+Cell[BoxData["nsEmails"], "Input",
+ CellChangeTimes->{{3.924178507245476*^9, 3.9241785410966587`*^9}},
+ CellLabel->"In[61]:=",ExpressionUUID->"c60ac078-2501-49fc-bde3-f348eface134"],
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "nsEmails", "]"}]], "Input",
+ CellChangeTimes->{{3.924622373823425*^9, 3.9246223769593368`*^9}},
+ CellLabel->"In[17]:=",ExpressionUUID->"75479045-72e0-42df-b7cc-58431b350c25"],
+
+Cell[BoxData[
+ RowBox[{"Length", "[", 
+  RowBox[{"DeleteDuplicates", "[", "nsEmails", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.92417902152695*^9, 3.924179034441945*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"17b1ff64-a192-41ea-ad2d-ebb41cf81aa4"],
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "nsChildAndParent", "]"}]], "Input",
+ CellChangeTimes->{{3.924622340032786*^9, 3.924622349363598*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"c8f86b2b-bbc2-4528-8acc-7ac079baaeab"],
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "nsChildAndParent", "]"}]], "Input",
+ CellChangeTimes->{{3.924622151613934*^9, 3.924622155196725*^9}},
+ CellLabel->
+  "In[160]:=",ExpressionUUID->"68f70d5e-8e21-410c-98a9-7c2fdb1760e7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"htmlCampRetention", " ", "=", " ", 
+   RowBox[{
+   "\"\<<p>Hey `Parent First`,</p>\n\n<p>\nIt\[CloseCurlyQuote]s Coach Will \
+from Fastbreak. I\[CloseCurlyQuote]m reaching out as I noticed `First Name` \
+hasn\[CloseCurlyQuote]t signed up for any basketball camp dates this summer \
+and we really enjoyed having him last year. I\[CloseCurlyQuote]m not sure if \
+you\[CloseCurlyQuote]re aware but we\[CloseCurlyQuote]re doing a special \
+promotion for our returning families of an additional $50 OFF per week. Let \
+me know if you have any questions or need assistance registering.\n</p>\n\
+<p>To register click this link. and use code <b><u>return50</u></b> to get an \
+<b><u>ADDITIONAL $50 OFF PER WEEK</u></b></p>\>\"", "<>", "flyerH", "<>", 
+    "\"\<\n<p>\nAs a reminder here are the details of the camp:<br>\n<b>Days \
+and Times:</b> Monday - Friday 9:00am - 3:00pm<br>\n<b>Dates:</b> June 10th - \
+August 30th<br>\n<b>Location:</b> Outdoor at Carl Schurz Park until 11:45am. \
+Indoors at Fastbreak Sports (1629 1st Ave) for the remainder of the \
+day.<br><br>\nWe do stations in the morning, working on skills such as \
+shooting technique, pivoting, scoring moves and more. In the afternoon we do \
+game scenarios and competitive play. All campers will be broken down by age \
+and grouped accordingly. Parents can pack lunch or pay for pizza-lunch. I \
+personally coached at camp last year and was impressed by the culture and the \
+environment Coach Ray and Coach Mamadou have developed. \n</p>\n\nLet me know \
+if you have any questions, I'm happy to help.</p>\n\nThank you,<br>\nWillem \
+Nielsen<br>\nFastbreak Sports | 212-724-3278<br>\n<a \
+href='https://www.fastbreakkids.com'>www.fastbreakkids.com</a>\>\""}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.92417966263609*^9, 3.924179966207374*^9}, {
+   3.924180081540327*^9, 3.924180235960716*^9}, {3.924180284602833*^9, 
+   3.924180284901715*^9}, {3.924180452657193*^9, 3.92418047513342*^9}, {
+   3.924180515457201*^9, 3.9241805176844606`*^9}, {3.924180572500846*^9, 
+   3.924180729773951*^9}, {3.924180771160783*^9, 3.924180931113576*^9}, {
+   3.9241809712313347`*^9, 3.924181441668105*^9}, {3.924181543209851*^9, 
+   3.924181804003592*^9}, {3.924181841290854*^9, 3.924181897331736*^9}, {
+   3.924184009228143*^9, 3.924184011673683*^9}, 3.924184913957732*^9, 
+   3.924184954844774*^9, {3.924611557392869*^9, 3.9246115577517157`*^9}, {
+   3.924611589017123*^9, 3.924611612545128*^9}, 3.924611650112858*^9, {
+   3.9246117126386843`*^9, 3.924611723081435*^9}, {3.924611761407988*^9, 
+   3.924611778411244*^9}, {3.924611842315237*^9, 3.9246118605417023`*^9}, {
+   3.9246124258421803`*^9, 
+   3.9246124418113327`*^9}},ExpressionUUID->"de376d45-5a5c-4d97-a604-\
+fc8f9cf07ff8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"htmlCampRetention2", " ", "=", " ", 
+   RowBox[{
+   "\"\<Hey `Parent First`,<br>\n\n<p>\nThis is Coach Will from Fastbreak. I \
+am reaching out as I noticed `First Name` has not signed up for any \
+basketball camp dates this summer and we really enjoyed having him last year. \
+I am not sure if you are aware but we are doing a special promotion for our \
+returning families of an additional $50 OFF per week. Let me know if you have \
+any questions or need assistance registering.\n</p>\n<p>To register click <a \
+href='https://fastbreakkids.com/summer/outdoorbasketballcamp/'>this link</a> \
+and use code <b><u>return50</u></b> to get an <b><u>ADDITIONAL $50 OFF PER \
+WEEK</u></b></p>\>\"", "<>", "flyerH", "<>", 
+    "\"\<\n<p>\n<b>Dates:</b> June 10th - August 30th<br>\n<b>Times:</b> \
+Monday - Friday 9:00am - 3:00pm<br>\n<b>Lunch:</b> Add-On Lunch Available<br>\
+\n</p>\n\nLet me know if you have any questions, I'm happy to help.</p>\n\n\
+Thank you,<br><br>\>\"", "<>", "logoH", "<>", "\n", 
+    "\"\<<br><b>Willem Nielsen | Head Coach</b><br>\nFastbreak Sports | \
+(212)724-3278<br>\n1629 1st Avenue, New York, NY 10028<br>\n<a \
+href='https://fastbreakkids.com'>fastbreakkids.com</a><br>\n\n\>\""}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{
+  3.92461250698285*^9, {3.924612574571993*^9, 3.924612718068921*^9}, 
+   3.92461312035383*^9, 3.924613171191642*^9, {3.9246132759314017`*^9, 
+   3.924613300352936*^9}, {3.924613428255084*^9, 3.924613433679074*^9}, {
+   3.924613524590915*^9, 3.924613553407528*^9}, 3.924623071651552*^9, {
+   3.924629514603488*^9, 3.9246295154446898`*^9}, {3.924629770900942*^9, 
+   3.924629774052751*^9}, {3.924629854425768*^9, 3.9246300615729113`*^9}, {
+   3.924630203651966*^9, 3.924630206179702*^9}, {3.924630253992347*^9, 
+   3.924630254856176*^9}, {3.924630314456319*^9, 3.924630320387076*^9}, {
+   3.924630366457427*^9, 3.92463039895*^9}, {3.9246304334853563`*^9, 
+   3.9246304365254393`*^9}, {3.924630529096304*^9, 3.924630534723279*^9}, {
+   3.924630762046269*^9, 3.924630776303891*^9}, {3.924630821463526*^9, 
+   3.9246308222160254`*^9}, {3.924638505791341*^9, 3.924638517464088*^9}, {
+   3.924638607544013*^9, 3.924638617748898*^9}, {3.924638680753685*^9, 
+   3.924638681765903*^9}, {3.924638738609762*^9, 3.924638761486753*^9}, {
+   3.924640114284974*^9, 3.924640114659734*^9}},
+ CellLabel->"In[62]:=",ExpressionUUID->"0fb9867c-f24e-4b43-8419-81a088f0195f"],
+
+Cell[BoxData[
+ RowBox[{"logo", " ", "=", " ", 
+  RowBox[{"ImageResize", "[", 
+   RowBox[{
+    RowBox[{
+    "Import", "[", "\"\<Projects/Wolfram/Fastbreak/email-logo2.png\>\"", 
+     "]"}], ",", " ", 
+    RowBox[{"{", "150", "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.924630087113696*^9, 3.924630112699584*^9}, {
+  3.9246301649832683`*^9, 3.924630172231924*^9}, {3.924630592979541*^9, 
+  3.924630609531039*^9}},
+ CellLabel->"In[21]:=",ExpressionUUID->"2c71b665-8103-44ec-a109-ef1df13c7fc7"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"logoH", " ", "=", " ", 
+   RowBox[{"ExportString", "[", 
+    RowBox[{"logo", ",", " ", "\"\<HTMLFragment\>\""}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.9246301744543247`*^9, 3.924630200043981*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"576084f6-55b9-4d5b-85d4-addb3f214896"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tempDicts", " ", "=", " ", 
+   RowBox[{"MapApply", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"AssociationThread", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\"\<First Name\>\"", ",", " ", "\"\<Parent First\>\""}], 
+         " ", "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"#1", ",", " ", "#2"}], "}"}]}], "]"}], "&"}], ",", " ", 
+     "nsChildAndParent"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.9241819556221247`*^9, 3.924181988552168*^9}, {
+  3.92418202732076*^9, 3.924182282367597*^9}, {3.924182313542*^9, 
+  3.92418232188414*^9}},
+ CellLabel->
+  "In[151]:=",ExpressionUUID->"5f48858e-e123-4598-9608-7606be18e248"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"tempDicts2", " ", "=", "  ", 
+   RowBox[{"MapApply", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"AssociationThread", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\"\<First Name\>\"", ",", " ", "\"\<Parent First\>\""}], 
+         " ", "}"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"#1", ",", " ", "#2"}], "}"}]}], "]"}], "&"}], ",", " ", 
+     "nsChildAndParent"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.924612751257681*^9, 3.924612759733452*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"c687428c-4ee4-4abd-ab53-817c959c31e8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"temps", " ", "=", " ", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"StringTemplate", "[", "htmlCampRetention", "]"}], "[", "#", 
+       "]"}], "&"}], ",", " ", "tempDicts"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.924182234545022*^9, 3.924182248924613*^9}, {
+  3.924182293846609*^9, 3.924182326982952*^9}},
+ CellLabel->
+  "In[152]:=",ExpressionUUID->"f0653414-3a1d-4b42-bb78-a6d87420334b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"temps2", "=", " ", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"StringTemplate", "[", "htmlCampRetention2", "]"}], "[", "#", 
+       "]"}], "&"}], ",", " ", "tempDicts2"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.924612934307759*^9, 3.924612963779205*^9}, {
+  3.924638636842716*^9, 3.924638647454502*^9}},
+ CellLabel->"In[63]:=",ExpressionUUID->"37a100f2-7f8c-483c-b57e-513076ca29b9"],
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "temps2", "]"}]], "Input",
+ CellChangeTimes->{{3.9241843800938873`*^9, 3.924184381866881*^9}, 
+   3.924612949663638*^9},
+ CellLabel->
+  "In[163]:=",ExpressionUUID->"94564c80-e3f9-429c-9f46-2c48fd77ac87"],
+
+Cell[BoxData[
+ RowBox[{"temps2", "[", 
+  RowBox[{"[", "1", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.924613042249318*^9, 3.924613044191289*^9}},
+ CellLabel->"In[37]:=",ExpressionUUID->"96aef267-3e7f-4878-9de4-ea076b7f70cb"],
+
+Cell[BoxData[
+ RowBox[{"EmbeddedHTML", "[", 
+  RowBox[{"temps2", "[", 
+   RowBox[{"[", "12", "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.924613074828401*^9, 3.9246130794511433`*^9}, {
+  3.924622201076748*^9, 3.924622201595706*^9}, {3.924622974239855*^9, 
+  3.924622974424883*^9}, {3.9246231237213573`*^9, 3.9246231735554943`*^9}, {
+  3.9246232140457287`*^9, 3.92462321433817*^9}, {3.924623275252287*^9, 
+  3.924623275692356*^9}},
+ CellLabel->
+  "In[209]:=",ExpressionUUID->"a248b5dc-aab8-41a1-b52d-ae4a3de62981"],
+
+Cell[BoxData[
+ RowBox[{"Length", "[", "nsEmails", "]"}]], "Input",
+ CellChangeTimes->{{3.924622228318568*^9, 3.924622231954627*^9}},
+ CellLabel->"In[74]:=",ExpressionUUID->"c79daadf-593a-472e-9d84-9e9ec880182c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"test", " ", "=", " ", 
+   RowBox[{"temps", "[", 
+    RowBox[{"[", 
+     RowBox[{";;", "3"}], "]"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.924182328113928*^9, 3.924182338283716*^9}, {
+   3.924182369470573*^9, 3.924182377937763*^9}, {3.924182697865952*^9, 
+   3.924182711463731*^9}, 3.92418426329036*^9, {3.9246130159143267`*^9, 
+   3.9246130272053547`*^9}},ExpressionUUID->"9910ee0d-98de-49f8-a991-\
+0c5bab423ab5"],
+
+Cell[BoxData[
+ RowBox[{"EmbeddedHTML", "[", 
+  RowBox[{"temps2", "[", 
+   RowBox[{"[", "2", "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.924182328113928*^9, 3.924182338283716*^9}, {
+   3.924182369470573*^9, 3.924182377937763*^9}, {3.924182697865952*^9, 
+   3.924182711463731*^9}, 3.92418426329036*^9, {3.9246130159143267`*^9, 
+   3.9246130272053547`*^9}, {3.924613489976349*^9, 3.9246134903760967`*^9}},
+ CellLabel->
+  "In[185]:=",ExpressionUUID->"ba55f6aa-d3e2-45c9-8994-f07ef56c99ad"],
+
+Cell[BoxData[
+ RowBox[{"SendMail", "[", 
+  RowBox[{"<|", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"\"\<To\>\"", "->", "\"\<will@fastbreakkids.com\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Subject\>\"", "->", "\"\<Bball Summer Camp 2024\>\""}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"\"\<Body\>\"", "->", 
+     RowBox[{"EmbeddedHTML", "[", 
+      RowBox[{"temps2", "[", 
+       RowBox[{"[", "1", "]"}], "]"}], "]"}]}]}], "|>"}], "]"}]], "Input",
+ CellChangeTimes->{{3.924182380705615*^9, 3.92418239505396*^9}, {
+  3.924182441697135*^9, 3.9241825313742027`*^9}, {3.924182576444143*^9, 
+  3.924182593810925*^9}, {3.9241845396109476`*^9, 3.924184544933091*^9}, {
+  3.924185065409293*^9, 3.924185066767308*^9}, {3.924629164843852*^9, 
+  3.924629181616359*^9}},
+ CellLabel->
+  "In[216]:=",ExpressionUUID->"1b1bb6ac-c258-4478-8a50-a3ff62cd7900"],
+
+Cell[BoxData[
+ RowBox[{"SendMail", "[", 
+  RowBox[{"\"\<wrn2001@gmail.com\>\"", ",", " ", "\"\<test\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.924183256477716*^9, 3.9241833166673527`*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"363aa3ad-414c-4178-8490-8464a48b8e1b"],
+
+Cell[BoxData[
+ RowBox[{"Pause", "[", "1", "]"}]], "Input",
+ CellChangeTimes->{{3.924184240140554*^9, 3.9241842433957*^9}},
+ CellLabel->
+  "In[138]:=",ExpressionUUID->"2f9c8510-9fe1-45d4-bdd1-68eab2951651"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"sendMailPause", "[", 
+   RowBox[{"email_", ",", " ", "firstName_", ",", " ", "htmlTemplate_"}], 
+   "]"}], ":=", " ", "\[IndentingNewLine]", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Pause", "[", "1", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"SendMail", "[", 
+      RowBox[{"<|", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"\"\<To\>\"", "->", "email"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"\"\<Subject\>\"", "->", 
+         RowBox[{
+         "\"\<Take an Additional $50 OFF per WEEK for \>\"", "<>", 
+          "firstName", " ", "<>", "\"\< at Camp!\>\""}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"\"\<Body\>\"", "->", 
+         RowBox[{"EmbeddedHTML", "[", "htmlTemplate", "]"}]}]}], "|>"}], 
+      "]"}]}]}], "\[IndentingNewLine]", "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.9246390716247587`*^9, 3.924639203701372*^9}, {
+   3.924639247215898*^9, 3.924639313913247*^9}, {3.924639347098981*^9, 
+   3.924639396441181*^9}, {3.9246394285726433`*^9, 3.92463949326152*^9}, {
+   3.9246395264269342`*^9, 3.924639529555282*^9}, {3.9246395957325983`*^9, 
+   3.924639601560652*^9}, 3.9246396434564238`*^9, {3.924639800288197*^9, 
+   3.924639831090502*^9}, {3.9246400842216043`*^9, 3.924640084355979*^9}},
+ CellLabel->"In[64]:=",ExpressionUUID->"e1376c4b-87b8-48c1-ae4a-68176062b23a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Normal", "[", 
+  RowBox[{"nsChildFirstName", "[", 
+   RowBox[{"[", 
+    RowBox[{";;", "2"}], "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.924639988005971*^9, 3.9246399934967413`*^9}, {
+  3.9246400660648603`*^9, 3.924640069459391*^9}},
+ CellLabel->"In[60]:=",ExpressionUUID->"ca061ab1-592a-49c9-b604-61298172111a"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Cody\"\>", ",", "\<\"Adrian\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.924639993794567*^9, 3.92464006973734*^9},
+ CellLabel->"Out[60]=",ExpressionUUID->"4d5d797a-2bb6-44e8-a655-fb1bd32b6c13"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MapThread", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"sendMailPause", "[", 
+     RowBox[{"#1", ",", " ", "#2", ",", " ", "#3"}], "]"}], "&"}], ",", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", "\"\<eddie@fastbreakkids.com\>\"", "}"}], ",", " ", 
+     RowBox[{"{", "\"\<Adrian\>\"", "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"temps2", "[", 
+       RowBox[{"[", "2", "]"}], "]"}], "}"}]}], "}"}]}], 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.924184283239982*^9, 3.924184328309341*^9}, {
+  3.92418452219874*^9, 3.924184526079918*^9}, {3.924184778693017*^9, 
+  3.9241847836191*^9}, {3.924631089799618*^9, 3.924631196309732*^9}, {
+  3.924631232226803*^9, 3.924631327611271*^9}, {3.924631416738653*^9, 
+  3.924631495245037*^9}, {3.924637973647481*^9, 3.924637975037944*^9}, {
+  3.924639511263234*^9, 3.924639573205315*^9}, {3.92463986790134*^9, 
+  3.924639877053021*^9}, {3.924639953199266*^9, 3.9246400291796007`*^9}, {
+  3.924640073265745*^9, 3.924640077110882*^9}, {3.92464020539548*^9, 
+  3.9246402767871523`*^9}, {3.9246404421477633`*^9, 3.924640442754561*^9}},
+ CellLabel->"In[67]:=",ExpressionUUID->"0fa554ed-0c6d-413d-a60f-567077607612"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  InterpretationBox[
+   RowBox[{
+    TagBox["Success",
+     "SummaryHead"], "[", 
+    DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+     TemplateBox[{
+       PaneSelectorBox[{False -> GridBox[{{
+             PaneBox[
+              ButtonBox[
+               DynamicBox[
+                FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
+               ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+               BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+               "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+              Dynamic[{
+                Automatic, 
+                 3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}]], 
+             FrameBox[
+              StyleBox["\"\[Checkmark]\"", 
+               Directive[
+                RGBColor[
+                0.3607843137254902, 0.596078431372549, 0.3803921568627451], 
+                25], StripOnInput -> False], ContentPadding -> False, 
+              FrameStyle -> None, FrameMargins -> {{0, 0}, {0, 0}}, 
+              StripOnInput -> False], 
+             GridBox[{{
+                RowBox[{
+                  TagBox[
+                   TemplateBox[{"\"Message\"", "\": \""}, "RowDefault"], 
+                   "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                  TagBox["\"Mail sent.\"", "SummaryItem"]}]}, {
+                RowBox[{
+                  TagBox[
+                   TemplateBox[{"\"Recipient\"", "\": \""}, "RowDefault"], 
+                   "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                  TagBox["\"eddie@fastbreakkids.com\"", "SummaryItem"]}]}}, 
+              GridBoxAlignment -> {
+               "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+              False, GridBoxItemSize -> {
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+              GridBoxSpacings -> {
+               "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+              BaseStyle -> {
+               ShowStringCharacters -> False, NumberMarks -> False, 
+                PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+           GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+           AutoDelete -> False, 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+           BaselinePosition -> {1, 1}], True -> GridBox[{{
+             PaneBox[
+              ButtonBox[
+               DynamicBox[
+                FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+               ButtonFunction :> (Typeset`open$$ = False), Appearance -> None,
+                BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+               "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+              Dynamic[{
+                Automatic, 
+                 3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                  Magnification])}]], 
+             FrameBox[
+              StyleBox["\"\[Checkmark]\"", 
+               Directive[
+                RGBColor[
+                0.3607843137254902, 0.596078431372549, 0.3803921568627451], 
+                25], StripOnInput -> False], ContentPadding -> False, 
+              FrameStyle -> None, FrameMargins -> {{0, 0}, {0, 0}}, 
+              StripOnInput -> False], 
+             GridBox[{{
+                RowBox[{
+                  TagBox[
+                   TemplateBox[{"\"Message\"", "\": \""}, "RowDefault"], 
+                   "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                  TagBox["\"Mail sent.\"", "SummaryItem"]}]}, {
+                RowBox[{
+                  TagBox[
+                   TemplateBox[{"\"Recipient\"", "\": \""}, "RowDefault"], 
+                   "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                  TagBox["\"eddie@fastbreakkids.com\"", "SummaryItem"]}]}, {
+                RowBox[{
+                  TagBox[
+                   TemplateBox[{"\"MessageID\"", "\": \""}, "RowDefault"], 
+                   "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                  TagBox[
+                  "\"70047c3d-9bec-40fa-8322-b15d6dcb2f6c.WolframLanguage.\
+will@fastbreakkids.com\"", "SummaryItem"]}]}, {
+                RowBox[{
+                  TagBox[
+                   TemplateBox[{"\"Tag\"", "\": \""}, "RowDefault"], 
+                   "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                  TagBox["\"MailSent\"", "SummaryItem"]}]}}, 
+              GridBoxAlignment -> {
+               "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+              False, GridBoxItemSize -> {
+               "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+              GridBoxSpacings -> {
+               "Columns" -> {{2}}, "Rows" -> {{Automatic}}}, 
+              BaseStyle -> {
+               ShowStringCharacters -> False, NumberMarks -> False, 
+                PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+           GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+           AutoDelete -> False, 
+           GridBoxItemSize -> {
+            "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+           BaselinePosition -> {1, 1}]}, 
+        Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+      "SummaryPanel"],
+     DynamicModuleValues:>{}], "]"}],
+   Success[
+   "MailSent", <|
+    "MessageTemplate" :> MessageName[SendMail, "success"], "Recipient" -> 
+     "eddie@fastbreakkids.com", "MessageID" -> 
+     "70047c3d-9bec-40fa-8322-b15d6dcb2f6c.WolframLanguage.will@fastbreakkids.\
+com"|>],
+   Editable->False,
+   SelectWithContents->True,
+   Selectable->False], "}"}]], "Output",
+ CellChangeTimes->{{3.924639587136475*^9, 3.9246396092009563`*^9}, 
+   3.9246396520443783`*^9, 3.924639737190406*^9, {3.924639814257011*^9, 
+   3.924639839936632*^9}, {3.924640016452177*^9, 3.92464002954565*^9}, 
+   3.924640082411356*^9, {3.924640267293511*^9, 3.924640279912283*^9}, 
+   3.924640450657578*^9},
+ CellLabel->"Out[67]=",ExpressionUUID->"ab932f3e-ffa8-4d79-8af3-cd485f75aaf1"]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.924639885717352*^9, 
+  3.92463988632578*^9}},ExpressionUUID->"fd447675-61ef-44c1-b327-\
+e3bf5b22bdc8"],
+
+Cell[BoxData[
+ RowBox[{"Length", "[", 
+  RowBox[{"nsChildAndParent", "[", 
+   RowBox[{"[", 
+    RowBox[{"All", ",", " ", "1"}], "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.924184353034069*^9, 3.9241843752022943`*^9}},
+ CellLabel->
+  "In[143]:=",ExpressionUUID->"9511ccf4-39ed-4df0-97bb-8322a92bee57"],
+
+Cell[BoxData[
+ RowBox[{"flyer", " ", "=", 
+  RowBox[{"ImageResize", "[", 
+   RowBox[{
+    RowBox[{
+    "Import", "[", 
+     "\"\</Users/erichegonzales/Projects/Wolfram/Fastbreak/SUCampFlyer.png\>\"\
+", "]"}], ",", " ", 
+    RowBox[{"{", "700", "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.924612281518371*^9, 3.924612314870447*^9}, 
+   3.924629590110045*^9, {3.924629642381079*^9, 3.924629664185448*^9}},
+ CellLabel->"In[25]:=",ExpressionUUID->"9cc5426d-ffe8-47c9-93f8-ea2f0577562c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"flyerH", " ", "=", " ", 
+   RowBox[{"ExportString", "[", 
+    RowBox[{"flyer", ",", " ", "\"\<HTMLFragment\>\""}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.92461231703082*^9, 3.924612334118601*^9}, {
+  3.924612376539597*^9, 3.924612393634611*^9}, {3.924629671694347*^9, 
+  3.924629674555065*^9}},
+ CellLabel->"In[26]:=",ExpressionUUID->"2324c320-dfc2-4035-9501-f912e73308e7"],
+
+Cell[BoxData[
+ RowBox[{"EmbeddedHTML", "[", "flyerH", "]"}]], "Input",
+ CellChangeTimes->{{3.924612380051734*^9, 3.924612399955792*^9}},
+ CellLabel->
+  "In[174]:=",ExpressionUUID->"cbb351f2-82bc-4568-8cf5-98ba57e9420b"]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{316, Automatic}, {Automatic, 50}},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"662ba9dc-33c6-4525-abe6-c04afa13f1c0"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 712, 12, 30, "Input",ExpressionUUID->"c6303883-5a79-427e-a6b4-4660cc1fca2a"],
+Cell[1273, 34, 324, 9, 30, "Input",ExpressionUUID->"1fda899e-33a7-4918-b6a3-30140323410a"],
+Cell[1600, 45, 475, 11, 30, "Input",ExpressionUUID->"275ec1bf-44f6-4fd6-89d0-01a58926e34a"],
+Cell[2078, 58, 211, 3, 30, "Input",ExpressionUUID->"4467f643-4484-4e1f-99ec-6fb12af7ef3b"],
+Cell[2292, 63, 434, 10, 30, "Input",ExpressionUUID->"a5b38c5e-4091-4092-9ffd-47f6c8e05390"],
+Cell[2729, 75, 212, 3, 30, "Input",ExpressionUUID->"1af29b91-0008-4a15-9f71-ca069b774254"],
+Cell[2944, 80, 364, 6, 30, "Input",ExpressionUUID->"7f57730f-6e39-4f1c-bae8-edee7f3b5d5b"],
+Cell[3311, 88, 210, 3, 30, "Input",ExpressionUUID->"ae707b24-1eb5-4b1c-a096-48b14a7fc2a5"],
+Cell[3524, 93, 154, 3, 30, "Input",ExpressionUUID->"cc3b4cb8-1520-418d-b2cc-e4706868ddd1"],
+Cell[3681, 98, 368, 6, 30, "Input",ExpressionUUID->"c50cdd4e-79e5-4a63-a583-422fa3884704"],
+Cell[4052, 106, 152, 3, 30, "Input",ExpressionUUID->"42f339d9-610d-45f1-8361-741c1514cbfd"],
+Cell[4207, 111, 538, 11, 30, "Input",ExpressionUUID->"8d15a771-4335-493c-bfa7-6ccbec2df7c7"],
+Cell[4748, 124, 219, 3, 30, "Input",ExpressionUUID->"a3aca682-2852-4b71-a1e8-3d3c9100d5e4"],
+Cell[4970, 129, 502, 9, 30, "Input",ExpressionUUID->"7acd3d43-0b72-48a5-8d1f-4c8ee89ef7c7"],
+Cell[5475, 140, 5307, 75, 220, "Input",ExpressionUUID->"807084e9-05a9-4e51-81d2-28fad3b73e32"],
+Cell[10785, 217, 391, 9, 30, "Input",ExpressionUUID->"e6f74c25-a6eb-491e-a5a6-f78b74c7bb38"],
+Cell[11179, 228, 218, 3, 30, "Input",ExpressionUUID->"9c0ab3ac-dbf9-4d5b-8644-4a7f4a7f52c4"],
+Cell[11400, 233, 5398, 76, 220, "Input",ExpressionUUID->"6acdca38-ee5f-4aff-ba82-232d552cb57c"],
+Cell[16801, 311, 250, 5, 30, "Input",ExpressionUUID->"c2b51ce3-23cf-432c-9765-7898c61b62a7"],
+Cell[17054, 318, 660, 15, 30, "Input",ExpressionUUID->"c26a7e2d-8504-44c9-bae4-891d4ff26f5b"],
+Cell[17717, 335, 218, 3, 30, "Input",ExpressionUUID->"e27491dd-35d7-4ccf-8d78-dfcd7ec38782"],
+Cell[17938, 340, 181, 2, 30, "Input",ExpressionUUID->"c60ac078-2501-49fc-bde3-f348eface134"],
+Cell[18122, 344, 213, 3, 30, "Input",ExpressionUUID->"75479045-72e0-42df-b7cc-58431b350c25"],
+Cell[18338, 349, 253, 4, 30, "Input",ExpressionUUID->"17b1ff64-a192-41ea-ad2d-ebb41cf81aa4"],
+Cell[18594, 355, 219, 3, 30, "Input",ExpressionUUID->"c8f86b2b-bbc2-4528-8acc-7ac079baaeab"],
+Cell[18816, 360, 223, 4, 30, "Input",ExpressionUUID->"68f70d5e-8e21-410c-98a9-7c2fdb1760e7"],
+Cell[19042, 366, 2767, 41, 493, "Input",ExpressionUUID->"de376d45-5a5c-4d97-a604-fc8f9cf07ff8"],
+Cell[21812, 409, 2439, 37, 472, "Input",ExpressionUUID->"0fb9867c-f24e-4b43-8419-81a088f0195f"],
+Cell[24254, 448, 496, 11, 30, "Input",ExpressionUUID->"2c71b665-8103-44ec-a109-ef1df13c7fc7"],
+Cell[24753, 461, 323, 7, 30, "Input",ExpressionUUID->"576084f6-55b9-4d5b-85d4-addb3f214896"],
+Cell[25079, 470, 699, 18, 30, "Input",ExpressionUUID->"5f48858e-e123-4598-9608-7606be18e248"],
+Cell[25781, 490, 602, 15, 30, "Input",ExpressionUUID->"c687428c-4ee4-4abd-ab53-817c959c31e8"],
+Cell[26386, 507, 471, 12, 30, "Input",ExpressionUUID->"f0653414-3a1d-4b42-bb78-a6d87420334b"],
+Cell[26860, 521, 465, 11, 30, "Input",ExpressionUUID->"37a100f2-7f8c-483c-b57e-513076ca29b9"],
+Cell[27328, 534, 241, 5, 30, "Input",ExpressionUUID->"94564c80-e3f9-429c-9f46-2c48fd77ac87"],
+Cell[27572, 541, 227, 4, 30, "Input",ExpressionUUID->"96aef267-3e7f-4878-9de4-ea076b7f70cb"],
+Cell[27802, 547, 521, 10, 30, "Input",ExpressionUUID->"a248b5dc-aab8-41a1-b52d-ae4a3de62981"],
+Cell[28326, 559, 211, 3, 30, "Input",ExpressionUUID->"c79daadf-593a-472e-9d84-9e9ec880182c"],
+Cell[28540, 564, 458, 10, 30, "Input",ExpressionUUID->"9910ee0d-98de-49f8-a991-0c5bab423ab5"],
+Cell[29001, 576, 494, 9, 30, "Input",ExpressionUUID->"ba55f6aa-d3e2-45c9-8994-f07ef56c99ad"],
+Cell[29498, 587, 870, 18, 94, "Input",ExpressionUUID->"1b1bb6ac-c258-4478-8a50-a3ff62cd7900"],
+Cell[30371, 607, 273, 5, 30, "Input",ExpressionUUID->"363aa3ad-414c-4178-8490-8464a48b8e1b"],
+Cell[30647, 614, 205, 4, 30, "Input",ExpressionUUID->"2f9c8510-9fe1-45d4-bdd1-68eab2951651"],
+Cell[30855, 620, 1437, 28, 178, "Input",ExpressionUUID->"e1376c4b-87b8-48c1-ae4a-68176062b23a"],
+Cell[CellGroupData[{
+Cell[32317, 652, 345, 7, 30, "Input",ExpressionUUID->"ca061ab1-592a-49c9-b604-61298172111a"],
+Cell[32665, 661, 239, 4, 34, "Output",ExpressionUUID->"4d5d797a-2bb6-44e8-a655-fb1bd32b6c13"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[32941, 670, 1226, 23, 73, "Input",ExpressionUUID->"0fa554ed-0c6d-413d-a60f-567077607612"],
+Cell[34170, 695, 6119, 126, 61, "Output",ExpressionUUID->"ab932f3e-ffa8-4d79-8af3-cd485f75aaf1"]
+}, Open  ]],
+Cell[40304, 824, 151, 3, 30, "Input",ExpressionUUID->"fd447675-61ef-44c1-b327-e3bf5b22bdc8"],
+Cell[40458, 829, 309, 7, 30, "Input",ExpressionUUID->"9511ccf4-39ed-4df0-97bb-8322a92bee57"],
+Cell[40770, 838, 488, 11, 30, "Input",ExpressionUUID->"9cc5426d-ffe8-47c9-93f8-ea2f0577562c"],
+Cell[41261, 851, 420, 9, 30, "Input",ExpressionUUID->"2324c320-dfc2-4035-9501-f912e73308e7"],
+Cell[41684, 862, 219, 4, 30, "Input",ExpressionUUID->"cbb351f2-82bc-4568-8cf5-98ba57e9420b"]
+}
+]
+*)
+

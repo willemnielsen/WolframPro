@@ -1,0 +1,2192 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[    103056,       2184]
+NotebookOptionsPosition[     89663,       1909]
+NotebookOutlinePosition[     95019,       2025]
+CellTagsIndexPosition[     94941,       2020]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"MapThread", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"#1", "[", "#2", "]"}], "&"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"f", ",", " ", "g"}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", " ", "2"}], "}"}]}], "}"}]}], "]"}]], "Input",
+ CellLabel->"In[7]:=",ExpressionUUID->"f87b783d-706c-4721-b25c-bc35888d4630"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"f", "[", "1", "]"}], ",", 
+   RowBox[{"g", "[", "2", "]"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.957474023593556*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"e47ac233-746a-4bc9-839f-8e7091455435"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fullfunc", "[", "mufuncspec_", "]"}], ":=", " ", 
+  "\[IndentingNewLine]", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"AssociationQ", "[", "mufuncspec", "]"}], ",", " ", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"AssociationThread", "[", 
+      RowBox[{
+       RowBox[{"Keys", "[", "mufuncspec", "]"}], "->", 
+       RowBox[{"MapThread", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"#1", "[", "#2", "]"}], "&"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Values", "[", "mufuncspec", "]"}], ",", " ", 
+           RowBox[{"Values", "[", "#", "]"}]}], "}"}]}], "]"}]}], "]"}], 
+     "&"}], ",", " ", 
+    RowBox[{
+     RowBox[{"MapAt", "[", 
+      RowBox[{"mufuncspec", ",", " ", "#", ",", " ", 
+       RowBox[{"Key", "[", "\"\<Rule\>\"", "]"}]}], "]"}], "&"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.957473854502981*^9, 3.9574738852044687`*^9}, {
+  3.957473920862454*^9, 3.957473935632887*^9}, {3.957473985221983*^9, 
+  3.957473994603876*^9}, {3.95747426749452*^9, 3.957474313789843*^9}, {
+  3.957474344661208*^9, 3.957474438178689*^9}},
+ CellLabel->"In[8]:=",
+ CellID->303987871,ExpressionUUID->"431925f4-2035-495c-8a36-8dc47c8bb639"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fullfitfunc", "[", 
+   RowBox[{"evospec_", ",", " ", "\"\<Lifetime\>\""}], "]"}], ":=", " ", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"ruleQ", " ", "=", " ", 
+       RowBox[{"KeyExistsQ", "[", 
+        RowBox[{
+         RowBox[{"evospec", "[", "\"\<MutationFunction\>\"", "]"}], ",", 
+         " ", "\"\<Rule\>\""}], "]"}]}], ",", " ", "\[IndentingNewLine]", 
+      RowBox[{"initQ", " ", "=", " ", 
+       RowBox[{"KeyExistsQ", "[", 
+        RowBox[{
+         RowBox[{"evospec", "[", "\"\<MutationFunction\>\"", "]"}], ",", 
+         " ", "\"\<InitialConditions\>\""}], "]"}]}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"cafunc", " ", "=", " ", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"CellularAutomaton", "[", 
+        RowBox[{"#1", ",", " ", "#2", ",", " ", 
+         RowBox[{"evospec", "[", "\"\<StepSpec\>\"", "]"}]}], "]"}], "&"}], 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"Which", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"ruleQ", " ", "&&", " ", "initQ"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"#", "==", "0"}], ",", 
+             RowBox[{"-", "Infinity"}], 
+             RowBox[{"(*", 
+              RowBox[{"-", "infinity"}], "*)"}], ",", 
+             RowBox[{
+              RowBox[{"evospec", "[", "\"\<StepSpec\>\"", "]"}], "-", "#", "+",
+               "1"}]}], "]"}], "&"}], "[", "\[IndentingNewLine]", 
+          RowBox[{"LengthWhile", "[", 
+           RowBox[{
+            RowBox[{"Reverse", "[", 
+             RowBox[{"CellularAutomaton", "[", 
+              RowBox[{"#1", ",", " ", "#2", ",", " ", 
+               RowBox[{"evospec", "[", "\"\<StepSpec\>\"", "]"}]}], "]"}], 
+             "]"}], ",", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Total", "[", "#", "]"}], "==", "0"}], "&"}]}], "]"}], 
+          "\[IndentingNewLine]", "]"}], "&"}], ",", "\[IndentingNewLine]", 
+        "ruleQ", ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"#", "==", "0"}], ",", 
+             RowBox[{"-", "Infinity"}], 
+             RowBox[{"(*", 
+              RowBox[{"-", "infinity"}], "*)"}], ",", 
+             RowBox[{
+              RowBox[{"evospec", "[", "\"\<StepSpec\>\"", "]"}], "-", "#", "+",
+               "1"}]}], "]"}], "&"}], "[", "\[IndentingNewLine]", 
+          RowBox[{"LengthWhile", "[", 
+           RowBox[{
+            RowBox[{"Reverse", "[", 
+             RowBox[{"CellularAutomaton", "[", 
+              RowBox[{"#1", ",", 
+               RowBox[{
+               "evospec", "[", "\"\<StartingInitialConditions\>\"", "]"}], ",", 
+               RowBox[{"evospec", "[", "\"\<StepSpec\>\"", "]"}]}], "]"}], 
+             "]"}], ",", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Total", "[", "#", "]"}], "==", "0"}], "&"}]}], "]"}], 
+          "\[IndentingNewLine]", "]"}], "&"}], ",", "\[IndentingNewLine]", 
+        "True", ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"If", "[", 
+            RowBox[{
+             RowBox[{"#", "==", "0"}], ",", 
+             RowBox[{"-", "Infinity"}], 
+             RowBox[{"(*", 
+              RowBox[{"-", "infinity"}], "*)"}], ",", 
+             RowBox[{
+              RowBox[{"evospec", "[", "\"\<StepSpec\>\"", "]"}], "-", "#", "+",
+               "1"}]}], "]"}], "&"}], "[", "\[IndentingNewLine]", 
+          RowBox[{"LengthWhile", "[", 
+           RowBox[{
+            RowBox[{"Reverse", "[", 
+             RowBox[{"CellularAutomaton", "[", 
+              RowBox[{
+               RowBox[{"evospec", "[", "\"\<StartingRule\>\"", "]"}], ",", 
+               " ", "#2", ",", " ", 
+               RowBox[{"evospec", "[", "\"\<StepSpec\>\"", "]"}]}], "]"}], 
+             "]"}], ",", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"Total", "[", "#", "]"}], "==", "0"}], "&"}]}], "]"}], 
+          "\[IndentingNewLine]", "]"}], "&"}]}], "\[IndentingNewLine]", 
+       "]"}]}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.957477506354849*^9, 3.957477560958043*^9}, {
+  3.957477745347664*^9, 3.95747779035073*^9}, {3.957478095232877*^9, 
+  3.957478098712824*^9}, {3.957478880039805*^9, 3.957479054610044*^9}, {
+  3.9574790993544273`*^9, 3.957479102842256*^9}, {3.957479159784114*^9, 
+  3.9574791602632513`*^9}, {3.95747920610763*^9, 3.9574792097799683`*^9}, {
+  3.957479256332864*^9, 3.9574792618573017`*^9}, {3.957479301656024*^9, 
+  3.957479393947599*^9}, {3.957479428455492*^9, 3.9574794351461363`*^9}, {
+  3.9574794700177107`*^9, 3.957479474197809*^9}, {3.9574798009376907`*^9, 
+  3.957479834163702*^9}, {3.9574809823780317`*^9, 3.957481047115801*^9}, {
+  3.957481077165044*^9, 3.957481103159856*^9}, {3.95748113978164*^9, 
+  3.957481150814794*^9}, {3.9574813558572807`*^9, 3.9574813713379707`*^9}},
+ CellID->1520776277,ExpressionUUID->"f232920f-7c62-4693-9efd-aea3b21fc4cf"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fullmufunc", "[", "fullmuspec_", "]"}], ":=", " ", 
+  "\[IndentingNewLine]", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"AssociationQ", "[", "fullmuspec", "]"}], ",", " ", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Association", "[", 
+      RowBox[{"KeyValueMap", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"#1", "->", 
+          RowBox[{
+           RowBox[{"Lookup", "[", 
+            RowBox[{"fullmuspec", ",", " ", "#1", ",", 
+             RowBox[{"(", 
+              RowBox[{"#", "&"}], ")"}]}], "]"}], "[", "#2", "]"}]}], "&"}], ",",
+         "#"}], "]"}], "]"}], "&"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{"ListQ", "[", "fullmuspec", "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"MapThread", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"#1", "[", "#2", "]"}], "&"}], ",", " ", 
+         RowBox[{"{", 
+          RowBox[{"fullmuspec", ",", " ", "#"}], "}"}]}], "]"}], "&"}]}], 
+     "]"}], ",", "\[IndentingNewLine]", "fullmuspec"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.957473854502981*^9, 3.9574738852044687`*^9}, {
+  3.957473920862454*^9, 3.957473935632887*^9}, {3.957473985221983*^9, 
+  3.957473994603876*^9}, {3.95747426749452*^9, 3.957474313789843*^9}, {
+  3.957474344661208*^9, 3.957474438178689*^9}, {3.957474487183075*^9, 
+  3.957474573085306*^9}, {3.957476399392727*^9, 3.957476401039954*^9}, {
+  3.9574764656580467`*^9, 3.957476479469864*^9}, {3.957476561968649*^9, 
+  3.957476571412684*^9}, {3.957476672246623*^9, 3.957476769200375*^9}, {
+  3.957476837851673*^9, 3.957476847399172*^9}, {3.957477536976782*^9, 
+  3.9574775372358007`*^9}, {3.957478805672347*^9, 3.957478816251232*^9}},
+ CellLabel->"In[20]:=",
+ CellID->21587632,ExpressionUUID->"ebfb50e8-2130-49c3-aa06-be481c5e8fd9"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getcafunc", "[", "evospec_", "]"}], ":=", " ", 
+  RowBox[{"Module", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"ruleQ", " ", "=", " ", 
+       RowBox[{"KeyExistsQ", "[", 
+        RowBox[{
+         RowBox[{"evospec", "[", "\"\<MutationFunction\>\"", "]"}], ",", 
+         " ", "\"\<Rule\>\""}], "]"}]}], ",", " ", "\[IndentingNewLine]", 
+      RowBox[{"initQ", " ", "=", " ", 
+       RowBox[{"KeyExistsQ", "[", 
+        RowBox[{
+         RowBox[{"evospec", "[", "\"\<MutationFunction\>\"", "]"}], ",", 
+         " ", "\"\<InitialConditions\>\""}], "]"}]}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Which", "[", 
+     RowBox[{
+      RowBox[{"ruleQ", " ", "&&", " ", "initQ"}], ",", 
+      RowBox[{"##", "&"}], ",", " ", "ruleQ", ",", " ", 
+      RowBox[{
+       RowBox[{"Sequence", "@@", 
+        RowBox[{"{", 
+         RowBox[{"#1", ",", " ", 
+          RowBox[{
+          "evospec", "[", "\"\<StartingInitialConditions\>\"", "]"}]}], 
+         "}"}]}], "&"}], ",", " ", "True", ",", " ", 
+      RowBox[{
+       RowBox[{"Sequence", "@@", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"evospec", "[", "\"\<StartingInitialConditions\>\"", "]"}], 
+          ",", " ", "#2"}], "}"}]}], "&"}]}], "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9574817560246773`*^9, 3.95748178335919*^9}, {
+  3.9574826654888287`*^9, 3.95748266736414*^9}},
+ CellLabel->"In[27]:=",
+ CellID->150228104,ExpressionUUID->"ec05c7fd-312b-4f8c-83a4-f549f70b027a"],
+
+Cell[BoxData[
+ RowBox[{"extrapropkeys", " ", "=", " ", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"evospec", "[", "\"\<IncludeKeys\>\"", "]"}], ",", " ", 
+    RowBox[{
+     RowBox[{"Position", "[", 
+      RowBox[{"initialkeys", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"\"\<MutatedRule\>\"", ",", "\"\<MutatedFitness\>\""}], 
+        "}"}]}], "]"}], ";"}]}]}]}]], "Input",ExpressionUUID->"6ac6c148-940c-\
+41f2-afab-e2ca12d15038"],
+
+Cell[BoxData[
+ RowBox[{"Join", "[", 
+  RowBox[{"#", ",", " ", 
+   RowBox[{"fitnessfunction", "[", 
+    RowBox[{"Join", "[", 
+     RowBox[{"#", ",", " ", 
+      RowBox[{
+       RowBox[{"merged", "[", "\"\<MutationFunction\>\"", "]"}], "[", "#", 
+       "]"}]}], "]"}], "]"}]}], "]"}]], "Input",ExpressionUUID->"8f2addd5-\
+4538-4fe8-8919-e12e1f73314f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getmufunc", "[", "args_", "]"}], ":=", " ", "\[IndentingNewLine]", 
+  
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{"ListQ", "[", "args", "]"}], ",", " ", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Length", "[", "args", "]"}], ">", "1"}], ",", " ", 
+      "\[IndentingNewLine]", 
+      RowBox[{"RandomRuleMutation", "[", 
+       RowBox[{"#Rule", ","}], " ", "]"}]}], "]"}], ","}], " ", 
+   "]"}]}]], "Input",ExpressionUUID->"26d04aa0-3578-4a64-80a1-64697ccf3170"],
+
+Cell[BoxData[
+ RowBox[{"\"\<MutationFunction\>\"", "->", "1"}]], "Input",
+ CellChangeTimes->{{3.957517616791699*^9, 3.957517635971981*^9}},
+ CellID->933363900,ExpressionUUID->"7e2bb4fa-9960-4947-a870-cd9d1849d7de"],
+
+Cell[BoxData[
+ RowBox[{"\"\<MutationFunction\>\"", "->", 
+  RowBox[{"{", 
+   RowBox[{"1", ",", " ", 
+    RowBox[{"\"\<Symmetric\>\"", "->", "False"}], ",", " ", 
+    RowBox[{"\"\<Quiescent\>\"", "->", "True"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.957517616791699*^9, 3.95751772444067*^9}},
+ CellID->411375590,ExpressionUUID->"44a1ff55-0a9d-4fb7-8987-171acb79138b"],
+
+Cell[BoxData[
+ RowBox[{"\"\<MutationFunction\>\"", "->", 
+  RowBox[{"\"\<Rule\>\"", "->", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", " ", 
+     RowBox[{"\"\<Symmetric\>\"", "->", "False"}], ",", " ", 
+     RowBox[{"\"\<Quiescent\>\"", "->", "True"}]}], "}"}]}]}]], "Input",
+ CellChangeTimes->{{3.957517616791699*^9, 3.957517731923161*^9}},
+ CellID->1730869703,ExpressionUUID->"cbabb198-fd64-4749-b5ae-65ddf6e26a3f"],
+
+Cell[BoxData[
+ RowBox[{"\"\<MutationFunction\>\"", "->", 
+  RowBox[{"\"\<InitialCondition\>\"", "->", " ", "1"}]}]], "Input",
+ CellChangeTimes->{{3.95751788581531*^9, 3.9575179448672333`*^9}},
+ CellID->680914257,ExpressionUUID->"ab1e383b-f225-443b-80e2-a70557b9c4f1"],
+
+Cell[BoxData[
+ RowBox[{"\"\<MutationFunction\>\"", "->", 
+  RowBox[{"\"\<InitialCondition\>\"", "->", " ", "2"}]}]], "Input",
+ CellChangeTimes->{{3.95751788581531*^9, 3.957517948522287*^9}},
+ CellID->659093518,ExpressionUUID->"c7490306-81bc-40f6-8f0a-d3817ca24275"],
+
+Cell[BoxData[
+ RowBox[{"\"\<MutationFunction\>\"", "->", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"\"\<Rule\>\"", "->", " ", "1"}], ",", " ", 
+    RowBox[{"\"\<InitialCondition\>\"", "->", " ", "2"}]}], "}"}]}]], "Input",\
+
+ CellChangeTimes->{{3.95751788581531*^9, 3.957517983073701*^9}},
+ CellID->1153667141,ExpressionUUID->"a1e88ca4-3bbe-463b-b771-6a6fd560f683"],
+
+Cell[BoxData[
+ RowBox[{"\"\<MutationFunction\>\"", "->", 
+  RowBox[{"<|", 
+   RowBox[{
+    RowBox[{"\"\<Rule\>\"", "->", " ", "1"}], ",", " ", 
+    RowBox[{"\"\<InitialCondition\>\"", "->", " ", "2"}]}], "|>"}]}]], "Input",\
+
+ CellChangeTimes->{{3.95751788581531*^9, 3.957517983073701*^9}, {
+  3.9575180255162573`*^9, 3.957518033971156*^9}},
+ CellLabel->"In[72]:=",
+ CellID->1257886012,ExpressionUUID->"216fd3f0-3be5-4e23-91ff-eb14d7cb6e76"],
+
+Cell[BoxData[
+ RowBox[{"\"\<MutationFunction\>\"", "->", 
+  RowBox[{"<|", 
+   RowBox[{"\"\<Rule\>\"", "->", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"RandomRuleMutation", "[", "#Rule", "]"}], "&"}], ")"}]}], 
+   "|>"}]}]], "Input",
+ CellChangeTimes->{{3.9575185861641703`*^9, 3.957518603713654*^9}},
+ CellID->1927581762,ExpressionUUID->"69376014-a0ed-4419-91d2-ccf58f37a4b1"],
+
+Cell[BoxData["\"\<Mutat\>\""], "Input",
+ CellChangeTimes->{{3.957517657041822*^9, 3.957517658111947*^9}},
+ CellID->1024186516,ExpressionUUID->"70af42de-fff1-46fc-8a87-c06b4d7a4675"],
+
+Cell[BoxData[
+ RowBox[{"?", "(_String ||List[_String..])"}]], "Input",ExpressionUUID->"c95333d8-7faa-4101-9110-bdb5036b1954"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"AdaptiveCellularAutomaton", "[", "evospec_", "]"}], "[", 
+   "sequencespec_", "]"}], ":=", 
+  RowBox[{"AdaptiveCellularAutomaton", "[", 
+   RowBox[{"evospec", ",", "sequencespec"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.957489030476342*^9, 3.9574890446756372`*^9}, {
+  3.95752345593871*^9, 3.957523492313252*^9}, {3.957557357030138*^9, 
+  3.9575573717872467`*^9}},
+ CellTags->"DefaultContent",
+ CellLabel->"In[288]:=",
+ CellID->876320555,ExpressionUUID->"1c5823cc-e960-4cf1-ba41-843a736948b6"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part", "pkspec1", 
+   "\"The expression \\!\\(\\*RowBox[{\\\"evospec_\\\"}]\\) cannot be used as \
+a part specification.\"", 2, 288, 255, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557521241131*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[288]:=",
+ CellID->659540350,ExpressionUUID->"42ddc8f9-1911-403a-bbe1-c515d1168ef4"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Function", "slot1", 
+   "\"\\!\\(\\*RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"RandomRuleMutation\\\", \\\"[\\\", \\\"#Rule\\\", \\\"]\\\
+\"}], \\\"&\\\"}], \\\")\\\"}], \\\"[\\\", RowBox[{RowBox[{\\\"\
+\[LeftAssociation]\\\", RowBox[{RowBox[{\\\"\\\\\\\"Rule\\\\\\\"\\\", \\\"\
+\[Rule]\\\", RowBox[{\\\"{\\\", RowBox[{\\\"31381059609\\\", \\\",\\\", \\\"3\
+\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"InitialCondition\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\
+\"{\\\", RowBox[{RowBox[{\\\"{\\\", \\\"1\\\", \\\"}\\\"}], \\\",\\\", \
+\\\"0\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\
+\", RowBox[{\\\"31381059609\\\", \\\",\\\", \\\"3\\\", \\\",\\\", \
+\\\"1\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"MutatedInitialCondition\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"None\\\"}], \\\",\\\", RowBox[{\\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\
+\"\[Rule]\\\", \\\"1\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"Fitness\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}]}], \\\"\
+\[RightAssociation]\\\"}], \\\"\[LeftDoubleBracket]\\\", \\\"evospec_\\\", \\\
+\"\[RightDoubleBracket]\\\"}], \\\"]\\\"}]\\) is expected to have an \
+Association as the first argument.\"", 2, 288, 256, 27811857182977236376, 
+   "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557521428432*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[288]:=",
+ CellID->1731560283,ExpressionUUID->"2a6b7955-804c-4bba-af58-61baef6fb5f3"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Join", "incpt", 
+   "\"Incompatible elements in \\!\\(\\*RowBox[{\\\"Join\\\", \\\"[\\\", \
+RowBox[{RowBox[{RowBox[{\\\"\[LeftAssociation]\\\", \
+RowBox[{RowBox[{\\\"\\\\\\\"Rule\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"31381059609\\\", \\\",\\\", \\\"3\\\", \\\",\\\
+\", \\\"1\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"InitialCondition\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\
+\"{\\\", RowBox[{RowBox[{\\\"{\\\", \\\"1\\\", \\\"}\\\"}], \\\",\\\", \
+\\\"0\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\
+\", RowBox[{\\\"31381059609\\\", \\\",\\\", \\\"3\\\", \\\",\\\", \
+\\\"1\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"MutatedInitialCondition\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"None\\\"}], \\\",\\\", RowBox[{\\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\
+\"\[Rule]\\\", \\\"1\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"Fitness\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}]}], \\\"\
+\[RightAssociation]\\\"}], \\\"\[LeftDoubleBracket]\\\", \\\"evospec_\\\", \\\
+\"\[RightDoubleBracket]\\\"}], \\\",\\\", RowBox[{\\\"\[LeftAssociation]\\\", \
+RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"RandomRuleMutation\\\", \\\"[\\\", \\\"#Rule\\\", \\\"]\\\"}]}], \
+\\\"\[RightAssociation]\\\"}]}], \\\"]\\\"}]\\) cannot be joined.\"", 2, 288, 
+   257, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.9575575216708803`*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[288]:=",
+ CellID->1782775884,ExpressionUUID->"318c68b9-1ba3-4aef-8bec-a22d70d05389"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Function", "slot1", 
+   "\"\\!\\(\\*RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"CellularAutomaton\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"If\\\", \\\"[\\\", RowBox[{RowBox[{\\\"KeyExistsQ\\\", \\\
+\"[\\\", RowBox[{RowBox[{\\\"\[LeftAssociation]\\\", RowBox[{RowBox[{\\\"\\\\\
+\\\"StartingRule\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"3\\\", \\\",\\\", \\\"1\\\"}], \
+\\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"StartingInitialCondition\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", \\\"1\\\", \\\"}\\\"}], \\\",\\\
+\", \\\"0\\\"}], \\\"}\\\"}]}], \\\",\\\", RowBox[{\\\"\\\\\\\"StepSpec\\\\\\\
+\"\\\", \\\"\[Rule]\\\", \\\"100\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"Iterations\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"100\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"MutationFunction\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"\[LeftAssociation]\\\", RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\
+\", \\\"\[Rule]\\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"RandomRuleMutation\\\", \\\"[\\\", \\\"#Rule\\\", \\\"]\\\
+\"}], \\\"&\\\"}], \\\")\\\"}]}], \\\"\[RightAssociation]\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"FitnessFunction\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"\\\\\\\"Lifetime\\\\\\\"\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"SelectionFunction\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"#MutatedFitness\\\", \\\"\
+\[GreaterEqual]\\\", \\\"#Fitness\\\"}], \\\"&\\\"}], \\\")\\\"}]}]}], \\\"\
+\[RightAssociation]\\\"}], \\\",\\\", \\\"\\\\\\\"MutationRule\\\\\\\"\\\"}], \
+\\\"]\\\"}], \\\",\\\", \\\"#Rule\\\", \\\",\\\", RowBox[{RowBox[{\\\"\
+\[LeftAssociation]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"\[RightAssociation]\\\"}], \\\"[\\\", \
+\\\"\\\\\\\"StartingRule\\\\\\\"\\\", \\\"]\\\"}]}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\",\
+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \
+\\\"\[RightSkeleton]\\\"}]}], \\\"]\\\"}], \\\"&\\\"}], \\\")\\\"}], \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}]\\) is expected to have an Association as the first \
+argument.\"", 2, 288, 258, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557521868042*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[288]:=",
+ CellID->1422439444,ExpressionUUID->"ec7e789b-4539-444b-83a0-859b7bbf9205"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Function", "slot1", 
+   "\"\\!\\(\\*RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"CellularAutomaton\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"If\\\", \\\"[\\\", RowBox[{RowBox[{\\\"KeyExistsQ\\\", \\\
+\"[\\\", RowBox[{RowBox[{\\\"\[LeftAssociation]\\\", RowBox[{RowBox[{\\\"\\\\\
+\\\"StartingRule\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"3\\\", \\\",\\\", \\\"1\\\"}], \
+\\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"StartingInitialCondition\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", \\\"1\\\", \\\"}\\\"}], \\\",\\\
+\", \\\"0\\\"}], \\\"}\\\"}]}], \\\",\\\", RowBox[{\\\"\\\\\\\"StepSpec\\\\\\\
+\"\\\", \\\"\[Rule]\\\", \\\"100\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"Iterations\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"100\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"MutationFunction\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"\[LeftAssociation]\\\", RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\
+\", \\\"\[Rule]\\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"RandomRuleMutation\\\", \\\"[\\\", \\\"#Rule\\\", \\\"]\\\
+\"}], \\\"&\\\"}], \\\")\\\"}]}], \\\"\[RightAssociation]\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"FitnessFunction\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"\\\\\\\"Lifetime\\\\\\\"\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"SelectionFunction\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"#MutatedFitness\\\", \\\"\
+\[GreaterEqual]\\\", \\\"#Fitness\\\"}], \\\"&\\\"}], \\\")\\\"}]}]}], \\\"\
+\[RightAssociation]\\\"}], \\\",\\\", \\\"\\\\\\\"MutationRule\\\\\\\"\\\"}], \
+\\\"]\\\"}], \\\",\\\", \\\"#Rule\\\", \\\",\\\", RowBox[{RowBox[{\\\"\
+\[LeftAssociation]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"\[RightAssociation]\\\"}], \\\"[\\\", \
+\\\"\\\\\\\"StartingRule\\\\\\\"\\\", \\\"]\\\"}]}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\",\
+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \
+\\\"\[RightSkeleton]\\\"}]}], \\\"]\\\"}], \\\"&\\\"}], \\\")\\\"}], \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}]\\) is expected to have an Association as the first \
+argument.\"", 2, 288, 259, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557522085699*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[288]:=",
+ CellID->1151776904,ExpressionUUID->"16a5da67-dcb5-46ce-8693-1c393c7159ff"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Function\\\", \
+\\\"::\\\", \\\"slot1\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"", 2, 288, 260, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557522284788*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[288]:=",
+ CellID->496831470,ExpressionUUID->"2406916f-d28d-481c-98d4-8b9a2de3c3bb"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Join\\\"}]\\) in \
+\\!\\(\\*RowBox[{RowBox[{\\\"Join\\\", \\\"[\\\", \
+RowBox[{RowBox[{RowBox[{\\\"\[LeftAssociation]\\\", \
+RowBox[{RowBox[{\\\"\\\\\\\"Rule\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"31381059609\\\", \\\",\\\", \\\"3\\\", \\\",\\\
+\", \\\"1\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"InitialCondition\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\
+\"{\\\", RowBox[{RowBox[{\\\"{\\\", \\\"1\\\", \\\"}\\\"}], \\\",\\\", \
+\\\"0\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\
+\", RowBox[{\\\"31381059609\\\", \\\",\\\", \\\"3\\\", \\\",\\\", \
+\\\"1\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"MutatedInitialCondition\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"None\\\"}], \\\",\\\", RowBox[{\\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\
+\"\[Rule]\\\", \\\"1\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"Fitness\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}]}], \\\"\
+\[RightAssociation]\\\"}], \\\"\[LeftDoubleBracket]\\\", \\\"evospec_\\\", \\\
+\"\[RightDoubleBracket]\\\"}], \\\",\\\", RowBox[{\\\"\[LeftAssociation]\\\", \
+RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"RandomRuleMutation\\\", \\\"[\\\", \\\"#Rule\\\", \\\"]\\\"}]}], \
+\\\"\[RightAssociation]\\\"}]}], \\\"]\\\"}], \\\"[\\\", \
+\\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"]\\\"}]\\) is Protected.\"", 2, 
+   288, 261, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557522524884*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[288]:=",
+ CellID->830096754,ExpressionUUID->"5712f7c3-e2f4-4a51-b230-47deeaf27eab"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Join", "incpt", 
+   "\"Incompatible elements in \\!\\(\\*RowBox[{\\\"Join\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"If\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"#MutatedFitness\\\", \\\"\[GreaterEqual]\\\", \
+\\\"#Fitness\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"newstate\\\", \
+\\\"[\\\", \\\"\\\\\\\"Rule\\\\\\\"\\\", \\\"]\\\"}], \\\"=\\\", \
+RowBox[{\\\"newstate\\\", \\\"[\\\", \\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \
+\\\"]\\\"}]}], \\\";\\\", RowBox[{RowBox[{\\\"newstate\\\", \\\"[\\\", \\\"\\\
+\\\\\"Fitness\\\\\\\"\\\", \\\"]\\\"}], \\\"=\\\", RowBox[{\\\"newstate\\\", \
+\\\"[\\\", \\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"]\\\"}]}], \\\";\\\", \
+RowBox[{\\\"newstate\\\", \\\"\[LeftDoubleBracket]\\\", \\\"evospec_\\\", \
+\\\"\[RightDoubleBracket]\\\"}]}], \\\",\\\", RowBox[{\\\"newstate\\\", \\\"\
+\[LeftDoubleBracket]\\\", \\\"evospec_\\\", \
+\\\"\[RightDoubleBracket]\\\"}]}], \\\"]\\\"}], \\\",\\\", RowBox[{\\\"\
+\[LeftAssociation]\\\", RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\
+\[Rule]\\\", RowBox[{\\\"RandomRuleMutation\\\", \\\"[\\\", \\\"#Rule\\\", \\\
+\"]\\\"}]}], \\\"\[RightAssociation]\\\"}]}], \\\"]\\\"}]\\) cannot be \
+joined.\"", 2, 288, 262, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557522713973*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[288]:=",
+ CellID->1382373566,ExpressionUUID->"88e794f5-1bd4-4416-9d99-2d33c6b04114"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Join", "incpt", 
+   "\"Incompatible elements in \\!\\(\\*RowBox[{\\\"Join\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"If\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"#MutatedFitness\\\", \\\"\[GreaterEqual]\\\", \
+\\\"#Fitness\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"newstate\\\", \
+\\\"[\\\", \\\"\\\\\\\"Rule\\\\\\\"\\\", \\\"]\\\"}], \\\"=\\\", \
+RowBox[{\\\"newstate\\\", \\\"[\\\", \\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \
+\\\"]\\\"}]}], \\\";\\\", RowBox[{RowBox[{\\\"newstate\\\", \\\"[\\\", \\\"\\\
+\\\\\"Fitness\\\\\\\"\\\", \\\"]\\\"}], \\\"=\\\", RowBox[{\\\"newstate\\\", \
+\\\"[\\\", \\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"]\\\"}]}], \\\";\\\", \
+RowBox[{\\\"newstate\\\", \\\"\[LeftDoubleBracket]\\\", \\\"evospec_\\\", \
+\\\"\[RightDoubleBracket]\\\"}]}], \\\",\\\", RowBox[{\\\"newstate\\\", \\\"\
+\[LeftDoubleBracket]\\\", \\\"evospec_\\\", \
+\\\"\[RightDoubleBracket]\\\"}]}], \\\"]\\\"}], \\\",\\\", RowBox[{\\\"\
+\[LeftAssociation]\\\", RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\
+\[Rule]\\\", RowBox[{\\\"RandomRuleMutation\\\", \\\"[\\\", \\\"#Rule\\\", \\\
+\"]\\\"}]}], \\\"\[RightAssociation]\\\"}]}], \\\"]\\\"}]\\) cannot be \
+joined.\"", 2, 288, 263, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.95755752289384*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[288]:=",
+ CellID->2074430516,ExpressionUUID->"17301f14-1552-4617-8896-572b5a28f946"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Join\\\", \\\"::\\\", \
+\\\"incpt\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 288, 264, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557523067012*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[288]:=",
+ CellID->556673367,ExpressionUUID->"398fbd54-5c44-4221-8bf1-78f6316bf4f5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Join\\\"}]\\) in \
+\\!\\(\\*RowBox[{RowBox[{\\\"Join\\\", \\\"[\\\", RowBox[{RowBox[{\\\"If\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"#MutatedFitness\\\", \\\"\[GreaterEqual]\\\", \
+\\\"#Fitness\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"newstate\\\", \
+\\\"[\\\", \\\"\\\\\\\"Rule\\\\\\\"\\\", \\\"]\\\"}], \\\"=\\\", \
+RowBox[{\\\"newstate\\\", \\\"[\\\", \\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \
+\\\"]\\\"}]}], \\\";\\\", RowBox[{RowBox[{\\\"newstate\\\", \\\"[\\\", \\\"\\\
+\\\\\"Fitness\\\\\\\"\\\", \\\"]\\\"}], \\\"=\\\", RowBox[{\\\"newstate\\\", \
+\\\"[\\\", \\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"]\\\"}]}], \\\";\\\", \
+RowBox[{\\\"newstate\\\", \\\"\[LeftDoubleBracket]\\\", \\\"evospec_\\\", \
+\\\"\[RightDoubleBracket]\\\"}]}], \\\",\\\", RowBox[{\\\"newstate\\\", \\\"\
+\[LeftDoubleBracket]\\\", \\\"evospec_\\\", \
+\\\"\[RightDoubleBracket]\\\"}]}], \\\"]\\\"}], \\\",\\\", RowBox[{\\\"\
+\[LeftAssociation]\\\", RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\
+\[Rule]\\\", RowBox[{\\\"RandomRuleMutation\\\", \\\"[\\\", \\\"#Rule\\\", \\\
+\"]\\\"}]}], \\\"\[RightAssociation]\\\"}]}], \\\"]\\\"}], \\\"[\\\", \
+\\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"]\\\"}]\\) is Protected.\"", 2, 
+   288, 265, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.95755752325975*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[288]:=",
+ CellID->1570512837,ExpressionUUID->"651ebc22-3d71-4f97-98e9-07d1f0d26a31"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Join\\\"}]\\) in \
+\\!\\(\\*RowBox[{RowBox[{\\\"Join\\\", \\\"[\\\", RowBox[{RowBox[{\\\"If\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"#MutatedFitness\\\", \\\"\[GreaterEqual]\\\", \
+\\\"#Fitness\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"newstate\\\", \
+\\\"[\\\", \\\"\\\\\\\"Rule\\\\\\\"\\\", \\\"]\\\"}], \\\"=\\\", \
+RowBox[{\\\"newstate\\\", \\\"[\\\", \\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \
+\\\"]\\\"}]}], \\\";\\\", RowBox[{RowBox[{\\\"newstate\\\", \\\"[\\\", \\\"\\\
+\\\\\"Fitness\\\\\\\"\\\", \\\"]\\\"}], \\\"=\\\", RowBox[{\\\"newstate\\\", \
+\\\"[\\\", \\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"]\\\"}]}], \\\";\\\", \
+RowBox[{\\\"newstate\\\", \\\"\[LeftDoubleBracket]\\\", \\\"evospec_\\\", \
+\\\"\[RightDoubleBracket]\\\"}]}], \\\",\\\", RowBox[{\\\"newstate\\\", \\\"\
+\[LeftDoubleBracket]\\\", \\\"evospec_\\\", \
+\\\"\[RightDoubleBracket]\\\"}]}], \\\"]\\\"}], \\\",\\\", RowBox[{\\\"\
+\[LeftAssociation]\\\", RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\
+\[Rule]\\\", RowBox[{\\\"RandomRuleMutation\\\", \\\"[\\\", \\\"#Rule\\\", \\\
+\"]\\\"}]}], \\\"\[RightAssociation]\\\"}]}], \\\"]\\\"}], \\\"[\\\", \
+\\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"]\\\"}]\\) is Protected.\"", 2, 
+   288, 266, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557523470772*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[288]:=",
+ CellID->887746182,ExpressionUUID->"c2b46b54-b538-4dfd-9313-1b0422841872"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Set\\\", \\\"::\\\", \\\
+\"write\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 288, 267, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.9575575237126627`*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[288]:=",
+ CellID->1781185165,ExpressionUUID->"3ce1cd6d-3b8d-4da6-bbbc-9491105f90bb"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SetDelayed", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"List\\\"}]\\) in \
+\\!\\(\\*RowBox[{RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"evospec_\\\", \\\"[\\\
+\", RowBox[{\\\"\[LeftAssociation]\\\", \
+RowBox[{RowBox[{\\\"\\\\\\\"Rule\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\",\\\", \\\"3\\\", \\\",\\\", \
+\\\"1\\\"}], \\\"}\\\"}]}], \\\",\\\", RowBox[{\\\"\\\\\\\"InitialCondition\\\
+\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", \\\
+\"1\\\", \\\"}\\\"}], \\\",\\\", \\\"0\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"None\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"MutatedInitialCondition\\\\\\\"\\\", \\\"\
+\[Rule]\\\", \\\"None\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"None\\\"}], \\\",\\\", RowBox[{\\\"\\\\\\\"Fitness\\\\\\\"\\\", \\\"\
+\[Rule]\\\", \\\"1\\\"}]}], \\\"\[RightAssociation]\\\"}], \\\"]\\\"}], \\\",\
+\\\", RowBox[{\\\"evospec_\\\", \\\"[\\\", RowBox[{RowBox[{\\\"\
+\[LeftAssociation]\\\", RowBox[{RowBox[{\\\"\\\\\\\"Rule\\\\\\\"\\\", \\\"\
+\[Rule]\\\", RowBox[{\\\"{\\\", RowBox[{\\\"31381059609\\\", \\\",\\\", \\\"3\
+\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"InitialCondition\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\
+\"{\\\", RowBox[{RowBox[{\\\"{\\\", \\\"1\\\", \\\"}\\\"}], \\\",\\\", \
+\\\"0\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\
+\", RowBox[{\\\"31381059609\\\", \\\",\\\", \\\"3\\\", \\\",\\\", \
+\\\"1\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"MutatedInitialCondition\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"None\\\"}], \\\",\\\", RowBox[{\\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\
+\"\[Rule]\\\", \\\"1\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"Fitness\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}]}], \\\"\
+\[RightAssociation]\\\"}], \\\"\[LeftDoubleBracket]\\\", \\\"evospec_\\\", \\\
+\"\[RightDoubleBracket]\\\"}], \\\"]\\\"}], \\\",\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"48\\\", \\\"\[RightSkeleton]\\\"}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"51\\\", \\\"\[RightSkeleton]\\\"}]}], \\\
+\"}\\\"}], \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"13\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"]\\\"}]\\) is Protected.\"", 2, 288, 268, 
+   27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557523912126*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[288]:=",
+ CellID->457028975,ExpressionUUID->"c6518325-fdff-4e3d-929e-331b774ff625"],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.957557524133863*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"Out[288]=",
+ CellID->1884461153,ExpressionUUID->"6b0b61fa-a918-4c74-946e-517b4ddf401f"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"AdaptiveCellularAutomaton", "[", "evospec_Association", "]"}], "[", 
+   RowBox[{"sequencespec_", ",", " ", "propertyspec_"}], "]"}], ":=", 
+  RowBox[{"AdaptiveCellularAutomaton", "[", 
+   RowBox[{"evospec", ",", "sequencespec", ",", " ", "propertyspec"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.957489030476342*^9, 3.9574890446756372`*^9}},
+ CellTags->"DefaultContent",
+ CellLabel->"In[289]:=",
+ CellID->773119650,ExpressionUUID->"e1e8ff3f-008e-43a0-940d-e8e06521893e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Part", "pkspec1", 
+   "\"The expression \\!\\(\\*RowBox[{\\\"evospec_Association\\\"}]\\) cannot \
+be used as a part specification.\"", 2, 289, 269, 27811857182977236376, 
+   "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557524461124*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[289]:=",
+ CellID->1049772515,ExpressionUUID->"0cfe786f-83e7-4d70-b168-e3d7bd15d71e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Function", "slot1", 
+   "\"\\!\\(\\*RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"RandomRuleMutation\\\", \\\"[\\\", \\\"#Rule\\\", \\\"]\\\
+\"}], \\\"&\\\"}], \\\")\\\"}], \\\"[\\\", RowBox[{RowBox[{\\\"\
+\[LeftAssociation]\\\", RowBox[{RowBox[{\\\"\\\\\\\"Rule\\\\\\\"\\\", \\\"\
+\[Rule]\\\", RowBox[{\\\"{\\\", RowBox[{\\\"2187\\\", \\\",\\\", \\\"3\\\", \
+\\\",\\\", \\\"1\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"InitialCondition\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\
+\"{\\\", RowBox[{RowBox[{\\\"{\\\", \\\"1\\\", \\\"}\\\"}], \\\",\\\", \
+\\\"0\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\
+\", RowBox[{\\\"2187\\\", \\\",\\\", \\\"3\\\", \\\",\\\", \\\"1\\\"}], \\\"}\
+\\\"}]}], \\\",\\\", RowBox[{\\\"\\\\\\\"MutatedInitialCondition\\\\\\\"\\\", \
+\\\"\[Rule]\\\", \\\"None\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"Fitness\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"1\\\"}]}], \\\"\[RightAssociation]\\\"}], \\\"\[LeftDoubleBracket]\\\", \
+\\\"evospec_Association\\\", \\\"\[RightDoubleBracket]\\\"}], \\\"]\\\"}]\\) \
+is expected to have an Association as the first argument.\"", 2, 289, 270, 
+   27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.9575575247327843`*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[289]:=",
+ CellID->1948499500,ExpressionUUID->"be25b328-17b4-4320-a678-4b40cb34cb51"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Join", "incpt", 
+   "\"Incompatible elements in \\!\\(\\*RowBox[{\\\"Join\\\", \\\"[\\\", \
+RowBox[{RowBox[{RowBox[{\\\"\[LeftAssociation]\\\", \
+RowBox[{RowBox[{\\\"\\\\\\\"Rule\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"2187\\\", \\\",\\\", \\\"3\\\", \\\",\\\", \
+\\\"1\\\"}], \\\"}\\\"}]}], \\\",\\\", RowBox[{\\\"\\\\\\\"InitialCondition\\\
+\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", \\\
+\"1\\\", \\\"}\\\"}], \\\",\\\", \\\"0\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\
+\", RowBox[{\\\"2187\\\", \\\",\\\", \\\"3\\\", \\\",\\\", \\\"1\\\"}], \\\"}\
+\\\"}]}], \\\",\\\", RowBox[{\\\"\\\\\\\"MutatedInitialCondition\\\\\\\"\\\", \
+\\\"\[Rule]\\\", \\\"None\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"Fitness\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"1\\\"}]}], \\\"\[RightAssociation]\\\"}], \\\"\[LeftDoubleBracket]\\\", \
+\\\"evospec_Association\\\", \\\"\[RightDoubleBracket]\\\"}], \\\",\\\", \
+RowBox[{\\\"\[LeftAssociation]\\\", RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\
+\", \\\"\[Rule]\\\", RowBox[{\\\"RandomRuleMutation\\\", \\\"[\\\", \\\"#Rule\
+\\\", \\\"]\\\"}]}], \\\"\[RightAssociation]\\\"}]}], \\\"]\\\"}]\\) cannot \
+be joined.\"", 2, 289, 271, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.9575575249331217`*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[289]:=",
+ CellID->1452963397,ExpressionUUID->"0470d5b8-76b5-4c5c-a33f-da1daf12af99"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Function", "slot1", 
+   "\"\\!\\(\\*RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"CellularAutomaton\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"If\\\", \\\"[\\\", RowBox[{RowBox[{\\\"KeyExistsQ\\\", \\\
+\"[\\\", RowBox[{RowBox[{\\\"\[LeftAssociation]\\\", RowBox[{RowBox[{\\\"\\\\\
+\\\"StartingRule\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"3\\\", \\\",\\\", \\\"1\\\"}], \
+\\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"StartingInitialCondition\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", \\\"1\\\", \\\"}\\\"}], \\\",\\\
+\", \\\"0\\\"}], \\\"}\\\"}]}], \\\",\\\", RowBox[{\\\"\\\\\\\"StepSpec\\\\\\\
+\"\\\", \\\"\[Rule]\\\", \\\"100\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"Iterations\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"100\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"MutationFunction\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"\[LeftAssociation]\\\", RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\
+\", \\\"\[Rule]\\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"RandomRuleMutation\\\", \\\"[\\\", \\\"#Rule\\\", \\\"]\\\
+\"}], \\\"&\\\"}], \\\")\\\"}]}], \\\"\[RightAssociation]\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"FitnessFunction\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"\\\\\\\"Lifetime\\\\\\\"\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"SelectionFunction\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"#MutatedFitness\\\", \\\"\
+\[GreaterEqual]\\\", \\\"#Fitness\\\"}], \\\"&\\\"}], \\\")\\\"}]}]}], \\\"\
+\[RightAssociation]\\\"}], \\\",\\\", \\\"\\\\\\\"MutationRule\\\\\\\"\\\"}], \
+\\\"]\\\"}], \\\",\\\", \\\"#Rule\\\", \\\",\\\", RowBox[{RowBox[{\\\"\
+\[LeftAssociation]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"\[RightAssociation]\\\"}], \\\"[\\\", \
+\\\"\\\\\\\"StartingRule\\\\\\\"\\\", \\\"]\\\"}]}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\",\
+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \
+\\\"\[RightSkeleton]\\\"}]}], \\\"]\\\"}], \\\"&\\\"}], \\\")\\\"}], \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}]\\) is expected to have an Association as the first \
+argument.\"", 2, 289, 272, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557525154552*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[289]:=",
+ CellID->919263342,ExpressionUUID->"2421e023-87ae-4f1f-8236-a018829201c5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Function", "slot1", 
+   "\"\\!\\(\\*RowBox[{RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"CellularAutomaton\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"If\\\", \\\"[\\\", RowBox[{RowBox[{\\\"KeyExistsQ\\\", \\\
+\"[\\\", RowBox[{RowBox[{\\\"\[LeftAssociation]\\\", RowBox[{RowBox[{\\\"\\\\\
+\\\"StartingRule\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", \
+RowBox[{\\\"0\\\", \\\",\\\", \\\"3\\\", \\\",\\\", \\\"1\\\"}], \
+\\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"StartingInitialCondition\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", \\\"1\\\", \\\"}\\\"}], \\\",\\\
+\", \\\"0\\\"}], \\\"}\\\"}]}], \\\",\\\", RowBox[{\\\"\\\\\\\"StepSpec\\\\\\\
+\"\\\", \\\"\[Rule]\\\", \\\"100\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"Iterations\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"100\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"MutationFunction\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"\[LeftAssociation]\\\", RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\
+\", \\\"\[Rule]\\\", RowBox[{\\\"(\\\", \
+RowBox[{RowBox[{\\\"RandomRuleMutation\\\", \\\"[\\\", \\\"#Rule\\\", \\\"]\\\
+\"}], \\\"&\\\"}], \\\")\\\"}]}], \\\"\[RightAssociation]\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"FitnessFunction\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"\\\\\\\"Lifetime\\\\\\\"\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"SelectionFunction\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"(\\\", RowBox[{RowBox[{\\\"#MutatedFitness\\\", \\\"\
+\[GreaterEqual]\\\", \\\"#Fitness\\\"}], \\\"&\\\"}], \\\")\\\"}]}]}], \\\"\
+\[RightAssociation]\\\"}], \\\",\\\", \\\"\\\\\\\"MutationRule\\\\\\\"\\\"}], \
+\\\"]\\\"}], \\\",\\\", \\\"#Rule\\\", \\\",\\\", RowBox[{RowBox[{\\\"\
+\[LeftAssociation]\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\
+\[RightSkeleton]\\\"}], \\\"\[RightAssociation]\\\"}], \\\"[\\\", \
+\\\"\\\\\\\"StartingRule\\\\\\\"\\\", \\\"]\\\"}]}], \\\"]\\\"}], \\\",\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\",\
+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \
+\\\"\[RightSkeleton]\\\"}]}], \\\"]\\\"}], \\\"&\\\"}], \\\")\\\"}], \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}]\\) is expected to have an Association as the first \
+argument.\"", 2, 289, 273, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.9575575254003468`*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[289]:=",
+ CellID->1061632476,ExpressionUUID->"4cb9a916-4741-47fb-9c67-52b0b15d405e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Function\\\", \
+\\\"::\\\", \\\"slot1\\\"}], \\\"MessageName\\\"]\\) will be suppressed \
+during this calculation.\"", 2, 289, 274, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.9575575256351633`*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[289]:=",
+ CellID->1562884856,ExpressionUUID->"b6e199ca-db8f-4c3e-8a10-133a157cba7e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Join\\\"}]\\) in \
+\\!\\(\\*RowBox[{RowBox[{\\\"Join\\\", \\\"[\\\", \
+RowBox[{RowBox[{RowBox[{\\\"\[LeftAssociation]\\\", \
+RowBox[{RowBox[{\\\"\\\\\\\"Rule\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"{\\\", RowBox[{\\\"2187\\\", \\\",\\\", \\\"3\\\", \\\",\\\", \
+\\\"1\\\"}], \\\"}\\\"}]}], \\\",\\\", RowBox[{\\\"\\\\\\\"InitialCondition\\\
+\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"{\\\", \\\
+\"1\\\", \\\"}\\\"}], \\\",\\\", \\\"0\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\
+\", RowBox[{\\\"2187\\\", \\\",\\\", \\\"3\\\", \\\",\\\", \\\"1\\\"}], \\\"}\
+\\\"}]}], \\\",\\\", RowBox[{\\\"\\\\\\\"MutatedInitialCondition\\\\\\\"\\\", \
+\\\"\[Rule]\\\", \\\"None\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"1\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"Fitness\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"1\\\"}]}], \\\"\[RightAssociation]\\\"}], \\\"\[LeftDoubleBracket]\\\", \
+\\\"evospec_Association\\\", \\\"\[RightDoubleBracket]\\\"}], \\\",\\\", \
+RowBox[{\\\"\[LeftAssociation]\\\", RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\
+\", \\\"\[Rule]\\\", RowBox[{\\\"RandomRuleMutation\\\", \\\"[\\\", \\\"#Rule\
+\\\", \\\"]\\\"}]}], \\\"\[RightAssociation]\\\"}]}], \\\"]\\\"}], \\\"[\\\", \
+\\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"]\\\"}]\\) is Protected.\"", 2, 
+   289, 275, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557525890195*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[289]:=",
+ CellID->1533288335,ExpressionUUID->"71720315-58d8-45aa-8de5-959ce3dd3fb0"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Join", "incpt", 
+   "\"Incompatible elements in \\!\\(\\*RowBox[{\\\"Join\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"If\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"#MutatedFitness\\\", \\\"\[GreaterEqual]\\\", \
+\\\"#Fitness\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"newstate\\\", \
+\\\"[\\\", \\\"\\\\\\\"Rule\\\\\\\"\\\", \\\"]\\\"}], \\\"=\\\", \
+RowBox[{\\\"newstate\\\", \\\"[\\\", \\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \
+\\\"]\\\"}]}], \\\";\\\", RowBox[{RowBox[{\\\"newstate\\\", \\\"[\\\", \\\"\\\
+\\\\\"Fitness\\\\\\\"\\\", \\\"]\\\"}], \\\"=\\\", RowBox[{\\\"newstate\\\", \
+\\\"[\\\", \\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"]\\\"}]}], \\\";\\\", \
+RowBox[{\\\"newstate\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"evospec_Association\\\", \\\"\[RightDoubleBracket]\\\"}]}], \\\",\\\", \
+RowBox[{\\\"newstate\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"evospec_Association\\\", \\\"\[RightDoubleBracket]\\\"}]}], \\\"]\\\"}], \
+\\\",\\\", RowBox[{\\\"\[LeftAssociation]\\\", \
+RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"RandomRuleMutation\\\", \\\"[\\\", \\\"#Rule\\\", \\\"]\\\"}]}], \
+\\\"\[RightAssociation]\\\"}]}], \\\"]\\\"}]\\) cannot be joined.\"", 2, 289, 
+   276, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557526122197*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[289]:=",
+ CellID->173282345,ExpressionUUID->"3d9d65d9-7dcc-4011-b27d-44f44811ed27"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Join", "incpt", 
+   "\"Incompatible elements in \\!\\(\\*RowBox[{\\\"Join\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"If\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"#MutatedFitness\\\", \\\"\[GreaterEqual]\\\", \
+\\\"#Fitness\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"newstate\\\", \
+\\\"[\\\", \\\"\\\\\\\"Rule\\\\\\\"\\\", \\\"]\\\"}], \\\"=\\\", \
+RowBox[{\\\"newstate\\\", \\\"[\\\", \\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \
+\\\"]\\\"}]}], \\\";\\\", RowBox[{RowBox[{\\\"newstate\\\", \\\"[\\\", \\\"\\\
+\\\\\"Fitness\\\\\\\"\\\", \\\"]\\\"}], \\\"=\\\", RowBox[{\\\"newstate\\\", \
+\\\"[\\\", \\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"]\\\"}]}], \\\";\\\", \
+RowBox[{\\\"newstate\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"evospec_Association\\\", \\\"\[RightDoubleBracket]\\\"}]}], \\\",\\\", \
+RowBox[{\\\"newstate\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"evospec_Association\\\", \\\"\[RightDoubleBracket]\\\"}]}], \\\"]\\\"}], \
+\\\",\\\", RowBox[{\\\"\[LeftAssociation]\\\", \
+RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"RandomRuleMutation\\\", \\\"[\\\", \\\"#Rule\\\", \\\"]\\\"}]}], \
+\\\"\[RightAssociation]\\\"}]}], \\\"]\\\"}]\\) cannot be joined.\"", 2, 289, 
+   277, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.95755752638297*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[289]:=",
+ CellID->368547083,ExpressionUUID->"187c31c8-aa7b-4020-94a7-fc1da2ea02ba"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Join\\\", \\\"::\\\", \
+\\\"incpt\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 289, 278, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557526597858*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[289]:=",
+ CellID->827986033,ExpressionUUID->"790ca1f9-c238-4790-9bad-8f1696000848"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Join\\\"}]\\) in \
+\\!\\(\\*RowBox[{RowBox[{\\\"Join\\\", \\\"[\\\", RowBox[{RowBox[{\\\"If\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"#MutatedFitness\\\", \\\"\[GreaterEqual]\\\", \
+\\\"#Fitness\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"newstate\\\", \
+\\\"[\\\", \\\"\\\\\\\"Rule\\\\\\\"\\\", \\\"]\\\"}], \\\"=\\\", \
+RowBox[{\\\"newstate\\\", \\\"[\\\", \\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \
+\\\"]\\\"}]}], \\\";\\\", RowBox[{RowBox[{\\\"newstate\\\", \\\"[\\\", \\\"\\\
+\\\\\"Fitness\\\\\\\"\\\", \\\"]\\\"}], \\\"=\\\", RowBox[{\\\"newstate\\\", \
+\\\"[\\\", \\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"]\\\"}]}], \\\";\\\", \
+RowBox[{\\\"newstate\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"evospec_Association\\\", \\\"\[RightDoubleBracket]\\\"}]}], \\\",\\\", \
+RowBox[{\\\"newstate\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"evospec_Association\\\", \\\"\[RightDoubleBracket]\\\"}]}], \\\"]\\\"}], \
+\\\",\\\", RowBox[{\\\"\[LeftAssociation]\\\", \
+RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"RandomRuleMutation\\\", \\\"[\\\", \\\"#Rule\\\", \\\"]\\\"}]}], \
+\\\"\[RightAssociation]\\\"}]}], \\\"]\\\"}], \\\"[\\\", \
+\\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"]\\\"}]\\) is Protected.\"", 2, 
+   289, 279, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557526814651*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[289]:=",
+ CellID->267224071,ExpressionUUID->"70f87e60-acf6-453d-9d42-0949d05ebf21"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Set", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"Join\\\"}]\\) in \
+\\!\\(\\*RowBox[{RowBox[{\\\"Join\\\", \\\"[\\\", RowBox[{RowBox[{\\\"If\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"#MutatedFitness\\\", \\\"\[GreaterEqual]\\\", \
+\\\"#Fitness\\\"}], \\\",\\\", RowBox[{RowBox[{RowBox[{\\\"newstate\\\", \
+\\\"[\\\", \\\"\\\\\\\"Rule\\\\\\\"\\\", \\\"]\\\"}], \\\"=\\\", \
+RowBox[{\\\"newstate\\\", \\\"[\\\", \\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \
+\\\"]\\\"}]}], \\\";\\\", RowBox[{RowBox[{\\\"newstate\\\", \\\"[\\\", \\\"\\\
+\\\\\"Fitness\\\\\\\"\\\", \\\"]\\\"}], \\\"=\\\", RowBox[{\\\"newstate\\\", \
+\\\"[\\\", \\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"]\\\"}]}], \\\";\\\", \
+RowBox[{\\\"newstate\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"evospec_Association\\\", \\\"\[RightDoubleBracket]\\\"}]}], \\\",\\\", \
+RowBox[{\\\"newstate\\\", \\\"\[LeftDoubleBracket]\\\", \
+\\\"evospec_Association\\\", \\\"\[RightDoubleBracket]\\\"}]}], \\\"]\\\"}], \
+\\\",\\\", RowBox[{\\\"\[LeftAssociation]\\\", \
+RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\[Rule]\\\", \
+RowBox[{\\\"RandomRuleMutation\\\", \\\"[\\\", \\\"#Rule\\\", \\\"]\\\"}]}], \
+\\\"\[RightAssociation]\\\"}]}], \\\"]\\\"}], \\\"[\\\", \
+\\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"]\\\"}]\\) is Protected.\"", 2, 
+   289, 280, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557527059011*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[289]:=",
+ CellID->846655420,ExpressionUUID->"5e13dee4-cf14-4d3e-ad67-320f67733a9f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Set\\\", \\\"::\\\", \\\
+\"write\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 289, 281, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557527336656*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[289]:=",
+ CellID->510998918,ExpressionUUID->"b26b5e00-e7e3-41b5-bcfe-93eab89a23aa"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "SetDelayed", "write", 
+   "\"Tag \\!\\(\\*RowBox[{\\\"List\\\"}]\\) in \
+\\!\\(\\*RowBox[{RowBox[{\\\"{\\\", RowBox[{RowBox[{\\\"evospec_Association\\\
+\", \\\"[\\\", RowBox[{\\\"\[LeftAssociation]\\\", RowBox[{RowBox[{\\\"\\\\\\\
+\"Rule\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\"{\\\", RowBox[{\\\"0\\\", \\\
+\",\\\", \\\"3\\\", \\\",\\\", \\\"1\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"InitialCondition\\\\\\\"\\\", \\\"\[Rule]\\\", RowBox[{\\\
+\"{\\\", RowBox[{RowBox[{\\\"{\\\", \\\"1\\\", \\\"}\\\"}], \\\",\\\", \
+\\\"0\\\"}], \\\"}\\\"}]}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"MutatedRule\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"None\\\"}], \
+\\\",\\\", RowBox[{\\\"\\\\\\\"MutatedInitialCondition\\\\\\\"\\\", \\\"\
+\[Rule]\\\", \\\"None\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"MutatedFitness\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"None\\\"}], \\\",\\\", RowBox[{\\\"\\\\\\\"Fitness\\\\\\\"\\\", \\\"\
+\[Rule]\\\", \\\"1\\\"}]}], \\\"\[RightAssociation]\\\"}], \\\"]\\\"}], \\\",\
+\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"49\\\", \
+\\\"\[RightSkeleton]\\\"}], \\\",\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"51\\\", \\\"\[RightSkeleton]\\\"}]}], \\\"}\\\"}], \\\"[\\\", \
+RowBox[{\\\"sequencespec_\\\", \\\",\\\", \\\"propertyspec_\\\"}], \
+\\\"]\\\"}]\\) is Protected.\"", 2, 289, 282, 27811857182977236376, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{3.957557527548341*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"During evaluation of In[289]:=",
+ CellID->571710473,ExpressionUUID->"c76b094b-6e6c-4538-b962-406f42d90063"],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.957557527765626*^9},
+ CellTags->"DefaultContent",
+ CellLabel->"Out[289]=",
+ CellID->896083033,ExpressionUUID->"834fcac6-8858-408c-b1af-66495601b402"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"OperatorApplied", "[", 
+  RowBox[{"AdaptiveCellularAutomaton", ",", " ", "2"}], "]"}]], "Input",
+ CellChangeTimes->{{3.957559487629957*^9, 3.9575595139572687`*^9}},
+ CellLabel->"In[290]:=",
+ CellID->104547599,ExpressionUUID->"aaae50a4-c954-458d-b113-1b56f933eb1c"],
+
+Cell[BoxData[
+ RowBox[{"OperatorApplied", "[", 
+  RowBox[{"AdaptiveCellularAutomaton", ",", "2"}], "]"}]], "Output",
+ CellChangeTimes->{3.957559514961409*^9},
+ CellLabel->"Out[290]=",
+ CellID->194489594,ExpressionUUID->"56e3a20e-f690-457e-b804-1125fc95c97c"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", "fullmutationform", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"fullmutationform", "[", "mufuncspec_", "]"}], ":=", " ", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"!", 
+      RowBox[{"MatchQ", "[", 
+       RowBox[{"mufuncspec", ",", " ", "_Rule"}], "]"}]}], " ", "&&", " ", 
+     RowBox[{"!", 
+      RowBox[{"MatchQ", "[", 
+       RowBox[{"mufuncspec", ",", " ", 
+        RowBox[{"List", "[", 
+         RowBox[{"_Rule", ".."}], "]"}]}], "]"}]}], "&&", 
+     RowBox[{"!", 
+      RowBox[{"AssociationQ", "[", "mufuncspec", "]"}]}]}], ",", " ", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"<|", 
+      RowBox[{"\"\<MutatedRule\>\"", "->", " ", 
+       RowBox[{
+        RowBox[{"getmutationfunction", "[", 
+         RowBox[{"mufuncspec", ",", " ", "\"\<Rule\>\""}], "]"}], "[", "#", 
+        "]"}]}], "|>"}], "&"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Association", "[", 
+      RowBox[{"KeyValueMap", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"StringJoin", "[", 
+          RowBox[{"\"\<Mutated\>\"", ",", " ", "#1"}], "]"}], "->", " ", 
+         RowBox[{
+          RowBox[{"getmutationfunction", "[", 
+           RowBox[{"#2", ",", " ", "#1"}], "]"}], "[", "#", "]"}]}], ",", 
+        RowBox[{"Association", "[", "mufuncspec", "]"}]}], "]"}], "]"}], 
+     "&"}]}], "\[IndentingNewLine]", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.9575180763247128`*^9, 3.9575182611333*^9}, {
+  3.9575182955878887`*^9, 3.957518301672037*^9}, {3.957518888524084*^9, 
+  3.95751896220793*^9}, {3.957518992557773*^9, 3.957519088667941*^9}, {
+  3.957519252966386*^9, 3.957519306620371*^9}, {3.957519368224311*^9, 
+  3.957519461069995*^9}, {3.957519793379355*^9, 3.957519801893023*^9}, {
+  3.957519843829261*^9, 3.9575198490411663`*^9}, {3.957519902914651*^9, 
+  3.957519906322213*^9}, {3.957519957670253*^9, 3.957519962904067*^9}, {
+  3.957519995768941*^9, 3.95751999591613*^9}, {3.957520273482253*^9, 
+  3.957520277815073*^9}, {3.957524031076871*^9, 3.957524040719664*^9}, {
+  3.957524258028496*^9, 3.9575242640651197`*^9}, {3.957524418303273*^9, 
+  3.957524418674575*^9}, {3.9575249657107143`*^9, 3.9575250030446167`*^9}},
+ CellLabel->"In[169]:=",
+ CellID->1610605475,ExpressionUUID->"4bdd4ab3-2851-43f0-bfe0-a2bf5c17a9f3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{"AdaptiveCellularAutomaton", "[", 
+    RowBox[{
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"\"\<Rule\>\"", "->", " ", 
+        RowBox[{"{", 
+         RowBox[{"0", ",", " ", "2", ",", " ", "2"}], "}"}]}], ",", 
+       RowBox[{"\"\<Depth\>\"", "->", "500"}], ",", " ", 
+       RowBox[{"\"\<Cut\>\"", "->", "200"}]}], "|>"}], ",", 
+     " ", "\"\<Final\>\"", ",", " ", "\"\<Fitness\>\""}], "]"}], ",", " ", 
+   "10"}], "]"}]], "Input",
+ CellChangeTimes->{{3.957574689373353*^9, 3.957574737094962*^9}, {
+  3.957574776417563*^9, 3.957574784370763*^9}, {3.957574817976162*^9, 
+  3.957574892542259*^9}, {3.957575026113585*^9, 3.9575750656962757`*^9}, {
+  3.957575375767831*^9, 3.95757540467421*^9}, {3.957575582263751*^9, 
+  3.957575597660123*^9}, {3.957575694523069*^9, 3.957575694953618*^9}, {
+  3.957575755104561*^9, 3.957575872052841*^9}, {3.957575980643262*^9, 
+  3.9575759844646397`*^9}},
+ CellLabel->"In[107]:=",
+ CellID->1088235834,ExpressionUUID->"691f58c7-8e7c-4161-9987-13a74237a694"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1", ",",
+    "1", ",", "1"}], "}"}]], "Output",
+ CellChangeTimes->{{3.957575766067148*^9, 3.95757582659308*^9}, {
+   3.95757587844562*^9, 3.957575892080875*^9}, 3.957575994264681*^9},
+ CellLabel->"Out[107]=",
+ CellID->221015774,ExpressionUUID->"ebe227e5-84b4-481f-ba02-375b8a3620f9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AdaptiveCellularAutomaton", "[", 
+  RowBox[{
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<Rule\>\"", "->", " ", 
+      RowBox[{"{", 
+       RowBox[{"0", ",", " ", "2", ",", " ", "2"}], "}"}]}], ",", 
+     RowBox[{"\"\<Depth\>\"", "->", "1000"}]}], "|>"}], ",", 
+   " ", "\"\<Breakthroughs\>\"", ",", " ", 
+   RowBox[{"\"\<Plot\>\"", "->", "30"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.957576105432863*^9, 3.9575761660030317`*^9}, {
+  3.957576217716332*^9, 3.957576222949494*^9}, {3.957576254262041*^9, 
+  3.9575762846847363`*^9}, {3.9575764898324203`*^9, 3.957576495331443*^9}},
+ CellLabel->"In[143]:=",
+ CellID->467980916,ExpressionUUID->"ccc3ca16-11bc-4181-8fa8-918a1a2b893f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGCQB2JGIAaxIeCD/Sg9Sg8nmuv64gJbrutQPgMDAIuTcNY=
+
+    "], {{0, 0}, {1, 31}}, {0, 1}],
+   Frame->Automatic,
+   FrameLabel->{None, None},
+   FrameTicks->{{None, None}, {None, None}},
+   GridLinesStyle->Directive[
+     GrayLevel[0.5, 0.4]],
+   Method->{
+    "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+     "DefaultGraphicsInteraction" -> {
+      "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+       "Effects" -> {
+        "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+         "Droplines" -> {
+          "freeformCursorMode" -> True, 
+           "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+     "DefaultPlotStyle" -> Automatic}], "}"}]], "Output",
+ CellChangeTimes->{{3.9575761066118793`*^9, 3.95757617902975*^9}, {
+  3.957576223824716*^9, 3.957576293663772*^9}, {3.957576338448691*^9, 
+  3.9575763409836903`*^9}, {3.9575764778122253`*^9, 3.957576509627537*^9}},
+ CellLabel->"Out[143]=",
+ CellID->1897208738,ExpressionUUID->"9e5704f0-fdab-48d6-8b42-178e90752c18"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"AdaptiveCellularAutomaton", "[", 
+  RowBox[{
+   RowBox[{"<|", 
+    RowBox[{"\"\<Depth\>\"", "->", "500"}], "|>"}], ",", 
+   " ", "\"\<Breakthroughs\>\"", ",", " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"ArrayPlot", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"ArrayPad", "[", 
+          RowBox[{"#", ",", " ", "1"}], "]"}], "&"}], "/@", 
+        RowBox[{"CellularAutomaton", "[", 
+         RowBox[{"#Rule", ",", " ", "#InitialCondition", ",", " ", 
+          RowBox[{"#Fitness", " ", "+", " ", "1"}]}], "]"}]}], ",", " ", 
+       RowBox[{"ColorRules", "->", "colorrules"}], ",", " ", 
+       RowBox[{"ImageSize", "->", 
+        RowBox[{"10", 
+         RowBox[{"Sqrt", "[", "#Fitness", "]"}]}]}]}], "]"}], "&"}], ")"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.957574689373353*^9, 3.957574737094962*^9}, {
+  3.957574776417563*^9, 3.957574784370763*^9}, {3.957574817976162*^9, 
+  3.957574892542259*^9}, {3.957575026113585*^9, 3.9575750656962757`*^9}},
+ CellLabel->"In[72]:=",
+ CellID->1120888388,ExpressionUUID->"ea257449-a47b-4669-bffa-854ea5336513"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   GraphicsBox[
+    RasterBox[{{{1., 1., 1.}, {1., 1., 1.}, {1., 1., 1.}}, {{1., 1., 1.}, {1.,
+      1., 1.}, {1., 1., 1.}}, {{1., 1., 1.}, {1., 0.36, 0.}, {1., 1., 
+     1.}}}, {{0, 0}, {3, 3}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    ImageSize->10,
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGBggWIQGwI+2I8UOmCHXOvrwBv2DCiAfPO4ri8usOW6TrZ5
+ABInPRs=
+     "], {{0, 0}, {4, 4}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    ImageSize->NCache[10 2^Rational[1, 2], 14.142135623730951`],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGBghWIQGwI+2I/S2OmAHXKtrwNvQPkwMHDm09o9MJrr+uIC
+W67rZNsDAEaQYFI=
+     "], {{0, 0}, {5, 5}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    ImageSize->NCache[10 3^Rational[1, 2], 17.32050807568877],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgAGJ2IAaxIeCD/ShNWzpgh1zr68AbUD4MDLy7SKW5ri8u
+sOW6DvfHYPMXLvcMNncSotHDmVT/0pomNZwHa/gTG864aAC8UNhw
+     "], {{0, 0}, {7, 8}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    ImageSize->NCache[10 6^Rational[1, 2], 24.49489742783178],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgAmJOIAaxIeCD/Sg9SuOjA3bItb4OvAHlw8DAu4ta7ue6
+vrjAlus6Qf9RKxxINYda7selnl7xS6q9uPxFqjitaFzuJ9Vf5JozUDSl6W2g
+3Y9Okxr+gzVeSKXpHS8AT8BilQ==
+     "], {{0, 0}, {9, 10}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    ImageSize->NCache[20 2^Rational[1, 2], 28.284271247461902`],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmJOIAaxIeCD/Sg9SoPogB1yra8Db0D5MDDw7qKV+web
+f6ntfq7riwtsua4TNI9a4TBQ7selnl7xS6q9uPxFqjitaFzuJ9Vf5JozUDSl
+6W2g3Y9Okxr+gzVeSKXpHS8AZfSHaw==
+     "], {{0, 0}, {9, 11}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    ImageSize->30,
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGAQA2JuIAaxIeCD/Sg9SlOTDtgh1/o68AaUDwMD767B4t+R
+Fj4wmuv64gJbrutwf4+0cCDkX/TwIdecweYvXDSx/sWlfrCFA7XcT6o4Lnqw
+hQ+10j8herilE2qLD3aa1HRCrfwyWP1LqnpK432whhup+ZrS/DLYwoHa8T7c
+yg1S/TXUyw1cNLXKT1zqybV3oPxLqvrh2i6ld/k50P5Fp8nN7yOl3MDlX2qr
+H+w0rftlw4Wmd7wDAOFgvO4=
+     "], {{0, 0}, {11, 22}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    ImageSize->NCache[20 5^Rational[1, 2], 44.721359549995796`],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJztl70NwjAUhC3RpWCAFEgMgliBMAISNSzBJCzBJmGHNBmBIAgFkhWefX4/
+4VmyvqSJ7cvldFkfTvvjIoRQD3M5zOf1a/Rbp9OZzt1tdema+/t+HPL70k6q
+bq5zHqv2et5U7Uc/1zONU7p965z6HKtEnyum59z8zJWHv+rJfX5uovyTq+fc
+fYvSQXsOcK2L0kFLDkj1QKo+pfWU8g8q92LPQb9fLTkgnXsoaskB1D5RPqRS
+al3UPkfmfkel8wS9bmlSvy+pXqqlR8Uo1Wes9Cg0ufuMlfykUrrPWPVh6d5I
+9Zt1H04x939HusdqYap/tPRYa6T66l98SKXnIS+1+/AB+delAQ==
+     "], {{0, 0}, {14, 26}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    ImageSize->NCache[20 6^Rational[1, 2], 48.98979485566356],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJztmMENwjAMRStx48IGCAZBrACMgMQZlmASlmCTsgMXRqCo9IIUXMd2bDeu
+VL02UhPH+nVsr4/nw2nWNM2quxfd/Xnur9c2GAzC3N2X1+f+8X0fLv/zaBFr
+f+5+5+3tspm34Hel7LHGX/+k9oUdl7bHCyH7x+oTItZvU/MzxJSfpfxWWzzJ
+1Tl2HMvQ+f/xsfNEPOnJfQ5q/RelKZ0n5K5L9bM3nUv/19Q4k7suldJ1mVZe
+kZofGqdSO//h0iF1v9rxQaq+k9ZhqbqJSq36jsseq7rFsnR9B62LtdM6rdXF
+3nXLfT5K68q6bqXzDelz04tuIXLl7aXPTS/kigOhWxqp+YZ2PLfOUv3kqfZ5
+uCjVT06N1+Zn730eLVrrJ9em24HW6uup0Wo/uTbW0ufRYtQdNliLbt87r4Iz
+
+     "], {{0, 0}, {15, 32}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    ImageSize->NCache[10 30^Rational[1, 2], 54.772255750516614`],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJztmd0JwjAUhQO+FVxBEFxDXEEdQfDZLuEkLuEmdQdfHMGK1reQ3uae3J+0
+UL62lCY9nOTctOvT5XhehBA2/b7s98/xd3vtZs70zP19dX0eHr/zYZPvlxZS
+9fGqJ/d7Nd2t3Tbd/3ledUuRqkPtulH1SV33Rq75qjZfpZg77mrTk2ucetWN
+2z/edEOPr6n+zG1Xmlw+oeapVX+ifcKVv1J6ousN7nrPig/H9pPLn6n7tdfP
+aJ9Q29XqKyq5/FBL/cxdp5XOa7TOpdanaN205QgqL9C6ceswllJ5Qe2PtK+o
+lMoLLb6iUiovrPhKal0/9f7SlPpOYt1XKeaOI6/zVYyl8lRLHVuKqDyNXbeu
+G/e8pL2OjRH9v57arnVfDUSv37X7ikr0OtSLr6j0VseiWWsdi6ZVX70B8o1P
+mg==
+     "], {{0, 0}, {13, 36}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    ImageSize->NCache[10 34^Rational[1, 2], 58.309518948453004`],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJztmcENwjAMRStxQ2IFJE5MgVgBGAGJMyzBJCzBJmUHLoxAERSJQ5V+4p84
+dipVr0QobT6/jm0W++PuMGmaZtmds+58Xb+Px7qyslKem+v8fN/ePp/7I/9z
+aSGqj1U9pdc1bS+n1bT9zmdVtxBRHbzrhuoTGrdGqXjlzVchxr533vSUek+9
+6Rail/gm9bvX+PbL2Hwj9/OPJds/Pcfqo81vqfYvlj7a9BxaLxp/vNVZ0vm8
+VF6hXbcQY/MEb3WWtB/Y+qemdHxGfWK1XojdL9D5Q+Payc5XvdYLrH0z97pY
+lNovtPkqVd2Efr90X7Hyh1J8hTJV3V26r1B69xVKdp1Yup6p4nypeT7bD9b7
+GENk99ms6Salw7/jWsjur6L3Ld1XPdn9Ve2+QsmOS1Z8hVKqr+iFuf+fskpr
+vnoC1fTUrA==
+     "], {{0, 0}, {13, 39}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    ImageSize->NCache[10 37^Rational[1, 2], 60.82762530298219],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}], ",", 
+   GraphicsBox[RasterBox[CompressedData["
+1:eJztnEFOw0AMRSOx67prJI7BAvUKwBGQWNNLcBIuwU3KHdhwBIpCkYgUJU6+
+/e3Mr1S9gtBkEseT/z0uN08vj89XXdfdnt/78/vnc//6OoiiKIo23r9fv34+
+fPz+fHnx5yXaaI2j4r6MqOuGvv6709vxbnf6G0/x9aH1Og//HjWO4ovl0jjO
+HUfxjSHqOYiK49TvRSzn5pF3HJW/PaP0kjVe1nzU+ryMXnpp7Hjo9Xzu+K0x
+6jkYvZ63Fl/0/R/ta6Sre3qvY96+pjXfVK3+4+1rWvNNWeo/KF3EGj8bq61j
+XvVJr/lmZ5Z1zPu5XIXV1zFvPYyerxejfPra68PSddXzdIrePmLtca3cap5a
+ia7nrD3u1Pheumjr+TtG7zq8Vx0SPc8sZOkldt0vix9HsYpeGhvH+z6pHt8p
+svTSkGydk8WPoxjVz5Bd58gH/T+/bP1pqivaGHU/e+nebOtDNbL6hL3zsaqO
+Yumfarq3anynyKozoOYzJHv+Wcjq82f1H25VJ1fr8/fuP9xanlrPN2uff5Y6
+TBVmjaP3PMWeWfrG5WexZPkO+Vkss/lQ+dlYsuIyZKv7el5k6a6lbKVeEcUs
+33eWD8KSta8kH5SD0ftKytMYsvro2Oct9lyb18rTnGT5JhFL1v6s4osla3/2
+QsWXS/3/im2Sve8v2sjqg5V+zsFsfa0ihuz9QZFL7+/hihyqz61tKk8x/Abb
+Zc0h
+     "], {{0, 0}, {20, 57}}, {0, 1}],
+    Frame->Automatic,
+    FrameLabel->{None, None},
+    FrameTicks->{{None, None}, {None, None}},
+    GridLinesStyle->Directive[
+      GrayLevel[0.5, 0.4]],
+    ImageSize->NCache[10 55^Rational[1, 2], 74.16198487095663],
+    Method->{
+     "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+      "DefaultGraphicsInteraction" -> {
+       "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+        "Effects" -> {
+         "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+          "Droplines" -> {
+           "freeformCursorMode" -> True, 
+            "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+      "DefaultPlotStyle" -> Automatic}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.957575022241457*^9, 3.957575067995775*^9}},
+ CellLabel->"Out[72]=",
+ CellID->2097111615,ExpressionUUID->"12ac7bfe-7538-49d1-b06e-bcf0cb18e9ab"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Grid", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"GraphicsRow", "[", "#", "]"}], "}"}], "&"}], "/@", 
+    RowBox[{"Values", "[", 
+     RowBox[{"Module", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"deep", "=", "2000"}], ",", 
+         RowBox[{"cut", "=", "100"}], ",", "ru", ",", "life", ",", "evo", ",",
+          "data", ",", 
+         RowBox[{"init", "=", 
+          RowBox[{"{", "1", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"ParallelTable", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"SeedRandom", "[", 
+           RowBox[{"426777", "+", "i"}], "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"evo", "=", 
+           RowBox[{"NestList", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"CompoundExpression", "[", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"ru", "=", 
+                 RowBox[{
+                  InterpretationBox[
+                   TagBox[
+                    FrameBox[
+                    PaneBox[GridBox[{
+                    {
+                    StyleBox[
+                    StyleBox[
+                    AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                    FontColor->GrayLevel[0.45]],
+                    ShowStringCharacters->False,
+                    FontFamily->"Source Sans Pro Black",
+                    FontSize->0.65 Inherited,
+                    FontWeight->"Heavy",
+                    PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                    StyleBox[
+                    RowBox[{
+                    
+                    StyleBox["\<\"RandomRuleMutation\"\>", 
+                    "ResourceFunctionLabel"], " "}],
+                    ShowAutoStyles->False,
+                    ShowStringCharacters->False,
+                    FontSize->0.9 Inherited,
+                    FontColor->GrayLevel[0.1]]}
+                    },
+                    GridBoxSpacings->{"Columns" -> {{0.25}}}],
+                    Alignment->Left,
+                    
+                    BaseStyle->{
+                    LineSpacing -> {0, 0}, LineBreakWithin -> False},
+                    BaselinePosition->Baseline,
+                    FrameMargins->{{3, 0}, {0, 0}}],
+                    Background->RGBColor[0.968627, 0.976471, 0.984314],
+                    BaselinePosition->Baseline,
+                    DefaultBaseStyle->{},
+                    FrameMargins->{{0, 0}, {1, 1}},
+                    FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+                    RoundingRadius->4],
+                    {"FunctionResourceBox", 
+                    GrayLevel[0.45], "\"RandomRuleMutation\""},
+                    TagBoxNote->"FunctionResourceBox"],
+                   ResourceFunction[
+                    
+                    ResourceObject[<|
+                    "Name" -> "RandomRuleMutation", "UUID" -> 
+                    "05a45225-5be5-46bd-9833-9ef3be361333", "ResourceType" -> 
+                    "Function", "ResourceLocations" -> {
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings0/Resources/\
+05a/05a45225-5be5-46bd-9833-9ef3be361333"]}, "Version" -> None, 
+                    "DocumentationLink" -> 
+                    URL["https://www.wolframcloud.com/obj/sw-writings0/\
+BiologicalEvolution/RandomRuleMutation"], "ExampleNotebookData" -> Automatic, 
+                    "FunctionLocation" -> 
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings0/Resources/\
+05a/05a45225-5be5-46bd-9833-9ef3be361333/download/DefinitionData"], 
+                    "ShortName" -> "RandomRuleMutation", "SymbolName" -> 
+                    "FunctionRepository`$05a452255be546bd98339ef3be361333`\
+RandomRuleMutation", "PageHeaderClickToCopy" -> 
+                    "ResourceObject[CloudObject[\"https://www.wolframcloud.\
+com/obj/sw-writings0/BiologicalEvolution/RandomRuleMutation\"]]"|>]],
+                   Selectable->False], "[", 
+                  RowBox[{
+                   RowBox[{"First", "[", "#", "]"}], ",", 
+                   RowBox[{"\"\<Symmetric\>\"", "->", "True"}]}], "]"}]}], ",",
+                 "\[IndentingNewLine]", 
+                RowBox[{"life", "=", 
+                 RowBox[{
+                  InterpretationBox[
+                   TagBox[
+                    FrameBox[
+                    PaneBox[GridBox[{
+                    {
+                    StyleBox[
+                    StyleBox[
+                    AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                    FontColor->GrayLevel[0.45]],
+                    ShowStringCharacters->False,
+                    FontFamily->"Source Sans Pro Black",
+                    FontSize->0.65 Inherited,
+                    FontWeight->"Heavy",
+                    PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                    StyleBox[
+                    RowBox[{
+                    StyleBox["\<\"TestLifetime\"\>", "ResourceFunctionLabel"],
+                     " "}],
+                    ShowAutoStyles->False,
+                    ShowStringCharacters->False,
+                    FontSize->0.9 Inherited,
+                    FontColor->GrayLevel[0.1]]}
+                    },
+                    GridBoxSpacings->{"Columns" -> {{0.25}}}],
+                    Alignment->Left,
+                    
+                    BaseStyle->{
+                    LineSpacing -> {0, 0}, LineBreakWithin -> False},
+                    BaselinePosition->Baseline,
+                    FrameMargins->{{3, 0}, {0, 0}}],
+                    Background->RGBColor[0.968627, 0.976471, 0.984314],
+                    BaselinePosition->Baseline,
+                    DefaultBaseStyle->{},
+                    FrameMargins->{{0, 0}, {1, 1}},
+                    FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+                    RoundingRadius->4],
+                    {"FunctionResourceBox", 
+                    GrayLevel[0.45], "\"TestLifetime\""},
+                    TagBoxNote->"FunctionResourceBox"],
+                   ResourceFunction[
+                    
+                    ResourceObject[<|
+                    "Name" -> "TestLifetime", "UUID" -> 
+                    "a75d3c27-ef05-4ae6-a303-c3d35eb480e1", "ResourceType" -> 
+                    "Function", "ResourceLocations" -> {
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings0/Resources/\
+a75/a75d3c27-ef05-4ae6-a303-c3d35eb480e1"]}, "Version" -> None, 
+                    "DocumentationLink" -> 
+                    URL["https://www.wolframcloud.com/obj/sw-writings0/\
+BiologicalEvolution/TestLifetime"], "ExampleNotebookData" -> Automatic, 
+                    "FunctionLocation" -> 
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings0/Resources/\
+a75/a75d3c27-ef05-4ae6-a303-c3d35eb480e1/download/DefinitionData"], 
+                    "ShortName" -> "TestLifetime", "SymbolName" -> 
+                    "FunctionRepository`$a75d3c27ef054ae6a303c3d35eb480e1`\
+TestLifetime", "PageHeaderClickToCopy" -> 
+                    "ResourceObject[CloudObject[\"https://www.wolframcloud.\
+com/obj/sw-writings0/BiologicalEvolution/TestLifetime\"]]"|>]],
+                   Selectable->False], "[", 
+                  RowBox[{"ru", ",", "init", ",", "cut"}], "]"}]}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"If", "[", 
+                 RowBox[{
+                  RowBox[{"life", ">=", 
+                   RowBox[{"Last", "[", "#", "]"}]}], ",", 
+                  RowBox[{"{", 
+                   RowBox[{"ru", ",", "life"}], "}"}], ",", "#"}], "]"}]}], 
+               "\[IndentingNewLine]", "]"}], "&"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"0", ",", "2", ",", "2"}], "}"}], ",", "1"}], "}"}], ",",
+              "deep"}], "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"evo", "=", 
+           RowBox[{"First", "/@", 
+            RowBox[{"SplitBy", "[", 
+             RowBox[{"evo", ",", "Last"}], "]"}]}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"i", "->", 
+           RowBox[{"Map", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"CompoundExpression", "[", "\[IndentingNewLine]", 
+               RowBox[{
+                RowBox[{"data", "=", 
+                 RowBox[{"CellularAutomaton", "[", "\[IndentingNewLine]", 
+                  RowBox[{
+                   RowBox[{"First", "[", "#", "]"}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"init", ",", "0"}], "}"}], ",", 
+                   RowBox[{
+                    RowBox[{"Last", "[", "#", "]"}], "+", "2"}]}], "]"}]}], ",",
+                 "\[IndentingNewLine]", 
+                RowBox[{"data", "=", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"ArrayPad", "[", 
+                    RowBox[{"#", ",", "2"}], "]"}], "&"}], "/@", "data"}]}], ",",
+                 "\[IndentingNewLine]", 
+                RowBox[{"ArrayPlot", "[", 
+                 RowBox[{"data", ",", "\[IndentingNewLine]", 
+                  RowBox[{"ImageSize", "->", 
+                   RowBox[{"{", 
+                    RowBox[{"Automatic", ",", 
+                    RowBox[{"15", 
+                    RowBox[{"Sqrt", "[", 
+                    RowBox[{
+                    RowBox[{"Length", "[", "data", "]"}], "+", "1"}], 
+                    "]"}]}]}], "}"}]}], ",", "\[IndentingNewLine]", 
+                  RowBox[{"Mesh", "->", "True"}], ",", 
+                  RowBox[{"MeshStyle", "->", 
+                   RowBox[{"Opacity", "[", ".1", "]"}]}]}], 
+                 "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}],
+               "&"}], ",", "\[IndentingNewLine]", "evo"}], "]"}]}]}], ",", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", 
+           RowBox[{"{", 
+            RowBox[{"1", ",", "5", ",", "29", ",", "30", ",", "54"}], "}"}]}],
+           "}"}]}], "]"}]}], "]"}], "\[IndentingNewLine]", "]"}]}], ",", 
+   RowBox[{"Alignment", "->", "Left"}], ",", 
+   RowBox[{"Frame", "\[Rule]", "False"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Dividers", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"False", ",", 
+      RowBox[{"{", 
+       RowBox[{"False", ",", 
+        RowBox[{"{", "True", "}"}], ",", "False"}], "}"}]}], "}"}]}], ",", 
+   RowBox[{"FrameStyle", "->", "LightGray"}]}], "]"}]], "Input",
+ CellChangeTimes->{
+  3.922058485972019*^9, {3.922058579374546*^9, 3.922058603612951*^9}, {
+   3.9220587345133333`*^9, 3.922058736903465*^9}, {3.92205949659676*^9, 
+   3.9220594984577*^9}, 3.922129559535454*^9, {3.92213843355695*^9, 
+   3.922138538947332*^9}, {3.922893707300541*^9, 3.922893765315119*^9}, {
+   3.922893809611479*^9, 3.922893900050877*^9}, {3.92289393901126*^9, 
+   3.922894003650743*^9}, 3.9228940352536707`*^9, {3.922894081595113*^9, 
+   3.922894233450572*^9}, 3.922894720191012*^9, {3.92351190304275*^9, 
+   3.923511907870798*^9}},
+ CellLabel->"In[53]:=",
+ CellID->1688119951,ExpressionUUID->"aa8ad62f-bc4d-4144-a5f8-16624c51afb6"]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{87, Automatic}, {49, Automatic}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"509444b2-e1ca-430c-9b39-33cc41e63283"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "DefaultContent"->{
+  Cell[15426, 397, 543, 12, 29, "Input",ExpressionUUID->"1c5823cc-e960-4cf1-ba41-843a736948b6",
+   CellTags->"DefaultContent",
+   CellID->876320555],
+  Cell[15972, 411, 447, 10, 26, "Message",ExpressionUUID->"42ddc8f9-1911-403a-bbe1-c515d1168ef4",
+   CellTags->"DefaultContent",
+   CellID->659540350],
+  Cell[16422, 423, 1594, 28, 59, "Message",ExpressionUUID->"2a6b7955-804c-4bba-af58-61baef6fb5f3",
+   CellTags->"DefaultContent",
+   CellID->1731560283],
+  Cell[18019, 453, 1692, 29, 59, "Message",ExpressionUUID->"318c68b9-1ba3-4aef-8bec-a22d70d05389",
+   CellTags->"DefaultContent",
+   CellID->1782775884],
+  Cell[19714, 484, 2560, 41, 75, "Message",ExpressionUUID->"ec7e789b-4539-444b-83a0-859b7bbf9205",
+   CellTags->"DefaultContent",
+   CellID->1422439444],
+  Cell[22277, 527, 2560, 41, 75, "Message",ExpressionUUID->"16a5da67-dcb5-46ce-8693-1c393c7159ff",
+   CellTags->"DefaultContent",
+   CellID->1151776904],
+  Cell[24840, 570, 514, 11, 26, "Message",ExpressionUUID->"2406916f-d28d-481c-98d4-8b9a2de3c3bb",
+   CellTags->"DefaultContent",
+   CellID->496831470],
+  Cell[25357, 583, 1777, 31, 59, "Message",ExpressionUUID->"5712f7c3-e2f4-4a51-b230-47deeaf27eab",
+   CellTags->"DefaultContent",
+   CellID->830096754],
+  Cell[27137, 616, 1491, 25, 75, "Message",ExpressionUUID->"88e794f5-1bd4-4416-9d99-2d33c6b04114",
+   CellTags->"DefaultContent",
+   CellID->1382373566],
+  Cell[28631, 643, 1490, 25, 75, "Message",ExpressionUUID->"17301f14-1552-4617-8896-572b5a28f946",
+   CellTags->"DefaultContent",
+   CellID->2074430516],
+  Cell[30124, 670, 510, 11, 26, "Message",ExpressionUUID->"398fbd54-5c44-4221-8bf1-78f6316bf4f5",
+   CellTags->"DefaultContent",
+   CellID->556673367],
+  Cell[30637, 683, 1578, 26, 59, "Message",ExpressionUUID->"651ebc22-3d71-4f97-98e9-07d1f0d26a31",
+   CellTags->"DefaultContent",
+   CellID->1570512837],
+  Cell[32218, 711, 1578, 26, 59, "Message",ExpressionUUID->"c2b46b54-b538-4dfd-9313-1b0422841872",
+   CellTags->"DefaultContent",
+   CellID->887746182],
+  Cell[33799, 739, 512, 11, 26, "Message",ExpressionUUID->"3ce1cd6d-3b8d-4da6-bbbc-9491105f90bb",
+   CellTags->"DefaultContent",
+   CellID->1781185165],
+  Cell[34314, 752, 2671, 43, 75, "Message",ExpressionUUID->"c6518325-fdff-4e3d-929e-331b774ff625",
+   CellTags->"DefaultContent",
+   CellID->457028975],
+  Cell[36988, 797, 206, 4, 33, "Output",ExpressionUUID->"6b0b61fa-a918-4c74-946e-517b4ddf401f",
+   CellTags->"DefaultContent",
+   CellID->1884461153],
+  Cell[37231, 806, 522, 11, 25, "Input",ExpressionUUID->"e1e8ff3f-008e-43a0-940d-e8e06521893e",
+   CellTags->"DefaultContent",
+   CellID->773119650],
+  Cell[37756, 819, 463, 11, 26, "Message",ExpressionUUID->"0cfe786f-83e7-4d70-b168-e3d7bd15d71e",
+   CellTags->"DefaultContent",
+   CellID->1049772515],
+  Cell[38222, 832, 1591, 27, 59, "Message",ExpressionUUID->"be25b328-17b4-4320-a678-4b40cb34cb51",
+   CellTags->"DefaultContent",
+   CellID->1948499500],
+  Cell[39816, 861, 1683, 27, 59, "Message",ExpressionUUID->"0470d5b8-76b5-4c5c-a33f-da1daf12af99",
+   CellTags->"DefaultContent",
+   CellID->1452963397],
+  Cell[41502, 890, 2559, 41, 75, "Message",ExpressionUUID->"2421e023-87ae-4f1f-8236-a018829201c5",
+   CellTags->"DefaultContent",
+   CellID->919263342],
+  Cell[44064, 933, 2562, 41, 75, "Message",ExpressionUUID->"4cb9a916-4741-47fb-9c67-52b0b15d405e",
+   CellTags->"DefaultContent",
+   CellID->1061632476],
+  Cell[46629, 976, 517, 11, 26, "Message",ExpressionUUID->"b6e199ca-db8f-4c3e-8a10-133a157cba7e",
+   CellTags->"DefaultContent",
+   CellID->1562884856],
+  Cell[47149, 989, 1771, 29, 75, "Message",ExpressionUUID->"71720315-58d8-45aa-8de5-959ce3dd3fb0",
+   CellTags->"DefaultContent",
+   CellID->1533288335],
+  Cell[48923, 1020, 1516, 26, 75, "Message",ExpressionUUID->"3d9d65d9-7dcc-4011-b27d-44f44811ed27",
+   CellTags->"DefaultContent",
+   CellID->173282345],
+  Cell[50442, 1048, 1515, 26, 75, "Message",ExpressionUUID->"187c31c8-aa7b-4020-94a7-fc1da2ea02ba",
+   CellTags->"DefaultContent",
+   CellID->368547083],
+  Cell[51960, 1076, 510, 11, 26, "Message",ExpressionUUID->"790ca1f9-c238-4790-9bad-8f1696000848",
+   CellTags->"DefaultContent",
+   CellID->827986033],
+  Cell[52473, 1089, 1602, 27, 59, "Message",ExpressionUUID->"70f87e60-acf6-453d-9d42-0949d05ebf21",
+   CellTags->"DefaultContent",
+   CellID->267224071],
+  Cell[54078, 1118, 1602, 27, 59, "Message",ExpressionUUID->"5e13dee4-cf14-4d3e-ad67-320f67733a9f",
+   CellTags->"DefaultContent",
+   CellID->846655420],
+  Cell[55683, 1147, 509, 11, 26, "Message",ExpressionUUID->"b26b5e00-e7e3-41b5-bcfe-93eab89a23aa",
+   CellTags->"DefaultContent",
+   CellID->510998918],
+  Cell[56195, 1160, 1610, 27, 59, "Message",ExpressionUUID->"c76b094b-6e6c-4538-b962-406f42d90063",
+   CellTags->"DefaultContent",
+   CellID->571710473],
+  Cell[57808, 1189, 205, 4, 33, "Output",ExpressionUUID->"834fcac6-8858-408c-b1af-66495601b402",
+   CellTags->"DefaultContent",
+   CellID->896083033]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"DefaultContent", 90018, 1920}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 384, 11, 29, "Input",ExpressionUUID->"f87b783d-706c-4721-b25c-bc35888d4630"],
+Cell[963, 35, 251, 6, 33, "Output",ExpressionUUID->"e47ac233-746a-4bc9-839f-8e7091455435"]
+}, Open  ]],
+Cell[1229, 44, 1234, 31, 70, "Input",ExpressionUUID->"431925f4-2035-495c-8a36-8dc47c8bb639",
+ CellID->303987871],
+Cell[2466, 77, 5166, 117, 397, "Input",ExpressionUUID->"f232920f-7c62-4693-9efd-aea3b21fc4cf",
+ CellID->1520776277],
+Cell[7635, 196, 1847, 41, 131, "Input",ExpressionUUID->"ebfb50e8-2130-49c3-aa06-be481c5e8fd9",
+ CellID->21587632],
+Cell[9485, 239, 1540, 38, 90, "Input",ExpressionUUID->"ec05c7fd-312b-4f8c-83a4-f549f70b027a",
+ CellID->150228104],
+Cell[11028, 279, 440, 11, 29, "Input",ExpressionUUID->"6ac6c148-940c-41f2-afab-e2ca12d15038"],
+Cell[11471, 292, 350, 9, 29, "Input",ExpressionUUID->"8f2addd5-4538-4fe8-8919-e12e1f73314f"],
+Cell[11824, 303, 526, 14, 70, "Input",ExpressionUUID->"26d04aa0-3578-4a64-80a1-64697ccf3170"],
+Cell[12353, 319, 214, 3, 29, "Input",ExpressionUUID->"7e2bb4fa-9960-4947-a870-cd9d1849d7de",
+ CellID->933363900],
+Cell[12570, 324, 371, 7, 29, "Input",ExpressionUUID->"44a1ff55-0a9d-4fb7-8987-171acb79138b",
+ CellID->411375590],
+Cell[12944, 333, 412, 8, 29, "Input",ExpressionUUID->"cbabb198-fd64-4749-b5ae-65ddf6e26a3f",
+ CellID->1730869703],
+Cell[13359, 343, 267, 4, 29, "Input",ExpressionUUID->"ab1e383b-f225-443b-80e2-a70557b9c4f1",
+ CellID->680914257],
+Cell[13629, 349, 265, 4, 29, "Input",ExpressionUUID->"c7490306-81bc-40f6-8f0a-d3817ca24275",
+ CellID->659093518],
+Cell[13897, 355, 364, 8, 29, "Input",ExpressionUUID->"a1e88ca4-3bbe-463b-b771-6a6fd560f683",
+ CellID->1153667141],
+Cell[14264, 365, 441, 10, 29, "Input",ExpressionUUID->"216fd3f0-3be5-4e23-91ff-eb14d7cb6e76",
+ CellID->1257886012],
+Cell[14708, 377, 381, 9, 29, "Input",ExpressionUUID->"69376014-a0ed-4419-91d2-ccf58f37a4b1",
+ CellID->1927581762],
+Cell[15092, 388, 181, 2, 29, "Input",ExpressionUUID->"70af42de-fff1-46fc-8a87-c06b4d7a4675",
+ CellID->1024186516],
+Cell[15276, 392, 125, 1, 29, "Input",ExpressionUUID->"c95333d8-7faa-4101-9110-bdb5036b1954"],
+Cell[CellGroupData[{
+Cell[15426, 397, 543, 12, 29, "Input",ExpressionUUID->"1c5823cc-e960-4cf1-ba41-843a736948b6",
+ CellTags->"DefaultContent",
+ CellID->876320555],
+Cell[15972, 411, 447, 10, 26, "Message",ExpressionUUID->"42ddc8f9-1911-403a-bbe1-c515d1168ef4",
+ CellTags->"DefaultContent",
+ CellID->659540350],
+Cell[16422, 423, 1594, 28, 59, "Message",ExpressionUUID->"2a6b7955-804c-4bba-af58-61baef6fb5f3",
+ CellTags->"DefaultContent",
+ CellID->1731560283],
+Cell[18019, 453, 1692, 29, 59, "Message",ExpressionUUID->"318c68b9-1ba3-4aef-8bec-a22d70d05389",
+ CellTags->"DefaultContent",
+ CellID->1782775884],
+Cell[19714, 484, 2560, 41, 75, "Message",ExpressionUUID->"ec7e789b-4539-444b-83a0-859b7bbf9205",
+ CellTags->"DefaultContent",
+ CellID->1422439444],
+Cell[22277, 527, 2560, 41, 75, "Message",ExpressionUUID->"16a5da67-dcb5-46ce-8693-1c393c7159ff",
+ CellTags->"DefaultContent",
+ CellID->1151776904],
+Cell[24840, 570, 514, 11, 26, "Message",ExpressionUUID->"2406916f-d28d-481c-98d4-8b9a2de3c3bb",
+ CellTags->"DefaultContent",
+ CellID->496831470],
+Cell[25357, 583, 1777, 31, 59, "Message",ExpressionUUID->"5712f7c3-e2f4-4a51-b230-47deeaf27eab",
+ CellTags->"DefaultContent",
+ CellID->830096754],
+Cell[27137, 616, 1491, 25, 75, "Message",ExpressionUUID->"88e794f5-1bd4-4416-9d99-2d33c6b04114",
+ CellTags->"DefaultContent",
+ CellID->1382373566],
+Cell[28631, 643, 1490, 25, 75, "Message",ExpressionUUID->"17301f14-1552-4617-8896-572b5a28f946",
+ CellTags->"DefaultContent",
+ CellID->2074430516],
+Cell[30124, 670, 510, 11, 26, "Message",ExpressionUUID->"398fbd54-5c44-4221-8bf1-78f6316bf4f5",
+ CellTags->"DefaultContent",
+ CellID->556673367],
+Cell[30637, 683, 1578, 26, 59, "Message",ExpressionUUID->"651ebc22-3d71-4f97-98e9-07d1f0d26a31",
+ CellTags->"DefaultContent",
+ CellID->1570512837],
+Cell[32218, 711, 1578, 26, 59, "Message",ExpressionUUID->"c2b46b54-b538-4dfd-9313-1b0422841872",
+ CellTags->"DefaultContent",
+ CellID->887746182],
+Cell[33799, 739, 512, 11, 26, "Message",ExpressionUUID->"3ce1cd6d-3b8d-4da6-bbbc-9491105f90bb",
+ CellTags->"DefaultContent",
+ CellID->1781185165],
+Cell[34314, 752, 2671, 43, 75, "Message",ExpressionUUID->"c6518325-fdff-4e3d-929e-331b774ff625",
+ CellTags->"DefaultContent",
+ CellID->457028975],
+Cell[36988, 797, 206, 4, 33, "Output",ExpressionUUID->"6b0b61fa-a918-4c74-946e-517b4ddf401f",
+ CellTags->"DefaultContent",
+ CellID->1884461153]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[37231, 806, 522, 11, 25, "Input",ExpressionUUID->"e1e8ff3f-008e-43a0-940d-e8e06521893e",
+ CellTags->"DefaultContent",
+ CellID->773119650],
+Cell[37756, 819, 463, 11, 26, "Message",ExpressionUUID->"0cfe786f-83e7-4d70-b168-e3d7bd15d71e",
+ CellTags->"DefaultContent",
+ CellID->1049772515],
+Cell[38222, 832, 1591, 27, 59, "Message",ExpressionUUID->"be25b328-17b4-4320-a678-4b40cb34cb51",
+ CellTags->"DefaultContent",
+ CellID->1948499500],
+Cell[39816, 861, 1683, 27, 59, "Message",ExpressionUUID->"0470d5b8-76b5-4c5c-a33f-da1daf12af99",
+ CellTags->"DefaultContent",
+ CellID->1452963397],
+Cell[41502, 890, 2559, 41, 75, "Message",ExpressionUUID->"2421e023-87ae-4f1f-8236-a018829201c5",
+ CellTags->"DefaultContent",
+ CellID->919263342],
+Cell[44064, 933, 2562, 41, 75, "Message",ExpressionUUID->"4cb9a916-4741-47fb-9c67-52b0b15d405e",
+ CellTags->"DefaultContent",
+ CellID->1061632476],
+Cell[46629, 976, 517, 11, 26, "Message",ExpressionUUID->"b6e199ca-db8f-4c3e-8a10-133a157cba7e",
+ CellTags->"DefaultContent",
+ CellID->1562884856],
+Cell[47149, 989, 1771, 29, 75, "Message",ExpressionUUID->"71720315-58d8-45aa-8de5-959ce3dd3fb0",
+ CellTags->"DefaultContent",
+ CellID->1533288335],
+Cell[48923, 1020, 1516, 26, 75, "Message",ExpressionUUID->"3d9d65d9-7dcc-4011-b27d-44f44811ed27",
+ CellTags->"DefaultContent",
+ CellID->173282345],
+Cell[50442, 1048, 1515, 26, 75, "Message",ExpressionUUID->"187c31c8-aa7b-4020-94a7-fc1da2ea02ba",
+ CellTags->"DefaultContent",
+ CellID->368547083],
+Cell[51960, 1076, 510, 11, 26, "Message",ExpressionUUID->"790ca1f9-c238-4790-9bad-8f1696000848",
+ CellTags->"DefaultContent",
+ CellID->827986033],
+Cell[52473, 1089, 1602, 27, 59, "Message",ExpressionUUID->"70f87e60-acf6-453d-9d42-0949d05ebf21",
+ CellTags->"DefaultContent",
+ CellID->267224071],
+Cell[54078, 1118, 1602, 27, 59, "Message",ExpressionUUID->"5e13dee4-cf14-4d3e-ad67-320f67733a9f",
+ CellTags->"DefaultContent",
+ CellID->846655420],
+Cell[55683, 1147, 509, 11, 26, "Message",ExpressionUUID->"b26b5e00-e7e3-41b5-bcfe-93eab89a23aa",
+ CellTags->"DefaultContent",
+ CellID->510998918],
+Cell[56195, 1160, 1610, 27, 59, "Message",ExpressionUUID->"c76b094b-6e6c-4538-b962-406f42d90063",
+ CellTags->"DefaultContent",
+ CellID->571710473],
+Cell[57808, 1189, 205, 4, 33, "Output",ExpressionUUID->"834fcac6-8858-408c-b1af-66495601b402",
+ CellTags->"DefaultContent",
+ CellID->896083033]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[58050, 1198, 288, 5, 25, "Input",ExpressionUUID->"aaae50a4-c954-458d-b113-1b56f933eb1c",
+ CellID->104547599],
+Cell[58341, 1205, 258, 5, 33, "Output",ExpressionUUID->"56e3a20e-f690-457e-b804-1125fc95c97c",
+ CellID->194489594]
+}, Open  ]],
+Cell[58614, 1213, 2329, 50, 111, "Input",ExpressionUUID->"4bdd4ab3-2851-43f0-bfe0-a2bf5c17a9f3",
+ CellID->1610605475],
+Cell[CellGroupData[{
+Cell[60968, 1267, 1055, 22, 29, "Input",ExpressionUUID->"691f58c7-8e7c-4161-9987-13a74237a694",
+ CellID->1088235834],
+Cell[62026, 1291, 396, 8, 33, "Output",ExpressionUUID->"ebe227e5-84b4-481f-ba02-375b8a3620f9",
+ CellID->221015774]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[62459, 1304, 709, 15, 29, "Input",ExpressionUUID->"ccc3ca16-11bc-4181-8fa8-918a1a2b893f",
+ CellID->467980916],
+Cell[63171, 1321, 1107, 25, 233, "Output",ExpressionUUID->"9e5704f0-fdab-48d6-8b42-178e90752c18",
+ CellID->1897208738]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[64315, 1351, 1109, 26, 49, "Input",ExpressionUUID->"ea257449-a47b-4669-bffa-854ea5336513",
+ CellID->1120888388],
+Cell[65427, 1379, 12732, 283, 219, "Output",ExpressionUUID->"12ac7bfe-7538-49d1-b06e-bcf0cb18e9ab",
+ CellID->2097111615]
+}, Open  ]],
+Cell[78174, 1665, 11485, 242, 495, "Input",ExpressionUUID->"aa8ad62f-bc4d-4144-a5f8-16624c51afb6",
+ CellID->1688119951]
+}
+]
+*)
+

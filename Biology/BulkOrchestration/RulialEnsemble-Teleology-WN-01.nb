@@ -1,0 +1,49 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      1069,         39]
+NotebookOptionsPosition[       718,         25]
+NotebookOutlinePosition[      1115,         41]
+CellTagsIndexPosition[      1072,         38]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData["Ruli"], "Input",
+ CellChangeTimes->{{3.9574557059563913`*^9, 
+  3.9574557065819483`*^9}},ExpressionUUID->"b3916b98-d2da-4833-ae74-\
+57f2fe0f5ce9"]
+},
+WindowSize->{808, 677},
+WindowMargins->{{116, Automatic}, {Automatic, 4}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"9194995c-04ad-458a-bf8c-aa641e9a0270"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 160, 3, 29, "Input",ExpressionUUID->"b3916b98-d2da-4833-ae74-57f2fe0f5ce9"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

@@ -1,0 +1,62 @@
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[         0,          0]
+NotebookDataLength[      1962,         61]
+NotebookOptionsPosition[      1238,         36]
+NotebookOutlinePosition[      1638,         52]
+CellTagsIndexPosition[      1595,         49]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"SetDirectory", "[", 
+  RowBox[{"NotebookDirectory", "[", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.9277333020224047`*^9, 3.9277333159251413`*^9}},
+ CellLabel->
+  "In[393]:=",ExpressionUUID->"b6555c7d-2650-4504-9c69-99276ece8b61"],
+
+Cell[BoxData["\<\"/Users/erichegonzales/Projects/Wolfram\"\>"], "Output",
+ CellChangeTimes->{{3.927733311663065*^9, 3.927733316307879*^9}, 
+   3.927733401469863*^9},
+ CellLabel->
+  "Out[393]=",ExpressionUUID->"1a8d06a1-b9e0-4981-a506-755752d34183"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"Import", "[", "\"\<\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.927732928460539*^9, 3.927732930867453*^9}, {
+  3.927733187832354*^9, 3.927733192640286*^9}, {3.927733340922936*^9, 
+  3.9277333436927643`*^9}},ExpressionUUID->"a185d83c-9e60-4b06-b991-\
+e8e55838e417"]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{556, Automatic}, {Automatic, 50}},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"510f5ead-7aa6-4e53-9ff0-a595851323d7"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[422, 15, 257, 5, 46, "Input",ExpressionUUID->"b6555c7d-2650-4504-9c69-99276ece8b61"],
+Cell[682, 22, 248, 4, 52, "Output",ExpressionUUID->"1a8d06a1-b9e0-4981-a506-755752d34183"]
+}, Open  ]],
+Cell[945, 29, 289, 5, 46, "Input",ExpressionUUID->"a185d83c-9e60-4b06-b991-e8e55838e417"]
+}
+]
+*)
+

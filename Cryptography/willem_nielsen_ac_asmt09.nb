@@ -1,0 +1,145 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      4771,        137]
+NotebookOptionsPosition[      3812,        110]
+NotebookOutlinePosition[      4207,        126]
+CellTagsIndexPosition[      4164,        123]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Unit 9 Project 11 - RSA Encryption Implementation", "Subsection",ExpressionUUID->"7e4b6acf-3edb-4e91-b966-58e9950926c6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Generate", " ", "RSA", " ", "key", " ", "pair"}], "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"keyPair", "=", 
+     RowBox[{"GenerateAsymmetricKeyPair", "[", "\"\<RSA\>\"", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Message", " ", "to", " ", "encrypt"}], "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"message", "=", "\"\<Hello, world!\>\""}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Encrypt", " ", "with", " ", "public", " ", "key"}], "*)"}], "\n", 
+   RowBox[{
+    RowBox[{"encrypted", "=", 
+     RowBox[{"Encrypt", "[", 
+      RowBox[{
+       RowBox[{"keyPair", "[", "\"\<PublicKey\>\"", "]"}], ",", "message"}], 
+      "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Decrypt", " ", "with", " ", "private", " ", "key"}], "*)"}], "\n", 
+   RowBox[{"decrypted", "=", 
+    RowBox[{"Decrypt", "[", 
+     RowBox[{
+      RowBox[{"keyPair", "[", "\"\<PrivateKey\>\"", "]"}], ",", "encrypted"}],
+      "]"}]}]}]}]], "Input",
+ CellLabel->"In[7]:=",ExpressionUUID->"b640a8d2-350e-4833-bf66-d62c51a87f23"],
+
+Cell[BoxData["\<\"Hello, world!\"\>"], "Output",
+ CellLabel->"Out[10]=",ExpressionUUID->"8338b9ee-e247-4cf7-96c2-ae3a2f22973d"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Unit 9 Project 12 - Hash generator", "Subsection",ExpressionUUID->"0ea87ad6-3a10-441a-93d9-3c2d1ceb084f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"Simple", " ", "custom", " ", "hash", " ", 
+     RowBox[{"function", ":", 
+      RowBox[{"convert", " ", "to", " ", "character", " ", "codes"}]}]}], ",", 
+    RowBox[{"then", " ", "to", " ", "hex"}], ",", 
+    RowBox[{"and", " ", "apply", " ", "formula"}]}], "*)"}], 
+  RowBox[{
+   RowBox[{
+    RowBox[{"myHashFunction", "[", "str_String", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"hexValues", ",", "hashed"}], "}"}], ",", 
+      RowBox[{
+       RowBox[{"hexValues", "=", 
+        RowBox[{"IntegerString", "[", 
+         RowBox[{
+          RowBox[{"ToCharacterCode", "[", "str", "]"}], ",", "16", ",", "2"}],
+          "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"hashed", "=", 
+        RowBox[{"StringJoin", "[", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{
+           RowBox[{"Mod", "[", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"ToCharacterCode", "[", "str", "]"}], "+", "7"}], ",", 
+             "256"}], "]"}], ",", "16", ",", "2"}], "]"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "hashed"}]}], "]"}]}], "\[IndentingNewLine]", 
+   "\n", 
+   RowBox[{"(*", "Example", "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"myHashFunction", "[", "\"\<hello\>\"", "]"}]}]}]], "Input",
+ CellLabel->"In[11]:=",ExpressionUUID->"f9133944-1cc6-4a36-b49d-0a31160bc090"],
+
+Cell[BoxData["\<\"6f6c737376\"\>"], "Output",
+ CellLabel->"Out[12]=",ExpressionUUID->"f1929d04-d30f-4563-8fcf-bfbe6824a241"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 673},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"4b71a2fe-a63a-4967-9a61-74ed95df311b"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 126, 0, 53, "Subsection",ExpressionUUID->"7e4b6acf-3edb-4e91-b966-58e9950926c6"],
+Cell[CellGroupData[{
+Cell[727, 26, 1193, 29, 213, "Input",ExpressionUUID->"b640a8d2-350e-4833-bf66-d62c51a87f23"],
+Cell[1923, 57, 127, 1, 33, "Output",ExpressionUUID->"8338b9ee-e247-4cf7-96c2-ae3a2f22973d"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2099, 64, 111, 0, 53, "Subsection",ExpressionUUID->"0ea87ad6-3a10-441a-93d9-3c2d1ceb084f"],
+Cell[CellGroupData[{
+Cell[2235, 68, 1422, 35, 192, "Input",ExpressionUUID->"f9133944-1cc6-4a36-b49d-0a31160bc090"],
+Cell[3660, 105, 124, 1, 33, "Output",ExpressionUUID->"f1929d04-d30f-4563-8fcf-bfbe6824a241"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

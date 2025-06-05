@@ -1,0 +1,107 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      3736,         99]
+NotebookOptionsPosition[      3385,         85]
+NotebookOutlinePosition[      3779,        101]
+CellTagsIndexPosition[      3736,         98]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"ClearAll", "[", "ArrayPatchFrequencyPlot", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"Options", "[", "ArrayPatchFrequencyPlot", "]"}], "=", " ", 
+   RowBox[{"{", 
+    RowBox[{"\"\<SequenceSize\>\"", "->", 
+     RowBox[{"{", 
+      RowBox[{"30", ",", " ", "30"}], "}"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ArrayPatchFrequencyChart", "[", 
+   RowBox[{"arr_", ",", " ", "blockspec_", ",", "offsetspec_", ",", " ", 
+    RowBox[{"n_", ":", "10"}], ",", " ", 
+    RowBox[{"OptionsPattern", "[", 
+     RowBox[{"{", 
+      RowBox[{"ArrayPatchFrequencyChart", ",", " ", "BarChart"}], "}"}], 
+     "]"}]}], "]"}], ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"counts", ",", " ", "labfunc"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"counts", " ", "=", " ", 
+      RowBox[{
+       RowBox[{"ReverseSort", "[", 
+        RowBox[{"Counts", "[", 
+         RowBox[{"Catenate", "[", 
+          RowBox[{"Partition", "[", 
+           RowBox[{"arr", ",", "blockspec", ",", " ", "offsetspec"}], "]"}], 
+          "]"}], "]"}], "]"}], "[", 
+       RowBox[{"[", 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"ListQ", "[", "n", "]"}], ",", " ", 
+           RowBox[{"First", "[", "n", "]"}], ",", " ", "1"}], "]"}], ";;", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{"ListQ", "[", "n", "]"}], ",", " ", 
+           RowBox[{"Last", "[", "n", "]"}], ",", " ", "n"}], "]"}]}], "]"}], 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"ListLinePlot", "[", 
+      RowBox[{
+       RowBox[{"Values", "[", "counts", "]"}], ",", " ", 
+       RowBox[{"LabelingFunction", "->", " ", "labfunc"}], ",", 
+       RowBox[{"ScalingFunctions", "->", " ", 
+        RowBox[{"OptionValue", "[", "ScalingFunctions", "]"}]}], ",", " ", 
+       RowBox[{"ImageSize", "->", 
+        RowBox[{"OptionValue", "[", "ImageSize", "]"}]}]}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]}], "Input",
+ CellChangeTimes->{{3.957656661338619*^9, 3.957656702040133*^9}, {
+  3.9576568252700033`*^9, 3.957656906772017*^9}, {3.957656939087533*^9, 
+  3.957656960852013*^9}, {3.9576578755525913`*^9, 3.957657949180867*^9}, {
+  3.957657982330739*^9, 3.957658015104886*^9}, {3.9576580511155252`*^9, 
+  3.957658077605948*^9}, {3.957658132952733*^9, 3.957658171283991*^9}, {
+  3.957658249856904*^9, 3.957658253186899*^9}, {3.957658312238463*^9, 
+  3.957658442357007*^9}, {3.957658746819159*^9, 3.957658791085125*^9}, {
+  3.9576622196713657`*^9, 3.9576622248030233`*^9}, {3.957867256601645*^9, 
+  3.957867258459215*^9}, {3.957869165069296*^9, 3.957869172147876*^9}, {
+  3.957869450068516*^9, 
+  3.957869478738772*^9}},ExpressionUUID->"cbb7c92a-a31c-487e-b8c8-\
+1856d46f245d"]
+},
+WindowSize->{808, 754},
+WindowMargins->{{70, Automatic}, {Automatic, 40}},
+FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (March 16, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"d8067d3f-a3d7-422f-84cd-d1ff186bc0d4"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 2827, 63, 213, "Input",ExpressionUUID->"cbb7c92a-a31c-487e-b8c8-1856d46f245d"]
+}
+]
+*)
+

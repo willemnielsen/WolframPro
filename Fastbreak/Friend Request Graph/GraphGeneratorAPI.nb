@@ -1,0 +1,535 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     21697,        527]
+NotebookOptionsPosition[     20337,        500]
+NotebookOutlinePosition[     20758,        517]
+CellTagsIndexPosition[     20715,        514]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"correctSpelling", "[", 
+    RowBox[{"name_", ",", " ", "names_"}], "]"}], ":=", " ", 
+   RowBox[{"SelectFirst", "[", 
+    RowBox[{"names", ",", " ", 
+     RowBox[{
+      RowBox[{"StringMatchQ", "[", 
+       RowBox[{"name", ",", " ", "#", ",", " ", 
+        RowBox[{"SpellingCorrection", "->", "True"}]}], "]"}], "&"}], ",", 
+     " ", "name"}], "]"}]}], ";"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"529de2e8-c65e-42aa-89a2-1e53f279c423"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getEdges", "[", "req_", "]"}], ":=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"req", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], "->", " ", "#"}], " ", "&"}], " ", "/@",
+    " ", 
+   RowBox[{"req", "[", 
+    RowBox[{"[", "2", "]"}], "]"}]}]}]], "Input",
+ CellLabel->"In[2]:=",ExpressionUUID->"d6ef68c3-409f-4a79-94e0-1987465a57c2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getGraph", "[", 
+   RowBox[{"data_", ",", " ", 
+    RowBox[{"imageSize_", ":", "\"\<Medium\>\""}]}], "]"}], ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"edges", ",", "notRegistered", ",", " ", "vertices"}], "}"}], 
+    ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"vertices", " ", "=", 
+      RowBox[{"data", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", " ", "1"}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"edges", " ", "=", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"getEdges", "[", "#", "]"}], "&"}], "/@", " ", "data"}], 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"notRegistered", " ", "=", 
+      RowBox[{"Complement", "[", 
+       RowBox[{
+        RowBox[{"VertexList", "[", "edges", "]"}], ",", 
+        RowBox[{"data", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", " ", "1"}], "]"}], "]"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Graph", "[", 
+      RowBox[{"vertices", ",", " ", "edges", ",", " ", 
+       RowBox[{"VertexLabels", "->", "\"\<Name\>\""}], ",", 
+       RowBox[{"VertexStyle", "->", 
+        RowBox[{"Thread", "[", 
+         RowBox[{"notRegistered", "->", " ", "Red"}], "]"}]}], ",", " ", 
+       RowBox[{"ImageSize", "->", "imageSize"}]}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.922420040400529*^9, 3.92242006985817*^9}, {
+  3.9224201254152327`*^9, 3.9224201465141973`*^9}, {3.922420225617985*^9, 
+  3.922420304398883*^9}, {3.922422241203802*^9, 3.922422317593146*^9}, {
+  3.922490408313676*^9, 3.922490445596305*^9}, {3.922550851371631*^9, 
+  3.922550852930581*^9}, {3.922551080019586*^9, 3.9225510864568233`*^9}, {
+  3.922551146284155*^9, 3.922551179531266*^9}, {3.9225512335753803`*^9, 
+  3.922551257353991*^9}, {3.922551326043066*^9, 3.922551348214025*^9}, {
+  3.9225515841544857`*^9, 3.922551586418082*^9}, {3.9225517258039713`*^9, 
+  3.922551735584754*^9}, {3.922552454596504*^9, 3.922552459208315*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"20ec7cca-5ba0-41fc-a9a1-6ca536e9aa66"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"selectRegistered", "[", 
+   RowBox[{"reqs_", ",", " ", "names_"}], "]"}], ":=", " ", 
+  RowBox[{"Select", "[", 
+   RowBox[{"reqs", ",", " ", 
+    RowBox[{
+     RowBox[{"MemberQ", "[", 
+      RowBox[{"names", ",", "#"}], "]"}], "&"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.922414977018982*^9, 3.922415083661622*^9}, {
+   3.92241531166252*^9, 3.922415313982171*^9}, {3.92241552424712*^9, 
+   3.922415526699896*^9}, 3.922422797974161*^9, 3.922422845622081*^9, {
+   3.9225293244962187`*^9, 3.922529324662199*^9}, {3.922529355509677*^9, 
+   3.922529356836736*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"4eeaf1d0-85c2-4f88-8e97-c456157b6154"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getTeamSizes", "[", 
+   RowBox[{"numTeams_", ",", " ", "g_"}], "]"}], ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"pPerTeam", ",", " ", "teamsWithMore"}], "}"}], ",", " ", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"pPerTeam", " ", "=", " ", 
+      RowBox[{"Floor", "[", 
+       RowBox[{
+        RowBox[{"Length", "[", 
+         RowBox[{"VertexList", "[", "g", "]"}], "]"}], " ", "/", " ", 
+        "numTeams"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"teamsWithMore", " ", "=", " ", 
+      RowBox[{"Mod", "[", 
+       RowBox[{
+        RowBox[{"Length", "[", 
+         RowBox[{"VertexList", "[", "g", "]"}], "]"}], ",", " ", "numTeams"}],
+        "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"Join", "[", 
+      RowBox[{
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{"pPerTeam", "+", " ", "1"}], ",", " ", "teamsWithMore"}], 
+        "]"}], ",", " ", 
+       RowBox[{"Table", "[", 
+        RowBox[{"pPerTeam", ",", " ", 
+         RowBox[{"numTeams", " ", "-", " ", "teamsWithMore"}]}], "]"}]}], 
+      "]"}]}]}], "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{{3.922418969351949*^9, 3.922418979708234*^9}, {
+  3.922419047693832*^9, 3.922419107504983*^9}, {3.922422934312421*^9, 
+  3.9224229491815157`*^9}, {3.922529427647785*^9, 3.922529428556428*^9}, {
+  3.92252948761215*^9, 3.922529488780814*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"f8b95d23-e9db-42a7-88de-89598f29ae39"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getGraphs", "[", "data_", "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "numTeams", ",", " ", "requests", ",", " ", "names", ",", " ", 
+      "spellCheckedRequests", ",", " ", "spellCheckedData", ",", " ", "gAll", 
+      ",", " ", "onlyRegisteredRequests", ",", " ", "registeredData", ",", 
+      " ", "gReg"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"requests", " ", "=", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"StringTrim", "[", 
+         RowBox[{"StringSplit", "[", 
+          RowBox[{"#", ",", " ", 
+           RowBox[{"{", 
+            RowBox[{"\"\<,\>\"", ",", " ", "\"\<\\n\>\""}], "}"}]}], "]"}], 
+         "]"}], "&"}], " ", "/@", " ", 
+       RowBox[{"data", "[", 
+        RowBox[{"[", 
+         RowBox[{"All", ",", " ", "2"}], "]"}], "]"}]}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"names", " ", "=", " ", 
+      RowBox[{"data", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", " ", "1"}], "]"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"spellCheckedRequests", "=", " ", 
+      RowBox[{"Map", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"correctSpelling", "[", 
+          RowBox[{"#", ",", " ", "names"}], "]"}], "&"}], ",", " ", 
+        "requests", ",", " ", 
+        RowBox[{"{", "2", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"spellCheckedData", " ", "=", " ", 
+      RowBox[{"Transpose", "[", 
+       RowBox[{"{", 
+        RowBox[{"names", ",", " ", "spellCheckedRequests"}], "}"}], "]"}]}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"gAll", " ", "=", " ", 
+      RowBox[{"getGraph", "[", 
+       RowBox[{"spellCheckedData", ",", " ", "1500"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"onlyRegisteredRequests", " ", "=", " ", 
+      RowBox[{"Map", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"selectRegistered", "[", 
+          RowBox[{"#", ",", " ", "names"}], "]"}], "&"}], ",", 
+        "spellCheckedRequests"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"registeredData", " ", "=", " ", 
+      RowBox[{"Transpose", "[", 
+       RowBox[{"{", 
+        RowBox[{"names", ",", " ", "onlyRegisteredRequests"}], "}"}], "]"}]}],
+      ";", "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", "registeredData", "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"gReg", " ", "=", "  ", 
+      RowBox[{"getGraph", "[", 
+       RowBox[{"registeredData", ",", " ", "1300"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"gAll", ",", " ", "gReg"}], "}"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.922529551515504*^9, 3.922529578095055*^9}, {
+   3.92252964249098*^9, 3.922529692782557*^9}, {3.922529855955558*^9, 
+   3.922529858209167*^9}, {3.922546196297624*^9, 3.9225462326812983`*^9}, {
+   3.922546893157508*^9, 3.9225469187221613`*^9}, {3.922548413736266*^9, 
+   3.922548438781877*^9}, {3.922548630083213*^9, 3.922548630972013*^9}, {
+   3.922550611552691*^9, 3.922550624550406*^9}, 3.922551778481991*^9, 
+   3.922552034661187*^9},
+ CellLabel->"In[6]:=",ExpressionUUID->"b7cb9e5f-a00b-43c1-bcb1-1cabbcfa90c0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getTeams", "[", 
+   RowBox[{"g_", ",", " ", "numTeams_"}], "]"}], ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", " ", 
+     RowBox[{
+     "teams", ",", " ", "actualTeamSizes", ",", " ", "teamsGraph", ",", " ", 
+      "colTeams"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"Print", "[", 
+      RowBox[{"getTeamSizes", "[", 
+       RowBox[{"numTeams", ",", " ", "g"}], "]"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"teams", " ", "=", " ", 
+      RowBox[{"FindGraphPartition", "[", 
+       RowBox[{"g", ",", " ", 
+        RowBox[{"getTeamSizes", "[", 
+         RowBox[{"numTeams", ",", " ", "g"}], "]"}]}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", "teams", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"actualTeamSizes", " ", "=", 
+      RowBox[{"Map", "[", 
+       RowBox[{"Length", ",", "teams", ",", 
+        RowBox[{"{", "1", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"teamsGraph", " ", "=", " ", 
+      RowBox[{"CommunityGraphPlot", "[", 
+       RowBox[{"g", ",", " ", "teams"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     
+     RowBox[{"colTeams", " ", "=", " ", 
+      RowBox[{"Transpose", "[", 
+       RowBox[{"Map", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"PadRight", "[", 
+           RowBox[{"#", ",", 
+            RowBox[{"Max", "[", "actualTeamSizes", "]"}], ",", " ", 
+            "\"\<\>\""}], "]"}], "&"}], ",", " ", "teams"}], "]"}], "]"}]}], 
+     ";", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"teamsGraph", ",", " ", "colTeams"}], "}"}]}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.922529712546275*^9, 3.922529910110325*^9}, {
+   3.922530012709062*^9, 3.922530035492653*^9}, 3.922530069087678*^9, {
+   3.92255280164063*^9, 3.922552812681726*^9}, {3.9225530203650837`*^9, 
+   3.922553041646188*^9}, {3.92255319260431*^9, 3.922553199278781*^9}, {
+   3.922553288002554*^9, 3.922553292713662*^9}, {3.922553711418198*^9, 
+   3.9225537975353537`*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"0dcdede3-7387-471b-b6f1-e2a2d8b97cb5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getCommunities", "[", 
+   RowBox[{"g_", ",", " ", "numTeams_"}], "]"}], ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", " ", 
+     RowBox[{
+     "communities", ",", " ", "communitySizes", ",", " ", "numCommunities", 
+      ",", " ", "communityGraph", ",", " ", "colCommunities"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"communities", " ", "=", 
+      RowBox[{"FindGraphCommunities", "[", "g", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"communitySizes", " ", "=", " ", 
+      RowBox[{"Map", "[", 
+       RowBox[{"Length", ",", "communities", ",", 
+        RowBox[{"{", "1", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"numCommunities", " ", "=", " ", 
+      RowBox[{"Length", "[", "communitySizes", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"communityGraph", " ", "=", 
+      RowBox[{"CommunityGraphPlot", "[", 
+       RowBox[{"g", ",", " ", "communities"}], "]"}]}], " ", ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"colCommunities", " ", "=", 
+      RowBox[{"Transpose", "[", 
+       RowBox[{"Map", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"PadRight", "[", 
+           RowBox[{"#", ",", 
+            RowBox[{"Max", "[", "communitySizes", "]"}], ",", " ", 
+            "\"\<\>\""}], "]"}], "&"}], ",", " ", "communities"}], "]"}], 
+       "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{"communityGraph", ",", " ", "colCommunities"}], "}"}]}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.92252993055101*^9, 3.92252993256012*^9}, {
+  3.9225299651193542`*^9, 3.922530006468852*^9}, {3.922530044967641*^9, 
+  3.922530057856263*^9}, {3.922546113417659*^9, 3.922546114826376*^9}, {
+  3.922546286841527*^9, 3.922546337333049*^9}, {3.922546376607357*^9, 
+  3.922546680592475*^9}, {3.9225540153760843`*^9, 3.922554043985174*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"4dfcd38e-d585-42ac-9d88-bc4316729a14"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"getAll", "[", "form_", "]"}], ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "data", ",", "numTeams", ",", " ", "gAll", ",", " ", "gReg", ",", 
+      "teamsGraph", ",", "communitiesGraph", ",", " ", "teamsTable", ",", " ",
+       "communitiesTable", ",", " ", "gallery"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"data", " ", "=", " ", 
+      RowBox[{"form", "[", "\"\<Friend Request Data\>\"", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"numTeams", " ", "=", " ", 
+      RowBox[{"form", "[", "\"\<Desired Number of Teams\>\"", "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"gAll", ",", " ", "gReg"}], "}"}], " ", "=", " ", 
+      RowBox[{"getGraphs", "[", "data", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"teamsGraph", ",", " ", "teamsTable"}], "}"}], " ", "=", " ", 
+      RowBox[{"getTeams", "[", 
+       RowBox[{"gReg", ",", " ", "numTeams"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"communitiesGraph", ",", " ", "communitiesTable"}], "}"}], " ",
+       "=", " ", 
+      RowBox[{"getCommunities", "[", 
+       RowBox[{"gReg", ",", " ", "numTeams"}], "]"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"gallery", " ", "=", 
+      RowBox[{"{", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"<|", 
+         RowBox[{
+          RowBox[{"\"\<Content\>\"", "->", "gAll"}], ",", 
+          RowBox[{"\"\<Title\>\"", "->", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<All Requests (Above)\>\"", ",", " ", "Large"}], 
+            "]"}]}], ",", 
+          RowBox[{
+          "\"\<Description\>\"", "->", 
+           "\"\<A graph of all the requests from the given data with spell \
+checking applied. The red dots are players that were requested but could not \
+be found in the pool.\>\""}]}], "|>"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"<|", 
+         RowBox[{
+          RowBox[{"\"\<Content\>\"", "->", "gReg"}], ",", 
+          RowBox[{"\"\<Title\>\"", "->", 
+           RowBox[{"Style", "[", 
+            RowBox[{
+            "\"\<Registered Requests (Above)\>\"", ",", " ", "Large"}], 
+            "]"}]}], ",", 
+          RowBox[{
+          "\"\<Description\>\"", "->", 
+           "\"\<The same graph with players who could not be found in the \
+pool removed, i.e. all the red dots.\>\""}]}], "|>"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"<|", 
+         RowBox[{
+          RowBox[{"\"\<Content\>\"", "->", "teamsGraph"}], ",", 
+          RowBox[{"\"\<Title\>\"", "->", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<Teams Graph (Above)\>\"", ",", " ", "Large"}], 
+            "]"}]}], ",", 
+          RowBox[{
+          "\"\<Description\>\"", "->", 
+           "\"\<A graph of teams that were made based on given number of \
+teams. The computer makes them based on how mutually requested players are, \
+i.e. how close they are in the graph.\>\""}]}], "|>"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"<|", 
+         RowBox[{
+          RowBox[{"\"\<Content\>\"", "->", 
+           RowBox[{"Grid", "[", "teamsTable", "]"}]}], ",", 
+          RowBox[{"\"\<Title\>\"", "->", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<Teams Table (Above)\>\"", ",", " ", "Large"}], 
+            "]"}]}], ",", 
+          RowBox[{
+          "\"\<Description\>\"", "->", 
+           "\"\<The teams shown in the above graph in table format\>\""}]}], 
+         "|>"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"<|", 
+         RowBox[{
+          RowBox[{"\"\<Content\>\"", "->", "communitiesGraph"}], ",", 
+          RowBox[{"\"\<Title\>\"", "->", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<Communities Graph (Above)\>\"", ",", " ", "Large"}], 
+            "]"}]}], ",", 
+          RowBox[{
+          "\"\<Description\>\"", "->", 
+           "\"\<The computer groups the kids into communities based on mutual \
+requests. Groups can have any number of kids and are not meant to be final \
+teams\>\""}]}], "|>"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"<|", 
+         RowBox[{
+          RowBox[{"\"\<Content\>\"", "->", 
+           RowBox[{"Grid", "[", "communitiesTable", "]"}]}], ",", 
+          RowBox[{"\"\<Title\>\"", "->", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<Communities (Above)\>\"", ",", " ", "Large"}], 
+            "]"}]}], ",", 
+          RowBox[{
+          "\"\<Description\>\"", "->", 
+           "\"\<The communities shown in the above graph in table \
+format\>\""}]}], "|>"}]}], "\[IndentingNewLine]", "}"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"GalleryView", "[", 
+      RowBox[{"gallery", ",", 
+       RowBox[{"Pagination", "->", 
+        RowBox[{"{", 
+         RowBox[{"6", ",", " ", "1"}], "}"}]}]}], "]"}]}]}], 
+   "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"form", "=", 
+   RowBox[{"FormFunction", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\"\<Friend Request Data\>\"", "->", "\"\<CSV\>\""}], ",", " ", 
+       RowBox[{
+       "\"\<Desired Number of Teams\>\"", "->", " ", "\"\<Number\>\""}]}], 
+      "}"}], ",", "getAll"}], "]"}]}], ";"}], "\n", 
+ RowBox[{"CloudDeploy", "[", 
+  RowBox[{"form", ",", " ", "\"\<teambuilder\>\""}], "]"}]}], "Input",
+ CellChangeTimes->CompressedData["
+1:eJxTTMoPSmViYGAQBmIQ/WBh4MWFlm8dG99MBNMHLi6+CqKvMZy/BaJffZt3
+H0Q3pVk/BNFlsbo7VgLpNYVRYPrU21tnQXTYCq0rILoiX/gmiH40TZlpFZCe
+9HIqP4g+tWmJMIhuirzrB6JPcLdEg2jZppQkEG3BV58Bov872FWB6I4UiXoQ
+/U4sqRVETyll6ALR2TtnzwTRIg+PzQXR808ELAfRvw5yrACbp/RiI1heQGAT
+iL6i5bYTRLOx+ewF0Q2m0UdA9OzrbWBaJqH6JIjmYOwD09vf+UutBtJmuzdL
+g+iH789r3gDSwrM+a4FoAAq0nmI=
+  "],
+ CellLabel->"In[9]:=",ExpressionUUID->"f96c859f-a94f-4292-8fbc-403616c1d7ad"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"CloudObject", "[", 
+   TemplateBox[{
+    "\"https://www.wolframcloud.com/obj/wrn2001/teambuilder\"", 
+     "https://www.wolframcloud.com/obj/wrn2001/teambuilder"},
+    "HyperlinkURL"], "]"}],
+  CloudObject["https://www.wolframcloud.com/obj/wrn2001/teambuilder"],
+  SelectWithContents->True]], "Output",
+ CellChangeTimes->{3.922546719329459*^9, 3.922546846248485*^9, 
+  3.922546931045449*^9, 3.922547422269857*^9, 3.922547727875155*^9, 
+  3.9225478761517*^9, 3.9225479528659782`*^9, 3.92254803403274*^9, 
+  3.92254811375691*^9, 3.9225482043015537`*^9, 3.922548261412378*^9, 
+  3.922548599488511*^9, 3.922548959596024*^9, 3.9225526487107477`*^9, 
+  3.922553927093715*^9, 3.922554066430875*^9, 3.922641296689188*^9},
+ CellLabel->"Out[11]=",ExpressionUUID->"79c7fbae-9abd-4e94-840b-43b68ae6ac5c"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"(*", 
+  RowBox[{
+   RowBox[{"https", ":"}], "//", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"www", ".", "wolframcloud", ".", "com"}], "/", "obj"}], "/", 
+     "e98fb66f"}], "-", "d7bb", "-", 
+    RowBox[{"4", "b0c"}], "-", 
+    RowBox[{"90", "ae"}], "-", 
+    RowBox[{"610", "bb2b280b4"}]}]}], "*)"}]], "Input",
+ CellChangeTimes->{3.9226412811855793`*^9},
+ CellLabel->"In[12]:=",ExpressionUUID->"fc84c583-5fe3-4a36-8cc0-143a21821f17"]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{316, Automatic}, {Automatic, 50}},
+Magnification->1.25,
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"64bcf6fe-e15b-4fa3-b996-40ca5c6f15dc"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 495, 12, 37, "Input",ExpressionUUID->"529de2e8-c65e-42aa-89a2-1e53f279c423"],
+Cell[1056, 34, 380, 11, 37, "Input",ExpressionUUID->"d6ef68c3-409f-4a79-94e0-1987465a57c2"],
+Cell[1439, 47, 2155, 47, 168, "Input",ExpressionUUID->"20ec7cca-5ba0-41fc-a9a1-6ca536e9aa66"],
+Cell[3597, 96, 677, 14, 37, "Input",ExpressionUUID->"4eeaf1d0-85c2-4f88-8e97-c456157b6154"],
+Cell[4277, 112, 1512, 36, 142, "Input",ExpressionUUID->"f8b95d23-e9db-42a7-88de-89598f29ae39"],
+Cell[5792, 150, 3202, 75, 324, "Input",ExpressionUUID->"b7cb9e5f-a00b-43c1-bcb1-1cabbcfa90c0"],
+Cell[8997, 227, 2122, 49, 220, "Input",ExpressionUUID->"0dcdede3-7387-471b-b6f1-e2a2d8b97cb5"],
+Cell[11122, 278, 1976, 44, 194, "Input",ExpressionUUID->"4dfcd38e-d585-42ac-9d88-bc4316729a14"],
+Cell[CellGroupData[{
+Cell[13123, 326, 5885, 139, 662, "Input",ExpressionUUID->"f96c859f-a94f-4292-8fbc-403616c1d7ad"],
+Cell[19011, 467, 837, 15, 46, "Output",ExpressionUUID->"79c7fbae-9abd-4e94-840b-43b68ae6ac5c"]
+}, Open  ]],
+Cell[19863, 485, 470, 13, 37, "Input",ExpressionUUID->"fc84c583-5fe3-4a36-8cc0-143a21821f17"]
+}
+]
+*)
+

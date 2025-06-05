@@ -1,0 +1,1608 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     82621,       1600]
+NotebookOptionsPosition[     81920,       1580]
+NotebookOutlinePosition[     82318,       1596]
+CellTagsIndexPosition[     82275,       1593]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"primitives", "=", 
+     RowBox[{"Select", "[", 
+      RowBox[{
+       RowBox[{"Keys", "[", 
+        RowBox[{"Select", "[", 
+         RowBox[{
+          RowBox[{"Select", "[", 
+           RowBox[{
+            RowBox[{
+             InterpretationBox[
+              TagBox[
+               FrameBox[
+                PaneBox[GridBox[{
+                   {
+                    StyleBox[
+                    StyleBox[
+                    AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                    FontColor->GrayLevel[0.45]],
+                    ShowStringCharacters->False,
+                    FontFamily->"Source Sans Pro Black",
+                    FontSize->0.65 Inherited,
+                    FontWeight->"Heavy",
+                    PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                    StyleBox[
+                    RowBox[{
+                    StyleBox["\<\"Data\"\>", "ResourceFunctionLabel"], " "}],
+                    ShowAutoStyles->False,
+                    ShowStringCharacters->False,
+                    FontSize->0.9 Inherited,
+                    FontColor->GrayLevel[0.1]]}
+                  },
+                  GridBoxSpacings->{"Columns" -> {{0.25}}}],
+                 Alignment->Left,
+                 BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+                 
+                 BaselinePosition->Baseline,
+                 FrameMargins->{{3, 0}, {0, 0}}],
+                Background->RGBColor[0.968627, 0.976471, 0.984314],
+                BaselinePosition->Baseline,
+                DefaultBaseStyle->{},
+                FrameMargins->{{0, 0}, {1, 1}},
+                FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+                RoundingRadius->4],
+               {"FunctionResourceBox", 
+                GrayLevel[0.45], "\"Data\""},
+               TagBoxNote->"FunctionResourceBox"],
+              ResourceFunction[
+               
+               ResourceObject[<|
+                "Name" -> "Data", "UUID" -> 
+                 "f89cae16-5ad6-4662-8ac2-4ad277c6b2e1", "ResourceType" -> 
+                 "Function", "ResourceLocations" -> {
+                   CloudObject[
+                   "https://www.wolframcloud.com/obj/sw-writings/Resources/\
+f89/f89cae16-5ad6-4662-8ac2-4ad277c6b2e1"]}, "Version" -> None, 
+                 "DefinitionNotebook" -> 
+                 CloudObject[
+                  "https://www.wolframcloud.com/obj/sw-writings/Medicine/Data/\
+Data-DefinitionNotebook.nb"], "DocumentationLink" -> 
+                 URL["https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+Data"], "ExampleNotebookData" -> Automatic, "FunctionLocation" -> 
+                 CloudObject[
+                  "https://www.wolframcloud.com/obj/sw-writings/Resources/f89/\
+f89cae16-5ad6-4662-8ac2-4ad277c6b2e1/download/DefinitionData"], "ShortName" -> 
+                 "Data", "SymbolName" -> 
+                 "FunctionRepository`$f89cae165ad646628ac24ad277c6b2e1`Data", 
+                 "PageHeaderClickToCopy" -> 
+                 "ResourceObject[CloudObject[\"https://www.wolframcloud.com/\
+obj/sw-writings/Medicine/Data\"]]"|>]],
+              Selectable->False], "[", "\"\<$LifeData\>\"", "]"}], ",", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"KeyExistsQ", "[", 
+               RowBox[{"#", ",", "\"\<InitialWeight\>\""}], "]"}], "&&", 
+              RowBox[{"KeyExistsQ", "[", 
+               RowBox[{"#", ",", "\"\<MatrixData\>\""}], "]"}]}], "&"}]}], 
+           "]"}], ",", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"2", "<", "#InitialWeight", "<", "4000"}], "&&", 
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"Times", "@@", 
+               RowBox[{"Dimensions", "[", "#MatrixData", "]"}]}], ")"}], "<", 
+             "4000"}]}], "&"}]}], "]"}], "]"}], ",", 
+       RowBox[{
+        RowBox[{
+         InterpretationBox[
+          TagBox[
+           FrameBox[
+            PaneBox[GridBox[{
+               {
+                StyleBox[
+                 StyleBox[
+                  AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                   BoxBaselineShift->-0.25,
+                   BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                  FontColor->GrayLevel[0.45]],
+                 ShowStringCharacters->False,
+                 FontFamily->"Source Sans Pro Black",
+                 FontSize->0.65 Inherited,
+                 FontWeight->"Heavy",
+                 PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                StyleBox[
+                 RowBox[{
+                  StyleBox["\<\"IsPrimitive\"\>", "ResourceFunctionLabel"], 
+                  " "}],
+                 ShowAutoStyles->False,
+                 ShowStringCharacters->False,
+                 FontSize->0.9 Inherited,
+                 FontColor->GrayLevel[0.1]]}
+              },
+              GridBoxSpacings->{"Columns" -> {{0.25}}}],
+             Alignment->Left,
+             BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+             BaselinePosition->Baseline,
+             FrameMargins->{{3, 0}, {0, 0}}],
+            Background->RGBColor[0.968627, 0.976471, 0.984314],
+            BaselinePosition->Baseline,
+            DefaultBaseStyle->{},
+            FrameMargins->{{0, 0}, {1, 1}},
+            FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+            RoundingRadius->4],
+           {"FunctionResourceBox", 
+            GrayLevel[0.45], "\"IsPrimitive\""},
+           TagBoxNote->"FunctionResourceBox"],
+          ResourceFunction[
+           
+           ResourceObject[<|
+            "Name" -> "IsPrimitive", "UUID" -> 
+             "a8f113ad-ad61-448a-9fac-a3b747008e24", "ResourceType" -> 
+             "Function", "ResourceLocations" -> {
+               CloudObject[
+               "https://www.wolframcloud.com/obj/sw-writings/Resources/a8f/\
+a8f113ad-ad61-448a-9fac-a3b747008e24"]}, "Version" -> None, 
+             "DefinitionNotebook" -> 
+             CloudObject[
+              "https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+IsPrimitive/IsPrimitive-DefinitionNotebook.nb"], "DocumentationLink" -> 
+             URL["https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+IsPrimitive"], "ExampleNotebookData" -> Automatic, "FunctionLocation" -> 
+             CloudObject[
+              "https://www.wolframcloud.com/obj/sw-writings/Resources/a8f/\
+a8f113ad-ad61-448a-9fac-a3b747008e24/download/DefinitionData"], 
+             "PageHeaderClickToCopy" -> 
+             "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/\
+sw-writings/Medicine/IsPrimitive\"]]", "ShortName" -> "IsPrimitive", 
+             "SymbolName" -> 
+             "FunctionRepository`$a8f113adad61448a9faca3b747008e24`\
+IsPrimitive"|>]],
+          Selectable->False], "[", 
+         RowBox[{"Normal", "[", 
+          RowBox[{
+           RowBox[{"ld", "[", "#", "]"}], "[", "\"\<MatrixData\>\"", "]"}], 
+          "]"}], "]"}], "&"}]}], "]"}]}], ";", "\n", 
+    RowBox[{"allprims", "=", 
+     RowBox[{"Association", "[", 
+      RowBox[{"ParallelMap", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"#", "->", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", 
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"#", "[", "\"\<InitialWeight\>\"", "]"}], ">", 
+                  "1000"}], ",", "Nothing", ",", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{"!", 
+                    RowBox[{"KeyExistsQ", "[", 
+                    RowBox[{"#", ",", "\"\<Period\>\""}], "]"}]}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{
+                    InterpretationBox[
+                    TagBox[
+                    FrameBox[
+                    PaneBox[GridBox[{
+                    {
+                    StyleBox[
+                    StyleBox[
+                    AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                    FontColor->GrayLevel[0.45]],
+                    ShowStringCharacters->False,
+                    FontFamily->"Source Sans Pro Black",
+                    FontSize->0.65 Inherited,
+                    FontWeight->"Heavy",
+                    PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                    StyleBox[
+                    RowBox[{
+                    
+                    StyleBox["\<\"PatternCanonicalize2\"\>", 
+                    "ResourceFunctionLabel"], " "}],
+                    ShowAutoStyles->False,
+                    ShowStringCharacters->False,
+                    FontSize->0.9 Inherited,
+                    FontColor->GrayLevel[0.1]]}
+                    },
+                    GridBoxSpacings->{"Columns" -> {{0.25}}}],
+                    Alignment->Left,
+                    
+                    BaseStyle->{
+                    LineSpacing -> {0, 0}, LineBreakWithin -> False},
+                    BaselinePosition->Baseline,
+                    FrameMargins->{{3, 0}, {0, 0}}],
+                    Background->RGBColor[0.968627, 0.976471, 0.984314],
+                    BaselinePosition->Baseline,
+                    DefaultBaseStyle->{},
+                    FrameMargins->{{0, 0}, {1, 1}},
+                    FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+                    RoundingRadius->4],
+                    {"FunctionResourceBox", 
+                    GrayLevel[0.45], "\"PatternCanonicalize2\""},
+                    TagBoxNote->"FunctionResourceBox"],
+                    ResourceFunction[
+                    
+                    ResourceObject[<|
+                    "Name" -> "PatternCanonicalize2", "UUID" -> 
+                    "b057447e-017c-4414-bfe3-7c9941998050", "ResourceType" -> 
+                    "Function", "ResourceLocations" -> {
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings/Resources/\
+b05/b057447e-017c-4414-bfe3-7c9941998050"]}, "Version" -> None, 
+                    "DefinitionNotebook" -> 
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+PatternCanonicalize2/PatternCanonicalize2-DefinitionNotebook.nb"], 
+                    "DocumentationLink" -> 
+                    URL["https://www.wolframcloud.com/obj/sw-writings/\
+Medicine/PatternCanonicalize2"], "ExampleNotebookData" -> Automatic, 
+                    "FunctionLocation" -> 
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings/Resources/\
+b05/b057447e-017c-4414-bfe3-7c9941998050/download/DefinitionData"], 
+                    "PageHeaderClickToCopy" -> 
+                    "ResourceObject[CloudObject[\"https://www.wolframcloud.\
+com/obj/sw-writings/Medicine/PatternCanonicalize2\"]]", "ShortName" -> 
+                    "PatternCanonicalize2", "SymbolName" -> 
+                    "FunctionRepository`$b057447e017c4414bfe37c9941998050`\
+PatternCanonicalize2"|>]],
+                    Selectable->False], "[", 
+                    RowBox[{
+                    RowBox[{
+                    "ResourceFunction", "[", "\"\<ArrayCrop\>\"", "]"}], "[", 
+                    
+                    RowBox[{"#", "[", "\"\<MatrixData\>\"", "]"}], "]"}], 
+                    "]"}], "}"}], ",", 
+                   RowBox[{"If", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"#", "[", "\"\<Period\>\"", "]"}], ">", "150"}], ",",
+                     "Nothing", ",", 
+                    RowBox[{"Union", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{
+                    InterpretationBox[
+                    TagBox[
+                    FrameBox[
+                    PaneBox[GridBox[{
+                    {
+                    StyleBox[
+                    StyleBox[
+                    AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                    FontColor->GrayLevel[0.45]],
+                    ShowStringCharacters->False,
+                    FontFamily->"Source Sans Pro Black",
+                    FontSize->0.65 Inherited,
+                    FontWeight->"Heavy",
+                    PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                    StyleBox[
+                    RowBox[{
+                    
+                    StyleBox["\<\"PatternCanonicalize2\"\>", 
+                    "ResourceFunctionLabel"], " "}],
+                    ShowAutoStyles->False,
+                    ShowStringCharacters->False,
+                    FontSize->0.9 Inherited,
+                    FontColor->GrayLevel[0.1]]}
+                    },
+                    GridBoxSpacings->{"Columns" -> {{0.25}}}],
+                    Alignment->Left,
+                    
+                    BaseStyle->{
+                    LineSpacing -> {0, 0}, LineBreakWithin -> False},
+                    BaselinePosition->Baseline,
+                    FrameMargins->{{3, 0}, {0, 0}}],
+                    Background->RGBColor[0.968627, 0.976471, 0.984314],
+                    BaselinePosition->Baseline,
+                    DefaultBaseStyle->{},
+                    FrameMargins->{{0, 0}, {1, 1}},
+                    FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+                    RoundingRadius->4],
+                    {"FunctionResourceBox", 
+                    GrayLevel[0.45], "\"PatternCanonicalize2\""},
+                    TagBoxNote->"FunctionResourceBox"],
+                    ResourceFunction[
+                    
+                    ResourceObject[<|
+                    "Name" -> "PatternCanonicalize2", "UUID" -> 
+                    "b057447e-017c-4414-bfe3-7c9941998050", "ResourceType" -> 
+                    "Function", "ResourceLocations" -> {
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings/Resources/\
+b05/b057447e-017c-4414-bfe3-7c9941998050"]}, "Version" -> None, 
+                    "DefinitionNotebook" -> 
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+PatternCanonicalize2/PatternCanonicalize2-DefinitionNotebook.nb"], 
+                    "DocumentationLink" -> 
+                    URL["https://www.wolframcloud.com/obj/sw-writings/\
+Medicine/PatternCanonicalize2"], "ExampleNotebookData" -> Automatic, 
+                    "FunctionLocation" -> 
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings/Resources/\
+b05/b057447e-017c-4414-bfe3-7c9941998050/download/DefinitionData"], 
+                    "PageHeaderClickToCopy" -> 
+                    "ResourceObject[CloudObject[\"https://www.wolframcloud.\
+com/obj/sw-writings/Medicine/PatternCanonicalize2\"]]", "ShortName" -> 
+                    "PatternCanonicalize2", "SymbolName" -> 
+                    "FunctionRepository`$b057447e017c4414bfe37c9941998050`\
+PatternCanonicalize2"|>]],
+                    Selectable->False], "[", 
+                    RowBox[{
+                    RowBox[{
+                    "ResourceFunction", "[", "\"\<ArrayCrop\>\"", "]"}], "[", 
+                    "#", "]"}], "]"}], "&"}], "/@", 
+                    RowBox[{"CellularAutomaton", "[", 
+                    RowBox[{"\"\<GameOfLife\>\"", ",", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"#", "[", "\"\<MatrixData\>\"", "]"}], ",", "0"}],
+                     "}"}], ",", 
+                    RowBox[{"#", "[", "\"\<Period\>\"", "]"}]}], "]"}]}], 
+                    "]"}]}], "]"}]}], "]"}]}], "]"}], ")"}], "&"}], ")"}], "[", 
+            RowBox[{"ld", "[", "#", "]"}], "]"}]}], ")"}], "&"}], ",", 
+        "primitives"}], "]"}], "]"}]}], ";"}], "*)"}], "\n", 
+  RowBox[{
+   RowBox[{"allprims", " ", "=", " ", 
+    RowBox[{"CloudImport", "[", 
+     InterpretationBox[
+      RowBox[{"CloudObject", "[", 
+       TemplateBox[{
+        "\"https://www.wolframcloud.com/obj/63b43219-52f6-4f0d-a785-\
+00587211fb63\"", 
+         "https://www.wolframcloud.com/obj/63b43219-52f6-4f0d-a785-\
+00587211fb63"},
+        "HyperlinkURL"], "]"}],
+      CloudObject[
+      "https://www.wolframcloud.com/obj/63b43219-52f6-4f0d-a785-00587211fb63"],
+      SelectWithContents->True], "]"}]}], ";"}]}]], "Input",
+ CellID->124846853,ExpressionUUID->"6426cc9d-1a27-4381-8bdd-67b0a78efa4b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"resall", "=", 
+     RowBox[{"With", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"ld", "=", 
+         RowBox[{
+          InterpretationBox[
+           TagBox[
+            FrameBox[
+             PaneBox[GridBox[{
+                {
+                 StyleBox[
+                  StyleBox[
+                   AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                   FontColor->GrayLevel[0.45]],
+                  ShowStringCharacters->False,
+                  FontFamily->"Source Sans Pro Black",
+                  FontSize->0.65 Inherited,
+                  FontWeight->"Heavy",
+                  PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                 StyleBox[
+                  RowBox[{
+                   StyleBox["\<\"Data\"\>", "ResourceFunctionLabel"], " "}],
+                  ShowAutoStyles->False,
+                  ShowStringCharacters->False,
+                  FontSize->0.9 Inherited,
+                  FontColor->GrayLevel[0.1]]}
+               },
+               GridBoxSpacings->{"Columns" -> {{0.25}}}],
+              Alignment->Left,
+              BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+              BaselinePosition->Baseline,
+              FrameMargins->{{3, 0}, {0, 0}}],
+             Background->RGBColor[0.968627, 0.976471, 0.984314],
+             BaselinePosition->Baseline,
+             DefaultBaseStyle->{},
+             FrameMargins->{{0, 0}, {1, 1}},
+             FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+             RoundingRadius->4],
+            {"FunctionResourceBox", 
+             GrayLevel[0.45], "\"Data\""},
+            TagBoxNote->"FunctionResourceBox"],
+           ResourceFunction[
+            
+            ResourceObject[<|
+             "Name" -> "Data", "UUID" -> 
+              "f89cae16-5ad6-4662-8ac2-4ad277c6b2e1", "ResourceType" -> 
+              "Function", "ResourceLocations" -> {
+                CloudObject[
+                "https://www.wolframcloud.com/obj/sw-writings/Resources/f89/\
+f89cae16-5ad6-4662-8ac2-4ad277c6b2e1"]}, "Version" -> None, 
+              "DefinitionNotebook" -> 
+              CloudObject[
+               "https://www.wolframcloud.com/obj/sw-writings/Medicine/Data/\
+Data-DefinitionNotebook.nb"], "DocumentationLink" -> 
+              URL["https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+Data"], "ExampleNotebookData" -> Automatic, "FunctionLocation" -> 
+              CloudObject[
+               "https://www.wolframcloud.com/obj/sw-writings/Resources/f89/\
+f89cae16-5ad6-4662-8ac2-4ad277c6b2e1/download/DefinitionData"], "ShortName" -> 
+              "Data", "SymbolName" -> 
+              "FunctionRepository`$f89cae165ad646628ac24ad277c6b2e1`Data", 
+              "PageHeaderClickToCopy" -> 
+              "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/\
+sw-writings/Medicine/Data\"]]"|>]],
+           Selectable->False], "[", "\"\<$LifeData\>\"", "]"}]}], "}"}], ",", 
+       
+       RowBox[{"Association", "[", 
+        RowBox[{"DeleteCases", "[", 
+         RowBox[{
+          RowBox[{"ParallelMap", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"#", "->", 
+              RowBox[{"MemoryConstrained", "[", 
+               RowBox[{
+                RowBox[{"(", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{
+                    InterpretationBox[
+                    TagBox[
+                    FrameBox[
+                    PaneBox[GridBox[{
+                    {
+                    StyleBox[
+                    StyleBox[
+                    AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                    FontColor->GrayLevel[0.45]],
+                    ShowStringCharacters->False,
+                    FontFamily->"Source Sans Pro Black",
+                    FontSize->0.65 Inherited,
+                    FontWeight->"Heavy",
+                    PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                    StyleBox[
+                    RowBox[{
+                    StyleBox["\<\"PatternCheck\"\>", "ResourceFunctionLabel"],
+                     " "}],
+                    ShowAutoStyles->False,
+                    ShowStringCharacters->False,
+                    FontSize->0.9 Inherited,
+                    FontColor->GrayLevel[0.1]]}
+                    },
+                    GridBoxSpacings->{"Columns" -> {{0.25}}}],
+                    Alignment->Left,
+                    
+                    BaseStyle->{
+                    LineSpacing -> {0, 0}, LineBreakWithin -> False},
+                    BaselinePosition->Baseline,
+                    FrameMargins->{{3, 0}, {0, 0}}],
+                    Background->RGBColor[0.968627, 0.976471, 0.984314],
+                    BaselinePosition->Baseline,
+                    DefaultBaseStyle->{},
+                    FrameMargins->{{0, 0}, {1, 1}},
+                    FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+                    RoundingRadius->4],
+                    {"FunctionResourceBox", 
+                    GrayLevel[0.45], "\"PatternCheck\""},
+                    TagBoxNote->"FunctionResourceBox"],
+                    ResourceFunction[
+                    
+                    ResourceObject[<|
+                    "Name" -> "PatternCheck", "UUID" -> 
+                    "8585a24d-10ca-4c25-b063-bfcfef29671f", "ResourceType" -> 
+                    "Function", "ResourceLocations" -> {
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings/Resources/\
+858/8585a24d-10ca-4c25-b063-bfcfef29671f"]}, "Version" -> None, 
+                    "DefinitionNotebook" -> 
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+PatternCheck/PatternCheck-DefinitionNotebook.nb"], "DocumentationLink" -> 
+                    URL["https://www.wolframcloud.com/obj/sw-writings/\
+Medicine/PatternCheck"], "ExampleNotebookData" -> Automatic, 
+                    "FunctionLocation" -> 
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings/Resources/\
+858/8585a24d-10ca-4c25-b063-bfcfef29671f/download/DefinitionData"], 
+                    "PageHeaderClickToCopy" -> 
+                    "ResourceObject[CloudObject[\"https://www.wolframcloud.\
+com/obj/sw-writings/Medicine/PatternCheck\"]]", "ShortName" -> "PatternCheck",
+                     "SymbolName" -> 
+                    "FunctionRepository`$8585a24d10ca4c25b063bfcfef29671f`\
+PatternCheck"|>]],
+                    Selectable->False], "[", 
+                    RowBox[{"#", ",", "allprims"}], "]"}], "&"}], "/@", 
+                  RowBox[{"Union", "[", 
+                   RowBox[{
+                    InterpretationBox[
+                    TagBox[
+                    FrameBox[
+                    PaneBox[GridBox[{
+                    {
+                    StyleBox[
+                    StyleBox[
+                    AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                    FontColor->GrayLevel[0.45]],
+                    ShowStringCharacters->False,
+                    FontFamily->"Source Sans Pro Black",
+                    FontSize->0.65 Inherited,
+                    FontWeight->"Heavy",
+                    PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                    StyleBox[
+                    RowBox[{
+                    
+                    StyleBox["\<\"CanonicalParts\"\>", 
+                    "ResourceFunctionLabel"], " "}],
+                    ShowAutoStyles->False,
+                    ShowStringCharacters->False,
+                    FontSize->0.9 Inherited,
+                    FontColor->GrayLevel[0.1]]}
+                    },
+                    GridBoxSpacings->{"Columns" -> {{0.25}}}],
+                    Alignment->Left,
+                    
+                    BaseStyle->{
+                    LineSpacing -> {0, 0}, LineBreakWithin -> False},
+                    BaselinePosition->Baseline,
+                    FrameMargins->{{3, 0}, {0, 0}}],
+                    Background->RGBColor[0.968627, 0.976471, 0.984314],
+                    BaselinePosition->Baseline,
+                    DefaultBaseStyle->{},
+                    FrameMargins->{{0, 0}, {1, 1}},
+                    FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+                    RoundingRadius->4],
+                    {"FunctionResourceBox", 
+                    GrayLevel[0.45], "\"CanonicalParts\""},
+                    TagBoxNote->"FunctionResourceBox"],
+                    ResourceFunction[
+                    
+                    ResourceObject[<|
+                    "Name" -> "CanonicalParts", "UUID" -> 
+                    "816fca21-9de5-4f82-b21f-151d3a0881d8", "ResourceType" -> 
+                    "Function", "ResourceLocations" -> {
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings/Resources/\
+816/816fca21-9de5-4f82-b21f-151d3a0881d8"]}, "Version" -> None, 
+                    "DefinitionNotebook" -> 
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings/Medicine/\
+CanonicalParts/CanonicalParts-DefinitionNotebook.nb"], "DocumentationLink" -> 
+                    URL["https://www.wolframcloud.com/obj/sw-writings/\
+Medicine/CanonicalParts"], "ExampleNotebookData" -> Automatic, 
+                    "FunctionLocation" -> 
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings/Resources/\
+816/816fca21-9de5-4f82-b21f-151d3a0881d8/download/DefinitionData"], 
+                    "PageHeaderClickToCopy" -> 
+                    "ResourceObject[CloudObject[\"https://www.wolframcloud.\
+com/obj/sw-writings/Medicine/CanonicalParts\"]]", "ShortName" -> 
+                    "CanonicalParts", "SymbolName" -> 
+                    "FunctionRepository`$816fca219de54f82b21f151d3a0881d8`\
+CanonicalParts"|>]],
+                    Selectable->False], "[", 
+                    RowBox[{"Normal", "[", 
+                    RowBox[{
+                    RowBox[{"ld", "[", "#", "]"}], "[", "\"\<MatrixData\>\"", 
+                    "]"}], "]"}], "]"}], "]"}]}], ")"}], ",", 
+                RowBox[{"10", "^", "7"}]}], "]"}]}], "&"}], ",", 
+            RowBox[{"Keys", "[", 
+             RowBox[{"Select", "[", 
+              RowBox[{
+               RowBox[{"Select", "[", 
+                RowBox[{"ld", ",", 
+                 RowBox[{
+                  RowBox[{
+                   RowBox[{"KeyExistsQ", "[", 
+                    RowBox[{"#", ",", "\"\<InitialWeight\>\""}], "]"}], "&&", 
+                   
+                   RowBox[{"KeyExistsQ", "[", 
+                    RowBox[{"#", ",", "\"\<MatrixData\>\""}], "]"}]}], 
+                  "&"}]}], "]"}], ",", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"#InitialWeight", "<", "4000"}], "&&", 
+                 RowBox[{
+                  RowBox[{"(", 
+                   RowBox[{"Times", "@@", 
+                    RowBox[{"Dimensions", "[", "#MatrixData", "]"}]}], ")"}], 
+                  "<", "4000"}]}], "&"}]}], "]"}], "]"}]}], "]"}], ",", 
+          RowBox[{"x_", "->", 
+           RowBox[{"{", "x_", "}"}]}]}], "]"}], "]"}]}], "]"}]}], ";"}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"resall", " ", "=", " ", 
+    InterpretationBox[
+     DynamicModuleBox[{Typeset`open = False}, 
+      TemplateBox[{"Association", "AssociationIcon", 
+        GridBox[{{
+           RowBox[{
+             TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+             TagBox["Association", "IconizedItem"]}]}, {
+           RowBox[{
+             TagBox["\"Length: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+             TagBox["778", "IconizedItem"]}]}, {
+           RowBox[{
+             TagBox["\"Byte count: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+             TagBox["215192", "IconizedItem"]}]}}, 
+         GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+         "Column", 
+         GridBoxItemSize -> {
+          "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+        Dynamic[Typeset`open]},
+       "IconizedObject"]],
+     <|"Domino" -> {None}, "Dot" -> {None}, "Duoplet" -> {None}, 
+      "Line of three" -> {"Blinker"}, "Blockade" -> {"Block"}, 
+      "Diagonal on-off" -> {None}, 
+      "Gosper glider gun" -> {"Block", None, None}, 
+      "Honey farm" -> {"Beehive"}, 
+      "Period-60 glider gun" -> {
+       "Block", None, "Glider", None, None, None, None, None}, "Pole 2" -> {},
+       "Queen bee shuttle" -> {"Block", "Queen bee"}, "Tail" -> {"Leg"}, 
+      "3c/10 pi wave" -> {None, None, None, None}, 
+      "Block-laying switch engine" -> {"Block", None, None}, 
+      "Boat-bit" -> {"Snake", "Glider", "Glider", None}, 
+      "Double ewe" -> {None, None}, 
+      "Ecologist" -> {
+       None, None, "Lightweight spaceship", "Lightweight spaceship", None}, 
+      "Flutter" -> {}, "Interchange" -> {None}, 
+      "New gun 1" -> {None, "Block", "Glider", "B-heptomino", None}, 
+      "Noah's ark" -> {"Switch engine"}, "Orthogonal on-off" -> {None}, 
+      "p60 glider shuttle" -> {"Glider", "Pentadecathlon"}, 
+      "Pi ship 1" -> {"Block", None, None}, "Piston" -> {"House", None}, 
+      "Puffer 1" -> {None, None}, "Spark coil" -> {"House"}, 
+      "Twin bees shuttle" -> {"Block", None}, "Washerwoman" -> {"Tub", None}, 
+      "Four skewed blocks" -> {"Block"}, 
+      "RF28B" -> {"R-pentomino", "Tub", "Eater 1"}, 
+      "Roteightor" -> {"Eater 1", None}, "Schick engine" -> {None, None}, 
+      "Sombreros" -> {None}, "Two-glider mess" -> {None, None}, 
+      "Newshuttle" -> {None, "Eater 1", None, None}, 
+      "p54 shuttle" -> {"B-heptomino", "Eater 1", None}, "Siesta" -> {None}, 
+      "Buckingham's p13" -> {None, None}, 
+      "Four eaters hassling lumps of muck" -> {"Eater 1", None}, 
+      "Pentoad" -> {"Z-hexomino", "Eater 1"}, "Gourmet" -> {None, None}, 
+      "Sixty-nine" -> {"Mazing", None}, "Eureka" -> {"Tub", None}, 
+      "p29 pre-pulsar shuttle" -> {"Block", None, "Tub", "Eater 1"}, 
+      "p47 pre-pulsar shuttle" -> {
+       "Blinker", "Block", None, "Tub", "Eater 1"}, 
+      "p10 traffic light hassler" -> {"Block", None}, 
+      "p26 pre-pulsar shuttle" -> {"Blinker", None, "Beacon", None}, 
+      "Tumbling T-tetson" -> {"Figure eight", None}, 
+      "Two pre-L hasslers" -> {None, None}, 
+      "6 bits" -> {"Glider", None, None, "Pentadecathlon"}, 
+      "Blinker puffer 1" -> {"Middleweight spaceship", None}, 
+      "Carnival shuttle" -> {None, None, None, "Monogram", None}, 
+      "Hectic" -> {"Block", "Glider", "Queen bee"}, 
+      "p36 toad hassler" -> {"Toad", "Snacker"}, 
+      "Sailboat" -> {"Kok's galaxy", None, None}, 
+      "Pulshuttle V" -> {None, None, None}, 
+      "p55 pre-pulsar hassler" -> {None, "Eater 1", "Eater 3", None}, 
+      "106P135" -> {"Block", "Glider", None, None, "Pentadecathlon"}, 
+      "119P4H1V0" -> {None, None}, 
+      "Baker's dozen" -> {"Block", None, "Caterer"}, "Bent keys" -> {None}, 
+      "Odd keys" -> {None, None}, "Short keys" -> {None}, 
+      "Twirling T-tetsons 2" -> {None, "Toad", None}, 
+      "Windmill" -> {None, None}, 
+      "Loaflipflop" -> {None, None, "Loaf", "Pentadecathlon"}, 
+      "Two blockers hassling R-pentomino" -> {"Block", None, None}, 
+      "44P5H2V0" -> {None}, "20P4" -> {None}, 
+      "Blinker puffer 2" -> {"Middleweight spaceship", None}, 
+      "Hivenudger 2" -> {None, None, None}, 
+      "p44 pi-heptomino hassler" -> {
+       "Block", "House", "Heavyweight emulator"}, 
+      "p50 glider shuttle" -> {"Glider", None}, 
+      "Wickstretcher 1" -> {None, None}, "Bracket pulsar" -> {None}, 
+      "Bracket quasar" -> {None}, "Cross 2" -> {None, None}, 
+      "Glider pusher" -> {"Glider", "Pentadecathlon", "Eater 1", None}, 
+      "Slow puffer 2" -> {
+       "Middleweight spaceship", "Middleweight spaceship", None, None}, 
+      "Wing (spaceship)" -> {None, None}, 
+      "134P25" -> {None, "Eater 1", "Middleweight volcano"}, 
+      "186P24" -> {None, "Tub", None, "Eater 1", None, "Monogram"}, 
+      "Achim's other p16" -> {"Toad", None}, 
+      "Achim's p11" -> {"Blinker", "Block", "Long barge"}, 
+      "Achim's p144" -> {"Block", "Beehive", None}, "Achim's p16" -> {None}, 
+      "Bottle" -> {None}, 
+      "Crown" -> {None, "Jam", "Caterer", "Heavyweight emulator"}, 
+      "Fountain" -> {None, None}, 
+      "Metamorphosis II" -> {"Block", None, None, None, None}, 
+      "New gun 2" -> {"Block", "Beehive", None, None, None}, 
+      "p124 lumps of muck hassler" -> {
+       None, "Block", "Tub", "Eater 1", "Clock", None, None, None}, 
+      "p42 glider shuttle" -> {
+       "Block", None, "Glider", None, "Unix", None, "Eater 3"}, 
+      "p48 toad hassler" -> {
+       None, "Ship", "Beehive", None, "Toad", "Figure eight", None}, 
+      "p50 traffic jam" -> {
+       None, "Octagon 2", "Traffic light", "Fumarole", None}, 
+      "p58 toadsucker" -> {
+       "Block", None, "Tub", None, "Eater 1", "Toad", None}, 
+      "Ship in a bottle" -> {"Ship", None}, 
+      "Traffic circle" -> {
+       None, None, "Mold", "Mold", "Traffic light", "Traffic light"}, 
+      "Twin bees shuttles hassling blinker" -> {
+       None, "Blinker", "Block", "B-heptomino", None}, 
+      "Vex" -> {"Blinker", None}, "124P21" -> {None, "Caterer", "44P7.2"}, 
+      "145P20" -> {None, "Middleweight volcano", None}, 
+      "22P36" -> {None, "Eater 1"}, 
+      "Four molds hassling eight blocks" -> {
+       "Bi-block", None, "Mold", "Mold"}, 
+      "Heavyweight volcano" -> {None, None}, 
+      "p156 Hans Leo hassler" -> {
+       None, None, "Eater 1", "Caterer", "Heavyweight emulator", None}, 
+      "p18 bi-block hassler" -> {None, None, None, "Unix"}, 
+      "p35 beehive hassler" -> {None, "Fumarole", "Fumarole", None, None}, 
+      "p60 traffic light hassler" -> {None, "Pentadecathlon", None}, 
+      "Period-256 glider gun" -> {
+       "Block", "Snake", "Glider", "Herschel", "Eater 1"}, 
+      "Pi orbital" -> {
+       "Block", None, None, None, "Caterer", "Heavyweight emulator", None}, 
+      "R64" -> {"Block", None, "Herschel", None}, 
+      "Zweiback" -> {"Loaf", None}, "49P88" -> {None, "Eater 1"}, 
+      "B-52 bomber" -> {"Block", None, None, "Glider", "Tub", None, "Mold"}, 
+      "Conduit 1" -> {"Block", "Snake"}, 
+      "F117" -> {"Block", "Snake", None, "Herschel", "Eater 1"}, 
+      "Fx119" -> {"Block", None, "Herschel", "Eater 1"}, 
+      "Fx119 inserter" -> {"Block", "Herschel", "Eater 1"}, 
+      "Fx158" -> {None, "Herschel", "Eater 1", None}, 
+      "Fx77" -> {"Block", None, "Herschel", "Eater 1", "Pond"}, 
+      "Glider stopper" -> {"Block", "Glider", "Beehive", "Eater 1"}, 
+      "Glider to block" -> {"Block", "Glider", "Boat", "Eater 1"}, 
+      "Herschel receiver" -> {
+       "Block", "Snake", "Glider", "Glider", "Boat", "Beehive", None}, 
+      "L112" -> {"Block", None, "Aircraft carrier", "Herschel", "Eater 1"}, 
+      "L156" -> {"Block", "Snake", "Tub", None, "Herschel", "Eater 1"}, 
+      "p52 R-pentomino hassler" -> {
+       None, "Tub", "T-nosed p4", "T-nosed p4", "Eater 3"}, 
+      "Period-184 glider gun" -> {"Eater 1", None}, 
+      "Period-246 glider gun" -> {
+       "Block", None, "Eater 1", None, "Unix", "p6 thumb"}, 
+      "Period-690 glider gun" -> {
+       "Block", None, "Eater 1", None, "Queen bee", None}, 
+      "R190" -> {"Block", "Snake", None, "Herschel", "Eater 1", None, None}, 
+      "RR56H" -> {"Block", "R-pentomino", None}, "Swan" -> {None, None}, 
+      "168P22.1" -> {None, None}, 
+      "258P3 on Achim's p11" -> {"Blinker", "Block", "Long barge", "258P3"}, 
+      "Coe's p8" -> {"Block", None}, 
+      "F116" -> {"Block", None, "Herschel", "Eater 1", None}, 
+      "F166" -> {"Block", "Snake", None, "Eater 1", None}, 
+      "Fx153" -> {"Block", "Snake", None, "Herschel", "Eater 1"}, 
+      "Fx176" -> {
+       "Block", None, "Herschel", "Eater 1", "Tub with tail", None}, 
+      "Herschel transmitter" -> {"Snake", "Herschel", "Eater 1", None}, 
+      "HF95P" -> {"Block", "Herschel", "Eater 1"}, 
+      "HFx58B" -> {
+       "Block", None, None, "Herschel", None, "Eater 1", None, None, 
+        "Figure eight"}, "Lx200" -> {"Block", "Snake", None, "Eater 1", None},
+       "p15 pre-pulsar spaceship" -> {None, None, None}, 
+      "Period-24 glider gun" -> {
+       None, "Glider", None, "Eater 1", None, None, None}, 
+      "Period-44 glider gun" -> {
+       "Block", None, "Eater 1", "Heavyweight emulator"}, 
+      "Period-44 MWSS gun" -> {
+       "Pre-block", "Block", "Eater 1", None, None, None, None, None}, 
+      "PF35W" -> {"Pi-heptomino", "Eater 1", None}, 
+      "RF48H" -> {"R-pentomino", None, "Loaf"}, 
+      "Rx202" -> {"Block", "Snake", None, "Herschel", "Eater 1", None, None}, 
+      "Vacuum (gun)" -> {"Block", None, "Eater 1", None, None, None}, 
+      "Bx125" -> {"Block", None, "Herschel", "Eater 1", None}, 
+      "Bx222" -> {"Block", "Snake", None, "Herschel", "Eater 1", None, None}, 
+      "Callahan G-to-H" -> {
+       "Block", "Glider", None, "Beehive", "Eater 1", None}, 
+      "Diuresis" -> {None, None, None}, 
+      "p5 bouncer" -> {"Glider", "Glider", None, None, None}, 
+      "p6 bouncer" -> {"Block", "Glider", None, None}, 
+      "p8 bouncer" -> {"Block", "Glider", "Glider", None, "Figure eight"}, 
+      "Pre-pulsar spaceship" -> {None, "Spider"}, 
+      "RNE-19T84" -> {"R-pentomino", "Beehive", "Eater 1", None}, 
+      "Superfountain" -> {None, None}, 
+      "Glider emulator" -> {"Big glider", None}, 
+      "134P39.1" -> {None, None, None}, "Dragon" -> {None, None}, 
+      "Edge-repair spaceship 2" -> {None, None}, "Jason's p22" -> {None}, 
+      "Jason's p33" -> {"Tub", "Boat", None}, 
+      "Period-22 glider gun" -> {None, "Glider", "Eater 1", None, None}, 
+      "Silver's p5" -> {"Snake", None}, 
+      "Boojum reflector" -> {"Block", "Glider", "Tub", "Eater 1", None}, 
+      "p130 shuttle" -> {"Block", None, None, "Loaf", None}, 
+      "50P35" -> {"Blinker", "Eater 1", None}, 
+      "98P25" -> {"Block", None, "Fumarole"}, "Blom" -> {None, None}, 
+      "Four eaters hassling four bookends" -> {"Eater 1", None}, 
+      "Gabriel's p138" -> {None}, "Karel's p15" -> {None, "Pentadecathlon"}, 
+      "p15 bouncer" -> {
+       "Block", "Glider", "Glider", None, "Pentadecathlon", None}, 
+      "p24 shuttle" -> {"Block", None, None}, 
+      "(13,1)c/31 Pseudo-B climber" -> {"Glider", "Glider", None}, 
+      "p60 B-heptomino hassler" -> {None, None, "B-heptomino", None, "Unix"}, 
+      "160P10H2V0" -> {None, None}, 
+      "3-engine Cordership" -> {
+       "Block", "Tub", None, None, None, None, None, None, None}, 
+      "Iwona" -> {"Blinker", "Pre-block", "Iwona active region", None}, 
+      "Jason's p36" -> {None, "Eater 1", "Jam"}, 
+      "Justyna" -> {"Blinker", "Pre-block", None}, 
+      "p6 shuttle" -> {"Eater 1", None}, 
+      "Period-156 glider gun" -> {"Block", None, None}, 
+      "94P27.1" -> {"Thumb 1", None}, "Crane" -> {None, None}, 
+      "Lidka" -> {"Tub", None}, 
+      "p72 quasi-shuttle" -> {None, None, "Figure eight"}, 
+      "Switch engine channel" -> {"Boat", "Switch engine"}, 
+      "274P6H1V0" -> {None, None}, 
+      "Demultiplexer" -> {"Glider", "Herschel", "Eater 1"}, 
+      "F171" -> {None, "Herschel", "Eater 1"}, 
+      "Honeybit" -> {
+       "Block", "Glider", "Beehive", "Pond", "Lightweight spaceship"}, 
+      "Sidewinder" -> {None, None, "Lightweight spaceship"}, 
+      "52P84" -> {None, None, None}, "78P70" -> {"Block", "Eater 1", None}, 
+      "Four eaters" -> {"Eater 1"}, "Karel's p177" -> {"Crotchet", None}, 
+      "Karel's p28" -> {"Block", None}, "Land of lakes" -> {None}, 
+      "p25 pre-pulsar shuttle" -> {"Block", None, "Eater 1", None, None}, 
+      "Bulldozer" -> {None, None, None}, "Eve" -> {None, None}, 
+      "128P10.2" -> {"Block", None}, "46P10" -> {"Ship", "Clock", None}, 
+      "48P22.1" -> {None}, "68P32" -> {None}, 
+      "Beluchenko's p13" -> {"Block", None}, 
+      "Beluchenko's p37" -> {"Block", "Loaf", None}, 
+      "Beluchenko's p40" -> {"Block", None}, 
+      "Beluchenko's p51" -> {None, None}, "p11 pinwheel" -> {None, None}, 
+      "Period-88 glider gun" -> {
+       "Block", "Glider", None, None, "Figure eight", "Figure eight"}, 
+      "Rectifier" -> {"Block", "Glider", "Beehive", "Eater 1", None}, 
+      "110P62" -> {None, "Block", None, None}, "32829M" -> {"Blinker", None}, 
+      "56P27" -> {"Block", "Leg", None}, "58P5H1V1" -> {None, None}, 
+      "Beluchenko's other p37" -> {"Block", None, "Eater 1", None}, 
+      "Ellison p4 HW emulator" -> {None, None, "Snake", None}, 
+      "Merzenich's p11" -> {"Tub", None}, 
+      "Merzenich's p31" -> {"Block", None}, 
+      "Merzenich's p64" -> {"Block", None, None}, 
+      "p32 blinker hassler" -> {"Block", "Tub", None, None, None}, 
+      "p32 blinker hassler 2" -> {
+       None, None, "Tub", "Ship", None, "Figure eight", None, None}, 
+      "p44 traffic light hassler" -> {"Ship", None, "Mold", None, None}, 
+      "Period-45 glider gun" -> {
+       "Blinker", "Block", "Glider", "Glider", None, None}, 
+      "G4 receiver" -> {"Block", "Glider", "Tub", None, "Eater 1"}, 
+      "Glider to 2 blocks" -> {"Block", "Glider", "Eater 1"}, 
+      "Lobster" -> {None, None}, 
+      "p48 pi-heptomino hassler" -> {"Blinker", None, "Eater 1", None}, 
+      "R126" -> {"Ship", None, "Beehive", "Herschel", "Eater 1"}, 
+      "37P4H1V0" -> {None, None}, 
+      "HLx111R" -> {"Block", "Snake", None, "Herschel", "Eater 1", None}, 
+      "p26 dependent reflector loop" -> {"Glider", "Eater 1", None, None}, 
+      "p31 dependent reflector loop" -> {
+       "Block", "Glider", "Eater 1", None, None}, "Statorless p3" -> {None}, 
+      "135-degree MWSS-to-G" -> {"Block", None, "Middleweight spaceship"}, 
+      "31c/240 Herschel-pair climber" -> {"Block", "Herschel"}, 
+      "AK-94" -> {"Block", "Eater 1", None, None}, 
+      "CC semi-Snark" -> {"Block", "Glider", "Boat", "Eater 1"}, 
+      "Loafer" -> {None, None}, 
+      "Period-20 glider gun" -> {None, None, "Fumarole", None, None, None}, 
+      "Pi splitter" -> {"Block", "Pi-heptomino", None}, 
+      "Snark" -> {"Block", "Glider", "Eater 1", None}, 
+      "65P48" -> {"Block", None, None}, "90P51" -> {None, None}, 
+      "c/12 R-pentomino crawler" -> {"Blinker", None, "R-pentomino"}, 
+      "Honey thieves" -> {None, None}, 
+      "Pufferfish spaceship" -> {
+       None, "Pre-block", "Block", "Short table", None, None, None, None, 
+        None, None, None, None, None}, 
+      "45-degree MWSS-to-G" -> {
+       "Glider", "Beehive", "Eater 1", "Lightweight spaceship", 
+        "Middleweight spaceship", None, None}, 
+      "50P92.1" -> {"Block", None, None}, 
+      "B60" -> {"Block", None, "Herschel", None}, 
+      "Beehive stopper" -> {
+       "Block", "Glider", "Beehive", "Eater 1", "Ship+fishhook"}, 
+      "BLx19R" -> {"Block", "B-heptomino", "Ship+fishhook"}, 
+      "BNE14T30" -> {"Block", None, None}, 
+      "BRx46B" -> {"Block", "Beehive", None}, 
+      "CBx37C" -> {"Eater 1", None, "Block on table"}, 
+      "HL75P" -> {"Block", None, "Herschel", "Eater 1"}, 
+      "H-to-MWSS" -> {
+       "Block", "Boat", None, "Beehive", "Herschel", "Eater 1", None, 
+        "Middleweight spaceship"}, 
+      "Ocellus" -> {"Block", "Tub", None, "p6 thumb", "p6 thumb"}, 
+      "p18 honey farm hassler" -> {"Eater 1", None}, 
+      "p29 traffic-farm hassler" -> {"Tub", None, None}, 
+      "p58 pre-pulsar shuttle" -> {None, None}, 
+      "Sidesnagger" -> {"Block", "Boat", "Loaf"}, 
+      "Simkin glider gun" -> {"Block", "Eater 1", None, None}, 
+      "Simkin's p60" -> {"Block", "Century", None, None}, 
+      "SW1T43" -> {"Block", "Herschel", "Tub with tail", None}, 
+      "Syringe" -> {
+       "Block", "Glider", None, "Eater 1", "Beehive with tail", None}, 
+      "112P15" -> {None, None}, "132P7" -> {"Line-of-six spark", "Hat", None},
+       "600P6H1V0" -> {None, None, None, None}, 
+      "84P87" -> {"Block", "Tub", "Eater 1", "Loaf", None}, 
+      "Fireship" -> {None, None}, 
+      "p21 honey farm hassler" -> {"Tub", None, None}, 
+      "p28 pre-pulsar shuttle" -> {
+       "Blinker", "Block", None, "Tub", "Eater 1", "Mold"}, 
+      "p35 honey farm hassler" -> {"Block", "Boat", None, "Eater 1"}, 
+      "p4 bumper" -> {None, "Glider", "Glider", "Eater 1", "Loaf", None}, 
+      "p5 bumper" -> {
+       "Glider", "Glider", "Eater 1", "Loaf", "Middleweight volcano"}, 
+      "p6 bumper" -> {"Block", "Eater 1", "Loaf", None}, 
+      "p7 bumper" -> {"Glider", "Glider", "Eater 1", "Loaf", "38P7.2"}, 
+      "p8 bumper" -> {"Block", "Glider", "Glider", "Eater 1", "Loaf", None}, 
+      "p9 bumper" -> {"Glider", "Glider", "Eater 1", "Loaf", "Thumb 1"}, 
+      "Rattlesnake" -> {"Snake", None}, "Rich's p16" -> {None, None}, 
+      "Scorbie Splitter" -> {
+       "Block", "Glider", "Eater 1", "Beehive with tail", None}, 
+      "Spaghetti monster" -> {None, None, None}, 
+      "2-engine Cordership" -> {
+       "Block", None, None, None, None, None, None, None}, 
+      "339P7H1V0" -> {
+       None, "Blinker", None, None, None, None, None, None, None}, 
+      "CC semi-cenark" -> {"Block", "Glider", "Boat", "Eater 1", None, None}, 
+      "CP semi-cenark" -> {"Block", "Glider", "Boat", "Eater 1", None, None}, 
+      "CP semi-Snark" -> {"Block", None, "Eater 1", None, "31.4"}, 
+      "F131" -> {"Block", "Boat", None, "Herschel", "Eater 1", None}, 
+      "p46 gliderless MWSS gun" -> {"Block", "Eater 1", None, None, None}, 
+      "Period-92 glider gun" -> {
+       "Block", "Glider", "Eater 1", None, None, None, None}, 
+      "Quadri-Snark" -> {"Block", None, "Eater 1", None, None}, 
+      "Tanner's p46" -> {"Block", "Snake", None, "Eater 1", None}, 
+      "Tremi-Snark" -> {"Beehive", "Eater 1", None}, 
+      "209P8" -> {"Figure eight", None}, "34P14 shuttle" -> {"Block", None}, 
+      "68P16" -> {"Pre-block", "Block", None}, "68P9" -> {None}, 
+      "Bronco" -> {"Block", "Glider", None, "Eater 1", None, "Eater 3"}, 
+      "Cottonmouth" -> {None, None, None}, 
+      "Jormungant's G-to-H" -> {
+       "Block", "Glider", "Glider", None, None, None}, 
+      "MWSS behind Coe ship" -> {"Lightweight spaceship", None}, 
+      "p36 shuttle" -> {"Block", None, None}, 
+      "p3 bumper" -> {"Glider", "Glider", "Eater 1", "Loaf", None}, 
+      "p46 gliderless LWSS gun" -> {
+       "Block", "Pi-heptomino", "Eater 1", "Lightweight spaceship", "Canoe", 
+        None, None, None}, 
+      "p4 bouncer" -> {"Block", "Glider", "Glider", None, None}, 
+      "p5 pipsquirter" -> {"Block", None}, 
+      "p64 thunderbird hassler" -> {"Blinker", None, "Figure eight"}, 
+      "p9 bouncer" -> {"Block", "Glider", "Glider", "Eater 1", None, None}, 
+      "Period-33 glider gun" -> {
+       "Block", "Glider", None, None, None, None, None, None, None, None}, 
+      "Wilma" -> {None, None}, "66P13" -> {None, None}, 
+      "74P85" -> {None, None}, 
+      "David Hilbert" -> {None, None, None, None, None, None}, 
+      "Dueling banjos" -> {"B-heptomino", "Eater 1", "Block on table", None}, 
+      "R49" -> {"Block", "Snake", None, None, None}, 
+      "Scholar" -> {None, None}, "104P9" -> {"50P9", None}, 
+      "186P7H2V0" -> {None, None, None, None, None}, 
+      "409P6H1V0" -> {None, None, None, None, None}, 
+      "Bandersnatch" -> {"Block", "Glider", "Eater 1", "Loaf", None}, 
+      "Beehive push catalyst" -> {"Beehive", None}, 
+      "Doo-dah" -> {None, None, "Weekender"}, 
+      "L122" -> {"Block", None, "Beehive", "Herschel", "Eater 1", None, None},
+       "p143 Bandersnatch loop" -> {
+       "Block", "Glider", "Eater 1", "Loaf", None}, "Soba" -> {None, None}, 
+      "66P62" -> {"Block", None, None}, "72P21" -> {"Ship+fishhook", None}, 
+      "Gallus" -> {"Block", "Glider", "Tub", None}, 
+      "Nihonium" -> {"Block", "Snake", None, None}, 
+      "p11 bouncer" -> {
+       "Block", "Glider", "Glider", None, "p11 domino sparker"}, 
+      "p128 wing shuttle" -> {None, None, None, None}, 
+      "p196 pi-heptomino hassler" -> {"Block", "Pi-heptomino", None}, 
+      "p21 B-heptomino hassler" -> {"Block", "Boat", None, None}, 
+      "p32 honey farm hassler" -> {
+       "Block", "Eater 1", None, "Mold", "Figure eight"}, 
+      "p3 pipsquirter" -> {None, None}, 
+      "p486 R-pentomino hassler" -> {"Block", None, "p6 thumb", "p6 thumb"}, 
+      "p4 syringe" -> {
+       "Block", "Glider", None, "Eater 1", "Block on table", None}, 
+      "p576 R-pentomino hassler" -> {None, "Block", None, None, None}, 
+      "p76 pi-heptomino hassler" -> {
+       "Pi-heptomino", "Eater 1", None, "Heavyweight emulator"}, 
+      "p96 honey farm hassler" -> {None, None, "Figure eight"}, 
+      "Period-117 glider gun" -> {"Block", None, "50P9"}, 
+      "Period-144 glider gun" -> {"Block", "Glider", None, None, None, None}, 
+      "Period-54 glider gun" -> {
+       "Block", "Glider", "Eater 1", None, None, None}, 
+      "Period-55 glider gun" -> {"Glider", "Eater 1", None, None, None}, 
+      "Raucci's p74" -> {None, "Eater 1"}, "T-nosed p7" -> {None, None}, 
+      "Traffic stop" -> {"Eater 1", None}, 
+      "112P57" -> {None, "Eater 1", None, None, None}, 
+      "120P34" -> {"Pi-heptomino", "Eater 1", None, "Eater 3"}, 
+      "20-cell quadratic growth" -> {"Blinker", "Pre-block", None, None}, 
+      "232P7H3V0" -> {None, None, None}, 
+      "255P132" -> {
+       None, None, None, None, None, None, None, None, None, None}, 
+      "30P25" -> {None}, "32P21" -> {"Block", "Tub", None}, 
+      "34P20" -> {"Block", None}, "34P7" -> {None, None}, 
+      "35P12H6V0" -> {None, None, "Heavyweight spaceship"}, 
+      "36P25" -> {"Block", "Eater 1", None, None}, 
+      "42P14" -> {None, None, "Ship+fishhook"}, 
+      "43P54" -> {"Block", "Toad", "Snake", None, "Eater 1"}, 
+      "52P44" -> {"Block", "Eater 1", "Toad", None}, 
+      "54P94" -> {"Pre-block", "Block", "Eater 1", None}, 
+      "55P23" -> {"Block", None, "Eater 1", None}, 
+      "58P37" -> {"Eater 1", None}, "58P8H4V0" -> {None, None}, 
+      "62P83" -> {"Block", None, "Eater 1"}, 
+      "66P106" -> {"Blinker", None, "Eater 1", "Toad", "Clock", None}, 
+      "70P23" -> {"Block", "Pi-heptomino", "Eater 1"}, 
+      "70P26" -> {"Block", None, None}, 
+      "74P127" -> {"Block", "Tub", "Eater 1", None}, 
+      "74P34" -> {"House", "Eater 1"}, "76P86" -> {"Block", None, "Eater 1"}, 
+      "84P199" -> {"Block", None}, "92P23" -> {"Tub", "Eater 1", None, None}, 
+      "92P59" -> {"Blinker", "Eater 1", None}, 
+      "Charity's p16" -> {"Block", None, "Figure eight"}, 
+      "CL48C" -> {"Eater 1", None, None}, "Diamondback" -> {"Eater 1", None}, 
+      "Grid's p16" -> {"Block", "Toad", None}, 
+      "HRx65R" -> {None, "Herschel", "Eater 1", None}, 
+      "HRx74B" -> {"Block", "Herschel", None}, 
+      "NW-2T16" -> {"Block", None, None}, 
+      "P10 domino fountain" -> {None, None, None}, 
+      "p111 R-pentomino hassler" -> {
+       "Block", "R-pentomino", "Eater 1", None, None}, 
+      "p112 puffer" -> {
+       "Lightweight spaceship", None, "Middleweight spaceship"}, 
+      "p129 R-pentomino hassler" -> {"R-pentomino", "Eater 1"}, 
+      "p146 pi-heptomino hassler" -> {
+       "Block", "Toad", "Boat", "Eater 1", None}, 
+      "P16-assisted period-32 glider gun" -> {
+       None, "Block", None, None, None, None}, 
+      "p23 honey farm hassler" -> {"Eater 1", None, None}, 
+      "p28 block puffer" -> {"Lightweight spaceship", None}, 
+      "p39 pi-heptomino hassler" -> {
+       "Block", "Snake", "Boat", "Pi-heptomino", None, None}, 
+      "p43 pi-heptomino hassler" -> {
+       "Blinker", "Block", "Pi-heptomino", "Eater 1"}, 
+      "p45 pi-heptomino hassler" -> {"Block", "Boat", None, "Pentadecathlon"},
+       "p49 R-pentomino hassler" -> {None, None}, 
+      "p4-assisted period-28 glider gun" -> {
+       None, "Block", "Glider", None, "Eater 1", None, None}, 
+      "p58 pi-heptomino hassler" -> {"Block", "House", "Eater 1"}, 
+      "p59 dependent reflector loop" -> {"Block", "Eater 1", None, None}, 
+      "P6 domino fountain" -> {None, "House", None}, 
+      "p6 honey farm hassler" -> {"Toad", None, None, None}, 
+      "p71 honey farm hassler" -> {"Eater 1", None, None}, 
+      "p73 lumps of muck hassler" -> {"Tub", "Eater 1", None, None}, 
+      "p75 I-heptomino hassler" -> {None, None, "Middleweight volcano"}, 
+      "p79 pi-heptomino hassler" -> {"Snake", "House", "Eater 1", None}, 
+      "p82 pi-heptomino hassler" -> {"Block", "Eater 1", "Clock", None, None},
+       "p84 honey farm hassler" -> {"Eater 1", None}, 
+      "p85 R-pentomino hassler" -> {
+       "Block", "R-pentomino", "Eater 1", "Fumarole"}, 
+      "p86 R-pentomino hassler" -> {"Block", "Eater 1", None}, 
+      "p8 glider reflector" -> {"Block", "Glider", "Eater 1", None, None}, 
+      "p94 R-pentomino hassler" -> {"Block", "Eater 1", None}, 
+      "Period-113 glider gun" -> {"Block", "Eater 1", None}, 
+      "Period-25 glider gun" -> {None, "Fumarole", None}, 
+      "Period-27 glider gun" -> {"Block", "Leg", None, None, "Eater 1", None},
+       "Period-34 glider gun" -> {
+       "Glider", None, "Eater 1", "Long hook with tail", None, None, None, 
+        None, "Chucklebait", None, None}, 
+      "Period-43 glider gun" -> {"Tub", None, None}, 
+      "Period-48 glider gun" -> {
+       "Glider", None, None, "Eater 1", None, None, None}, 
+      "Period-51 glider gun" -> {"Glider", "Tub", "Eater 1", None, None}, 
+      "Raucci's p102" -> {None, "Eater 1", None, None, "Unix"}, 
+      "Raucci's p38" -> {None, "Eater 1", None}, 
+      "Speed tunnel" -> {
+       None, "Block", "Glider", None, "Beehive", None, None, None, None}, 
+      "Taco" -> {None, None}, 
+      "Twin bees shuttle on 21P4.1" -> {"Block", None, None}, 
+      "Unique father problem" -> {None}, 
+      "Unsynthesizable oscillator 1" -> {None}, 
+      "0-degree colour-preserving reflector (March 2023)" -> {
+       "Bi-block", "Glider", "Eater 1", None, None, None}, 
+      "112P23" -> {"Pi-heptomino", "Eater 1", None, None}, 
+      "116P101" -> {"Block", "Eater 1", None, None}, 
+      "32P21 phase-shifting p5" -> {"Block", "Tub", None, None}, 
+      "42P38" -> {"Blinker", "R-pentomino", "Eater 1", "Toad"}, 
+      "44P49" -> {"Block", "Eater 1", None}, 
+      "51P384" -> {"Blinker", "Block", None, None}, 
+      "72P119" -> {"Block", "Eater 1", None}, 
+      "86P107" -> {"Block", "Eater 1", None}, 
+      "94P53" -> {None, "Ship+fishhook", None}, 
+      "Charity's p25" -> {"Blinker", None, None}, 
+      "Charity's p30" -> {"Block", None}, 
+      "Cribbage" -> {None, "Eater 1", None}, 
+      "G-to-pi catalyst (August 2023)" -> {"Block", "Glider", None}, 
+      "Odd traffic stop" -> {"Eater 1", None}, 
+      "p126 R-pentomino hassler" -> {"Eater 1", "Clock", None, None}, 
+      "p13 domino sparker" -> {"B-heptomino", None}, 
+      "p140 two-glider octomino hassler" -> {"Block", "Tub", "Eater 1", None},
+       "p16 century shuttle" -> {"Toad", "Tub", None}, 
+      "p17 R-pentomino hassler" -> {"Hook with tail", None, None}, 
+      "p224 lumps of muck hassler" -> {
+       None, None, None, "Figure eight", "Figure eight"}, 
+      "p24 gliderless LWSS gun" -> {
+       "Lightweight spaceship", None, "Kok's galaxy", None, None}, 
+      "p26 honey farm hassler" -> {"Block", None, "Eater 1", "Clock"}, 
+      "p280 U-turner hassler" -> {
+       None, "Tub", "U-turner", "Figure eight", "Figure eight", 
+        "Figure eight", "Figure eight"}, 
+      "p41 pi-heptomino hassler" -> {"Boat", None, "Eater 1", None, None}, 
+      "p47 lumps of muck hassler" -> {None, None, None}, 
+      "p49 pi-heptomino hassler" -> {
+       "Block", None, "Loaf", None, "Ship+fishhook"}, 
+      "p59 pi-heptomino hassler" -> {"Snake", "House", None}, 
+      "p67 B-heptomino hassler" -> {"Block", None, None}, 
+      "p68 century hassler" -> {"Eater 1", None, "Block on table"}, 
+      "p76 pi-heptomino shuttle" -> {"Beehive", None, "Eater 1"}, 
+      "p82 lumps of muck hassler" -> {"Block", None, None}, 
+      "p93 R-pentomino hassler" -> {"Block", "Eater 1", None, None}, 
+      "Period-201 glider gun" -> {"Block", "Eater 1", None}, 
+      "Period-49 glider gun (April 2023)" -> {
+       "Block", "Glider", "Eater 1", None, None, None, None, None, None}, 
+      "Period-61 glider gun (2023)" -> {
+       None, None, "Block", "Glider", "Eater 1", None, None, None, None, 
+        None}, "Snark64" -> {
+       "Block", "Beehive", "Eater 1", None, None, "Chucklebait"}, 
+      "Walrus" -> {None, None}, "p10lonedotsparker" -> {None, None}, 
+      "p8honeyfarmhassler" -> {"Eater 1", None}, 
+      "p9honeyfarmhassler" -> {None, "Eater 1", None}, 
+      "p9honeyfarmhassler2" -> {None, None}, 
+      "p9honeyfarmhassler3" -> {"50P9", None}, 
+      "p10honeyfarmhassler" -> {None, None, "Fumarole", None, None}, 
+      "p11honeyfarmhasslers" -> {"Snake", "Eater 1", None, None, None}, 
+      "p12honeyfarmhassler" -> {
+       None, None, None, "Heavyweight emulator", None, "T-nosed p4"}, 
+      "p12honeyfarmsparker" -> {"House", None, None}, 
+      "p12honeyfarmhassler2" -> {"Block", "Eater 1", None, "Unix"}, 
+      "p12honeyfarmhassler3" -> {"Eater 1", None}, 
+      "p22honeyfarmhassler" -> {None, "Eater 1"}, 
+      "p27bananasparker" -> {"Eater 1", None, None}, 
+      "p27honeyfarmhassler" -> {"Eater 1", None, None, None}, 
+      "p27d2honeyfarmhassler" -> {"Block", "Eater 1", None, None}, 
+      "p33honeyfarmhassler2" -> {"Block", "Eater 1", None}, 
+      "p34honeyfarmhassler" -> {"Long hook with tail", None, None, None}, 
+      "p34mod17honeyfarmhassler" -> {"Tub", None}, 
+      "p39honeyfarmhassler" -> {"Block", "Eater 1", None, None, None}, 
+      "p43honeyfarmhassler" -> {"Eater 1", None}, 
+      "p44honeyfarmhassler2" -> {None, None, None}, 
+      "p46honeyfarmhassler2" -> {"Block", None, None, None}, 
+      "p46longbunhassler" -> {"Block", "Beehive", "Eater 1", None, None}, 
+      "p47honeyfarmhassler" -> {None, None}, 
+      "p49honeyfarmhassler" -> {None, None}, 
+      "84p51" -> {"Tub", "Eater 1", None, None}, 
+      "p51honeyfarmhassler" -> {"Block", "Tub", "Boat", None}, 
+      "p52honeyfarmhassler2" -> {None, "Mold", None, None}, 
+      "p52honeyfarmhassler3" -> {
+       "Block", "Eater 1", "Tub with tail", None, "Chucklebait"}, 
+      "p52honeyfarmhassler4" -> {
+       "Block", "Eater 1", "Toad", None, None, None, None}, 
+      "p54honeyfarmandbhassler" -> {"Block", "Eater 1", None, None, None}, 
+      "p56honeyfarmhassler" -> {"Figure eight", "Kok's galaxy", None}, 
+      "p56c2honeyfarmhassler" -> {
+       "Kok's galaxy", "Figure eight", "Kok's galaxy", None}, 
+      "p58honeyfarmhassler" -> {"Block", "Toad", "Tub with tail", None}, 
+      "p62honeyfarmhassler" -> {"Block", "Bun", None, None}, 
+      "p64honeyfarmhassler" -> {"Block", None, None}, 
+      "p64honeyfarmhassler2" -> {None, "Figure eight", None}, 
+      "p65honeyfarmhassler" -> {"Block", "Tub", None, None}, 
+      "p65honeyfarmhassler2" -> {"Block", "Eater 1", None, None, None}, 
+      "p66honeyfarmhassler" -> {"Blinker", None, "House", "Unix", None}, 
+      "p69honeyfarmhassler" -> {"Eater 1", None, None}, 
+      "p70vsparker" -> {
+       "Snake", "Eater 1", "Loaf", None, "Middleweight volcano"}, 
+      "p70honeyfarmhassler" -> {"Block", "Eater 1", None, None}, 
+      "p72honeyfarmhassler" -> {"Eater 1", None, "64P6"}, 
+      "p72honeyfarmhassler2" -> {None, "Figure eight", "64P6"}, 
+      "p73honeyfarmhassler" -> {"Block", "Eater 1", None, None}, 
+      "cappedp74gun" -> {"Block", None, "Eater 1", None, None, None}, 
+      "p75honeyfarmhassler" -> {"Block", None, None}, 
+      "p77honeyfarmhassler" -> {None, None}, 
+      "p77honeyfarmhassler2" -> {"Eater 1", None, None, None}, 
+      "p80honeyfarmhassler" -> {
+       "Block", "Boat", "Eater 1", "Chucklebait", None}, 
+      "p80honeyfarmhassler2" -> {"Block", "Tub", None, "Ship+fishhook", None},
+       "p90honeyfarmhassler" -> {None, None, None, None, None, None}, 
+      "p90honeyfarmhassler2" -> {
+       "Block", None, None, None, None, "Pentadecathlon"}, 
+      "p91honeyfarmhassler" -> {"Eater 1", None}, 
+      "cappedp91gun" -> {"Block", "Eater 1", None, None}, 
+      "p96honeyfarmhassler2" -> {
+       "Figure eight", None, "Figure eight", "Kok's galaxy"}, 
+      "p96honeyfarmhassler3" -> {
+       "Block", None, None, "Figure eight", "Kok's galaxy"}, 
+      "p97honeyfarmhassler" -> {
+       "Blinker", "Block", "Bun", "Eater 1", None, None}, 
+      "p100honeyfarmhassler2" -> {None, "Tub", None, None, "Fumarole"}, 
+      "p102honeyfarmhassler" -> {"Block", "Eater 1", None}, 
+      "p108honeyfarmhassler" -> {"Block", "Eater 1", None, None, None}, 
+      "p110honeyfarmhassler" -> {
+       None, "Middleweight volcano", "Middleweight volcano", 
+        "Middleweight volcano"}, 
+      "p110honeyfarmhassler2" -> {"Boat", None, "55P10", "55P10"}, 
+      "p110honeyfarmhassler3" -> {
+       None, "V spark", "Clock", "Fox", None, None}, 
+      "p120honeyfarmhassler" -> {"Eater 1", "Caterer", None, "Unix"}, 
+      "p120honeyfarmhassler2" -> {None, "Pentadecathlon", None, None}, 
+      "p128honeyfarmhassler" -> {None, None, None}, 
+      "p130honeyfarmhassler" -> {"Eater 1", None, "Middleweight volcano"}, 
+      "p143honeyfarmhassler" -> {
+       "Block", "Boat", "Eater 1", None, "Chucklebait"}, 
+      "p147honeyfarmhassler" -> {"Block", "Boat", None, None}, 
+      "p182honeyfarmhassler" -> {"Block", "Eater 1", None, None}, 
+      "p30honeyfarmshuttle" -> {"Block", "Eater 1", None, None}, 
+      "p32doubleshuttle" -> {None, None, None}, 
+      "p36honeyfarmhassler" -> {"Tub", "Bun", "Eater 1", None}, 
+      "p36honeyfarmhassler2" -> {
+       None, None, None, "Unix", "Unix", None, None}, 
+      "p36honeyfarmhassler6" -> {
+       "Blinker", "Eater 1", "Jam", None, None, None, None, None, None}, 
+      "p36honeyfarmshuttlejp21" -> {"Eater 1", None, None}, 
+      "p38honeyfarmshuttle" -> {"Tub", "Eater 1", None, None}, 
+      "p38honeyfarmshuttle2" -> {
+       "Block", None, "Ship", "Eater 1", None, None, None, None, None}, 
+      "p40honeyfarmhassler4" -> {
+       "Block", "Eater 1", None, "Mold", None, "Kok's galaxy", None, None}, 
+      "p40honeyfarmhassler" -> {
+       "Block", None, "Figure eight", None, "Figure eight", "Kok's galaxy", 
+        "Kok's galaxy"}, 
+      "p40andp50dominofountains" -> {None, None, None, "Eater 1", None, None},
+       "p40honeyfarmshuttle" -> {"Eater 1", "Clock", None}, 
+      "p44honeyfarmhassler" -> {
+       None, "Block", "Eater 1", None, None, None, None, None}, 
+      "p48honeyfarmhassler" -> {None, None, "Star", None, None}, 
+      "p52honeyfarmhassler" -> {None, None, None, None, None, None}, 
+      "p60honeyfarmshuttle" -> {"Eater 1", None, None}, 
+      "p60honeyfarmshuttle2" -> {"Unix", "Chucklebait", None}, 
+      "p136honeyfarmshuttle" -> {None, None, None, None}, 
+      "p220honeyfarmshuttle" -> {"Snake", "Boat", "Eater 1", "Loaf", None}, 
+      "p8rpentominohassler" -> {"Eater 1", None}, 
+      "p12rpentominohasslers" -> {
+       "R-pentomino", None, "p6 thumb", "p6 thumb", "p6 thumb", "64P6"}, 
+      "p13rpentominohassler" -> {"Block", "Eater 1", None, None}, 
+      "p23rpentominohassler" -> {"Eater 1", None, None}, 
+      "p24rpentominohassler" -> {"Block", None, None}, 
+      "p24rpentominohassler2" -> {"Blonker", None}, 
+      "p30rpentominohassler" -> {None, None, None}, 
+      "p30rpentominohassler2" -> {None, "Eater 1", None, None}, 
+      "p31rpentominohassler" -> {"Block", "R-pentomino", None}, 
+      "p32rpentominohassler" -> {"R-pentomino", None, None, None}, 
+      "p32rpentominohassler2" -> {None, None, None, None}, 
+      "p35rpentominohassler" -> {None, None, None}, 
+      "p35rpentominohassler2" -> {"Block", None, None, None, None}, 
+      "p35rpentominohassler3" -> {"Block", "Eater 1", None, None, None}, 
+      "p38rpentominohassler" -> {
+       "Blinker", "Block", None, "Eater 1", None, None, None}, 
+      "p45rpentominohassler" -> {
+       "Block", "Boat", "Eater 1", None, None, None}, 
+      "p49singlerpentominohassler" -> {None, None, None, None, None, None}, 
+      "p50rpentominohassler" -> {"R-pentomino", None, None}, 
+      "p54rpentominohassler" -> {None, None, "64P6"}, 
+      "p57rpentominohassler" -> {"Block", "R-pentomino", None}, 
+      "p60rpentominohassler" -> {
+       "Block", "Glider", "Pentadecathlon", "Tub with tail", None}, 
+      "p60rpentominohassler2" -> {None, "R-pentomino", None, None}, 
+      "p64rpentominohassler2" -> {
+       "R-pentomino", None, "Eater 1", None, None, "Mold", "Figure eight"}, 
+      "p76rpentominoshuttle" -> {
+       None, None, "Hook with tail", None, None, None, None, None}, 
+      "p78rpentominohassler" -> {
+       "Block", "R-pentomino", "Tub", "Eater 1", None}, 
+      "p86rpentominohassler2" -> {"Eater 1", None, None}, 
+      "p88rpentominoshuttle" -> {
+       "Eater 1", "Figure eight", "Figure eight", "tnosep8sparker", None}, 
+      "p88rpentominohassler" -> {"Block", None, None, "Kok's galaxy"}, 
+      "p90rpentominohassler" -> {"R-pentomino", None}, 
+      "p96rpentominohassler" -> {"Eater 1", None}, 
+      "p102rpentominohassler" -> {None, "House", None, None}, 
+      "p104rpentominohassler" -> {
+       "Block", None, "Ship+fishhook", "Figure eight"}, 
+      "p105rpentominohassler" -> {
+       "R-pentomino", "Pentadecathlon", "Pentadecathlon"}, 
+      "p109rpentominohassler" -> {"R-pentomino", "Beehive", "Eater 1", None}, 
+      "p112rpentominohassler" -> {"Block", "Boat", None, None}, 
+      "p120rpentominohassler" -> {
+       "R-pentomino", "Figure eight", "Pentadecathlon", "Figure eight", 
+        "Figure eight", "Figure eight"}, 
+      "p122rpentominohassler" -> {
+       None, "Block", "V spark", "Tub", "Eater 1", None, "Tub with tail"}, 
+      "p127rpentominohassler" -> {"Tub", "Eater 1", None, None, None}, 
+      "p135rpentominohassler" -> {"Block", "Eater 1", None, None, None}, 
+      "p140rpentominohassler" -> {"Block", "Eater 1", None, "62P7", None}, 
+      "p140rpentominoshuttle" -> {None, "Fumarole", None}, 
+      "cappedp140gun" -> {
+       "Block", None, "Eater 1", None, None, None, None, "62P7"}, 
+      "p146rpentominohassler" -> {"Block", "Tub", "Eater 1", None}, 
+      "p147rpentominohassler" -> {
+       "Block", "R-pentomino", "Eater 1", None, None}, 
+      "p150rpentominohasslerglidergun" -> {
+       "Blinker", None, None, "Eater 1", None, None, None}, 
+      "p150rpentominohassler" -> {"Block", "Snake", "R-pentomino", "Toad"}, 
+      "p156rpentominohassler" -> {
+       "R-pentomino", "Boat", "44P12.3", "44P12.3", "44P12.3", "44P12.3"}, 
+      "p166rpentominohassler" -> {"Block", "R-pentomino", None, None, None}, 
+      "p175rpentominohassler" -> {"Block", "Eater 1", None, None, None}, 
+      "98p201" -> {"Block", "Eater 1", None}, 
+      "p253rpentominohassler" -> {
+       "Block", "Beehive", None, "Eater 1", None, None}, 
+      "p13piheptominowick" -> {"Eater 1", None, None, None}, 
+      "p13piheptominohassler" -> {None, "Eater 1", None, None, None}, 
+      "p14piheptominohassler" -> {
+       None, "Toad", "Tub", None, None, "Ship+fishhook", None}, 
+      "p15piheptominohassler2" -> {"Eater 1", None, None, None}, 
+      "p18piheptominohassler" -> {"House", None}, 
+      "p20piheptominohassler" -> {
+       "Pi-heptomino", "Middleweight volcano", "Middleweight volcano"}, 
+      "p25piheptominohassler" -> {
+       "Blinker", "Block", "Tub", "Eater 1", None, None}, 
+      "p33piheptominohassler" -> {"Pi-heptomino", None, None}, 
+      "p36piheptominohassler" -> {
+       "V spark", "Pi-heptomino", "Eater 1", None, None}, 
+      "p36piheptominohassler2" -> {
+       "Block", "Pi-heptomino", "Eater 1", "Mold", None}, 
+      "p39piheptominohassler2" -> {
+       "Block", "House", "Eater 1", None, None, None, None}, 
+      "p39c4piheptominohassler" -> {
+       None, "Block", "House", "Eater 1", None, None, None}, 
+      "p46piheptominohassler" -> {
+       None, "Block", "Tub", "B-heptomino", "Eater 1", None}, 
+      "p46piheptominohassler2" -> {
+       "Pi-heptomino", "Eater 1", None, None, None}, 
+      "p47piheptominohassler" -> {"House", "Eater 1", "Claw with tail", None},
+       "p52piheptominohassler" -> {
+       "Block", "V spark", "Tub", "House", "Eater 1", None, 
+        "Heavyweight emulator", None}, 
+      "p53piheptominohassler" -> {
+       "Block", "Pi-heptomino", "Eater 1", None, "Ship+fishhook"}, 
+      "p53piheptominohassler2" -> {"V spark", None, "House", "Eater 1", None},
+       "p55piheptominohassler2" -> {
+       "Block", "Crotchet", "Pi-heptomino", "Eater 1", None}, 
+      "p60piheptominohassler" -> {
+       "House", "Eater 1", None, "Ship+fishhook", "Unix"}, 
+      "p60piheptominohassler2" -> {
+       None, None, "House", None, None, None, "Ship+fishhook"}, 
+      "p61piheptominohassler" -> {"Block", "Eater 1", None, None, None}, 
+      "p65piheptominohassler" -> {
+       "Block", "House", "Eater 1", None, None, None}, 
+      "p68piheptominohassler" -> {"Pi-heptomino", "Eater 1", None, None}, 
+      "p68piheptominohassler2" -> {
+       "Block", "House", "Eater 1", None, None, None}, 
+      "p69piheptominohassler" -> {"Pi-heptomino", "Eater 1", None, None}, 
+      "p70piheptominohassler" -> {"House", None}, 
+      "p70piheptominohassler3" -> {"Crotchet", "House", None, "5blink"}, 
+      "p72lumpsofmuckhassler" -> {
+       "Block", None, None, "Figure eight", "Unix"}, 
+      "p72piheptominohassler2" -> {"Block", "Pi-heptomino", "Eater 1", None}, 
+      "p76piheptominohassler4" -> {"Block", "Eater 1", "Clock", None, None}, 
+      "p77pihassler" -> {
+       "Block", "Snake", "Tub", "Pi-heptomino", "Eater 1", "Ship+fishhook"}, 
+      "p78piheptominohassler" -> {"Block", "House", None, "Unix"}, 
+      "p78piheptominohassler2" -> {
+       "Blinker", "Block", "House", "Eater 1", None, None}, 
+      "p79piheptominohassler2" -> {"House", "Eater 1", "Loaf", None, None}, 
+      "p79picenturyhassler" -> {"Ship", "House", None, None, "Eater 3", None},
+       "p80pihassler" -> {"Block", "House", None}, 
+      "p88piblonktiehassler" -> {"House", "Eater 1", "Clock", None}, 
+      "p90piheptominohassler" -> {
+       None, "Block", "House", "Pentadecathlon", "Eater 1"}, 
+      "p92piheptominohassler" -> {
+       "Pi-heptomino", "Eater 1", None, None, None}, 
+      "p95piheptominohassler" -> {
+       "Blinker", "Block", None, "House", "Eater 1", "Middleweight volcano", 
+        None}, "p100piheptominohassler" -> {
+       "Blinker", "Block", "Boat", "Pi-heptomino", "Eater 1"}, 
+      "p108piheptominohassler" -> {
+       "Pi-heptomino", "Eater 1", None, "Caterer", None, "Unix", None, "Unix",
+         None}, "p112piheptominohassler2" -> {"House", "Eater 1", None, None},
+       "p117piheptominohassler" -> {
+       "Block", "Tub", "House", "Eater 1", None, None}, 
+      "p121piheptominohassler" -> {None, "Block", "Tub", None, None, None}, 
+      "p125piheptominohassler2" -> {
+       None, "House", None, "Middleweight volcano"}, 
+      "p126piheptominohassler3" -> {"Toad", "Snake", "Eater 1", None, None}, 
+      "p64andp128piheptominohasslers" -> {
+       None, "Blinker", "Block", "Pi-heptomino", "Eater 1", None, None}, 
+      "p128piheptominohassler2" -> {"Blinker", "Block", "Toad", None, None}, 
+      "p129piheptominohassler" -> {
+       "Block", "Short table", "House", "Eater 1", "Loaf", "Ship+fishhook"}, 
+      "p129piheptominohassler2" -> {"Pi-heptomino", None}, 
+      "p132piheptominohassler2" -> {
+       None, "Glider", "House", "Eater 1", "Clock", None, "Mazing"}, 
+      "p158piheptominohassler" -> {
+       "Block", "Pi-heptomino", "Eater 1", None, None}, 
+      "p159piheptominohassler" -> {
+       "Blinker", "Block", "Pi-heptomino", None, None}, 
+      "p160piheptominoshuttle" -> {None, None}, 
+      "p182pihassler" -> {
+       "Block", "Pi-heptomino", "Eater 1", "Long hook with tail", None}, 
+      "p186pihassler" -> {
+       "Block", "Ship", "Beehive", "House", "Eater 1", "Unix", "Unix"}, 
+      "p9lumpsofmuckhassler" -> {None, None}, 
+      "p12lumpsofmuckhassler" -> {"Block", None}, 
+      "p13lumpsofmuckhassler" -> {None, None, None}, 
+      "p21lomhassler2" -> {"Block", None, "62P7"}, 
+      "p22lumpsofmuckshuttle" -> {None, None}, 
+      "p25lumpsofmuckhassler" -> {None, None, "Middleweight volcano"}, 
+      "p25singlelumpsofmuckhassler" -> {
+       "V spark", None, None, "Ship+fishhook", None, None}, 
+      "p27lumpsofmuckhassler" -> {None, None, None}, 
+      "p34lumpsofmuckhassler" -> {
+       None, "Eater 1", None, "Long hook with tail", None, None, 
+        "Chucklebait"}, 
+      "p35lumpsofmucksparker" -> {None, "Middleweight volcano", None}, 
+      "p35lumpsofmuckhassler" -> {None, None}, 
+      "p36lumpsofmuckhassler" -> {None, None}, 
+      "p37lumpsofmuckhassler" -> {"Loaf", None, None}, 
+      "p40lumpsofmuckhassler" -> {None, "55P10"}, 
+      "p40lumpsofmuckhassler2" -> {None, None, None, None, None}, 
+      "p42lumpsofmuckhassler" -> {None, "Unix", None}, 
+      "p42lumpsofmuckshuttle" -> {"Block", None, None, None, "Unix", "62P7"}, 
+      "p42lumpsofmuckhassler2" -> {"Clock", None, None}, 
+      "p46lumpsofmuckhassler" -> {"Block", "Eater 1", None, None}, 
+      "p46lumpsofmuckhassler2" -> {"Block", "Bi-block", None, None}, 
+      "p46lumpsofmuckhassler3" -> {
+       "Block", "Glider", "Eater 1", "Clock", None, "Tub with tail", 
+        "Cis-boat with tail"}, 
+      "p47lumpsofmuckhassler2" -> {"Snake", "Tub", None, None}, 
+      "p49lumpsofmuckhassler" -> {
+       "Beehive", "Eater 1", None, None, None, None}, 
+      "p49lumpsofmuckhassler2" -> {
+       "Block", "Boat", "Eater 1", None, "Tub with tail", None}, 
+      "p51lumpsofmuckhassler" -> {"Block", "Eater 1", None, None}, 
+      "p52lumpsofmuckhassler" -> {
+       None, "Block", "Toad", None, "Eater 1", None, None, None}, 
+      "p62lumpsofmuckhassler" -> {"Leg", "Eater 1", None, None, None}, 
+      "p66lumpsofmuckhassler" -> {None, "Eater 1", None, None}, 
+      "p68lumpsofmuckhassler" -> {
+       "Block", None, "Tub", "Loaf", None, "Mazing"}, 
+      "p68lumpsofmuckhassler2" -> {
+       "Block", None, "Snake", "Boat", "Eater 1", None, None}, 
+      "p70lumpsofmuckhassler" -> {
+       "Hook with tail", None, "Tumbler", None, None}, 
+      "p75lumpsofmuckhassler" -> {None, None, None, None, None, None}, 
+      "p76lumpsofmuckhassler" -> {"Eater 1", None, None}, 
+      "p80singlelumpsofmuckhassler" -> {None, None, None, None, None}, 
+      "p80lumpsofmuckhassler" -> {"Tub", None, "Fumarole", None}, 
+      "p80lumpsofmuckhassler2" -> {"Eater 1", None, None, None}, 
+      "p84lumpsofmuckhassler" -> {"Block", "House", None, None, None}, 
+      "p88lumpsofmuckhassler" -> {None, "Figure eight", None, "Kok's galaxy"},
+       "p88lumpsofmuckhassler2" -> {
+       "Block", "Boat", "Beehive", "Eater 1", None, None, "Figure eight", 
+        None}, "p96lumpsofmuckhassler" -> {None, "Toad", None, None, None}, 
+      "p96lumpsofmuckhassler2" -> {None, "Kok's galaxy", None}, 
+      "p98lumpsofmuckhassler" -> {"Blinker", "Block", "Eater 1", None}, 
+      "p100lumpsofmuckhassler" -> {"Block", "Eater 1", "Clock", None, None}, 
+      "p100lumpsofmuckhassler2" -> {"Eater 1", "Toad", None, None}, 
+      "p104lumpsofmuckshuttle" -> {
+       None, "Block", None, "Figure eight", "Figure eight", "Kok's galaxy", 
+        "Kok's galaxy", None}, 
+      "p105lumpsofmuckhassler" -> {
+       "Block", None, "Fumarole", "Middleweight volcano"}, 
+      "p105lumpsofmuckhassler2" -> {"Blinker", None, None, None, None}, 
+      "p108lumpsofmuckhassler" -> {
+       "Glider", "Boat", "Eater 1", "Clock", None, "Fox", None}, 
+      "p110lumpsofmuckhassler" -> {"Eater 1", None, None, None}, 
+      "p110lumpsofmuckhassler2" -> {"Block", "Eater 1", None, "Chucklebait"}, 
+      "p115lumpsofmuckhassler" -> {"Block", "Eater 1", None, None}, 
+      "p138lumpsofmuckhassler" -> {
+       "Block", "Snake", "Eater 1", None, None, None}, 
+      "p140lumpsofmuckhassler" -> {None, None}, 
+      "p184lumpsofmuckhassler" -> {None, None}, 
+      "p14centuryhassler" -> {"Eater 1", None, None}, 
+      "p16centuryhassler" -> {
+       None, "Block", "Eater 1", None, None, "Figure eight", None}, 
+      "p28centuryhassler" -> {None, None, None}, 
+      "p28centuryshuttle" -> {"Block", None, None, None}, 
+      "p45picenturyhassler" -> {
+       None, "Block", "Boat", None, "Pentadecathlon", "Eater 1", None}, 
+      "p54picenturyhassler" -> {"Eater 1", "Clock", None, None}, 
+      "p72centurylomhassler" -> {
+       "Eater 1", None, "Heavyweight emulator", "Figure eight"}, 
+      "p72centuryhassler" -> {"Block", None, None}, 
+      "p110centuryshuttle" -> {"Eater 1", None, None, None}, 
+      "p139centuryhassler" -> {"Eater 1", None, None}, 
+      "p174centuryshuttle" -> {
+       "V spark", "Bookend", "p6 pipsquirter", "64P6", "p6 pipsquirter", 
+        "64P6"}, "cl48cloop" -> {"Bookend", None, None}, 
+      "p48bheptominohassler" -> {"Block", None, "Eater 1", None, None}, 
+      "p68bheptominohassler" -> {"Block", None, None, "Eater 1", None, None}, 
+      "p80twinbeesshuttle" -> {"Block", "Snake", None, None, "Loaf"}, 
+      "p36winghassler" -> {"Hook with tail", None, None}, 
+      "p48rpentominohassler2" -> {"Eater 1", None, None}, 
+      "p48longbunhassler" -> {"Eater 1", "Clock", None, None, None}, 
+      "p80procrastinatorhassler" -> {
+       None, "R-pentomino", "Eater 1", None, "Figure eight", "Kok's galaxy", 
+        "Figure eight", None}, "p12blonktiehassler" -> {None, "64P6", "64P6"},
+       "p16uturnerhassler" -> {
+       "Block", "Eater 1", "U-turner", None, "Kok's galaxy"}, 
+      "p60uturnerhassler" -> {
+       None, "Pentadecathlon", "Pentadecathlon", None, None, "Fumarole", 
+        "Ship+fishhook", None}, 
+      "p144uturnerhassler" -> {
+       None, "Block", "V spark", "Tub", None, "U-turner", None, None, None, 
+        "Figure eight", None, None, "Figure eight"}, 
+      "prepulsarshuttle22" -> {None, None}, 
+      "p26prepulsarhassler2" -> {"Block", None, None, None}, 
+      "prepulsarshuttle32" -> {None, None}, 
+      "prepulsarshuttle35" -> {None, None, None}, 
+      "prepulsarshuttle36" -> {None, None, "T-nosed p4", None}, 
+      "prepulsarshuttle36reduced" -> {"Tub", None, "Eater 1", None}, 
+      "prepulsarshuttle40" -> {None, None, "Figure eight", "Figure eight"}, 
+      "prepulsarshuttle42" -> {"Block", None, None}, 
+      "p48prepulsarshuttle" -> {None, "Eater 1", "Figure eight"}, 
+      "p55prepulsarshuttle" -> {None, None, None}, 
+      "prepulsarshuttle60" -> {None, "Caterer"}, 
+      "prepulsarshuttle64" -> {"Block", None, None, None}, 
+      "prepulsarshuttle65" -> {None, None, None}, 
+      "prepulsarshuttle88" -> {None, None, None}, 
+      "prepulsarshuttle90" -> {None, None, "Caterer", "Fumarole"}, 
+      "p34dependentreflectorloop" -> {
+       None, "Glider", None, None, "Eater 1", None}, 
+      "p53dependentreflectorloop" -> {
+       "Block", "Glider", "Eater 1", "Block on table", None, None}, 
+      "135-degree LWSS-to-G" -> {"Glider", "Lightweight spaceship", None}, 
+      "139P7H1V0" -> {None, None}, "409P7" -> {None, None}, 
+      "86P118" -> {"Block", "Tub", "Beehive", "Clock", None, None}, 
+      "Goban" -> {"Eater 1", None, None, None}, 
+      "L141" -> {"Block", "Tub", "Boat", "Herschel", "Eater 1"}, 
+      "Lx65 duplicator" -> {"Block", None, "Herschel", "Eater 1", "Loaf"}, 
+      "P56 phi sparker" -> {
+       "Block", None, "Eater 1", None, None, "Ship+fishhook", None, None}, 
+      "Period-15 glider gun" -> {"Eater 1", None, "5blink", None}, 
+      "Period-36 glider gun" -> {
+       None, "Clock", "Jam", "Caterer", None, None, None}, 
+      "Period-53 glider gun" -> {
+       None, "Glider", "Eater 1", None, None, None, None, None, None}, 
+      "Spartan G-to-W-to-H" -> {"Block", "Eater 1", None, None}|>,
+     SelectWithContents->True,
+     Selectable->False]}], ";"}]}]], "Input",
+ CellLabel->"In[6]:=",ExpressionUUID->"712de9ae-e41e-4d2c-9d0b-5d132ea49822"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ByteCount", "[", "resall", "]"}]], "Input",
+ CellLabel->"In[7]:=",ExpressionUUID->"e99e9944-9033-4f62-abcf-8d9afa672b51"],
+
+Cell[BoxData["215160"], "Output",
+ CellLabel->"Out[7]=",ExpressionUUID->"7b6a4f5e-47eb-4a32-bf26-def16cb7c759"]
+}, Open  ]]
+},
+WindowSize->{808, 853},
+WindowMargins->{{228, Automatic}, {Automatic, 26}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"f60322e7-cbaf-46a1-b021-2d022a395f54"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 16824, 365, 532, "Input",ExpressionUUID->"6426cc9d-1a27-4381-8bdd-67b0a78efa4b",
+ CellID->124846853],
+Cell[17381, 387, 64239, 1181, 275, "Input",ExpressionUUID->"712de9ae-e41e-4d2c-9d0b-5d132ea49822"],
+Cell[CellGroupData[{
+Cell[81645, 1572, 145, 2, 29, "Input",ExpressionUUID->"e99e9944-9033-4f62-abcf-8d9afa672b51"],
+Cell[81793, 1576, 111, 1, 33, "Output",ExpressionUUID->"7b6a4f5e-47eb-4a32-bf26-def16cb7c759"]
+}, Open  ]]
+}
+]
+*)
+

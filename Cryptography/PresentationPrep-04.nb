@@ -1,0 +1,252 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      8877,        244]
+NotebookOptionsPosition[      8083,        222]
+NotebookOutlinePosition[      8480,        238]
+CellTagsIndexPosition[      8437,        235]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"BlockchainData", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.955571177359332*^9, 3.955571177363742*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"e58d11b4-01ee-469a-95e3-a3c97b63a00e"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftAssociation]", 
+  RowBox[{
+   RowBox[{"\<\"Type\"\>", "\[Rule]", "\<\"Bitcoin\"\>"}], ",", 
+   RowBox[{"\<\"Name\"\>", "\[Rule]", "\<\"BTC.main\"\>"}], ",", 
+   RowBox[{"\<\"Core\"\>", "\[Rule]", "\<\"Bitcoin\"\>"}], ",", 
+   RowBox[{"\<\"Blocks\"\>", "\[Rule]", "895589"}], ",", 
+   RowBox[{"\<\"LatestBlockHash\"\>", 
+    "\[Rule]", \
+"\<\"00000000000000000001919cbe23eb61c645a6d9ed0e632383994fb54c9011f2\"\>"}], 
+   ",", 
+   RowBox[{"\<\"MinimumFee\"\>", "\[Rule]", 
+    TemplateBox[{"1753", 
+      RowBox[{"\[VeryThinSpace]", 
+        FormBox["\" sat\"", TraditionalForm]}], "satoshis", "\"Satoshis\""},
+     "QuantityPostfix"]}]}], "\[RightAssociation]"}]], "Output",
+ CellChangeTimes->{3.955571186654491*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"5cd04811-76de-4e64-84eb-ef8b9fc02b85"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"1.", " ", "CA\:2011based", " ", 
+     RowBox[{"hash", ":", 
+      RowBox[{"rule", " ", "30"}]}]}], ",", 
+    RowBox[{"64", " ", "steps"}], ",", 
+    RowBox[{
+     RowBox[{"takes", " ", "a", " ", "string"}], "\[RightArrow]", 
+     "integer"}]}], "*)"}], 
+  RowBox[{
+   RowBox[{"ClearAll", "[", "caHash", "]"}], "\n", 
+   RowBox[{
+    RowBox[{"caHash", "[", 
+     RowBox[{"data_String", ",", 
+      RowBox[{"rule_", ":", "30"}], ",", 
+      RowBox[{"steps_", ":", "64"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"bits", ",", "evol"}], "}"}], ",", 
+      RowBox[{
+       RowBox[{"bits", "=", 
+        RowBox[{"IntegerDigits", "[", 
+         RowBox[{
+          RowBox[{"Hash", "[", 
+           RowBox[{"data", ",", "\"\<SHA256\>\""}], "]"}], ",", "2", ",", 
+          "256"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"evol", "=", 
+        RowBox[{"CellularAutomaton", "[", 
+         RowBox[{"rule", ",", "bits", ",", "steps"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"FromDigits", "[", 
+        RowBox[{
+         RowBox[{"Last", "[", "evol", "]"}], ",", "2"}], "]"}]}]}], 
+     "               ", 
+     RowBox[{"(*", 
+      RowBox[{
+      "interpret", " ", "last", " ", "row", " ", "as", " ", "integer"}], 
+      "*)"}], "]"}]}], "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+     RowBox[{"2.", " ", "Block", " ", 
+      RowBox[{"constructor", ":", 
+       RowBox[{"prev", " ", "hash"}]}]}], ",", "payload", ",", "nonce", ",", 
+     RowBox[{"plus", " ", "computed", " ", "hash"}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"ClearAll", "[", "newBlock", "]"}], "\n", 
+   RowBox[{
+    RowBox[{"newBlock", "[", 
+     RowBox[{"prevHash_", ",", "payload_", ",", "nonce_", ",", 
+      RowBox[{"rule_", ":", "30"}], ",", 
+      RowBox[{"steps_", ":", "64"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"blk", ",", "h"}], "}"}], ",", 
+      RowBox[{
+       RowBox[{"blk", "=", 
+        RowBox[{"<|", 
+         RowBox[{
+          RowBox[{"\"\<prev\>\"", "->", "prevHash"}], ",", 
+          RowBox[{"\"\<payload\>\"", "->", "payload"}], ",", 
+          RowBox[{"\"\<nonce\>\"", "->", "nonce"}]}], "|>"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"h", "=", 
+        RowBox[{"caHash", "[", 
+         RowBox[{
+          RowBox[{"ExportString", "[", 
+           RowBox[{"blk", ",", "\"\<JSON\>\""}], "]"}], ",", "rule", ",", 
+          "steps"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"Append", "[", 
+        RowBox[{"blk", ",", 
+         RowBox[{"\"\<hash\>\"", "->", "h"}]}], "]"}]}]}], "]"}]}], 
+   "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{"3.", " ", 
+     RowBox[{"Miner", ":", 
+      RowBox[{
+       RowBox[{"simple", " ", "brute\:2011force", " ", "until", " ", "hash"}],
+        "<", "target"}]}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"ClearAll", "[", "mineBlock", "]"}], "\n", 
+   RowBox[{
+    RowBox[{"mineBlock", "[", 
+     RowBox[{"prevHash_", ",", "payload_", ",", 
+      RowBox[{"target_", ":", 
+       RowBox[{"2", "^", "200"}]}], ",", 
+      RowBox[{"rule_", ":", "30"}], ",", 
+      RowBox[{"steps_", ":", "64"}]}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"nonce", "=", "0"}], ",", "blk"}], "}"}], ",", 
+      RowBox[{"While", "[", 
+       RowBox[{"True", ",", 
+        RowBox[{
+         RowBox[{"blk", "=", 
+          RowBox[{"newBlock", "[", 
+           RowBox[{"prevHash", ",", "payload", ",", 
+            RowBox[{"nonce", "++"}], ",", "rule", ",", "steps"}], "]"}]}], ";",
+          "\[IndentingNewLine]", 
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"blk", "[", "\"\<hash\>\"", "]"}], "<", "target"}], ",", 
+           RowBox[{"Return", "[", "blk", "]"}]}], "]"}]}]}], "]"}]}], "]"}]}],
+    "\[IndentingNewLine]", "\n", 
+   RowBox[{"(*", 
+    RowBox[{
+    "4.", " ", "Assemble", " ", "a", " ", "chain", " ", "of", " ", "n", " ", 
+     "blocks"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{"ClearAll", "[", "makeChain", "]"}], "\n", 
+   RowBox[{
+    RowBox[{"makeChain", "[", "n_Integer", "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"genesis", ",", "chain"}], "}"}], ",", 
+      RowBox[{
+       RowBox[{"genesis", "=", 
+        RowBox[{"<|", 
+         RowBox[{
+          RowBox[{"\"\<prev\>\"", "->", "\"\<0\>\""}], ",", 
+          RowBox[{"\"\<payload\>\"", "->", "\"\<genesis\>\""}], ",", 
+          RowBox[{"\"\<nonce\>\"", "->", "0"}], ",", 
+          RowBox[{"\"\<hash\>\"", "->", 
+           RowBox[{"caHash", "[", 
+            RowBox[{"\"\<genesis\>\"", ",", "30", ",", "64"}], "]"}]}]}], 
+         "|>"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"chain", "=", 
+        RowBox[{"FoldList", "[", 
+         RowBox[{
+          RowBox[{"Function", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"acc", ",", "i"}], "}"}], ",", 
+            RowBox[{"mineBlock", "[", 
+             RowBox[{
+              RowBox[{"acc", "[", "\"\<hash\>\"", "]"}], ",", 
+              RowBox[{"\"\<tx\>\"", "<>", 
+               RowBox[{"ToString", "[", "i", "]"}]}]}], "]"}]}], "]"}], ",", 
+          "genesis", ",", 
+          RowBox[{"Range", "[", "n", "]"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", "chain"}]}], "]"}]}], "\[IndentingNewLine]", 
+   "\n", 
+   RowBox[{"(*", 
+    RowBox[{"5.", " ", 
+     RowBox[{"Demo", ":", 
+      RowBox[{
+      "mine", " ", "3", " ", "blocks", " ", "and", " ", "show", " ", 
+       "them"}]}]}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"chain", "=", 
+     RowBox[{"makeChain", "[", "3", "]"}]}], ";"}], "\n", 
+   RowBox[{"chain", "//", "TableForm"}], "\n"}]}]], "Input",
+ CellChangeTimes->{{3.955621256927793*^9, 3.955621256931679*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"45b80c4e-e5e8-4250-99b2-911d635fc3c2"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.955622108425132*^9},
+ CellLabel->"Out[18]=",ExpressionUUID->"25076481-f7af-4194-abdb-fed4493aa8cb"],
+
+Cell[BoxData[
+ TagBox["chain",
+  Function[BoxForm`e$, 
+   TableForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{3.9556221085448637`*^9},
+ CellLabel->
+  "Out[19]//TableForm=",ExpressionUUID->"22623be3-443b-4691-96cb-\
+f5f091633b1c"]
+}, Open  ]]
+},
+WindowSize->{808, 673},
+WindowMargins->{{141, Automatic}, {1, Automatic}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"95622977-3845-485f-ab38-e94df73834cf"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 206, 3, 29, "Input",ExpressionUUID->"e58d11b4-01ee-469a-95e3-a3c97b63a00e"],
+Cell[785, 27, 822, 17, 84, "Output",ExpressionUUID->"5cd04811-76de-4e64-84eb-ef8b9fc02b85"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1644, 49, 6029, 157, 703, "Input",ExpressionUUID->"45b80c4e-e5e8-4250-99b2-911d635fc3c2"],
+Cell[7676, 208, 156, 2, 33, "Output",ExpressionUUID->"25076481-f7af-4194-abdb-fed4493aa8cb"],
+Cell[7835, 212, 232, 7, 33, "Output",ExpressionUUID->"22623be3-443b-4691-96cb-f5f091633b1c"]
+}, Open  ]]
+}
+]
+*)
+

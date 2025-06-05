@@ -1,0 +1,247 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9727,        239]
+NotebookOptionsPosition[      7030,        189]
+NotebookOutlinePosition[      7945,        216]
+CellTagsIndexPosition[      7866,        211]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"htmlContent", "=", 
+   RowBox[{"URLRead", "[", "\"\<https://fastbreakkids.com/\>\"", "]"}]}], 
+  ";"}]], "Input",
+ CellTags->"ChatGeneratedCell",
+ CellLabel->"In[9]:=",ExpressionUUID->"ba7897f1-812e-4bed-9849-8699212bb600"],
+
+Cell[BoxData["htmlContent"], "Input",
+ CellChangeTimes->{{3.9358347562369213`*^9, 3.935834757317184*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"c3c35f7a-9fd6-4d24-94cd-2df26a6b1983"],
+
+Cell[BoxData[
+ RowBox[{"data", " ", "=", " ", 
+  RowBox[{"Import", "[", 
+   RowBox[{"\"\<https://fastbreakkids.com/\>\"", ",", " ", "\"\<Data\>\""}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.9358349289536057`*^9, 3.9358349433430347`*^9}, 
+   3.935835220983777*^9},
+ CellLabel->"In[20]:=",ExpressionUUID->"fe8cd5bb-a0bc-4f78-9c7b-bc6c047a5ac9"],
+
+Cell[BoxData[
+ RowBox[{"Import", "[", 
+  RowBox[{
+  "\"\<https://fastbreakkids.com/\>\"", ",", " ", "\"\<Hyperlinks\>\""}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.935835227561987*^9, 3.9358352326834173`*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"04a0e374-5e35-49ef-900a-157c522682f9"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"hyperlinks", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{"\"\<https://fastbreakkids.com/\>\"", ",", "\"\<Hyperlinks\>\""}],
+     "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.935835811616094*^9, 3.935835819708617*^9}},
+ CellTags->"ChatGeneratedCell",
+ CellLabel->"In[2]:=",ExpressionUUID->"29f8a431-6bcd-40d6-a3f6-fed42f7a7edb"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fastbreakLinks", "=", 
+   RowBox[{"Select", "[", 
+    RowBox[{"hyperlinks", ",", 
+     RowBox[{
+      RowBox[{"StringContainsQ", "[", 
+       RowBox[{"#", ",", "\"\<https://fastbreakkids.com\>\""}], "]"}], 
+      "&"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.935835811616094*^9, 3.935835819708617*^9}},
+ CellTags->"ChatGeneratedCell",
+ CellLabel->"In[3]:=",ExpressionUUID->"9eab6477-3fa7-4b4d-bdb5-4dfe4427c900"],
+
+Cell[BoxData["fastbreakLinks"], "Input",
+ CellChangeTimes->{{3.935835327231846*^9, 3.9358353283894987`*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"6b120a31-3fbb-4338-9c2f-b636eed0c7f7"],
+
+Cell[BoxData[
+ RowBox[{"fastbreakLinks", "[", 
+  RowBox[{"[", "10", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.935835975943612*^9, 3.935835978292398*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"64d8733b-5732-4a2b-a235-628703ce107b"],
+
+Cell[BoxData[
+ RowBox[{"Import", "[", 
+  RowBox[{
+  "\"\<https://fastbreakkids.com/basketball/afterschoolbasketball/\>\"", ",", 
+   " ", "\"\<Plaintext\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.935835914086792*^9, 3.935835972746868*^9}, {
+  3.9358360072045116`*^9, 3.935836038731824*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"d2588f29-562a-4d6b-b398-841e66253063"],
+
+Cell[BoxData[
+ RowBox[{"Import", "[", 
+  RowBox[{
+  "\"\<https://fastbreakkids.com/uncategorized/cheeropening/\>\"", ",", " ", 
+   RowBox[{"{", 
+    RowBox[{"\"\<Plaintext\>\"", ",", " ", "\"\<Images\>\""}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.935835914086792*^9, 3.935835972746868*^9}, {
+  3.9358360072045116`*^9, 3.935836038731824*^9}, {3.935836106150299*^9, 
+  3.9358361104628973`*^9}, {3.935836267442072*^9, 3.935836275382887*^9}},
+ CellLabel->"In[17]:=",ExpressionUUID->"b642f93f-c89f-4bdb-8682-53d777a88130"],
+
+Cell[BoxData[
+ RowBox[{"Import", "[", 
+  RowBox[{
+  "\"\<https://fastbreakkids.com/uncategorized/cheeropening/\>\"", ",", " ", 
+   "\"\<Images\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.935836146476108*^9, 3.935836153901792*^9}},
+ CellLabel->"In[16]:=",ExpressionUUID->"ff5cec2a-12b7-4e81-89ff-fbf01abb8365"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"classLinks", " ", "=", " ", 
+   RowBox[{"Select", "[", 
+    RowBox[{"hyperlinks", ",", 
+     RowBox[{
+      RowBox[{"StringContainsQ", "[", 
+       RowBox[{"#", ",", "\"\<https://fastbreakkids.com/classes/\>\""}], 
+       "]"}], "&"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.9358363806447268`*^9, 3.935836411187305*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"921ddd07-d0cb-49f8-8d5d-49636eb9d3c9"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"teamLinks", " ", "=", " ", 
+   RowBox[{"Select", "[", 
+    RowBox[{"hyperlinks", ",", 
+     RowBox[{
+      RowBox[{"StringContainsQ", "[", 
+       RowBox[{"#", ",", "\"\<https://fastbreakkids.com/teams/\>\""}], "]"}], 
+      "&"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.935836425024446*^9, 3.935836442632535*^9}},
+ CellLabel->"In[20]:=",ExpressionUUID->"39887e40-cf2e-4812-b176-60ed7be61961"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getimgs", "[", "url_", "]"}], ":=", " ", 
+  RowBox[{"Import", "[", 
+   RowBox[{"url", ",", " ", "\"\<Images\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.935852908016368*^9, 3.935852955655324*^9}, {
+   3.93585299216236*^9, 3.9358529978602953`*^9}, 3.935853586999878*^9},
+ CellLabel->"In[22]:=",ExpressionUUID->"435b1e6d-95eb-43b8-8a3b-67625fd7f8d0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"gettext", "[", "url_", "]"}], ":=", " ", 
+  RowBox[{"Import", "[", 
+   RowBox[{"url", ",", " ", "\"\<Plaintext\>\""}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.935853604390963*^9, 3.935853619697494*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"af75ec03-8b28-4594-be85-1f291283947d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"timgs", " ", "=", " ", 
+  RowBox[{
+  "getimg", "[", 
+   "\"\<https://fastbreakkids.com/basketball/afterschoolbasketball/\>\"", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.935853001241149*^9, 3.935853013070653*^9}, {
+  3.93585358321521*^9, 3.935853592861112*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"03399b2b-51a8-4983-8776-7fad46687167"],
+
+Cell[BoxData[
+ RowBox[{"{", "}"}]], "Output",
+ CellChangeTimes->{3.9358535940398903`*^9},
+ CellLabel->"Out[23]=",ExpressionUUID->"64d47a24-2b60-46a7-b83d-db995e3b9b7e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"text", " ", "=", " ", 
+  RowBox[{
+  "gettext", "[", 
+   "\"\<https://fastbreakkids.com/basketball/afterschoolbasketball/\>\"", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.935853001241149*^9, 3.935853013070653*^9}, {
+  3.93585358321521*^9, 3.935853592861112*^9}, {3.9358536258714848`*^9, 
+  3.9358536325273037`*^9}},
+ CellLabel->"In[25]:=",ExpressionUUID->"16844925-758c-4214-ba94-4198ddefda0a"],
+
+Cell[BoxData["\<\"Bot Protection Firewall  \\nBlocked because of Malicious \
+Activities  \\nReference ID: 136615773066edddc1356ca\"\>"], "Output",
+ CellChangeTimes->{3.935853633354542*^9},
+ CellLabel->"Out[25]=",ExpressionUUID->"fa54b778-a767-4c6c-a271-cd5ce6796936"]
+}, Open  ]]
+},
+WindowSize->{808, 747},
+WindowMargins->{{Automatic, 229}, {Automatic, 0}},
+TaggingRules-><|"ChatNotebookSettings" -> <|"Assistance" -> False|>|>,
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Chatbook.nb",
+ExpressionUUID->"4e602bc7-e362-4e26-a216-1e2e2ebe896f"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "ChatGeneratedCell"->{
+  Cell[558, 20, 258, 6, 30, "Input",ExpressionUUID->"ba7897f1-812e-4bed-9849-8699212bb600",
+   CellTags->"ChatGeneratedCell"],
+  Cell[1649, 49, 366, 8, 30, "Input",ExpressionUUID->"29f8a431-6bcd-40d6-a3f6-fed42f7a7edb",
+   CellTags->"ChatGeneratedCell"],
+  Cell[2018, 59, 458, 11, 30, "Input",ExpressionUUID->"9eab6477-3fa7-4b4d-bdb5-4dfe4427c900",
+   CellTags->"ChatGeneratedCell"]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"ChatGeneratedCell", 7458, 201}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 258, 6, 30, "Input",ExpressionUUID->"ba7897f1-812e-4bed-9849-8699212bb600",
+ CellTags->"ChatGeneratedCell"],
+Cell[819, 28, 184, 2, 30, "Input",ExpressionUUID->"c3c35f7a-9fd6-4d24-94cd-2df26a6b1983"],
+Cell[1006, 32, 347, 7, 30, "Input",ExpressionUUID->"fe8cd5bb-a0bc-4f78-9c7b-bc6c047a5ac9"],
+Cell[1356, 41, 290, 6, 30, "Input",ExpressionUUID->"04a0e374-5e35-49ef-900a-157c522682f9"],
+Cell[1649, 49, 366, 8, 30, "Input",ExpressionUUID->"29f8a431-6bcd-40d6-a3f6-fed42f7a7edb",
+ CellTags->"ChatGeneratedCell"],
+Cell[2018, 59, 458, 11, 30, "Input",ExpressionUUID->"9eab6477-3fa7-4b4d-bdb5-4dfe4427c900",
+ CellTags->"ChatGeneratedCell"],
+Cell[2479, 72, 186, 2, 30, "Input",ExpressionUUID->"6b120a31-3fbb-4338-9c2f-b636eed0c7f7"],
+Cell[2668, 76, 236, 4, 30, "Input",ExpressionUUID->"64d8733b-5732-4a2b-a235-628703ce107b"],
+Cell[2907, 82, 372, 7, 30, "Input",ExpressionUUID->"d2588f29-562a-4d6b-b398-841e66253063"],
+Cell[3282, 91, 529, 10, 30, "Input",ExpressionUUID->"b642f93f-c89f-4bdb-8682-53d777a88130"],
+Cell[3814, 103, 312, 6, 30, "Input",ExpressionUUID->"ff5cec2a-12b7-4e81-89ff-fbf01abb8365"],
+Cell[4129, 111, 445, 10, 52, "Input",ExpressionUUID->"921ddd07-d0cb-49f8-8d5d-49636eb9d3c9"],
+Cell[4577, 123, 439, 10, 30, "Input",ExpressionUUID->"39887e40-cf2e-4812-b176-60ed7be61961"],
+Cell[5019, 135, 387, 7, 30, "Input",ExpressionUUID->"435b1e6d-95eb-43b8-8a3b-67625fd7f8d0"],
+Cell[5409, 144, 317, 6, 30, "Input",ExpressionUUID->"af75ec03-8b28-4594-be85-1f291283947d"],
+Cell[CellGroupData[{
+Cell[5751, 154, 366, 8, 30, "Input",ExpressionUUID->"03399b2b-51a8-4983-8776-7fad46687167"],
+Cell[6120, 164, 168, 3, 34, "Output",ExpressionUUID->"64d47a24-2b60-46a7-b83d-db995e3b9b7e"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6325, 172, 419, 9, 30, "Input",ExpressionUUID->"16844925-758c-4214-ba94-4198ddefda0a"],
+Cell[6747, 183, 267, 3, 77, "Output",ExpressionUUID->"fa54b778-a767-4c6c-a271-cd5ce6796936"]
+}, Open  ]]
+}
+]
+*)
+

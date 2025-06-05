@@ -1,0 +1,2960 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[    142199,       2952]
+NotebookOptionsPosition[    136240,       2874]
+NotebookOutlinePosition[    136638,       2890]
+CellTagsIndexPosition[    136595,       2887]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[""], "Input",ExpressionUUID->"85580b63-fe98-49e0-83a7-a4e29222a2b4"],
+
+Cell["\<\
+I heard about Stephen Wolfram, when I came across a video of his discussion \
+with one of my other favorite scientists Nassim Taleb. \
+\>", "Text",ExpressionUUID->"62bc137a-9369-43be-aaa4-6de654bc5e7b"],
+
+Cell["\<\
+In New Kind of Science, Stephen Wolfram started to fill this gap, with his \
+study of tissue growth and pigmentation patterns. \
+\>", "Text",ExpressionUUID->"4ca5aeaf-859e-433f-95a9-d0d4e8c24fc4"],
+
+Cell["\<\
+ and in the past year or so, Stephen Wolfram has filled this gap and \
+pioneered some groundbreaking computational models for biological systems. \
+Starting as a fan of the research, and eventually becoming a collaborator, I\
+\[CloseCurlyQuote]ve become convinced that we\[CloseCurlyQuote]ve struck gold \
+and are now in a position to understand the high-level features of biology \
+better than ever before. \
+\>", "Text",ExpressionUUID->"9af4398f-9edd-409a-97b7-36db05b4fc58"],
+
+Cell["In exploring Stephen Wolfram\[CloseCurlyQuote]s perspective on biology, \
+", "Text",ExpressionUUID->"6c3392f4-9ecf-43e5-bef4-6d47d53f9cf0"],
+
+Cell["\<\
+In my opinion, Stephen Wolfram is one of the most prolific scientists of our \
+time. His Magnum Opus, New Kind of Science, is one of my favorite books ever, \
+and the tool he created for doing science. \
+\>", "Text",ExpressionUUID->"fed1a2f4-7a8d-4662-a89d-ca9896a5cf72"],
+
+Cell["\<\
+Interestingly, he didn\[CloseCurlyQuote]t (and still \
+doesn\[CloseCurlyQuote]t) make his money off of science. Now, you may have \
+noticed that I make my money from his institute\
+\>", "Text",ExpressionUUID->"bc76bf9a-ec8e-40f9-8f60-93749ce998c6"],
+
+Cell["\<\
+
+In the current paradigm, the obvious question is, \[OpenCurlyDoubleQuote]What \
+about machine learning?\[CloseCurlyDoubleQuote]. We will definitely come back \
+to this in his more recent work.  This claim as we\[CloseCurlyQuote]ll see, \
+is a point of contention within Stephen\[CloseCurlyQuote]s work, and in his \
+more recent work he essentially goes the other way. \
+\>", "Text",ExpressionUUID->"b7fb72e8-4794-4bcd-8437-ff94ebfae5e0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Module", "[", 
+  RowBox[{
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"k", "=", "3"}], ",", 
+     RowBox[{"r", "=", "1"}], ",", 
+     RowBox[{"cut", "=", "200"}], ",", 
+     RowBox[{"deep", "=", "5000"}], ",", 
+     RowBox[{"fun", "=", "Length"}], ",", "\[IndentingNewLine]", "init", ",", 
+     "evo", ",", "ru", ",", "data", ",", "lt", ",", "test", ",", "mask", ",", 
+     "canonical", ",", "res"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"res", "=", 
+     RowBox[{"ParallelTable", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"SeedRandom", "[", "seed", "]"}], ";", "\[IndentingNewLine]", 
+        
+        RowBox[{"init", "=", 
+         RowBox[{"FromDigits", "[", 
+          RowBox[{
+           RowBox[{"Lookup", "[", 
+            RowBox[{
+             RowBox[{"Association", "[", 
+              RowBox[{"Thread", "[", 
+               RowBox[{
+                RowBox[{"Append", "[", "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"Permutations", "[", 
+                   RowBox[{"CenterArray", "[", 
+                    RowBox[{"1", ",", 
+                    RowBox[{
+                    RowBox[{"2", "r"}], "+", "1"}]}], "]"}], "]"}], ",", 
+                  "\[IndentingNewLine]", 
+                  RowBox[{"CenterArray", "[", 
+                   RowBox[{"0", ",", 
+                    RowBox[{
+                    RowBox[{"2", "r"}], "+", "1"}]}], "]"}]}], "]"}], "->", 
+                "1"}], "]"}], "]"}], ",", 
+             RowBox[{
+              InterpretationBox[
+               TagBox[
+                FrameBox[
+                 PaneBox[GridBox[{
+                    {
+                    StyleBox[
+                    StyleBox[
+                    AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                    FontColor->GrayLevel[0.45]],
+                    ShowStringCharacters->False,
+                    FontFamily->"Source Sans Pro Black",
+                    FontSize->0.65 Inherited,
+                    FontWeight->"Heavy",
+                    PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                    StyleBox[
+                    RowBox[{
+                    StyleBox["\<\"RuleTuples\"\>", "ResourceFunctionLabel"], 
+                    " "}],
+                    ShowAutoStyles->False,
+                    ShowStringCharacters->False,
+                    FontSize->0.9 Inherited,
+                    FontColor->GrayLevel[0.1]]}
+                   },
+                   GridBoxSpacings->{"Columns" -> {{0.25}}}],
+                  Alignment->Left,
+                  BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+                  BaselinePosition->Baseline,
+                  FrameMargins->{{3, 0}, {0, 0}}],
+                 Background->RGBColor[0.968627, 0.976471, 0.984314],
+                 BaselinePosition->Baseline,
+                 DefaultBaseStyle->{},
+                 FrameMargins->{{0, 0}, {1, 1}},
+                 FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+                 RoundingRadius->4],
+                {"FunctionResourceBox", 
+                 GrayLevel[0.45], "\"RuleTuples\""},
+                TagBoxNote->"FunctionResourceBox"],
+               ResourceFunction[
+                
+                ResourceObject[<|
+                 "DocumentationLink" -> 
+                  URL["https://www.wolframcloud.com/obj/sw-writings0/BugTest/\
+RuleTuples"], "ResourceLocations" -> {
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings0/Resources/\
+f23/f23c56fb-4ef3-4594-9ed5-75d1872089cd"]}, "Name" -> "RuleTuples", "UUID" -> 
+                  "f23c56fb-4ef3-4594-9ed5-75d1872089cd", "ResourceType" -> 
+                  "Function", "Version" -> None, "DefinitionNotebook" -> 
+                  CloudObject[
+                   "https://www.wolframcloud.com/obj/sw-writings0/BugTest/\
+RuleTuples/RuleTuples-DefinitionNotebook.nb"], "ExampleNotebookData" -> 
+                  Automatic, "FunctionLocation" -> 
+                  CloudObject[
+                   "https://www.wolframcloud.com/obj/sw-writings0/Resources/\
+f23/f23c56fb-4ef3-4594-9ed5-75d1872089cd/download/DefinitionData"], 
+                  "ShortName" -> "RuleTuples", "SymbolName" -> 
+                  "FunctionRepository`$f23c56fb4ef345949ed575d1872089cd`\
+RuleTuples", "PageHeaderClickToCopy" -> 
+                  "ResourceObject[CloudObject[\"https://www.wolframcloud.com/\
+obj/sw-writings0/BugTest/RuleTuples\"]]"|>]],
+               Selectable->False], "[", 
+              RowBox[{"k", ",", "r"}], "]"}], ",", "0"}], "]"}], ",", "2"}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"init", "=", 
+         RowBox[{"{", 
+          RowBox[{"0", ",", 
+           RowBox[{"{", 
+            RowBox[{"0", ",", "init"}], "}"}], ",", "1", ",", 
+           RowBox[{"fun", "[", 
+            RowBox[{"{", 
+             RowBox[{"{", "1", "}"}], "}"}], "]"}]}], "}"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"evo", "=", 
+         RowBox[{"NestList", "[", 
+          RowBox[{
+           RowBox[{"Function", "[", 
+            RowBox[{"item", ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"ru", "=", 
+               RowBox[{"First", "[", 
+                RowBox[{
+                 InterpretationBox[
+                  TagBox[
+                   FrameBox[
+                    PaneBox[GridBox[{
+                    {
+                    StyleBox[
+                    StyleBox[
+                    AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                    FontColor->GrayLevel[0.45]],
+                    ShowStringCharacters->False,
+                    FontFamily->"Source Sans Pro Black",
+                    FontSize->0.65 Inherited,
+                    FontWeight->"Heavy",
+                    PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                    StyleBox[
+                    RowBox[{
+                    
+                    StyleBox["\<\"RandomRuleMutation\"\>", 
+                    "ResourceFunctionLabel"], " "}],
+                    ShowAutoStyles->False,
+                    ShowStringCharacters->False,
+                    FontSize->0.9 Inherited,
+                    FontColor->GrayLevel[0.1]]}
+                    },
+                    GridBoxSpacings->{"Columns" -> {{0.25}}}],
+                    Alignment->Left,
+                    
+                    BaseStyle->{
+                    LineSpacing -> {0, 0}, LineBreakWithin -> False},
+                    BaselinePosition->Baseline,
+                    FrameMargins->{{3, 0}, {0, 0}}],
+                    Background->RGBColor[0.968627, 0.976471, 0.984314],
+                    BaselinePosition->Baseline,
+                    DefaultBaseStyle->{},
+                    FrameMargins->{{0, 0}, {1, 1}},
+                    FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+                    RoundingRadius->4],
+                   {"FunctionResourceBox", 
+                    GrayLevel[0.45], "\"RandomRuleMutation\""},
+                   TagBoxNote->"FunctionResourceBox"],
+                  ResourceFunction[
+                   
+                   ResourceObject[<|
+                    "DocumentationLink" -> 
+                    URL["https://www.wolframcloud.com/obj/sw-writings0/\
+BugTest/RandomRuleMutation"], "ResourceLocations" -> {
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings0/Resources/\
+28b/28b91f69-75c7-47f2-808a-9bb598f4c7a7"]}, "Name" -> "RandomRuleMutation", 
+                    "UUID" -> "28b91f69-75c7-47f2-808a-9bb598f4c7a7", 
+                    "ResourceType" -> "Function", "Version" -> None, 
+                    "DefinitionNotebook" -> 
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings0/BugTest/\
+RandomRuleMutation/RandomRuleMutation-DefinitionNotebook.nb"], 
+                    "ExampleNotebookData" -> Automatic, "FunctionLocation" -> 
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings0/Resources/\
+28b/28b91f69-75c7-47f2-808a-9bb598f4c7a7/download/DefinitionData"], 
+                    "ShortName" -> "RandomRuleMutation", "SymbolName" -> 
+                    "FunctionRepository`$28b91f6975c747f2808a9bb598f4c7a7`\
+RandomRuleMutation", "PageHeaderClickToCopy" -> 
+                    "ResourceObject[CloudObject[\"https://www.wolframcloud.\
+com/obj/sw-writings0/BugTest/RandomRuleMutation\"]]"|>]],
+                  Selectable->False], "[", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"First", "[", "item", "]"}], ",", "k", ",", "r"}], 
+                  "}"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"data", "=", 
+               RowBox[{"CellularAutomaton", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"ru", ",", "k", ",", "r"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", "1", "}"}], ",", "0"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"cut", ",", "All"}], "}"}]}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"lt", "=", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{"SameQ", "[", 
+                    RowBox[{"#", ",", "0"}], "]"}], ",", "True", ",", 
+                   RowBox[{"cut", "-", "#", "+", "1"}]}], "]"}], "&"}], "[", 
+                "\[IndentingNewLine]", 
+                RowBox[{"LengthWhile", "[", 
+                 RowBox[{
+                  RowBox[{"Reverse", "[", "data", "]"}], ",", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"Total", "[", "#", "]"}], "==", "0"}], "&"}]}], 
+                 "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"TrueQ", "[", "lt", "]"}], ",", "item", ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"test", "=", 
+                  RowBox[{"fun", "[", 
+                   RowBox[{
+                    InterpretationBox[
+                    TagBox[
+                    FrameBox[
+                    PaneBox[GridBox[{
+                    {
+                    StyleBox[
+                    StyleBox[
+                    AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                    FontColor->GrayLevel[0.45]],
+                    ShowStringCharacters->False,
+                    FontFamily->"Source Sans Pro Black",
+                    FontSize->0.65 Inherited,
+                    FontWeight->"Heavy",
+                    PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                    StyleBox[
+                    RowBox[{
+                    StyleBox["\<\"MatrixCrop\"\>", "ResourceFunctionLabel"], 
+                    " "}],
+                    ShowAutoStyles->False,
+                    ShowStringCharacters->False,
+                    FontSize->0.9 Inherited,
+                    FontColor->GrayLevel[0.1]]}
+                    },
+                    GridBoxSpacings->{"Columns" -> {{0.25}}}],
+                    Alignment->Left,
+                    
+                    BaseStyle->{
+                    LineSpacing -> {0, 0}, LineBreakWithin -> False},
+                    BaselinePosition->Baseline,
+                    FrameMargins->{{3, 0}, {0, 0}}],
+                    Background->RGBColor[0.968627, 0.976471, 0.984314],
+                    BaselinePosition->Baseline,
+                    DefaultBaseStyle->{},
+                    FrameMargins->{{0, 0}, {1, 1}},
+                    FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+                    RoundingRadius->4],
+                    {"FunctionResourceBox", 
+                    GrayLevel[0.45], "\"MatrixCrop\""},
+                    TagBoxNote->"FunctionResourceBox"],
+                    ResourceFunction[
+                    
+                    ResourceObject[<|
+                    "DocumentationLink" -> 
+                    URL[
+                    "https://www.wolframcloud.com/obj/sw-writings0/BugTest/\
+MatrixCrop"], "ResourceLocations" -> {
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings0/Resources/\
+dfd/dfd6763b-35e6-4768-93c7-e61eeaa19f37"]}, "Name" -> "MatrixCrop", "UUID" -> 
+                    "dfd6763b-35e6-4768-93c7-e61eeaa19f37", "ResourceType" -> 
+                    "Function", "Version" -> None, "DefinitionNotebook" -> 
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings0/BugTest/\
+MatrixCrop/MatrixCrop-DefinitionNotebook.nb"], "ExampleNotebookData" -> 
+                    Automatic, "FunctionLocation" -> 
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings0/Resources/\
+dfd/dfd6763b-35e6-4768-93c7-e61eeaa19f37/download/DefinitionData"], 
+                    "ShortName" -> "MatrixCrop", "SymbolName" -> 
+                    "FunctionRepository`$dfd6763b35e6476893c7e61eeaa19f37`\
+MatrixCrop", "PageHeaderClickToCopy" -> 
+                    "ResourceObject[CloudObject[\"https://www.wolframcloud.\
+com/obj/sw-writings0/BugTest/MatrixCrop\"]]"|>]],
+                    Selectable->False], "[", "data", "]"}], "]"}]}], ";", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{"test", "<", 
+                    RowBox[{"Last", "[", "item", "]"}]}], ",", "item", ",", 
+                   "\[IndentingNewLine]", 
+                   RowBox[{
+                    RowBox[{"data", "=", 
+                    RowBox[{"Union", "[", 
+                    RowBox[{"Catenate", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"Partition", "[", 
+                    RowBox[{"#", ",", 
+                    RowBox[{
+                    RowBox[{"2", "r"}], "+", "1"}], ",", "1"}], "]"}], "&"}], 
+                    "/@", "data"}], "]"}], "]"}]}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"mask", "=", 
+                    RowBox[{"Lookup", "[", 
+                    RowBox[{
+                    RowBox[{"Association", "[", 
+                    RowBox[{"Thread", "[", 
+                    RowBox[{"data", "->", "1"}], "]"}], "]"}], ",", 
+                    RowBox[{
+                    InterpretationBox[
+                    TagBox[
+                    FrameBox[
+                    PaneBox[GridBox[{
+                    {
+                    StyleBox[
+                    StyleBox[
+                    AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                    FontColor->GrayLevel[0.45]],
+                    ShowStringCharacters->False,
+                    FontFamily->"Source Sans Pro Black",
+                    FontSize->0.65 Inherited,
+                    FontWeight->"Heavy",
+                    PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                    StyleBox[
+                    RowBox[{
+                    StyleBox["\<\"RuleTuples\"\>", "ResourceFunctionLabel"], 
+                    " "}],
+                    ShowAutoStyles->False,
+                    ShowStringCharacters->False,
+                    FontSize->0.9 Inherited,
+                    FontColor->GrayLevel[0.1]]}
+                    },
+                    GridBoxSpacings->{"Columns" -> {{0.25}}}],
+                    Alignment->Left,
+                    
+                    BaseStyle->{
+                    LineSpacing -> {0, 0}, LineBreakWithin -> False},
+                    BaselinePosition->Baseline,
+                    FrameMargins->{{3, 0}, {0, 0}}],
+                    Background->RGBColor[0.968627, 0.976471, 0.984314],
+                    BaselinePosition->Baseline,
+                    DefaultBaseStyle->{},
+                    FrameMargins->{{0, 0}, {1, 1}},
+                    FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+                    RoundingRadius->4],
+                    {"FunctionResourceBox", 
+                    GrayLevel[0.45], "\"RuleTuples\""},
+                    TagBoxNote->"FunctionResourceBox"],
+                    ResourceFunction[
+                    
+                    ResourceObject[<|
+                    "DocumentationLink" -> 
+                    URL["https://www.wolframcloud.com/obj/sw-writings0/\
+BugTest/RuleTuples"], "ResourceLocations" -> {
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings0/Resources/\
+f23/f23c56fb-4ef3-4594-9ed5-75d1872089cd"]}, "Name" -> "RuleTuples", "UUID" -> 
+                    "f23c56fb-4ef3-4594-9ed5-75d1872089cd", "ResourceType" -> 
+                    "Function", "Version" -> None, "DefinitionNotebook" -> 
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings0/BugTest/\
+RuleTuples/RuleTuples-DefinitionNotebook.nb"], "ExampleNotebookData" -> 
+                    Automatic, "FunctionLocation" -> 
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings0/Resources/\
+f23/f23c56fb-4ef3-4594-9ed5-75d1872089cd/download/DefinitionData"], 
+                    "ShortName" -> "RuleTuples", "SymbolName" -> 
+                    "FunctionRepository`$f23c56fb4ef345949ed575d1872089cd`\
+RuleTuples", "PageHeaderClickToCopy" -> 
+                    "ResourceObject[CloudObject[\"https://www.wolframcloud.\
+com/obj/sw-writings0/BugTest/RuleTuples\"]]"|>]],
+                    Selectable->False], "[", 
+                    RowBox[{"k", ",", "r"}], "]"}], ",", "0"}], "]"}]}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"canonical", "=", 
+                    RowBox[{"IntegerDigits", "[", 
+                    RowBox[{"ru", ",", "k", ",", 
+                    RowBox[{"k", "^", 
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"2", "r"}], "+", "1"}], ")"}]}]}], "]"}]}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"canonical", "=", 
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"FromDigits", "[", 
+                    RowBox[{
+                    RowBox[{"canonical", "*", "mask"}], ",", "k"}], "]"}], ",",
+                     "\[IndentingNewLine]", 
+                    RowBox[{"FromDigits", "[", 
+                    RowBox[{"mask", ",", "2"}], "]"}]}], "}"}]}], ";", 
+                    "\[IndentingNewLine]", 
+                    RowBox[{"{", 
+                    RowBox[{"ru", ",", "canonical", ",", "lt", ",", "test"}], 
+                    "}"}]}]}], "\[IndentingNewLine]", "]"}]}]}], "]"}]}]}], 
+            "]"}], ",", "init", ",", "deep"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"evo", "=", 
+         RowBox[{"Map", "[", 
+          RowBox[{
+           RowBox[{"Rest", "@*", "First"}], ",", 
+           RowBox[{"SplitBy", "[", 
+            RowBox[{"evo", ",", 
+             RowBox[{
+              RowBox[{"#", "[", 
+               RowBox[{"[", "2", "]"}], "]"}], "&"}]}], "]"}]}], "]"}]}], ";",
+         "\[IndentingNewLine]", 
+        RowBox[{"evo", "=", 
+         RowBox[{"Map", "[", 
+          RowBox[{"DeleteDuplicates", ",", 
+           RowBox[{"SplitBy", "[", 
+            RowBox[{"evo", ",", "Last"}], "]"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"res", "=", 
+         RowBox[{"Map", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"CompoundExpression", "[", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"data", "=", 
+               RowBox[{"CellularAutomaton", "[", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"#", "[", 
+                    RowBox[{"[", 
+                    RowBox[{"1", ",", "1"}], "]"}], "]"}], ",", "3", ",", 
+                   "1"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"{", "1", "}"}], ",", "0"}], "}"}], ",", 
+                 RowBox[{
+                  RowBox[{"#", "[", 
+                   RowBox[{"[", "2", "]"}], "]"}], "+", "2"}]}], "]"}]}], ",",
+               "\[IndentingNewLine]", 
+              RowBox[{"ArrayPlot", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"ArrayPad", "[", 
+                   RowBox[{"#", ",", "2"}], "]"}], "&"}], "/@", "data"}], ",",
+                 "\[IndentingNewLine]", 
+                RowBox[{"ColorRules", "->", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"0", "\[Rule]", 
+                    TemplateBox[<|"color" -> GrayLevel[1]|>,
+                    "GrayLevelColorSwatchTemplate"]}], ",", 
+                   RowBox[{"1", "\[Rule]", 
+                    TemplateBox[<|"color" -> Hue[0.06, 1, 1]|>,
+                    "HueColorSwatchTemplate"]}], ",", 
+                   RowBox[{"2", "\[Rule]", 
+                    TemplateBox[<|"color" -> Hue[0.73, 1, 1]|>,
+                    "HueColorSwatchTemplate"]}], ",", 
+                   RowBox[{"3", "\[Rule]", 
+                    TemplateBox[<|"color" -> Hue[0.14, 0.81, 0.99]|>,
+                    "HueColorSwatchTemplate"]}]}], "}"}]}], ",", 
+                "\[IndentingNewLine]", 
+                RowBox[{"ImageSize", "->", 
+                 RowBox[{"{", 
+                  RowBox[{"Automatic", ",", 
+                   RowBox[{"20", 
+                    RowBox[{
+                    RowBox[{"(", 
+                    RowBox[{
+                    RowBox[{"Length", "[", "data", "]"}], "+", "1"}], ")"}], "^",
+                     ".7"}]}]}], "}"}]}]}], "]"}]}], "]"}], "&"}], ",", 
+           "\[IndentingNewLine]", "evo", ",", 
+           RowBox[{"{", "2", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Map", "[", 
+         RowBox[{"First", ",", "res"}], "]"}]}], "\[IndentingNewLine]", ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"seed", ",", 
+         RowBox[{"5000", "+", 
+          RowBox[{"{", 
+           RowBox[{"16", ",", "54", ",", "60"}], "}"}]}]}], "}"}]}], "]"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"GraphicsColumn", "[", "\[IndentingNewLine]", 
+     RowBox[{"Map", "[", 
+      RowBox[{"GraphicsRow", ",", "res"}], "]"}], "\[IndentingNewLine]", 
+     "]"}]}]}], "\[IndentingNewLine]", "]"}]], "Input",
+ CellLabel->"In[283]:=",
+ CellID->1826886141,ExpressionUUID->"75067be1-a644-4cfd-b0c9-aaf1ba0da4a4"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {InsetBox[
+     GraphicsBox[{{}, {InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGBgAWJWIAaxIeCD/Sg9OGmu64sLbLmuQ/kwQLx+AJ8vSbA=
+
+           "], {{0, 0}, {5, 4}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000002`, 
+           0.5000000000000142}},
+          ImageSize->{Automatic, 61.703386272000955`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {20.440169100218856, -88.83736845722026},
+          ImageScaled[{0.5, 0.5}], {36.59462391472343, 169.21403515661004},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGBgBWI2IAaxIeCD/Sg9POmAHXKtrwNvQPkwMPDuwkVzXV9c
+YMt1nWz3AgDBRG7U
+           "], {{0, 0}, {6, 5}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5000000000000002, 1.5}, {1.5000000000000002`, 
+           0.5000000000000142}},
+          ImageSize->{Automatic, 70.10288172814386},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {63.051324869525146, -88.83736845722026},
+          ImageScaled[{0.5, 0.5}], {40.056259052460575, 169.21403515661004},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGBgh2IQGwI+2I/SozQ5dMAOudbXgTegfBgYfO4hVXyg3Amj
+ua4vLrDlug6XH2zhjMud1DIXAFdcu2E=
+           "], {{0, 0}, {7, 7}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000002`, 
+           0.5000000000000142}},
+          ImageSize->{Automatic, 85.74187700290345},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {108.03014358866153, -88.83736845722026},
+          ImageScaled[{0.5, 0.5}], {41.32994981438364, 169.21403515661004},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgAGJ2IAaxIeCD/Sg9SuOjA3bItb4OvAHlw8DAu4tYdw42
+95PqzoFyPyF7ua4vLrDlug6XH2zhjMud1DIXALhR130=
+           "], {{0, 0}, {7, 8}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          ImagePadding->{{0.5000000000000002, 1.5}, {1.5000000000000002`, 
+           0.5000000000000142}},
+          ImageSize->{Automatic, 93.11073443492157},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {152.76972493642927, -88.83736845722026},
+          ImageScaled[{0.5, 0.5}], {39.577784309723214, 169.21403515661004},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgAmIOIAaxIeCD/Sg9StODDtgh1/o68AaUDwPUUz/Q7ue6
+vrjAluv6oHEvse4fKvFCrvsHS7yQ6v6hnv4Hm/sJ0fROJwB8IjbN
+           "], {{0, 0}, {8, 10}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000002`, 
+           0.5000000000000142}},
+          ImageSize->{Automatic, 107.15313338968227`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {197.75822067907808, -88.83736845722026},
+          ImageScaled[{0.5, 0.5}], {41.827778604145834, 169.21403515661004},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmIOIAaxIeCD/Sg9StODDtgh1/o68AaUDwMD7y5quZ/r
++uICW67rBP03UOFArvuJ9ddAuZ/U8Bxs4U+tdDXY3D/Y8jup4TzY3E+Ipnc6
+AQBZUFa8
+           "], {{0, 0}, {8, 11}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.4999999999999998, 1.5}, {1.5000000000000002`, 
+           0.5000000000000142}},
+          ImageSize->{Automatic, 113.88246735032521`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {243.25879686621, -88.83736845722026},
+          ImageScaled[{0.5, 0.5}], {40.601945198689506, 169.21403515661004},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgA2IuIAaxIeCD/Sg9So/ShOmAHXKtrwNvQPkwMPDuGij/
+cl1fXGDLdZ1geAxUuFHbXlz+JTYcBtq/lMbXYEv/5PqXWPHB5l9CNKnpcLCk
+W1w0qeFPa/UDTZOaPgd7/OKiSS1/hlo8EutfGD3UyyVS6cGSbgHYBRyZ
+           "], {{0, 0}, {10, 14}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000002`, 
+           0.5000000000000142}},
+          ImageSize->{Automatic, 133.1355010295025},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {291.1537786955703, -88.83736845722026},
+          ImageScaled[{0.5, 0.5}], {46.61658988860246, 169.21403515661004},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGAQAGJuIAaxIeCD/Sg9So/S5NMBO+RaXwfegPJhYODMGSia
+kPu5ri8usOW6jiGPS3y40sT6d7inB1w0evgM9/xFrH9JFcdl/kD7F52mln/J
+DZ/BQpMaj9RWP1RoUtPzYE//uGhS44vW6gcrTWm+GGj3U0oP1/KQVHqkloek
+0oMl/QMAp8+sAw==
+           "], {{0, 0}, {11, 16}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5000000000000002, 1.5}, {1.5000000000000002`, 
+           0.5000000000000142}},
+          ImageSize->{Automatic, 145.3263080480082},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {343.26761013098474, -88.83736845722026},
+          ImageScaled[{0.5, 0.5}], {49.03964441079789, 169.21403515661004},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGAQAWJuIAaxIeCD/Sg9So/S5NMBO+RaXwfegPJhYODMGSia
+kPu5ri8usOW6jiGPS3y40sT6d6inK3LtRQ+foZ6uqO1+YsNnqJUnlIYDLvHB
+Fg7UyhfUVk9vmtb5glx7BxtNrXgf6umBWP8O9fJwoOqLoUYPt/IQF01qfNFa
+/WClqdVuHKo0qeXecIl3dJrUeB+u4UCIHuzpHwB7PFoV
+           "], {{0, 0}, {11, 20}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5000000000000002, 1.5}, {1.5000000000000002`, 
+           0.5000000000000142}},
+          ImageSize->{Automatic, 168.49363590348923`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {395.0139618499676, -88.83736845722026},
+          ImageScaled[{0.5, 0.5}], {45.881630455739305, 169.21403515661004},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGCQAGJeIAaxIeCD/Sg9So/SI5cO2CHX+jrwBpQPAwNnzlCh
+CfmX6/riAluu6xjyuMSHKk3teCc2fIZ6uqVX+kFXP9zTLa3Ch1RxXPRgTW+0
+Vk+tdDjYaFrlL1qnw4GiBzp/kRpfg4UeaH8NlfxIb38NlfKfWjS5+ZTUdsVw
+S2/Uyr8jLb0RoimtTwmZM1RpaqWTod7eIJWmdTk2XMONEE1pv2yg3U8reqD7
+ZcOVHunlP6n0aPlPHj3Q/bLhSg/2/AgAtEvKAg==
+           "], {{0, 0}, {13, 24}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000002`, 
+           0.5000000000000142}},
+          ImageSize->{Automatic, 190.36539387158783`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {447.7549125850777, -88.83736845722026},
+          ImageScaled[{0.5, 0.5}], {51.0288424430524, 169.21403515661004},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJztmc0NwjAMhStx64kJkDgzA2IFYAQkzrAEk7AEm5QduDACRQUkpP6l9Yud
++lWqvjZK/xzXz4mXh9P+OMuybFXu83J/H1fbc0OSJEnWc3tbXB67++f8u+m/
+l3UOtVteXM/rvPhdJ2V/juM/+9o5tL3p/trfa4VSdh46Lt4Z6rfS/cl2NsWN
+0HaynqH+yTgjy6G6yTgTh4wzYUTn+cz/xxGV53vL/6X8XKpdSsdToZRudj2n
+b3+0/6c2XmPtLBVnphqv0P872s5Tn0eg83MrOmKN2nkLur91otfHrPVPjWh/
+G7teiv5+NLX8zavOhlKrnui9jhlLl1nHrKeWLnNe0I/o9QHvdUztPJB1zHbG
+1kdtf7BCa7rcdZ+pMRVd9kpruuyF6PjT1e6dseosoc8lK1JnsaTO6hId52n/
+cfRe50KTdS7bpM7qkDqrS85nbTPVOPMCvNWXog==
+           "], {{0, 0}, {16, 43}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000002`, 
+           0.5000000000000142}},
+          ImageSize->{Automatic, 282.7788143435778},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {503.8405592899773, -88.83736845722026},
+          ImageScaled[{0.5, 0.5}], {52.57102239531824, 169.21403515661004},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJztms1twkAQhS3lxo0GItEDV0QLCSUgcYYmqIQm6IT0kEtKCAiMZIlFHu/8
+7jxL1mes1f548bzn2V1s95vdR9d1y+s5v5636/vxtwZBEARl+XX+PP5+/zx+
+90f8elrn7HI6rGaX53MqPTfq/VL91uP1Tq7nP3W+wNek/s+5y4PTWIo/1Ptj
+GX0ep/a/Vkeo/YmiO1p+Zux4ueJS67oj7Ytq+8N1P8q8WPsiajyRLu+F3nyR
+t/Jeqe2LqP2Jou9UavkfqX62ou9jx9tTSmet2m2FXDorHQ+jxqsSrXQW+l5H
+K53Nou9UWulsNn2n0ip/i7xxHa3iRpZ4VaKWzkrlmbOSK57ge4RG7vcl+/eI
+Fr3nJ6XrsaLW+4L9MDRK56+42kUeYEipvJa1rkUlt4+1im+tUXq/hHS7Wcn1
+PYL9Y7L9l44/8Gl149Ve94TuDCm9/oj1ZRq1fBq1fGvxikorn1aqf2o/s1Ha
+p41tN9u8ePNpPRHHYvg0cEhtn4Z5eU+rfJr1uL3Taz4NfE8rn5adXn1admLf
+fkxin4wNo+yTAYeEvvsi9N0nsV4fk1Hj1T/vmrIr
+           "], {{0, 0}, {17, 52}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000002`, 
+           0.5000000000000142}},
+          ImageSize->{Automatic, 322.12401560939156`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {560.7878765919022, -88.83736845722026},
+          ImageScaled[{0.5, 0.5}], {52.752183637103094, 169.21403515661004},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJztm81Nw0AQhSNx484ViT5AtACUgMQZmqASmqCT0AMXSiDIhAOKlaw9b96b
+3Rcp+hLLsjeZn7yZ2Vw9Pj88nW02m+vd82L3/Hk9Pb5uTdM0TXMJ794vXz/v
+P37f7x/1r2Ou4/n27eXmfPtnhzm7tB6fu37r+tT8rbrfRtl3qT9EUd1v1dj6
+eaPPR62/mt+qcc7PW4+jWN1vWWz9XNXiQt1vWVz6u6YSF737LYuouMjS1ep+
+y2JWvLDyZ2/5vHq8qOn8XoiuZ/8T7T/O5xPRdon+ftD5trd8vpToPHzq94nO
+t6Plc1YePnZ87X2j8nyvdj9GVLyz8796Xckieh6hlp+r1ZUoou2I/t1vXafn
+LKcRVU9Vyf+92h2dJ9lzbfT5VZml21X6eGp9QlVWj6+18/To9ahQLV5Y+n/U
+uJ5jdj+WNT8aze5qdRl6ztK6zl5ZvR/bev3R4nopo+KF1f8ZPZ+3MjpesnV7
+1n17Y9ZcDLVOxzWGqP0PavOg0ZhVd6P3z5ixjIqvKP2/9nxzIquunzvf/dUc
+qtX11m8aZNX11m8cZtX13henRVZd731x2ozql6rs0zAnsvZlLV2P4z2GrH1Z
+1vnaROn81uO2ew7Z8zvncw7Z8ztUv9dcR7TOP/W+tnss1XT+ns7/WFbR+WYu
+s3W+7c4lu59vcqjWzzc1yNL5JpaqOt/EEq3zbfeadD+2T1b537SZS+u3sWj9
+Nia9b9Y8ROfzw/wGVrVuJw==
+           "], {{0, 0}, {21, 60}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5, 1.5000000000000142`}, {1.5000000000000002`, 
+           0.5000000000000142}},
+          ImageSize->{Automatic, 355.4355640823312},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {622.5105556337983, -88.83736845722026},
+          ImageScaled[{0.5, 0.5}], {62.121745875260444, 169.21403515661004},
+         BaseStyle->{
+          Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {}},
+      DisplayFunction->Identity,
+      ImagePadding->{{0., 0.}, {0., 0.}},
+      ImageSize->{655.7142857142857, 177.67473691444053`},
+      Method->{"IgnoreImageSizeAutomaticLimit" -> True},
+      PlotRange->{{0, 655.7142857142857}, {-177.67473691444053`, 0}},
+      PlotRangePadding->Automatic], {344.25, -96.10770232416363}, 
+     ImageScaled[{0.5, 0.5}], {655.7142857142857, 177.67473691444053},
+     BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+    InsetBox[
+     GraphicsBox[{{}, {InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGBgAWJWIAaxIeCD/Sg9OGmu64sLbLmuQ/kwQLx+AJ8vSbA=
+
+           "], {{0, 0}, {5, 4}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000004`, 0.5}},
+          ImageSize->{Automatic, 61.703386272000955`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {17.032973231878362, -131.51413881301835},
+          ImageScaled[{0.5, 0.5}], {29.780232178042436, 250.5031215486064},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGBgA2J2IAaxIeCD/Sg9ShNDc11fXGDLdR3KhwHSxelNB+yQ
+a30deGPA3UEsTatwAwBQiZxL
+           "], {{0, 0}, {7, 6}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000004`, 0.5}},
+          ImageSize->{Automatic, 78.09057554245443},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {53.90147013133424, -131.51413881301835},
+          ImageScaled[{0.5, 0.5}], {35.38533304944075, 250.5031215486064},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgAGJ2IAaxIeCD/Sg9ShNDc11fXGDLdR3KhwHc4oOFDtgh
+1/o68AZO9w0296O7h5D7Bws9VNwJoymNdwCXtNI2
+           "], {{0, 0}, {7, 8}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5000000000000002, 1.5}, {1.5000000000000004`, 
+           0.5}},
+          ImageSize->{Automatic, 93.11073443492157},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {91.98379572588009, -131.51413881301835},
+          ImageScaled[{0.5, 0.5}], {32.207889568222384, 250.5031215486064},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDghGIQGwI+2I/So/RIoLmuLy6w5boO5cMAbvHB7s6AHXKt
+rwNv4HT3YPcvqe4npH6w0dSKr8FOD7V4IZWmd7wAABrSMww=
+           "], {{0, 0}, {9, 9}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5000000000000002, 1.5}, {1.5000000000000004`, 
+           0.5}},
+          ImageSize->{Automatic, 100.23744672545445`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {132.0335232879689, -131.51413881301835},
+          ImageScaled[{0.5, 0.5}], {39.320136984526705, 250.5031215486064},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgAmJOIAaxIeCD/Sg9So9kmuv64gJbrutQPgzgFh9sNLo7
+A3bItb4OvDHo3E1sOBNy/2CPL1LdP1jjCxdNajgPlnghlR5q8UIqTe94AQBq
+tFP1
+           "], {{0, 0}, {9, 10}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000004`, 0.5}},
+          ImageSize->{Automatic, 107.15313338968227`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {175.0050087678115, -131.51413881301835},
+          ImageScaled[{0.5, 0.5}], {38.05140540372992, 250.5031215486064},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBWJOIAaxIeCD/Sg9Sg8nmuv64gJbrutQPgzgFh9sNLo7
+A3bItb4OvDHo3U0qTchfQyW+cNGkun+opltc8ThY0y2x+Yvc9DlY4otU9w/W
++MJFUyt/DXZ6qMULqTS94wUA5/u9MA==
+           "], {{0, 0}, {9, 13}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000004`, 0.5}},
+          ImageSize->{Automatic, 126.85851423439249`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {215.86567701218888, -131.51413881301835},
+          ImageScaled[{0.5, 0.5}], {35.09850251359631, 250.5031215486064},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgB2IeIAaxIeCD/Sg9So/Sg5/mur64wJbrOpQPA7jFhyuN
+7t+AHXKtrwNvDJj/B3u8EAofarlzsMULpe4nVz21zBnsNLXid6ilE1JpWuWv
+gfYXrWhc6WGkpRNyw2Gw10fUokkNh+GefnDRI6U+ohY9UtMJqfRgTycABMun
+iQ==
+           "], {{0, 0}, {12, 15}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000004`, 0.5}},
+          ImageSize->{Automatic, 139.28809012737983`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {259.8015757588615, -131.51413881301835},
+          ImageScaled[{0.5, 0.5}], {44.20186640832035, 250.5031215486064},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJztmE0KwjAQhQPuunMvggcRr6AeQXCtl/AkXsKb1Du48QhWopvCoJO8yV9f
+IHxtKKV9ma8MXR1O++PMObcY5nyY72M/nhuSJEmyDXb99bzu+s/5d8jrJJbj
+nLe35eWxuzN3MFF1Ti/CiKpz7X24X57/1r+UJ2q/UM+pff/ctKp/6bpUftXC
+2PeyzjOVX7mYOv9S/crF0vNH51mLF2Oi+plc+1WbF1rG9jOo3ELv02p/NWau
+7782/9Z9kRhbb6nyn4ovErU5W+dPX/woNX/6Ulb+U/VFovX/Xv5PxtC6bulF
+HK3rll5giO7fyDBa9W+/1kkd2V+VTfZXdZBelM3WvHgB5v8zYA==
+           "], {{0, 0}, {17, 28}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000004`, 0.5}},
+          ImageSize->{Automatic, 211.2071392535247},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {311.87568337242453, -131.51413881301835},
+          ImageScaled[{0.5, 0.5}], {51.3749202473771, 250.5031215486064},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJztmM0NwjAMhSNx640FEAyCWAEYAYkzLMEkLMEmZQcujEBR4IZLfuzYaV6k
+6mujKlWf/ZSnrA6n/XHmnFsO13y43vd+PDcgCIKgLrv+el53/ef5O+h5kJeh
++m9vi8tjdyfrgXqlMVbn0HVS30cdf5O7/7nqDnpK6w+/jP9vaf1b9UuuDtr7
+Syvk2i+46oX8lve/oXpq+2tqdZTWs5S/amfp/tf2lxal8hX1nlV/adFKvuLu
+/9Dv5q5XitbyVez6tfkillbyVeo6yFfjlO7/1vIVxdx+K6V/K36hGKuztP7w
+ix9W9YdfbOnfql8oSp/34jyZh9J9C1/kUbpv4Qsecuc3MI1S+e3fPBhH5Cvb
+RL6qg/CFbU7NFy8c0kCw
+           "], {{0, 0}, {17, 32}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000004`, 0.5}},
+          ImageSize->{Automatic, 231.20102416793725`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {366.56174973226234, -131.51413881301835},
+          ImageScaled[{0.5, 0.5}], {49.4257839008701, 250.5031215486064},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJztnMFNw0AQRS1xSwPckCiAElBaAEpA4gxNUAlNpJPQAxdKIAi4RDjxrmd2
+/uw+S9ZLrGjjeP7+2RlbuX58fni6mKbp5rBfHvbv1z/b5xZCCCGEebnZv73c
+bva/7/+2+eOwbx7H/W539fpx/x6mA/SZg+d0YhUvNX32Su95VzqO1fngG3VU
+mXdW34tvtGGrvDDHKL+CdYzKC8ec0y2+oUnvvFA7Pr6hydZ5YVTf6K1+b5UX
+sl6f0t8VPS9U6lzWG6c5Wn+J9cY69tpfWqpPfKOO2fpLVn6Fb9RRrb+01Mfw
+jVhG1xH4Ri6q1BHW6/De+gNqjJ7Xa/UQnY9G02fW+yaj9QfUWBr32nip+JL1
+ONm59vqU6iFbX85rHFV6xyvLvFPrD6jTO49H1ddW59m7b5SydR6Pqq+j67je
+GJ3HVe4vw2VUyePRfWNYxug8rpLX4DJ6xas0jqp9G/g/vdchVnrATzQYtQ4p
+1QN+okXvPj9+kpNWzxd56wE/0aKaHvATbXrf98lyXwmWMfr5E5iLWf6XAGrR
+uy8Hc9KrPjp3HOYm9Qtc4zPWn4d9Et+AJRzdN74A+MxwZg==
+           "], {{0, 0}, {23, 45}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000004`, 0.5}},
+          ImageSize->{Automatic, 291.716153107985},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {425.5526371681764, -131.51413881301835},
+          ImageScaled[{0.5, 0.5}], {59.984562399529366, 250.5031215486064},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJztmsFNxDAQRSNx2wa4IdEAHSBaAEpA4sw2QSU0QSdLD1wogUXABRGtHc94
+5ttvpejtRqso8Xz/8Ux8+fB0/3i2LMvV8Tg/Hl/fvz8fNxBCCCFs5+7wsr/e
+HX5+/37Wz8Ox+Tfut68Xz+93b2E6QJ8aPKUTq3hl0yfcxlo9WPkAvqFNq/ke
+7RvktT70yjve9xmtz9m5Nv7WcSGvjcHS8ffWFb6hxa3xUslr0Jat8eqV11Q4
+yzrcOu6jjc/ac0XPi1p99s4L0eOTher9z+h6Zzaq9z+z1DuzUb1OZL3Rlyp1
+Ymlewzf6MHo9YLXOwTf6MMt6wHodPkt/IIrR87pVD9H5aDZ9qvY/1fsD6qyN
++9Z4ZfEl6+uos3V8avWgVl97XScrveOlMu9U+gNZ6J3Hs+4vKr3P0X2jlr3z
+eFR9HV3HjcboPJ7lPREsY5Y8Ht03hnWMzuNZ8hoso1e8auOYtW8D/6f3OsRK
+D/hJDkatQ2r1gJ/konefHz/RpNX+Im894Ce5mE0P+Eluer/3UXmvBOsYvf8E
+arH3fuzo54U29O7LQU161UenzkNtUr/AFp+x/j8ck/gGrOHsvvEJ5IjCvw==
+
+           "], {{0, 0}, {23, 46}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000004`, 0.5}},
+          ImageSize->{Automatic, 296.14097112474605`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {489.63449280661166, -131.51413881301835},
+          ImageScaled[{0.5, 0.5}], {59.60772030591257, 250.5031215486064},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJztnMFNw0AQRS1xSwe5IFEISguBEpA4QxNUQhN0EnrgQgkkAm4k2OuZnT+z
+z5L1kshabeTJW+8fKTcPT/ePV9M07Y7n9nieXn8fnzsIIYQQrufm8Pp8uzn8
+vP89zn8O4aX62b9dv3zcvYfVDfVck//VldX9Vatn2IdL68fKM3hpLFr5BC/B
+v+i1Dqp+L7V5jsJz/lH1Es91mpx7X6Ke/1vHx0t9aPW7nnu/vL2HlzRp5R/v
++uw1DrSlt39U/AZjqbo+sr+rwbX3y6p+8FVtWq9T7O/GZO/8AS/Vokr+0Do+
+HsvBaP/wfFWbKvlD6/XexJ82VF0fvYk/+1Alf7Cef3Z/VmNU/kD/sRaz5A/0
+HzWpkj/Qf6zNLP6h/5iT2f3D/i4HVfMH9nc1qJ4/4KUaVMsfWsfHY7HMmj/g
+MQ1Wyx9ar/fm6P5U84/1+N7En5ep4h/6j7Wp6h+VfB4vrWPV/IH+oxbV8ofo
+9Re2MWv+sHR8+o8+rJY/0H/U5Gj+wVd9OZp/8FUMq/oHX2lQJX+Ivh76Mtv/
+P5CfazJL/jCXeKkvq+UPVvOEtoz2D/l5bar4h/y8NlX9w/6uBrPmD1bzh324
+tE7Io+AcX6nWD77KTbX6wVe1qJaH46WaJD+HnvT2Bl6CJ1rvH+GY9O5f4yvY
+Uj/4Ci4h+zvYg3gJenJ0L30BUD2pDA==
+           "], {{0, 0}, {25, 63}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000004`, 0.5}},
+          ImageSize->{Automatic, 367.58347359905116`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {553.2462814534215, -131.51413881301835},
+          ImageScaled[{0.5, 0.5}], {59.0444284162784, 250.5031215486064},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJzt3c9t10wQxvFI3FIEEhJtIFoASkDiDE3kTBE0QSehBy6UQFDgErGxdz1/
+npn9IqHP+0bLxkG7v8cej82rj58/fHpxc3Pz9eH364fff/778devt4iIiIiI
+Ht7ef/vy5vb+7///+zX+OiIe76N331/e/Xz/I23/sK+xs0f7y2qdq+1rxEhn
+95FV7pBTuKNW+UJOIY71Oj9U/bnUjhP3cpRHqjnFdR8qe3Z9ZtVJVucnp1Bx
+H83OMxrnnYPkFCprlUfe+zRqHkQPvfNIJe8QFVQ9b6QeiJ28um6t9hH5hTto
+ff5GPRB3NrpuT05hR1Xq9qvzk2tYyew84voLd1Clbr863lvyFC1VPW/0ljzF
+zPU2++fpb0T03y8jVfo9yCnMsErdnv5GVFalbk9/I+5glTyivxErWz2PqAdi
+JVXr9tQDsZPqdXtyCjupVrdfnZ9cQwWr1u3JNVSyW91+dby35ClarnPV80Zv
+yVOMWOdqdfvZn/9onup5ilqq5pFKvwc5hRZ2rdvT34iKqtXts89LEa9YtW4/
+Oz/9jaiwj2bnGY1TzSPqgRhh9Tyymn91PGLEOlfLo9n5ESOtnkf0N2IFd6nb
+k2uoYNe6/ep4b8nT3u5St8+WPO0tdfu5+Y+kvxGfs3seqfR7kFN7q5IX1c9L
+o+bB2u6aRyp5h3u4S90+6vjJL/TYLyOr5xH1QLwidfu5+VfHY2+p29vMj3jG
+7HXYdX5yDS3XYfc84voLLa2WF2fnp79R4zjxUer2mjlFnvaUuv3a/EfS37in
+1O1t5qe/cW+p29vMfyT9jVhpHe76OYA9rL4Ou+5T8qun5FHM/OTX3lK379Hf
+SD7WkLq97fzWko+1pG6fM3/3/pPdpG6vNb/V8aCm5JH2/Fe/L2qo8nnedX7r
+48Haqn6eV51ftT+EHMy1at1eLY+sxh9JXbG2anX7rPmz84u6Yg9V6vZV8mh0
+PPTh7231uv3Zr3vnr+p1FmqplkdRn/NXz8ey/96wllX20dW+iKz7U/Th45n1
+cGT053/29z07f/bnAOYafZ0++r6jcWrft0sfPtqqdp3+1Kz6dtbfAzmlbdXr
+9Kz7s9n3hUeSU7l2u0733ndZ95GpB/Yw6zr9SK/cVNu/Vj/X0dcxV6vrZfX6
+xuz4rP27Oh5rmHV/Nvv5spHe9TrqgZp6nydkzZNVr1N5LpicilXlPCHruju7
+3+/s/NY/NzmVo3ddYjRP1Pslzh7P7J9X67sgp7SNrktYHU/2eos+TuqBPczu
+Gx+ploNnf17qgXhmPUfNo56Dqv1+5FRtVesSVfs9ZiWneql2Pqayj6yOc1Vy
+qpZZ66pKnzn1QIxct9H3T71z0/t+Fs8L11TlvmdWn7n3cR7Nn9V/iDlW6WNX
+zSOVz6vV8RijyvPmanX12flXx5+VnOqh6vPmVeoYVfqfMUaV+zWj4xmNy8qj
+7DoMalrlfs1Ts/Io+7l76oG1zepziFqHI70+Z7LvU6OmKn0O1p/n0ftodh7r
+8VjD7PtK0dc7s8e/On72eLCH3d4PYzWPWj0He9jl/TBWP+/Z8dQDccbo54+y
+6yRexzma5+jruJfZzyuprHPqgeipyvNK2euceiBGmH09orLOySm0MOu+qnqd
+ZPY4cW+r3FetUidBfM4q+VKlToL4P9X6272OczQP+YWRqj4XOatKnQTRY72p
+naeRU6is93Mo9AfiTqo8D0U9EHcwKo+oB+LOqj1XRT0Qlc16T7XVcVqNn52H
+HMTn1kl2Pfyq3sdPDqLn+lT5dw2s78dxXwwj9XoPZ/b7c85KTmGkWe+fyX5/
+IzmFkar3Dc7OQ06hsmp9g9wXw8pG/7tCI6v1XyF6rEOVfxfJejyipdnPXdIn
+jzvotY9U+z0QM/XeR/TJ40563ee1Hk89EDvo/X426oGI8e9nsx6PWMns97Mh
+7qDKe+wRd5B6IKKdvDcDMU7qgYj+Ug9EjJOcQvSXnMIVfwM33XIw
+           "], {{0, 0}, {36, 143}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000004`, 0.5}},
+          ImageSize->{Automatic, 648.4608184898943},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {620.3128192593517, -131.51413881301835},
+          ImageScaled[{0.5, 0.5}], {66.51721862415356, 250.5031215486064},
+         BaseStyle->{
+          Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {}},
+      DisplayFunction->Identity,
+      ImagePadding->{{0., 0.}, {0., 0.}},
+      ImageSize->{655.7142857142857, 263.0282776260367},
+      Method->{"IgnoreImageSizeAutomaticLimit" -> True},
+      PlotRange->{{0, 655.7142857142857}, {-263.0282776260367, 0}},
+      PlotRangePadding->Automatic], {344.25, -330.99987732828896}, 
+     ImageScaled[{0.5, 0.5}], {655.7142857142857, 263.0282776260367},
+     BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+    InsetBox[
+     GraphicsBox[{{}, {InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGBgAWJWIAaxIeCD/Sg9OGmu64sLbLmuQ/kwQLx+AJ8vSbA=
+
+           "], {{0, 0}, {5, 4}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000002`, 
+           0.5000000000000284}},
+          ImageSize->{Automatic, 61.703386272000955`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {25.724806032755225, -70.46184740749553},
+          ImageScaled[{0.5, 0.5}], {46.44961206551045, 134.21304268094386},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGBghWIQGwI+2I/Sg4sO2CHX+jrwBpQPA/Szn+v64gJbrutk
+2w8AACldEg==
+           "], {{0, 0}, {5, 5}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000002`, 
+           0.5000000000000284}},
+          ImageSize->{Automatic, 70.10288172814386},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {75.39524921267811, -70.46184740749553},
+          ImageScaled[{0.5, 0.5}], {42.89127429433531, 134.21304268094386},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGBgA2J2IAaxIeCD/Sg9SpNDB+yQa30deAPKh4HB5x5SxQea
+5rq+uMCW6zrV3QUAp4ueUg==
+           "], {{0, 0}, {7, 6}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000002`, 
+           0.5000000000000284}},
+          ImageSize->{Automatic, 78.09057554245443},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {129.43696054638775, -70.46184740749553},
+          ImageScaled[{0.5, 0.5}], {55.19214837308401, 134.21304268094386},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGBgh2IQGwI+2I/SozQ16YAdcq2vA29A+TAw+NwzUO4k1T2D
+LTxhNNf1xQW2XNep7i4A+Fu6bg==
+           "], {{0, 0}, {7, 7}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000002`, 
+           0.5000000000000284}},
+          ImageSize->{Automatic, 85.74187700290345},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {188.26311896659698, -70.46184740749553},
+          ImageScaled[{0.5, 0.5}], {52.46016846733441, 134.21304268094386},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgAmJOIAaxIeCD/Sg9So/SCDpgh1zr68AbUD4MDLy7iHUn
+qeKDzf0wmuv64gJbrusY8rjEhwqN7v7BFi+4aHLja7DQpLp/qMQLIXqwxAsA
+muJVtg==
+           "], {{0, 0}, {9, 10}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000002`, 
+           0.5000000000000284}},
+          ImageSize->{Automatic, 107.15313338968227`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {249.16847586072916, -70.46184740749553},
+          ImageScaled[{0.5, 0.5}], {59.35054532092992, 134.21304268094386},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgBmJOIAaxIeCD/Sg9So9EOmCHXOvrwBtQPgwMvLto5f6h
+4l9c7iRVfLC5H0ZzXV9cYMt1HUMel/hQodHdP9jiBRdNbnwNFppU9w+VeCFE
+D5Z4AQBPxXjs
+           "], {{0, 0}, {9, 11}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.4999999999999998, 1.5}, {1.5000000000000002`, 
+           0.5000000000000284}},
+          ImageSize->{Automatic, 113.88246735032521`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {312.65679644104387, -70.46184740749553},
+          ImageScaled[{0.5, 0.5}], {57.62609583969951, 134.21304268094386},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgA2IuIAaxIeCD/Sg9So/S1KcDdsi1vg68AeXDwMC7i97+
+GurhgMv9pIoPNppa8TjY/EvIPVzXFxfYcl3HkCdVfKjQxPprsMUjLppcdw71
+eCTWX0MlHnHR5ObfwU6T6q+hHo+E6MEejwAN8RaA
+           "], {{0, 0}, {10, 14}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000002`, 
+           0.5000000000000284}},
+          ImageSize->{Automatic, 133.1355010295025},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {376.05509875766575, -70.46184740749553},
+          ImageScaled[{0.5, 0.5}], {59.17050879354408, 134.21304268094386},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGDgB2JOIAaxIeCD/Sg9Sg9nOmCHXOvrwBtQPgwMvLto5f6h
+4l9c7iRVfLC5n1r+HWz+opb7B8q/hOzlur64wJbrOlx+qKRPUv1FqjlDzV+k
+itObppa/hnq5Qci/g4WmVrkx1OjBEi8AejYWnw==
+           "], {{0, 0}, {9, 15}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000002`, 
+           0.5000000000000284}},
+          ImageSize->{Automatic, 139.28809012737983`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {436.84536726891946, -70.46184740749553},
+          ImageScaled[{0.5, 0.5}], {52.41002822896337, 134.21304268094386},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGAQAGJOIAaxIeCD/Sg9Sg9nOmCHXOvrwBtQPgwMvLto5f6h
+4l9c7iRVfLC5n1r+HWz+opb7B8q/hOzlur64wJbrOlx+qKRPUv1FqjlDzV+U
+xuNA08T6i5A4vWlyw5PY+Bps/qJWvhts/sLl/sEWL+TSgyVeAB9WOsg=
+           "], {{0, 0}, {9, 16}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000002`, 
+           0.5000000000000284}},
+          ImageSize->{Automatic, 145.3263080480082},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {493.7478385029882, -70.46184740749553},
+          ImageScaled[{0.5, 0.5}], {51.39491423917415, 134.21304268094386},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGAQBWIeIAaxIeCD/Sg9So/Sw4cO2CHX+jrwBpQPAwPvLnrT
+pIbDSAs3XP4lVZxa9g42mpA7ua4vLrDlug6Xp1Z4DtfwISROrPlDPXyoFW4j
+NXxw0SMlfEj1Ly71hMQHO02uf3HRpIbnYPMvqTS10s9goelV/w72dIKLplZ5
+ONTTCbX8NVzTCS6a1uXtQPuPUprW7bqhTlO7PTzc6JFWnlCbHm7pBAA1A+Py
+
+           "], {{0, 0}, {12, 21}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5, 1.5}, {1.5000000000000002`, 
+           0.5000000000000284}},
+          ImageSize->{Automatic, 174.07077874569754`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {555.6413084768985, -70.46184740749553},
+          ImageScaled[{0.5, 0.5}], {62.392025708646536, 134.21304268094386},
+         BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+        InsetBox[
+         GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGCQA2JeIAaxIeCD/Sg9So/SozSt6IAdcq2vA29A+TAw8O4a
+LDSp4TManhAaVziQKj5caWqlq9FwI0+cVPOHOk3IX1zXFxfYcl2Hy4/mX+L8
+hR5upJoz1MONXPfjCjdK0+FQoamdv4gNz4H2N6U0tdMDseltqNPUKv9xqR9o
+/9GKplZ+HK7pChdN6/AZ6uFJ6/JqtN4kzr+j7Y2BSYdDhaZXvTnc6lNqtx+G
+an1KbXeOlHYatcr5kdZOo9c42FBNV9Ty70hLV7hoWpfzA+0/WtHUaicM13SF
+i6b2+NhIoUfLK9rQIyVdAQCxkAGj
+           "], {{0, 0}, {13, 30}}, {0, 1}],
+          DisplayFunction->Identity,
+          Frame->Automatic,
+          FrameLabel->{None, None},
+          FrameTicks->{{None, None}, {None, None}},
+          GridLinesStyle->Directive[
+            GrayLevel[0.5, 0.4]],
+          
+          ImagePadding->{{0.5000000000000002, 1.5}, {1.5000000000000002`, 
+           0.5000000000000284}},
+          ImageSize->{Automatic, 221.30090061240978`},
+          
+          Method->{
+           "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+            "DefaultGraphicsInteraction" -> {
+             "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+              "Effects" -> {
+               "Highlight" -> {"ratio" -> 2}, 
+                "HighlightPoint" -> {"ratio" -> 2}, 
+                "Droplines" -> {
+                 "freeformCursorMode" -> True, 
+                  "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+            "DefaultPlotStyle" -> Automatic}], {622.168660665611, -70.46184740749553},
+          ImageScaled[{0.5, 0.5}], {60.66267866877832, 134.21304268094386},
+         BaseStyle->{
+          Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {}},
+      DisplayFunction->Identity,
+      ImagePadding->{{0., 0.}, {0., 0.}},
+      ImageSize->{655.0000000000001, 140.92369481499105`},
+      Method->{"IgnoreImageSizeAutomaticLimit" -> True},
+      PlotRange->{{0, 655.0000000000001}, {-140.92369481499105`, 0}},
+      PlotRangePadding->Automatic], {344.25, -547.5165312826896}, 
+     ImageScaled[{0.5, 0.5}], {655.7142857142857, 140.92369481499105},
+     BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {}},
+  ImageSize->{
+    UpTo[600], 
+    UpTo[582]},
+  Method->{"IgnoreImageSizeAutomaticLimit" -> True},
+  PlotRange->{{0, 688.5}, {-625.2487125571284, 0}},
+  PlotRangePadding->Automatic]], "Output",
+ CellLabel->
+  "Out[283]=",ExpressionUUID->"058ed1f6-a4ec-4232-a8cd-b70af2aa341b"]
+}, Open  ]],
+
+Cell[TextData[{
+ "And again, ",
+ ButtonBox["in Wolfram's words",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://writings.stephenwolfram.com/2024/12/foundations-of-\
+biological-evolution-more-results-more-surprises/#even-more-from-an-extremely-\
+simple-model"], None},
+  ButtonNote->
+   "https://writings.stephenwolfram.com/2024/12/foundations-of-biological-\
+evolution-more-results-more-surprises/#even-more-from-an-extremely-simple-\
+model"],
+ ", and I agree: \[OpenCurlyDoubleQuote]one can\[CloseCurlyQuote]t help but \
+be struck by how \[OpenCurlyQuote]lifelike\[CloseCurlyQuote] this all looks\
+\[LongDash]both in the complexity of these patterns, and in their diversity.\
+\[CloseCurlyDoubleQuote]"
+}], "Text",ExpressionUUID->"6a0d8872-308d-458d-957d-1c7d9128c02a"],
+
+Cell["\<\
+, and I do think we may be able 
+these systems a\
+\>", "Text",ExpressionUUID->"99200958-8948-4127-b525-53b35527141b"],
+
+Cell["\<\
+is happening based on some high-level metric, like length or width or aspect \
+ratio, in our case. But the crucial fact, is that 
+
+In other words, evolution is like a  computationally-bounded observer of \
+organisms. And because biological systems are capable of arbitrarily complex \
+behavior,  the mechanisms that will be found by evolution will be full of \
+irreducibility. \
+\>", "Text",ExpressionUUID->"337d00ca-5078-43a4-bf56-e1d1cb319044"],
+
+Cell["\<\
+And this phenomenon that adaptively evolved patterns tends to use \
+irreducibility mechanisms to achieve their goals, Stephen finds, is quite \
+general. \
+\>", "Text",ExpressionUUID->"2c516ab6-2d6c-4719-86df-166a00754ba4"],
+
+Cell["\<\
+Not only that but in running these algorithms we get these so-called \
+\[OpenCurlyDoubleQuote]idealized organisms\[CloseCurlyDoubleQuote] that we \
+can study as a model for biological organisms. 
+
+ And as we saw in the case of rule 30, making something visually concrete can \
+be a complete difference-maker. So before we even get to specific \
+conclusions, this is already somewhat of a breakthrough. \
+\>", "Text",ExpressionUUID->"5af6a75d-7fdb-433d-990a-1cffe332ff68"],
+
+Cell["\<\
+Randomness, for example, is usually injected artificially into \
+\>", "Text",ExpressionUUID->"bfde7458-6571-4503-b8a8-fde32bff6124"],
+
+Cell["", "Text",ExpressionUUID->"3cde83fe-2db5-457e-9347-28169d9c05d2"],
+
+Cell["\<\
+But what are the claims, what can we say about biological systems from this \
+model? \
+\>", "Text",ExpressionUUID->"65f28b36-984c-455b-a159-05fad41e17db"],
+
+Cell["\<\
+The most obvious claim is the sheer complexity of the resulting patterns that \
+we get. It\[CloseCurlyQuote]s not clear where the pattern\
+\>", "Text",ExpressionUUID->"0c934ba9-5ca7-44a0-bcd1-171a5ea05758"],
+
+Cell["\<\
+The most striking thing about this model, is its simplicity and \
+explainability (I was able to explain with a few sentences and pictures) and \
+\
+\>", "Text",ExpressionUUID->"5a6509b4-f165-4e23-9ab7-9b81decd660a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"With", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"ru", "=", 
+     RowBox[{"{", 
+      RowBox[{"6006804516645", ",", "3", ",", "1"}], "}"}]}], "}"}], ",", 
+   RowBox[{"GraphicsRow", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"RulePlot", "[", 
+        RowBox[{
+         RowBox[{"CellularAutomaton", "[", "ru", "]"}], ",", 
+         RowBox[{"ColorRules", "->", 
+          RowBox[{
+           InterpretationBox[
+            TagBox[
+             FrameBox[
+              PaneBox[GridBox[{
+                 {
+                  StyleBox[
+                   StyleBox[
+                    AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                    FontColor->GrayLevel[0.45]],
+                   ShowStringCharacters->False,
+                   FontFamily->"Source Sans Pro Black",
+                   FontSize->0.65 Inherited,
+                   FontWeight->"Heavy",
+                   PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                  StyleBox[
+                   RowBox[{
+                    
+                    StyleBox["\<\"CustomStyleData\"\>", 
+                    "ResourceFunctionLabel"], " "}],
+                   ShowAutoStyles->False,
+                   ShowStringCharacters->False,
+                   FontSize->0.9 Inherited,
+                   FontColor->GrayLevel[0.1]]}
+                },
+                GridBoxSpacings->{"Columns" -> {{0.25}}}],
+               Alignment->Left,
+               BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+               BaselinePosition->Baseline,
+               FrameMargins->{{3, 0}, {0, 0}}],
+              Background->RGBColor[0.968627, 0.976471, 0.984314],
+              BaselinePosition->Baseline,
+              DefaultBaseStyle->{},
+              FrameMargins->{{0, 0}, {1, 1}},
+              FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+              RoundingRadius->4],
+             {"FunctionResourceBox", 
+              GrayLevel[0.45], "\"CustomStyleData\""},
+             TagBoxNote->"FunctionResourceBox"],
+            ResourceFunction[
+             
+             ResourceObject[<|
+              "Name" -> "CustomStyleData", "UUID" -> 
+               "5a69d40c-6896-4aec-ba2b-152684659026", "ResourceType" -> 
+               "Function", "ResourceLocations" -> {
+                 CloudObject[
+                 "https://www.wolframcloud.com/obj/sw-writings0/Resources/5a6/\
+5a69d40c-6896-4aec-ba2b-152684659026"]}, "Version" -> None, 
+               "DocumentationLink" -> 
+               URL["https://www.wolframcloud.com/obj/sw-writings0/\
+BiologicalEvolution/CustomStyleData"], "ExampleNotebookData" -> Automatic, 
+               "FunctionLocation" -> 
+               CloudObject[
+                "https://www.wolframcloud.com/obj/sw-writings0/Resources/5a6/\
+5a69d40c-6896-4aec-ba2b-152684659026/download/DefinitionData"], "ShortName" -> 
+               "CustomStyleData", "SymbolName" -> 
+               "FunctionRepository`$5a69d40c68964aecba2b152684659026`\
+CustomStyleData", "PageHeaderClickToCopy" -> 
+               "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/\
+sw-writings0/BiologicalEvolution/CustomStyleData\"]]"|>]],
+            Selectable->False], "[", "\"\<Colors\>\"", "]"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"MeshStyle", "->", 
+          RowBox[{"Opacity", "[", ".2", "]"}]}], ",", 
+         RowBox[{"ImageSize", "->", "280"}]}], "]"}], ",", 
+       RowBox[{"ArrayPlot", "[", 
+        RowBox[{
+         RowBox[{"ArrayPad", "[", 
+          RowBox[{
+           RowBox[{"CellularAutomaton", "[", 
+            RowBox[{"ru", ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"{", "1", "}"}], ",", "0"}], "}"}], ",", "94"}], "]"}],
+            ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", "0"}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"1", ",", "1"}], "}"}]}], "}"}]}], "]"}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"ColorRules", "->", 
+          RowBox[{
+           InterpretationBox[
+            TagBox[
+             FrameBox[
+              PaneBox[GridBox[{
+                 {
+                  StyleBox[
+                   StyleBox[
+                    AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                    FontColor->GrayLevel[0.45]],
+                   ShowStringCharacters->False,
+                   FontFamily->"Source Sans Pro Black",
+                   FontSize->0.65 Inherited,
+                   FontWeight->"Heavy",
+                   PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                  StyleBox[
+                   RowBox[{
+                    
+                    StyleBox["\<\"CustomStyleData\"\>", 
+                    "ResourceFunctionLabel"], " "}],
+                   ShowAutoStyles->False,
+                   ShowStringCharacters->False,
+                   FontSize->0.9 Inherited,
+                   FontColor->GrayLevel[0.1]]}
+                },
+                GridBoxSpacings->{"Columns" -> {{0.25}}}],
+               Alignment->Left,
+               BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+               BaselinePosition->Baseline,
+               FrameMargins->{{3, 0}, {0, 0}}],
+              Background->RGBColor[0.968627, 0.976471, 0.984314],
+              BaselinePosition->Baseline,
+              DefaultBaseStyle->{},
+              FrameMargins->{{0, 0}, {1, 1}},
+              FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+              RoundingRadius->4],
+             {"FunctionResourceBox", 
+              GrayLevel[0.45], "\"CustomStyleData\""},
+             TagBoxNote->"FunctionResourceBox"],
+            ResourceFunction[
+             
+             ResourceObject[<|
+              "Name" -> "CustomStyleData", "UUID" -> 
+               "5a69d40c-6896-4aec-ba2b-152684659026", "ResourceType" -> 
+               "Function", "ResourceLocations" -> {
+                 CloudObject[
+                 "https://www.wolframcloud.com/obj/sw-writings0/Resources/5a6/\
+5a69d40c-6896-4aec-ba2b-152684659026"]}, "Version" -> None, 
+               "DocumentationLink" -> 
+               URL["https://www.wolframcloud.com/obj/sw-writings0/\
+BiologicalEvolution/CustomStyleData"], "ExampleNotebookData" -> Automatic, 
+               "FunctionLocation" -> 
+               CloudObject[
+                "https://www.wolframcloud.com/obj/sw-writings0/Resources/5a6/\
+5a69d40c-6896-4aec-ba2b-152684659026/download/DefinitionData"], "ShortName" -> 
+               "CustomStyleData", "SymbolName" -> 
+               "FunctionRepository`$5a69d40c68964aecba2b152684659026`\
+CustomStyleData", "PageHeaderClickToCopy" -> 
+               "ResourceObject[CloudObject[\"https://www.wolframcloud.com/obj/\
+sw-writings0/BiologicalEvolution/CustomStyleData\"]]"|>]],
+            Selectable->False], "[", "\"\<Colors\>\"", "]"}]}], ",", 
+         "\[IndentingNewLine]", 
+         RowBox[{"Mesh", "->", "True"}], ",", 
+         RowBox[{"MeshStyle", "->", 
+          RowBox[{"Opacity", "[", ".1", "]"}]}], ",", 
+         RowBox[{"ImageSize", "->", 
+          RowBox[{"{", 
+           RowBox[{"165", ",", "Automatic"}], "}"}]}]}], "]"}]}], "}"}], ",", 
+     
+     RowBox[{"Spacings", "\[Rule]", "40"}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.921368659256785*^9, 3.921368702948079*^9}, 
+   3.921368744364225*^9, {3.921368816230826*^9, 3.9213688240860357`*^9}, {
+   3.921368880732288*^9, 3.921368899391076*^9}, {3.92136894214942*^9, 
+   3.9213689540961113`*^9}, 3.92136899208027*^9, {3.922031014723941*^9, 
+   3.922031021212023*^9}, 3.922031068499854*^9, {3.9220310993288*^9, 
+   3.922031108705546*^9}, {3.922206476386191*^9, 3.9222064779862623`*^9}, {
+   3.922206885544757*^9, 3.922206921061479*^9}, {3.923065601211637*^9, 
+   3.9230656749641027`*^9}, {3.923480499257469*^9, 3.923480506858504*^9}, {
+   3.923511133860525*^9, 3.923511144906024*^9}, {3.9304322868449306`*^9, 
+   3.9304323489270267`*^9}, 3.930432383617607*^9, {3.93051473370778*^9, 
+   3.930514765873743*^9}, {3.930515319828953*^9, 3.9305153645176153`*^9}, {
+   3.930516195949506*^9, 3.9305161999161158`*^9}, 3.931448670036137*^9, {
+   3.93144876075639*^9, 3.931448891559217*^9}, 3.931449038278737*^9, {
+   3.931449104067667*^9, 3.9314491846485167`*^9}, {3.932506422235911*^9, 
+   3.932506442913341*^9}, {3.9325065155409393`*^9, 3.932506525128446*^9}, {
+   3.93256661713634*^9, 3.932566620524302*^9}, {3.93924473995435*^9, 
+   3.9392447609423018`*^9}, {3.939244904899383*^9, 3.9392449683838253`*^9}, {
+   3.939245006499721*^9, 3.939245018230789*^9}},
+ CellLabel->"In[259]:=",
+ CellID->2103571026,ExpressionUUID->"56678074-000c-44c2-aedf-367ba2611700"],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {InsetBox[
+     GraphicsBox[{{{InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{0.6153846153846154, Rational[5, 2]}, {0.6153846153846154, 
+           2.5}], {Center, Center}, {1.2307692307692308, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{1.8461538461538463`, Rational[5, 2]}, {1.8461538461538463`, 
+           2.5}], {Center, Center}, {1.2307692307692308, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {GrayLevel[1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{3.076923076923077, Rational[5, 2]}, {3.076923076923077, 
+           2.5}], {Center, Center}, {1.2307692307692308, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {GrayLevel[1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{4.307692307692308, Rational[5, 2]}, {4.307692307692308, 
+           2.5}], {Center, Center}, {1.2307692307692308, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{5.538461538461538, Rational[5, 2]}, {5.538461538461538, 
+           2.5}], {Center, Center}, {1.2307692307692308, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{6.76923076923077, Rational[5, 2]}, {6.76923076923077, 
+           2.5}], {Center, Center}, {1.2307692307692308, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {GrayLevel[1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{8., Rational[5, 2]}, {8., 2.5}], {
+          Center, Center}, {1.2307692307692317, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{9.230769230769232, Rational[5, 2]}, {9.230769230769232, 
+           2.5}], {Center, Center}, {1.23076923076923, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {GrayLevel[1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{10.461538461538462`, Rational[5, 2]}, {10.461538461538462`, 
+           2.5}], {Center, Center}, {1.23076923076923, 1}]}, {InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{0.6153846153846154, Rational[3, 2]}, {0.6153846153846154, 
+           1.5}], {Center, Center}, {1.2307692307692308, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{1.8461538461538463`, Rational[3, 2]}, {1.8461538461538463`, 
+           1.5}], {Center, Center}, {1.2307692307692308, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{3.076923076923077, Rational[3, 2]}, {3.076923076923077, 
+           1.5}], {Center, Center}, {1.2307692307692308, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{4.307692307692308, Rational[3, 2]}, {4.307692307692308, 
+           1.5}], {Center, Center}, {1.2307692307692308, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{5.538461538461538, Rational[3, 2]}, {5.538461538461538, 
+           1.5}], {Center, Center}, {1.2307692307692308, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{6.76923076923077, Rational[3, 2]}, {6.76923076923077, 
+           1.5}], {Center, Center}, {1.2307692307692308, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{8., Rational[3, 2]}, {8., 1.5}], {
+          Center, Center}, {1.2307692307692317, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {GrayLevel[1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{9.230769230769232, Rational[3, 2]}, {9.230769230769232, 
+           1.5}], {Center, Center}, {1.23076923076923, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{10.461538461538462`, Rational[3, 2]}, {10.461538461538462`, 
+           1.5}], {Center, Center}, {1.23076923076923, 1}]}, {InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{0.6153846153846154, Rational[1, 2]}, {0.6153846153846154, 
+           0.5}], {Center, Center}, {1.2307692307692308, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{1.8461538461538463`, Rational[1, 2]}, {1.8461538461538463`, 
+           0.5}], {Center, Center}, {1.2307692307692308, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {GrayLevel[1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{3.076923076923077, Rational[1, 2]}, {3.076923076923077, 
+           0.5}], {Center, Center}, {1.2307692307692308, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{4.307692307692308, Rational[1, 2]}, {4.307692307692308, 
+           0.5}], {Center, Center}, {1.2307692307692308, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{5.538461538461538, Rational[1, 2]}, {5.538461538461538, 
+           0.5}], {Center, Center}, {1.2307692307692308, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{6.76923076923077, Rational[1, 2]}, {6.76923076923077, 
+           0.5}], {Center, Center}, {1.2307692307692308, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {GrayLevel[1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{8., Rational[1, 2]}, {8., 0.5}], {
+          Center, Center}, {1.2307692307692317, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {Hue[0.06, 1, 1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {Hue[0.73, 1, 1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{9.230769230769232, Rational[1, 2]}, {9.230769230769232, 
+           0.5}], {Center, Center}, {1.23076923076923, 1}], InsetBox[
+          GraphicsBox[{
+            {EdgeForm[Opacity[0.2]], 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[-3, 2], 0}, {-1.5, 0}]]}, 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[-1, 2], 0}, {-0.5, 0}]]}, 
+             {GrayLevel[1], 
+              RectangleBox[NCache[{Rational[1, 2], 0}, {0.5, 0}]]}}, 
+            {EdgeForm[Opacity[0.2]], 
+             {GrayLevel[1], 
+              RectangleBox[
+               NCache[{Rational[-1, 2], Rational[-5, 4]}, {-0.5, -1.25}]]}}},
+           PlotRange->NCache[{{-2, 2}, {
+               Rational[-7, 4], 
+               Rational[3, 2]}}, {{-2, 2}, {-1.75, 1.5}}]], 
+          NCache[{10.461538461538462`, Rational[1, 2]}, {10.461538461538462`, 
+           0.5}], {Center, Center}, {1.23076923076923, 1}]}}, 
+       {GrayLevel[
+        0.8], {LineBox[{{0, 0}, {0, 3}}], 
+         LineBox[{{1.2307692307692308`, 0}, {1.2307692307692308`, 3}}], 
+         LineBox[{{2.4615384615384617`, 0}, {2.4615384615384617`, 3}}], 
+         LineBox[{{3.6923076923076925`, 0}, {3.6923076923076925`, 3}}], 
+         LineBox[{{4.923076923076923, 0}, {4.923076923076923, 3}}], 
+         LineBox[{{6.153846153846154, 0}, {6.153846153846154, 3}}], 
+         LineBox[{{7.384615384615385, 0}, {7.384615384615385, 3}}], 
+         LineBox[{{8.615384615384617, 0}, {8.615384615384617, 3}}], 
+         LineBox[{{9.846153846153847, 0}, {9.846153846153847, 3}}], 
+         LineBox[{{11.076923076923077`, 0}, {11.076923076923077`, 3}}]}, {
+         LineBox[{{0, 0}, {11.076923076923077`, 0}}], 
+         LineBox[{{0, 1}, {11.076923076923077`, 1}}], 
+         LineBox[{{0, 2}, {11.076923076923077`, 2}}], 
+         LineBox[{{0, 3}, {11.076923076923077`, 3}}]}}},
+      DisplayFunction->Identity,
+      ImagePadding->{{0., 1.}, {1., 0.}},
+      ImageSize->280], {160., -210.47124000000002}, ImageScaled[{0.5, 0.5}], {280., 400.89760000000007},
+     
+     BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}], 
+    InsetBox[
+     GraphicsBox[{RasterBox[CompressedData["
+1:eJztnE1uFDEQRkdil0MgseEWiCsAF0BCYg2X4CRcgpuEO7DhCAQNw2IUT7d7
+XPV9Zb9I0Ussx1O2267fzqtPXz58fnE6nT4+fb9++v778/nr91sIIYQQQggh
+hLF89+Plt1/vf/77/fKllwvCFZ/nlvzV5wXXZPXnuVf+KvOCazL6eVb155xC
+B45+rh4ev3998/D4f7yt8d37b7VDmHEeR+up3ud87/N/VP69n4t+hM7n8ehz
+eO/5ao2TdQ+gH6EDo+3Da0bru9529CN0YLS9N6q/uh16cdV70sW/i25HP9bi
+avs1q74jDzIHV9uv6vqu1U4eZA6udq+OnldU3HX0ONixNRh9Ht32N2teo/RX
+i9ixc1J1Hl33N8oOzDqP11x1H2flKn5KtP+oOo+j5XHfx15G3yejxs/SCy5U
++Y+q+oQt+avuYy+j9X50Pefoe96Frv7jKD2V7W9Woep9n+h6TvbldvuF0fHP
+qHG22melW73WXjlHr4Mbs/WdOo60en7E7X2f1jizrn+LrnUCbnLORnU+usVV
+1r9F9b5E+Ym97dzDx9ovjLJ7V9uXLUavW3Ze8ujnzka3eMJW++p09dOj85Lw
+TLd4wurMyge59V+dqnOHvXqbav9irzyjxodnutWNqOoZqjEqXkpcTkv1PZzt
+V1bXy9H2KnpQS7c4j1u932i7Lqp/1jlCD2rpUo+Rpdey65dU9gZ6sBarnLss
+vZZd95J17lpED9aiSzxHVd/eO9/WOOq8EnpQw6z4pFs8J/v5VNVRoAdrMdqu
+U9tXe+UcLY/qPUTqFTWsEle8sEqdgIt/l9V+77w4p2dWjyuq7dVrVtF3ve3R
+dg7n9PZ83eKKbvZq73yrnLtWu/qeqcoqeq3Vv3deo+tJopl9XlzXf5W4q5te
+22rv/dwW3eMJ0edia5zs9W+1r2avquMqe+VpjRPtV7rue1RdqNv6b83XzZ6J
+5mz5sur77nr/uPj16nsyirPmy7LswOz+vfIfHUdlJ7vfk2q6+PWt9uj7v0r/
+rDhAiy75lFlZTd+1mJ2/HjXfUfJk6d9ofVqVqrqaC13qQHr7u8UPe8fplefo
+vKL6z6oH1XVfLnaLq93opq9bdOtfla51NVHj9I5fJX44al6qOPmo8WenS13N
+0fGz10EVt6/mL/fKszrVeqHF7P1S17FExfPV9yR6cCyz/RfXPK8q/nPv+Cp7
+tXde8DbV8T2XfVTnGffKo4oD9/ZX36tV6ZbH75Uzur/6/qkSB3a5V2enKn/h
+3n/0fK+p9vepn/GiOq/hlqdzq2fIXrej8sMcZj9XbvUMbnl5dXwVaqj2X7Ll
+7x3HNf7snoeCx+hWJzaqf688rf5ucRLyhmszSj+q+1/TLU5C3hBGPp97x1fr
+o9niz+jHNaiqe8nW1yr/tHcdeuWBc9D1ns/W19XzoXAO8t5Tzjr0zgt7FT7H
+bH2neu9JJX/v+HvnB+eiOj/ikl/obVfZA3BuqutbouKN1eI8EB55rqrEeUaN
+k2UnQzjyPLrZvW71D8Rt4Ai6+E1u9wBxG5hJt3iIa/yEuA1UnkfXeEi23Ujc
+Bjqfx2r6LipehB6ECrr5ZXupek8Zwgiq8pJH5dnbn/cyYEWqn2eXuNBWO4SO
+53GWfAR+IqxIl7z/UXnI78MZGO1XZunlvfPinEJnqvzKKnmZ67+DUEmXc+dW
+hwBhJtX6RRVfRT/CiszOM259LnFXuCJd84z3ytm7DhA6UOXHbY3TInoQrkzV
+/7fplQfCmen2PhfxUrgyXfOG6Ee4ItX1sfiJEO6n6v/BQgjjzhF6EMI4Ei+F
+UM/RcR4IYRzRg2vxD1Vm2g4=
+        "], {{0, 0}, {38, 95}}, {0, 1}], {
+        {Opacity[0.1], 
+         StyleBox[LineBox[CompressedData["
+1:eJwtw1c3AgAAQOGrkp09G2RcI1kpGWUkZEVGEXL6A/7/Gw++c75k+6fWDgLf
+fwP/adniyy8+/eTDD5o2efedN99o2KBunVdfefGFZ5958omaNR595MEHqla5
+954777j1lhtvuPaaihWuvOLSSy68oGyZc88pWeLMM0495cQTjj2maJGCBY48
+4tBDDjxg333y5tlzj5w5smbZdZeMGXbcYdttttxi00023CBtmnXXSZlizTVW
+XWXFFZZdRmXJJRZdZMEF5p0naZI555h1loQJ4saJGSNqlBlnmHaaKaeYdJIJ
+Jxh3nDHHGHWUEUcYdpghhxh0kIgRBhyg33767KPXXnrsodtuuuwibJhOOwkZ
+ImiQgAE67AD5BaNcM+4=
+           "]],
+          Antialiasing->False]}, 
+        {Opacity[0.1], 
+         StyleBox[
+          LineBox[{{{0, 0}, {0, 95}}, {{1, 0}, {1, 95}}, {{2, 0}, {2, 95}}, {{
+           3, 0}, {3, 95}}, {{4, 0}, {4, 95}}, {{5, 0}, {5, 95}}, {{6, 0}, {6,
+            95}}, {{7, 0}, {7, 95}}, {{8, 0}, {8, 95}}, {{9, 0}, {9, 95}}, {{
+           10, 0}, {10, 95}}, {{11, 0}, {11, 95}}, {{12, 0}, {12, 95}}, {{13, 
+           0}, {13, 95}}, {{14, 0}, {14, 95}}, {{15, 0}, {15, 95}}, {{16, 
+           0}, {16, 95}}, {{17, 0}, {17, 95}}, {{18, 0}, {18, 95}}, {{19, 
+           0}, {19, 95}}, {{20, 0}, {20, 95}}, {{21, 0}, {21, 95}}, {{22, 
+           0}, {22, 95}}, {{23, 0}, {23, 95}}, {{24, 0}, {24, 95}}, {{25, 
+           0}, {25, 95}}, {{26, 0}, {26, 95}}, {{27, 0}, {27, 95}}, {{28, 
+           0}, {28, 95}}, {{29, 0}, {29, 95}}, {{30, 0}, {30, 95}}, {{31, 
+           0}, {31, 95}}, {{32, 0}, {32, 95}}, {{33, 0}, {33, 95}}, {{34, 
+           0}, {34, 95}}, {{35, 0}, {35, 95}}, {{36, 0}, {36, 95}}, {{37, 
+           0}, {37, 95}}, {{38, 0}, {38, 95}}}],
+          Antialiasing->False]}}},
+      DisplayFunction->Identity,
+      Frame->False,
+      FrameLabel->{None, None},
+      FrameTicks->{{None, None}, {None, None}},
+      GridLinesStyle->Directive[
+        GrayLevel[0.5, 0.4]],
+      ImagePadding->{{0., 1.}, {1., 0.}},
+      ImageSize->{165, Automatic},
+      Method->{
+       "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+        "DefaultGraphicsInteraction" -> {
+         "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+          "Effects" -> {
+           "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+            "Droplines" -> {
+             "freeformCursorMode" -> True, 
+              "placement" -> {"x" -> "All", "y" -> "None"}}}}, 
+        "DefaultPlotStyle" -> Automatic}], {422.5, -210.47124000000002}, 
+     ImageScaled[{0.5, 0.5}], {165., 400.89760000000007},
+     BaseStyle->{Graphics3DBoxOptions -> {SphericalRegion -> False}}]}, {}},
+  ImageSize->{525., 420.94248000000005`},
+  Method->{"IgnoreImageSizeAutomaticLimit" -> True},
+  PlotRange->{{0, 525.}, {-420.94248000000005`, 0}},
+  PlotRangePadding->Automatic]], "Output",
+ CellLabel->
+  "Out[259]=",ExpressionUUID->"13762396-d2ca-484e-87b5-11186f9aab46"]
+}, {2}]],
+
+Cell[BoxData[
+ RowBox[{"RandomChoice", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "1", ",", "2", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"15", ",", 
+     RowBox[{
+      RowBox[{"4", "^", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"2", "*", "1"}], "+", "1"}], ")"}]}], "-", "1"}]}], "}"}]}], 
+  "]"}]], "Input",ExpressionUUID->"b5717087-ed9c-4323-8a2f-aba057bf0009"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"SeedRandom", "[", "123", "]"}], ";"}], "\n", 
+ RowBox[{"rule", "=", 
+  RowBox[{
+   RowBox[{"ResourceFunction", "[", "\"\<RandomCA\>\"", "]"}], "[", 
+   RowBox[{"{", "2", "}"}], "]"}]}]}], "Input",ExpressionUUID->"f42894c6-df0f-\
+4884-b130-87fd19971afe"],
+
+Cell[TextData[{
+ "\nNamely, he did a thorough exploration of evolution and biological systems \
+from the perspective of these adapted cellular automata. \n\n\n First he ",
+ ButtonBox["looked at evolution",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://writings.stephenwolfram.com/2024/05/why-does-biological-\
+evolution-work-a-minimal-model-for-biological-evolution-and-other-adaptive-\
+processes/#top"], None},
+  ButtonNote->
+   "https://writings.stephenwolfram.com/2024/05/why-does-biological-evolution-\
+work-a-minimal-model-for-biological-evolution-and-other-adaptive-processes/#\
+top"],
+ ", then he branched out, looking at medicine from the perspective of these \
+idealized organisms. "
+}], "Text",ExpressionUUID->"6aadcb2d-9cfe-4120-86d3-3818b290bcc3"],
+
+Cell["The first and arguably most important role of ", "Text",ExpressionUUID->"14a046c3-c3fd-4423-8ce5-284051c4e784"],
+
+Cell["\<\
+
+that started from a single black cell and went to an all-white state at step \
+50, by changing one rule at a time. And surprisingly, it worked:\
+\>", "Text",ExpressionUUID->"7a6c83ab-fadb-4171-81c2-6a185e4277a1"],
+
+Cell["", "Text",ExpressionUUID->"3981b6b7-7312-4436-b5f3-074892135d28"],
+
+Cell["\<\
+Th he started to get a sense for how these adaptive processes work (with \
+Richard Assar). That, in combination with thinking \
+\>", "Text",ExpressionUUID->"5e30c812-e316-4583-a649-b6eee8a171e7"],
+
+Cell["This idea, of ", "Text",ExpressionUUID->"98b4e845-e003-4e80-af71-c24708499514"],
+
+Cell["It basically came from his intuition with Richard Assar ", "Text",ExpressionUUID->"001544a2-85c4-4ac5-99b2-0b971d205d20"],
+
+Cell["\<\
+Now, I have to say, I am still not sold on this point. Obviously, and I\
+\[CloseCurlyQuote]ve had this discussion with Stephen, there is some amount \
+of reducibility in biological organisms (we are made up of cells, and have \
+different organs etc.) but It\[CloseCurlyQuote]s really a question of how \
+much, and I think that\[CloseCurlyQuote]s a question that needs to be \
+explored further. We have some experiments that I believe really get at this \
+question, which I will discuss later.
+
+But there\[CloseCurlyQuote]s no doubt that within biology, there is often a \
+vague assumption that everything in the end can be explained, we just need to \
+do more experiments and drill down to lower-levels. And Stephen\
+\[CloseCurlyQuote]s point, and what this model shows, is that at some point, \
+you reach a limit for how much of biological systems you can actually \
+explain. \
+\>", "Text",ExpressionUUID->"29ea91e6-6de2-4cbd-abe6-50403b041644"],
+
+Cell["\<\
+This difference is something I\[CloseCurlyQuote]ve discusses with Stephen, \
+and that we both agree is an important distinction. \
+\>", "Text",ExpressionUUID->"19cb20d0-f787-4a7c-8775-87195d7c2903"],
+
+Cell["\<\
+But okay, what were some biological applications to \
+Stephen\[CloseCurlyQuote]s newfound realization that complexity is abundant? \
+\
+\>", "Text",ExpressionUUID->"f068b2fe-f58b-45d9-adb7-564e48240918"],
+
+Cell["\<\
+But going even further, and Stephen makes a point of this, evolution, because \
+it has this problem of getting stuck in complex landscapes, rather than \
+making things more complex, has the effect of making things simpler. 
+
+The idea being that for simpler systems, it is easier to \
+\[OpenCurlyDoubleQuote]push them\[CloseCurlyDoubleQuote] up some fitness \
+hill, suggesting that evolution would \[OpenCurlyDoubleQuote]prefer\
+\[CloseCurlyDoubleQuote] simpler systems. \
+\>", "Text",ExpressionUUID->"b73ce6ba-ddbf-4b6e-b228-0d802843eb3f"],
+
+Cell["And Stephen then makes the, in many ways radical claim", "Text",ExpressionUUID->"9698b075-5f81-4738-a7fb-c31a00dfe537"],
+
+Cell["\<\
+These claims about adaptive algorithms and the effects of natural selection, \
+are something that Stephen reexamines thoroughly in his recent work on \
+biology and machine learning, and it\[CloseCurlyQuote]s something we\
+\[CloseCurlyQuote]ll come back to in then next section. \
+\>", "Text",ExpressionUUID->"3c37c9dc-7660-4b93-b06e-12f35b27c10f"],
+
+Cell["\<\
+I should note that this distinction is really the same as the distinction \
+between evolutionary and developmental biology. And most of Wolfram\
+\[CloseCurlyQuote]s models in New Kind of Science are on the side of \
+developmental biology. Importantly for us, this has changed in his recent \
+work, where he had a breakthrough in using cellular automata to model \
+evolution, which we\[CloseCurlyQuote]ll discuss in the next section. 
+
+But clearly, both evolution and physical constraints are contributing to what\
+\[CloseCurlyQuote]s observed in biology, and it\[CloseCurlyQuote]s really a \
+question of how much to attribute to either side. What Stephen is saying in \
+NKS, and what he still maintains with his new work, is that the field of \
+biology tends to attribute too much of the observed behaviors to evolution, \
+and not enough to the physical behaviors of the system. \
+\>", "Text",ExpressionUUID->"891f50de-69f8-472e-bf87-7ee7361b1978"],
+
+Cell["\<\
+And the key discovery of NKS, is these \[OpenCurlyDoubleQuote]wildly-behaved\
+\[CloseCurlyDoubleQuote] programs, are quite easy to find. Stephen then uses \
+that idea to claim that developmental biology is a more\
+\>", "Text",ExpressionUUID->"b67a75b9-90c1-48c2-b784-c79e851abbb6"],
+
+Cell["\<\
+ And this is basically like the distinction between evolutionary and \
+developmental biology. \
+\>", "Text",ExpressionUUID->"34d1b48a-0003-407c-92f2-e7ee42c5431b"],
+
+Cell["\<\
+And this new model, in many ways, extends and concretizes the claims from \
+NKS. Namely, not only are the behavior of certain processes like pigmentation \
+and leaf shape a consequence of small changes in simple programs
+
+Namely, that any adaptive system, including biolo
+
+, in many ways, makes concrete the claims of NKS, that 
+
+, that biological processes are full of irreducibilu\
+\>", "Text",ExpressionUUID->"c4a15ad6-b0be-484f-8653-6184b51d828a"],
+
+Cell[TextData[{
+ "Now this claim is fundamentally different to the claim made about evolution \
+in ",
+ StyleBox["New Kind of Science.",
+  FontSlant->"Italic"],
+ " This difference is something I\[CloseCurlyQuote]ve asked Stephen about, \
+and I believe is an important distinction."
+}], "Text",ExpressionUUID->"12a861c4-d0a0-46aa-a9c6-d8e7118add71"],
+
+Cell["\<\
+In NKS, Stephen did not have a such a clear model for evolution, and the \
+systems that it produces. While he did start to get at it with the \
+constraint-satisfaction problems, that model did not produce a clear \
+\[OpenCurlyDoubleQuote]idealized organism\[CloseCurlyDoubleQuote] of the kind \
+that the new model produces.  \
+\>", "Text",ExpressionUUID->"a3b06564-4c0a-4af8-88c3-4c703490f31e"],
+
+Cell["\<\
+And because of that, he couldn\[CloseCurlyQuote]t paint a concise picture for \
+the level of irreducibility in biological processes. So the conclusion from \
+NKS, was basically that non-essential processes like pigmentation, are full \
+of irreducibility, but the functioning of essential processes, like the organ \
+systems for instance, are largely pretty simple. And their simplicity is what \
+enables them to be shaped by evolution. \
+\>", "Text",ExpressionUUID->"e4618e6c-bb46-4e90-aaf3-902b25d5e583"],
+
+Cell["\<\
+But with this new work, Stephen is now claiming that even the essential \
+processes, like the functioning of organs, are full of irreducibility.  \
+\>", "Text",ExpressionUUID->"9cf297ec-67ff-4c1f-b062-c51a0c576c00"],
+
+Cell[TextData[{
+ "Now importantly, and I\[CloseCurlyQuote]ve asked Stephen about this, this \
+claim is, in a way, the opposite of Stephen\[CloseCurlyQuote]s claim about \
+evolution in ",
+ StyleBox["New Kind of Science. \n\n",
+  FontSlant->"Italic"],
+ "So let\[CloseCurlyQuote]s break down the differences.",
+ StyleBox["\n\n",
+  FontSlant->"Italic"],
+ "And in discussing this with Stephen, he basically said that in NKS, he didn\
+\[CloseCurlyQuote]t have a clear model for evolution. \n\nyou may be \
+thinking, doesn\[CloseCurlyQuote]t this contradict the claim that Stephen \
+made in New Kind of Science that evolution has a simplifying effect. And"
+}], "Text",ExpressionUUID->"c82fe134-da71-4fdd-8ef6-08639926e4f6"],
+
+Cell["\<\
+Now, I have to say, I am still not sold on this point. Obviously, and I\
+\[CloseCurlyQuote]ve had this discussion with Stephen, there is some amount \
+of reducibility in biological organisms (we are made up of cells, and have \
+different organs etc.) but It\[CloseCurlyQuote]s really a question of how \
+much, and I think that\[CloseCurlyQuote]s a question that needs to be \
+explored further. We have some experiments that I believe really get at this \
+question, which I will discuss later.
+
+But there\[CloseCurlyQuote]s no doubt that within biology, there is often a \
+vague assumption that everything in the end can be explained, we just need to \
+do more experiments and drill down to lower-levels. And Stephen\
+\[CloseCurlyQuote]s point, and what this model shows, is that at some point, \
+you reach a limit for how much of biological systems you can actually \
+explain. \
+\>", "Text",ExpressionUUID->"0c778991-c0ab-4728-891d-3dc36306d46a"],
+
+Cell["\<\
+While I think the exact takeaways from these models are subject to change, I \
+do believe that we are having a bit of a \[OpenCurlyDoubleQuote]rule 30 \
+moment\[CloseCurlyDoubleQuote].\
+\>", "Text",ExpressionUUID->"dfe8c128-6f07-418c-9cd7-09586ae024e1"],
+
+Cell["\<\
+In the past, we did not have such a simple model for an adapted system. \
+\>", "Text",ExpressionUUID->"26b8434a-5391-44cd-8ead-2e2694a61bbb"],
+
+Cell["\<\
+I think at this point it is clear that Stephen has laid down some powerful \
+foundational models for thinking about biology. But the big question is where \
+can we go with these ideas, both within biology and beyond. \
+\>", "Text",ExpressionUUID->"ed97da26-e31f-4627-9858-fead0c5183c2"],
+
+Cell["And it is now my mission, to try to help make that happen. A", "Text",ExpressionUUID->"0f797854-c6a6-4020-957a-4df85590d676"],
+
+Cell["And I hope in hearing t", "Text",ExpressionUUID->"30b32164-ee72-4df9-9272-94d15d457647"],
+
+Cell["\<\
+Right now, our biology effort at the Wolfram Institute is still not \
+well-funded, and we\[CloseCurlyQuote]re actually looking for a pHD-level \
+theoretical biologist to help us. So funnily enough, right now, it\
+\[CloseCurlyQuote]s really just me working on these things. \
+\>", "Text",ExpressionUUID->"ff4636a3-e3aa-40dc-9f8b-077b9844a06d"],
+
+Cell["\<\
+I\[CloseCurlyQuote]m particularly interested in exploring these ideas in the \
+context of computer security, the science of aging, behavior analysis, \
+immunology\
+\>", "Text",ExpressionUUID->"3ebfb851-5f35-4a46-b414-4debb133f442"],
+
+Cell["And in many ways this is already happening. ", "Text",ExpressionUUID->"c6ec1435-d338-4df6-85ef-8adf8209671c"],
+
+Cell["But again, regardless of ", "Text",ExpressionUUID->"cf225d9a-d630-4394-a8c8-522fd028f7ea"],
+
+Cell["is that in general is that many phenomena in medicine, like ", "Text",ExpressionUUID->"0a2a0e91-6213-4246-b587-b047139ea474"],
+
+Cell["\<\
+
+Stephen has also explored in-depth the idea of using these adapted cellular \
+automata as a model for an organism, then 
+
+ using perturbations to the cells of the automata as a model for uncertain \
+changes in the environment, and then studying the resulting patterns as \
+models of disease and treatment. I actually worked on this with him, and I \
+believe it has potentially important implications for medicine, so I think\
+\>", "Text",ExpressionUUID->"bdb063f3-ea3a-45bd-b6e9-429f3449ebcc"],
+
+Cell["\<\
+And I think just going through the references and exploring what\
+\[CloseCurlyQuote]s interesting to you is also a reasonable approach. \
+\>", "Text",ExpressionUUID->"686eb2dd-eef5-4e5e-9548-9a80f9b6e621"]
+},
+WindowSize->{808, 673},
+WindowMargins->{{Automatic, 322}, {46, Automatic}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"302b00cd-06bc-48f5-8935-54fa5c24b37d"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 81, 0, 29, "Input",ExpressionUUID->"85580b63-fe98-49e0-83a7-a4e29222a2b4"],
+Cell[638, 22, 212, 3, 55, "Text",ExpressionUUID->"62bc137a-9369-43be-aaa4-6de654bc5e7b"],
+Cell[853, 27, 206, 3, 55, "Text",ExpressionUUID->"4ca5aeaf-859e-433f-95a9-d0d4e8c24fc4"],
+Cell[1062, 32, 487, 7, 99, "Text",ExpressionUUID->"9af4398f-9edd-409a-97b7-36db05b4fc58"],
+Cell[1552, 41, 145, 1, 33, "Text",ExpressionUUID->"6c3392f4-9ecf-43e5-bef4-6d47d53f9cf0"],
+Cell[1700, 44, 281, 4, 55, "Text",ExpressionUUID->"fed1a2f4-7a8d-4662-a89d-ca9896a5cf72"],
+Cell[1984, 50, 258, 4, 55, "Text",ExpressionUUID->"bc76bf9a-ec8e-40f9-8f60-93749ce998c6"],
+Cell[2245, 56, 448, 7, 99, "Text",ExpressionUUID->"b7fb72e8-4794-4bcd-8437-ff94ebfae5e0"],
+Cell[CellGroupData[{
+Cell[2718, 67, 23220, 497, 880, "Input",ExpressionUUID->"75067be1-a644-4cfd-b0c9-aaf1ba0da4a4",
+ CellID->1826886141],
+Cell[25941, 566, 57746, 1204, 561, "Output",ExpressionUUID->"058ed1f6-a4ec-4232-a8cd-b70af2aa341b"]
+}, Open  ]],
+Cell[83702, 1773, 781, 16, 55, "Text",ExpressionUUID->"6a0d8872-308d-458d-957d-1c7d9128c02a"],
+Cell[84486, 1791, 127, 3, 55, "Text",ExpressionUUID->"99200958-8948-4127-b525-53b35527141b"],
+Cell[84616, 1796, 456, 8, 143, "Text",ExpressionUUID->"337d00ca-5078-43a4-bf56-e1d1cb319044"],
+Cell[85075, 1806, 232, 4, 55, "Text",ExpressionUUID->"2c516ab6-2d6c-4719-86df-166a00754ba4"],
+Cell[85310, 1812, 481, 8, 121, "Text",ExpressionUUID->"5af6a75d-7fdb-433d-990a-1cffe332ff68"],
+Cell[85794, 1822, 142, 2, 33, "Text",ExpressionUUID->"bfde7458-6571-4503-b8a8-fde32bff6124"],
+Cell[85939, 1826, 71, 0, 33, "Text",ExpressionUUID->"3cde83fe-2db5-457e-9347-28169d9c05d2"],
+Cell[86013, 1828, 164, 3, 33, "Text",ExpressionUUID->"65f28b36-984c-455b-a159-05fad41e17db"],
+Cell[86180, 1833, 216, 3, 55, "Text",ExpressionUUID->"0c934ba9-5ca7-44a0-bcd1-171a5ea05758"],
+Cell[86399, 1838, 224, 4, 55, "Text",ExpressionUUID->"5a6509b4-f165-4e23-9ab7-9b81decd660a"],
+Cell[CellGroupData[{
+Cell[86648, 1846, 9007, 191, 171, "Input",ExpressionUUID->"56678074-000c-44c2-aedf-367ba2611700",
+ CellID->2103571026],
+Cell[95658, 2039, 28122, 568, 437, "Output",ExpressionUUID->"13762396-d2ca-484e-87b5-11186f9aab46"]
+}, {2}]],
+Cell[123792, 2610, 405, 12, 29, "Input",ExpressionUUID->"b5717087-ed9c-4323-8a2f-aba057bf0009"],
+Cell[124200, 2624, 289, 7, 49, "Input",ExpressionUUID->"f42894c6-df0f-4884-b130-87fd19971afe"],
+Cell[124492, 2633, 772, 15, 164, "Text",ExpressionUUID->"6aadcb2d-9cfe-4120-86d3-3818b290bcc3"],
+Cell[125267, 2650, 117, 0, 33, "Text",ExpressionUUID->"14a046c3-c3fd-4423-8ce5-284051c4e784"],
+Cell[125387, 2652, 223, 4, 77, "Text",ExpressionUUID->"7a6c83ab-fadb-4171-81c2-6a185e4277a1"],
+Cell[125613, 2658, 71, 0, 33, "Text",ExpressionUUID->"3981b6b7-7312-4436-b5f3-074892135d28"],
+Cell[125687, 2660, 205, 3, 55, "Text",ExpressionUUID->"5e30c812-e316-4583-a649-b6eee8a171e7"],
+Cell[125895, 2665, 85, 0, 33, "Text",ExpressionUUID->"98b4e845-e003-4e80-af71-c24708499514"],
+Cell[125983, 2667, 127, 0, 33, "Text",ExpressionUUID->"001544a2-85c4-4ac5-99b2-0b971d205d20"],
+Cell[126113, 2669, 956, 15, 208, "Text",ExpressionUUID->"29ea91e6-6de2-4cbd-abe6-50403b041644"],
+Cell[127072, 2686, 208, 3, 33, "Text",ExpressionUUID->"19cb20d0-f787-4a7c-8775-87195d7c2903"],
+Cell[127283, 2691, 212, 4, 55, "Text",ExpressionUUID->"f068b2fe-f58b-45d9-adb7-564e48240918"],
+Cell[127498, 2697, 549, 9, 121, "Text",ExpressionUUID->"b73ce6ba-ddbf-4b6e-b228-0d802843eb3f"],
+Cell[128050, 2708, 125, 0, 33, "Text",ExpressionUUID->"9698b075-5f81-4738-a7fb-c31a00dfe537"],
+Cell[128178, 2710, 357, 5, 77, "Text",ExpressionUUID->"3c37c9dc-7660-4b93-b06e-12f35b27c10f"],
+Cell[128538, 2717, 958, 14, 208, "Text",ExpressionUUID->"891f50de-69f8-472e-bf87-7ee7361b1978"],
+Cell[129499, 2733, 291, 4, 55, "Text",ExpressionUUID->"b67a75b9-90c1-48c2-b784-c79e851abbb6"],
+Cell[129793, 2739, 173, 3, 33, "Text",ExpressionUUID->"34d1b48a-0003-407c-92f2-e7ee42c5431b"],
+Cell[129969, 2744, 461, 10, 208, "Text",ExpressionUUID->"c4a15ad6-b0be-484f-8653-6184b51d828a"],
+Cell[130433, 2756, 347, 7, 55, "Text",ExpressionUUID->"12a861c4-d0a0-46aa-a9c6-d8e7118add71"],
+Cell[130783, 2765, 404, 6, 77, "Text",ExpressionUUID->"a3b06564-4c0a-4af8-88c3-4c703490f31e"],
+Cell[131190, 2773, 515, 7, 99, "Text",ExpressionUUID->"e4618e6c-bb46-4e90-aaf3-902b25d5e583"],
+Cell[131708, 2782, 225, 3, 55, "Text",ExpressionUUID->"9cf297ec-67ff-4c1f-b062-c51a0c576c00"],
+Cell[131936, 2787, 716, 13, 208, "Text",ExpressionUUID->"c82fe134-da71-4fdd-8ef6-08639926e4f6"],
+Cell[132655, 2802, 956, 15, 208, "Text",ExpressionUUID->"0c778991-c0ab-4728-891d-3dc36306d46a"],
+Cell[133614, 2819, 263, 4, 55, "Text",ExpressionUUID->"dfe8c128-6f07-418c-9cd7-09586ae024e1"],
+Cell[133880, 2825, 151, 2, 33, "Text",ExpressionUUID->"26b8434a-5391-44cd-8ead-2e2694a61bbb"],
+Cell[134034, 2829, 296, 4, 55, "Text",ExpressionUUID->"ed97da26-e31f-4627-9858-fead0c5183c2"],
+Cell[134333, 2835, 131, 0, 33, "Text",ExpressionUUID->"0f797854-c6a6-4020-957a-4df85590d676"],
+Cell[134467, 2837, 94, 0, 33, "Text",ExpressionUUID->"30b32164-ee72-4df9-9272-94d15d457647"],
+Cell[134564, 2839, 352, 5, 77, "Text",ExpressionUUID->"ff4636a3-e3aa-40dc-9f8b-077b9844a06d"],
+Cell[134919, 2846, 241, 4, 55, "Text",ExpressionUUID->"3ebfb851-5f35-4a46-b414-4debb133f442"],
+Cell[135163, 2852, 115, 0, 33, "Text",ExpressionUUID->"c6ec1435-d338-4df6-85ef-8adf8209671c"],
+Cell[135281, 2854, 96, 0, 33, "Text",ExpressionUUID->"cf225d9a-d630-4394-a8c8-522fd028f7ea"],
+Cell[135380, 2856, 131, 0, 33, "Text",ExpressionUUID->"0a2a0e91-6213-4246-b587-b047139ea474"],
+Cell[135514, 2858, 504, 9, 164, "Text",ExpressionUUID->"bdb063f3-ea3a-45bd-b6e9-429f3449ebcc"],
+Cell[136021, 2869, 215, 3, 55, "Text",ExpressionUUID->"686eb2dd-eef5-4e5e-9548-9a80f9b6e621"]
+}
+]
+*)
+

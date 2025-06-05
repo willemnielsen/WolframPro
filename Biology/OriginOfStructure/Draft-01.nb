@@ -1,0 +1,568 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     28865,        560]
+NotebookOptionsPosition[     22404,        469]
+NotebookOutlinePosition[     22803,        485]
+CellTagsIndexPosition[     22760,        482]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["A better model for biological processes", "Subsection",ExpressionUUID->"92f6f7ee-57fb-4707-b7a0-34eb2737c812"],
+
+Cell["\<\
+What is the nature of biological processes. How do they look? What can they \
+achieve? What happens when they go wrong?  These are such simple questions, \
+and yet the field of biology, in my view, has largely failed to give people \
+good answers. \
+\>", "Text",ExpressionUUID->"4cf4cb1b-1461-4922-8bce-e86806153b84"],
+
+Cell["\<\
+In my experience, modern academic institutions are really bad at answering \
+big questions like this, and most of the best \
+\[OpenCurlyDoubleQuote]scientists\[CloseCurlyDoubleQuote] of our time have \
+found ways to do science not because of these institutions but despite them. \
+\
+\>", "Text",ExpressionUUID->"a456e810-5e88-45c0-9845-a2344f8c3fc2"],
+
+Cell["\<\
+So okay these are bold statements, who do I think I am, right? Well, I think \
+most biologists have largely missed the powerful new paradigm of using \
+computation as opposed to mathematics for their models. And because of this, \
+they have been limited in their ability to give a good high-level description \
+of what is going on in biology. Stephen Wolfram has recently pioneered some \
+groundbreaking computational models for biology. Starting as a fan of the \
+research, and eventually becoming a collaborator, I\[CloseCurlyQuote]ve \
+become convinced that we\[CloseCurlyQuote]ve struck gold and that with these \
+models, we\[CloseCurlyQuote]re now in a position to understand the high-level \
+features of biology better than anyone ever has before. \
+\>", "Text",ExpressionUUID->"e09706d7-bd51-4c8c-83e9-ec0ebb2eeaf7"],
+
+Cell["\<\
+Again, big statements. So what are our models and what claims can we make \
+from them?\
+\>", "Text",ExpressionUUID->"0e2cbcf3-c9bf-4134-8e6d-3199cdb22603"],
+
+Cell["\<\
+We use cellular automaton as a model organism, making single bit changes to \
+the ruleset and keeping the changes that give a larger or equal finite \
+length. \
+\>", "Text",ExpressionUUID->"2005f42c-349a-47c7-b7a4-98307be20ab2"],
+
+Cell["\<\
+And the similarities are already striking between this and real evolution. At \
+a high level, we have discrete branches of patterns, corresponding to \
+branches in the tree of life. \
+\>", "Text",ExpressionUUID->"f71459b5-f067-487f-bee1-4ce226c53e3e"],
+
+Cell["\<\
+We also have sharp increases in \[OpenCurlyDoubleQuote]fitness\
+\[CloseCurlyDoubleQuote] quickly followed by the plateauing stage, within our \
+evolutions.\
+\>", "Text",ExpressionUUID->"0b082a5b-60c2-4cb2-8f91-3793f9911fa1"],
+
+Cell["\<\
+Looking more closely at the specific patterns, we have these subpatterns that \
+work together to achieve a particular goal. And the implication is that \
+adaptive processes like evolution are \[OpenCurlyDoubleQuote]mining \
+irreducibility\[CloseCurlyDoubleQuote] to achieve their goal. \
+\>", "Text",ExpressionUUID->"3bb9f3ea-af62-4d20-89b2-249f5071f5bd"],
+
+Cell["\<\
+In other words, with each improvement step, they\[CloseCurlyQuote]re finding \
+irreducible subprograms that increase their finite length. And as a result, \
+it\[CloseCurlyQuote]s clear that certain parts of our organism are just \
+completely unexplainable, and trying to come up with a reason for why they \
+exist, is like trying to jump ahead of an irreducible process. \
+\>", "Text",ExpressionUUID->"cabe0cda-2316-40a0-8ead-20669c683341"],
+
+Cell["\<\
+But just how much reducibility and irreducibility are in these patterns. \
+Given the fact that we are selecting for a particular feature (finite \
+length), you\[CloseCurlyQuote]d expect that there is at least some \
+commonalities between the organisms.\
+\>", "Text",ExpressionUUID->"5e94b9b6-e6f8-4f5d-9fc1-a19d998b9e89"],
+
+Cell["\<\
+To get at this, we can look at an adaptively evolved set of organisms:\
+\>", "Text",ExpressionUUID->"ba4f356f-2ea7-4a24-ace3-16672c75b169"],
+
+Cell["And compare that to a random sample of our rule space: ", "Text",ExpressionUUID->"f3ba0baf-af76-4378-b452-3c3ae2246565"],
+
+Cell["\<\
+And from this, we can see that the main problem that adaptive evolution is \
+solving in this case is growth inhibition. And because of that, our evolved \
+organisms exhibit much more of a \[OpenCurlyDoubleQuote]worm-like\
+\[CloseCurlyDoubleQuote] shape then the random group. \
+\>", "Text",ExpressionUUID->"12f242db-615a-4875-aae3-0693d57d5866"],
+
+Cell["\<\
+So this is a high-level pocket of reducibility, and if a biologist were \
+looking at this, he could indeed form some theory about the shape of \
+organisms. But what about more low-level mechanisms, like say the different \
+rule frequencies of the random group and the adaptive group:\
+\>", "Text",ExpressionUUID->"f2238ad2-0b06-4508-9410-c3bab4386464"],
+
+Cell["\<\
+So each bar corresponds to the number of automaton in the group that had that \
+rule.\
+\>", "Text",ExpressionUUID->"482e4ee3-32b4-4351-8f38-576d5af47258"],
+
+Cell["And here is data from 10 random groups:", "Text",ExpressionUUID->"449e4eea-b3a7-4ad6-81e3-2acbf35494ff"],
+
+Cell["\<\
+So clearly, there is some statistically significant difference here. And \
+based on our conclusion that the evolved automata are better at growth \
+inhibition, we can look at \[OpenCurlyDoubleQuote]edge-rules\
+\[CloseCurlyDoubleQuote] or rules with two white squares. These rules, \
+highlighted here, are critical for growth inhibition and \
+we\[CloseCurlyQuote]d expect the adapted group to have far more white square \
+outputs for these rules.\
+\>", "Text",ExpressionUUID->"27b8491d-6ba9-4302-8057-aa6a1fe5c460"],
+
+Cell["\<\
+Looking at the frequencies of the \[OpenCurlyDoubleQuote]growth-inhibiting\
+\[CloseCurlyDoubleQuote] rules we can see that they are indeed \
+\[OpenCurlyDoubleQuote]active\[CloseCurlyDoubleQuote] much more frequently in \
+the adaptive group. So this would correspond to a low-level theory that we \
+could form about our organisms, similar to how a molecular biologists could \
+find certain genes and proteins that are associated with certain behaviors. \
+But the key point, is that only some of these rules in our automata actually \
+have a \[OpenCurlyDoubleQuote]function\[CloseCurlyDoubleQuote] that you can \
+map to the behavior. For many of the \[OpenCurlyDoubleQuote]inner-rules\
+\[CloseCurlyDoubleQuote] their use isn\[CloseCurlyQuote]t so clear. \
+\>", "Text",ExpressionUUID->"e649a5c4-76b4-4913-96bb-98bb8bb7cf40"],
+
+Cell["\<\
+And the reason is because our fitness-function is not acting heavily on the \
+inner rules. In other words, there are many different ways to grow, and so \
+the ones evolution finds are not necessarily explainable. But you may be \
+wondering, can we make our fitness function more restrictive, and force the \
+irreducibility out of the system? \
+\>", "Text",ExpressionUUID->"425beeb7-19bb-44e6-a411-76bf11a9bed7"],
+
+Cell["\<\
+Well, one common theme in biology is dealing with noise in the environment, \
+and still being able to function. So we can do our same evolution, but make \
+perturbations to the automaton as it grows, and take the minimum length from \
+all the perturbed automaton. Then, we try to increase that minimum length. \
+\>", "Text",ExpressionUUID->"74af991d-ea66-4a1a-96a7-14873a286daa"],
+
+Cell["\<\
+And the results are very nice. Because what we get are far \
+\[OpenCurlyDoubleQuote]simpler\[CloseCurlyDoubleQuote] organisms that use \
+more explainable mechanisms. \
+\>", "Text",ExpressionUUID->"ac5e86f8-e9b3-4990-9d3e-6f1c85e692dd"],
+
+Cell["\<\
+So the solution that is often found is to have some pattern that ends \
+despite, many of the details of the internal subpatterns:\
+\>", "Text",ExpressionUUID->"e08ed15f-0fcd-445f-b2a2-7d84849d9855"],
+
+Cell["\<\
+And what we\[CloseCurlyQuote]ve touched on here is an important law of \
+biology an adaptive systems, which is the more noise in the environment the \
+more simple and explainable the underlying mechanisms end up being. As an \
+example, animals like frogs, who are hatched from eggs in the wild, we would \
+expect to have far more explainable mechanisms for how their morphogenesis \
+works. But mammals who are grown mostly from the safety of the womb, wouldn\
+\[CloseCurlyQuote]t have to deal with as much noise. So, I suspect that the \
+embryogenesis process, especially the early stage, is far more irreducible \
+and specific then something like a frog. And therefore if you mix up a human \
+embryo, you\[CloseCurlyQuote]d get a completely different structure, as \
+opposed to a frog / planeria embryo, who can handle these perturbations.\
+\>", "Text",ExpressionUUID->"7f647612-f7c6-43d7-b236-c70d46eddc66"],
+
+Cell["\<\
+And in terms of explainability, it is known that planeria use a general \
+sorting network to complete morphogenesis, and so you can perturb the system \
+in the right way and get a two-headed flatworm. This would definitely not be \
+possible I believe in the mammalian case.\
+\>", "Text",ExpressionUUID->"ac2571e2-7d57-4754-a9f9-8edff2e64955"],
+
+Cell["\<\
+So okay, but just how reducible are these highly-robust guys? Well as we can \
+see, they still have pieces of irreducibility and are not perfectly robust. \
+And this is the consequence of the physical limitations of the cellular \
+automaton system here, as well as the limitations of our adaptive search. \
+\>", "Text",ExpressionUUID->"7dfaf1ad-3736-42c4-ab99-a65168c42c76"],
+
+Cell["\<\
+And because of this, if we take these guys outside of their noise tolerance \
+level, outside of their evolved track, what we get is irreducible behavior. \
+And the fundamental problem of medicine is then trying to get these guys back \
+on track. \
+\>", "Text",ExpressionUUID->"1f100cad-5b16-45c0-99c4-3f0e1dac1541"],
+
+Cell["\<\
+And so what has happened in most diseases, is something has happened to the \
+evolved guard rails of irreducibility. But the implication is that quite \
+often you can steal ideas from biology, and just apply them in a new way:\
+\>", "Text",ExpressionUUID->"e800ca22-7ec5-4b5e-9777-16baa5f3033f"],
+
+Cell["\<\
+But even this still has irreducibility in it, and is computationally and \
+therefore economically expensive.\
+\>", "Text",ExpressionUUID->"352f3330-5059-4d99-beda-b638841c12c9"],
+
+Cell["\<\
+We should pause here to look at some actual medicine data. And what we see is \
+that actually most of the diseases are self-inflicted! And then we spend all \
+this computational effort to try to pick up the pieces. So our model would \
+suggest that we should focus on simply not throwing ourselves off the cliffs \
+of irreducibility. \
+\>", "Text",ExpressionUUID->"34021bf3-b3c5-4b0c-84d0-f304a47b635d"],
+
+Cell["\<\
+What we\[CloseCurlyQuote]re doing is the equivalent of the following: We have \
+an evolved track that we can walk down the mountain. But instead we just jump \
+off the cliff and then spend a bunch of money and time trying to building \
+parachutes as we fall down. \
+\>", "Text",ExpressionUUID->"395f6f09-07b0-4cd3-8b9b-d6ddaeb117d5"],
+
+Cell["\<\
+So we\[CloseCurlyQuote]ve mostly talked about avoidance of diseases, but what \
+about increased performance. How can we get these automaton to do their job \
+even better? \
+\>", "Text",ExpressionUUID->"3d3cf201-9814-49ba-bb30-22d325ae55fd"],
+
+Cell["\<\
+Similar story of computational irreducibility, there are some shortcuts, but \
+still computationally expensive\
+\>", "Text",ExpressionUUID->"5ada4b60-b292-443d-9a1d-047dd5ca66bb"],
+
+Cell["\<\
+Especially if goals are different than evolved, we\[CloseCurlyQuote]d suspect \
+quite a lot of low-hanging fruit. New goals == low-hanging fruit\
+\>", "Text",ExpressionUUID->"5b6df398-167d-4cfa-afdf-4a775613aa34"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[" Medicine as it exists today", "Subsection",ExpressionUUID->"e7eab183-f589-47fd-884f-34d48197f25c"],
+
+Cell["\<\
+Okay so we saw how human tissue growth had a lot of irreducibility. But who \
+cares? Well, to answer this I think it\[CloseCurlyQuote]s worth taking a \
+closer look at the medical field as it exists today. \
+\>", "Text",ExpressionUUID->"71df19ab-d0b4-41fe-bf91-4cd7735786a1"],
+
+Cell["\<\
+My parents are actually physicians themselves and I think juxtaposing their \
+different fields will give a good idea of the misconceptions around medicine. \
+My dad is a pediatric cardiologist, so he mainly looks at images of the heart \
+of newborns, and then decides whether their condition is dangerous, and what \
+to do about it. And importantly, the diseases he encounters are congenital, \
+meaning the person is born with the condition. Further, the diseases he is \
+looking for, are extremely rare, so he sees fewer patients, and most of the \
+time the babies end up being fine. Lastly, the families are usually middle \
+class and above, and his hospital is very wealthy.\
+\>", "Text",ExpressionUUID->"06bc87bc-bf55-4337-835a-3e077512a31b"],
+
+Cell["\<\
+I think this is what most people imagine when they think about medicine. \
+\>", "Text",ExpressionUUID->"4445763b-ec65-432a-a6dd-36a210beed5c"],
+
+Cell["\<\
+In contrast, my mom is what\[CloseCurlyQuote]s called a hospitalist, which \
+just means that she deals with all different types of diseases. Her patients \
+tend to be middle-age to elderly adults, low-income, quite sick, with common \
+diseases like obesity, heart disease and cancer, she sees more patients, and \
+critically, the patients often have poor habits or behavioral issues. Often, \
+they smoke, they drink, they do drugs, they don\[CloseCurlyQuote]t eat \
+healthy, they don\[CloseCurlyQuote]t exercise. \
+\>", "Text",ExpressionUUID->"a93a86d0-5fbb-49d3-aa76-0b531c633abc"],
+
+Cell[TextData[{
+ "And so the challenges of my mom\[CloseCurlyQuote]s job, are much less ",
+ StyleBox["medical ",
+  FontSlant->"Italic"],
+ "in the traditional sense. Sometimes, the patients will do things like lie \
+to be prescribed drugs, or they will be violent towards the nurses, or they\
+\[CloseCurlyQuote]ll refuse treatment, or they\[CloseCurlyQuote]ll get \
+themselves admitted on purpose because have nowhere to live. In terms of \
+actual health, most of the time, they do not get better, and my mom\
+\[CloseCurlyQuote]s job is mainly to keep them alive. This is usually done \
+using a mix of different drugs at different dosages and occasionally doing \
+surgical procedures. "
+}], "Text",ExpressionUUID->"313fd995-1478-4295-bfd1-6f99da3a3675"],
+
+Cell[TextData[{
+ "And the point is, the majority of sick people, are ones like my mom sees. \
+And as we saw, many of their diseases are ",
+ StyleBox["self-inflicted",
+  FontSlant->"Italic"],
+ ". To put it in our computational terms, their behaviors, like doing drugs, \
+put stressors on the system that is was not evolved to handle, and basically \
+throws the system off the cliffs of computational irreducibility. And as we\
+\[CloseCurlyQuote]ve seen, trying to reroute the system back to a healthy \
+state is incredibly computationally expensive, which is why my mom\
+\[CloseCurlyQuote]s job is so hard, and why the patients often don\
+\[CloseCurlyQuote]t get better. "
+}], "Text",ExpressionUUID->"0b7566a2-1971-405c-9d71-8792f3b44323"],
+
+Cell["\<\
+The implication is that if we can just help these people avoid harmful \
+behaviors, then we can save a bunch of time and money on keeping them alive. \
+This of course is it\[CloseCurlyQuote]s own challenge, full of \
+irreducibility, but the point is that any improvement along the dimension of \
+behavior, will improve the health of the population far more.\
+\>", "Text",ExpressionUUID->"e5be11dc-f907-4630-b75a-e7f676c75e20"],
+
+Cell["\<\
+This also hits on an important rule of thumb, that is often said, but not \
+made computationally precise as we\[CloseCurlyQuote]ve been able to do here, \
+which says that as much as possible, we should try to stay within the bounds \
+of our evolutionary environment. Deviation from this environment leads us \
+into the computational wild wild west, and getting back on track is usually \
+quite expensive. \
+\>", "Text",ExpressionUUID->"9d7ea020-78a8-4cca-a973-629671c23987"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Cancer", "Subsection",ExpressionUUID->"6446f45f-57f6-42e7-8691-1aba4af7cb74"],
+
+Cell["\<\
+So we saw that the most common diseases are heart disease and cancer. And we \
+saw the difference between mamallian cell growth and something like planerian \
+growth is that one has evolved in a robust environment, and therefore has \
+robust and explainable mechanisms for achieving its goal. So can we take \
+these and apply it to medicine. I think we can, and I think cancer in \
+particular is very relevant for this. The method for growth and growth \
+inhibition in mammalian systems, I suspect is much more like our irreducible \
+population, where the method for growth inhibition is a complex interplay \
+between different genes. This is again because mammalian morhpology is much \
+more of a one-to-one function, so the guard rails on irreducibiliity are less \
+developed. In other words, mammalian cells \[OpenCurlyDoubleQuote]know\
+\[CloseCurlyDoubleQuote] how to get from embryo to human, but they don\
+\[CloseCurlyQuote]t \[OpenCurlyDoubleQuote]know\[CloseCurlyDoubleQuote]as \
+well how to stop the growth of a tumor. \
+\>", "Text",ExpressionUUID->"1aa6e876-e351-4cac-8e2c-29fb7fe2e4d1"],
+
+Cell["\<\
+Because of this, there is no built-in mechanism that we can rely on to treat \
+cancer, and\
+\>", "Text",ExpressionUUID->"0f0489ca-814e-426b-b0df-f45540d5da85"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["kinesiology, and psychology", "Subsection",ExpressionUUID->"fbd5c4f5-2060-4ae3-a204-e5c386cc11a0"],
+
+Cell["\<\
+So we talked about the challenges of intervening in cases of diseases \
+involving tissue growth. But what about other medical issues, is it always \
+this hard? Well similar to how planeria have evolved to squeeze the \
+irreducibility out of their system, I believe a similar thing happened with \
+musculo-skeletal anatomy in humans. Humans have the highest levels of \
+hypertrophy and atrophy of any animal. And therefore, we are  \
+\>", "Text",ExpressionUUID->"898ae3c3-7b64-4304-9981-4e820dd187d9"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Give up as often as possible", "Subsection",ExpressionUUID->"789b758e-bf11-4af2-bab2-d0f6ebc96e62"],
+
+Cell["\<\
+Terminal units are quite invariant. Any chance to improve them is critical. \
+We should try for humanoid robots. \
+\>", "Text",ExpressionUUID->"9fe6f3fd-431e-47a1-a5a4-15d9f92ff3ec"],
+
+Cell["So one trick that can be used is to steal the ", "Text",ExpressionUUID->"7256843b-37e9-43a0-9de3-fce4716e64e9"],
+
+Cell["\<\
+And these systems, are very good models of highly-adapted organisms like \
+humans. They tried to squeeze the irreducibility out of their system,  \
+\>", "Text",ExpressionUUID->"5831d464-7a0a-4e0b-8d2b-5418d338ad79"],
+
+Cell["[[Maybe dive into healing cancer using this mechanism]]", "Text",ExpressionUUID->"c8f93bea-84ea-48c5-8a52-54e63947ca89"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Roadmap", "Subsection",ExpressionUUID->"50704693-a9b9-4067-acb6-9261b0b0114c"],
+
+Cell["\<\
+Talk about primitive organisms. mining irreducibility to approximate some \
+behavior.
+Discrete branches of life. Simple programs and hill climbing. 
+The example of branching networks. 
+Talk about mature organisms. 
+Learning how to be robust. 
+Comparison with embryogenesis. 
+Sorting algorithms. 
+What happens when you take these guys out of their evolved state. 
+The problem of medicine. 
+Congenital heart disease data. 
+Understanding the organism. 
+Using already evolved mechanisms.   
+The deeper problem of medicine. 
+The other end of the spectrum? 
+Does biology matter. \
+\>", "Text",ExpressionUUID->"8cb61aa7-1376-4c5a-9bab-fa0ec2944f1d"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Does biology matter?", "Subsection",ExpressionUUID->"527bc61f-52ab-4791-9039-a0a8a7f20167"],
+
+Cell["\<\
+Maybe not. Maybe the future will be silicon, not carbon, who knows. But if \
+not, then we can be sure that humans are the future. To understand biology is \
+to understand humans. \
+\>", "Text",ExpressionUUID->"c6f175fe-c943-444c-a4d9-5eba7c5ba6dd"],
+
+Cell["\<\
+When you ask what is the determinant of the future of our world. It\
+\[CloseCurlyQuote]s us. It\[CloseCurlyQuote]s not bears, \
+it\[CloseCurlyQuote]s not tigers it\[CloseCurlyQuote]s not trees, it\
+\[CloseCurlyQuote]s not bacteria. We are the only ones with the power to \
+steer the world in a particular direction. \
+\>", "Text",ExpressionUUID->"0dccb11e-2088-4dc2-84e5-d3f6bc794ab3"],
+
+Cell["\<\
+So I would argue that the ultimate goal of biology should be to help humans \
+do what they do better. \
+\>", "Text",ExpressionUUID->"e5fd26ef-a959-47fd-932c-b520e679650d"],
+
+Cell["\<\
+So let\[CloseCurlyQuote]s take a survey of the human landscape, and try to \
+see, what is holding us back? One angle, is to look at what kills us. \
+Obviously, if you are dead, you can\[CloseCurlyQuote]t contribute. \
+\>", "Text",ExpressionUUID->"db1f4910-d0c6-42bf-bd59-c55220a653cf"],
+
+Cell["\<\
+Now here comes the surprising part. When people think medicine, they mostly \
+think drugs, a doctor in a lab coat coming to tell you bad news from a \
+specific test. \
+\>", "Text",ExpressionUUID->"255e8c5d-9a9a-40e6-bc61-ea8ff2782baa"],
+
+Cell["\<\
+But in reality, the vast majority of human disease is self-inflicted: drugs, \
+poor diet, lack of exercise, bad habits. (Tell mom MSQ stories). \
+\>", "Text",ExpressionUUID->"6328d75c-7b39-4603-a3f6-ec120b7ecaf8"],
+
+Cell["\<\
+So basically, what is happening is we are creating these self-inflicted \
+perturbation, taking our systems off the track that they evolved to deal \
+with, and then we ask doctors to try to pick up the pieces. \
+\>", "Text",ExpressionUUID->"e8e75588-91fb-462c-a4cd-736b529ff67e"],
+
+Cell["\<\
+And it\[CloseCurlyQuote]s quite obvious to many people, (this is not a new \
+nor my idea) that instead of doing this we should be \
+\>", "Text",ExpressionUUID->"e4de585c-3280-4471-a86a-338e6839ea75"]
+}, Closed]]
+},
+WindowSize->{808, 853},
+WindowMargins->{{Automatic, 203}, {-21, Automatic}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"00ac43d5-edf0-4e1f-82f4-2be67e500d50"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 116, 0, 53, "Subsection",ExpressionUUID->"92f6f7ee-57fb-4707-b7a0-34eb2737c812"],
+Cell[695, 24, 327, 5, 77, "Text",ExpressionUUID->"4cf4cb1b-1461-4922-8bce-e86806153b84"],
+Cell[1025, 31, 360, 6, 77, "Text",ExpressionUUID->"a456e810-5e88-45c0-9845-a2344f8c3fc2"],
+Cell[1388, 39, 833, 11, 164, "Text",ExpressionUUID->"e09706d7-bd51-4c8c-83e9-ec0ebb2eeaf7"],
+Cell[2224, 52, 165, 3, 33, "Text",ExpressionUUID->"0e2cbcf3-c9bf-4134-8e6d-3199cdb22603"],
+Cell[2392, 57, 238, 4, 55, "Text",ExpressionUUID->"2005f42c-349a-47c7-b7a4-98307be20ab2"],
+Cell[2633, 63, 261, 4, 55, "Text",ExpressionUUID->"f71459b5-f067-487f-bee1-4ce226c53e3e"],
+Cell[2897, 69, 234, 4, 33, "Text",ExpressionUUID->"0b082a5b-60c2-4cb2-8f91-3793f9911fa1"],
+Cell[3134, 75, 365, 5, 77, "Text",ExpressionUUID->"3bb9f3ea-af62-4d20-89b2-249f5071f5bd"],
+Cell[3502, 82, 450, 6, 77, "Text",ExpressionUUID->"cabe0cda-2316-40a0-8ead-20669c683341"],
+Cell[3955, 90, 331, 5, 55, "Text",ExpressionUUID->"5e94b9b6-e6f8-4f5d-9fc1-a19d998b9e89"],
+Cell[4289, 97, 149, 2, 33, "Text",ExpressionUUID->"ba4f356f-2ea7-4a24-ace3-16672c75b169"],
+Cell[4441, 101, 126, 0, 33, "Text",ExpressionUUID->"f3ba0baf-af76-4378-b452-3c3ae2246565"],
+Cell[4570, 103, 355, 5, 77, "Text",ExpressionUUID->"12f242db-615a-4875-aae3-0693d57d5866"],
+Cell[4928, 110, 362, 5, 77, "Text",ExpressionUUID->"f2238ad2-0b06-4508-9410-c3bab4386464"],
+Cell[5293, 117, 164, 3, 33, "Text",ExpressionUUID->"482e4ee3-32b4-4351-8f38-576d5af47258"],
+Cell[5460, 122, 110, 0, 33, "Text",ExpressionUUID->"449e4eea-b3a7-4ad6-81e3-2acbf35494ff"],
+Cell[5573, 124, 524, 8, 99, "Text",ExpressionUUID->"27b8491d-6ba9-4302-8057-aa6a1fe5c460"],
+Cell[6100, 134, 831, 11, 121, "Text",ExpressionUUID->"e649a5c4-76b4-4913-96bb-98bb8bb7cf40"],
+Cell[6934, 147, 421, 6, 77, "Text",ExpressionUUID->"425beeb7-19bb-44e6-a411-76bf11a9bed7"],
+Cell[7358, 155, 389, 5, 77, "Text",ExpressionUUID->"74af991d-ea66-4a1a-96a7-14873a286daa"],
+Cell[7750, 162, 245, 4, 55, "Text",ExpressionUUID->"ac5e86f8-e9b3-4990-9d3e-6f1c85e692dd"],
+Cell[7998, 168, 208, 3, 55, "Text",ExpressionUUID->"e08ed15f-0fcd-445f-b2a2-7d84849d9855"],
+Cell[8209, 173, 919, 12, 186, "Text",ExpressionUUID->"7f647612-f7c6-43d7-b236-c70d46eddc66"],
+Cell[9131, 187, 352, 5, 77, "Text",ExpressionUUID->"ac2571e2-7d57-4754-a9f9-8edff2e64955"],
+Cell[9486, 194, 384, 5, 77, "Text",ExpressionUUID->"7dfaf1ad-3736-42c4-ab99-a65168c42c76"],
+Cell[9873, 201, 325, 5, 77, "Text",ExpressionUUID->"1f100cad-5b16-45c0-99c4-3f0e1dac1541"],
+Cell[10201, 208, 305, 4, 77, "Text",ExpressionUUID->"e800ca22-7ec5-4b5e-9777-16baa5f3033f"],
+Cell[10509, 214, 187, 3, 33, "Text",ExpressionUUID->"352f3330-5059-4d99-beda-b638841c12c9"],
+Cell[10699, 219, 413, 6, 77, "Text",ExpressionUUID->"34021bf3-b3c5-4b0c-84d0-f304a47b635d"],
+Cell[11115, 227, 343, 5, 77, "Text",ExpressionUUID->"395f6f09-07b0-4cd3-8b9b-d6ddaeb117d5"],
+Cell[11461, 234, 250, 4, 55, "Text",ExpressionUUID->"3d3cf201-9814-49ba-bb30-22d325ae55fd"],
+Cell[11714, 240, 189, 3, 33, "Text",ExpressionUUID->"5ada4b60-b292-443d-9a1d-047dd5ca66bb"],
+Cell[11906, 245, 223, 3, 55, "Text",ExpressionUUID->"5b6df398-167d-4cfa-afdf-4a775613aa34"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12166, 253, 105, 0, 53, "Subsection",ExpressionUUID->"e7eab183-f589-47fd-884f-34d48197f25c"],
+Cell[12274, 255, 285, 4, 55, "Text",ExpressionUUID->"71df19ab-d0b4-41fe-bf91-4cd7735786a1"],
+Cell[12562, 261, 756, 10, 164, "Text",ExpressionUUID->"06bc87bc-bf55-4337-835a-3e077512a31b"],
+Cell[13321, 273, 152, 2, 33, "Text",ExpressionUUID->"4445763b-ec65-432a-a6dd-36a210beed5c"],
+Cell[13476, 277, 592, 8, 121, "Text",ExpressionUUID->"a93a86d0-5fbb-49d3-aa76-0b531c633abc"],
+Cell[14071, 287, 752, 12, 121, "Text",ExpressionUUID->"313fd995-1478-4295-bfd1-6f99da3a3675"],
+Cell[14826, 301, 738, 12, 121, "Text",ExpressionUUID->"0b7566a2-1971-405c-9d71-8792f3b44323"],
+Cell[15567, 315, 436, 6, 77, "Text",ExpressionUUID->"e5be11dc-f907-4630-b75a-e7f676c75e20"],
+Cell[16006, 323, 484, 7, 99, "Text",ExpressionUUID->"9d7ea020-78a8-4cca-a973-629671c23987"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[16527, 335, 83, 0, 53, "Subsection",ExpressionUUID->"6446f45f-57f6-42e7-8691-1aba4af7cb74"],
+Cell[16613, 337, 1107, 15, 208, "Text",ExpressionUUID->"1aa6e876-e351-4cac-8e2c-29fb7fe2e4d1"],
+Cell[17723, 354, 169, 3, 33, "Text",ExpressionUUID->"0f0489ca-814e-426b-b0df-f45540d5da85"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17929, 362, 104, 0, 53, "Subsection",ExpressionUUID->"fbd5c4f5-2060-4ae3-a204-e5c386cc11a0"],
+Cell[18036, 364, 510, 7, 99, "Text",ExpressionUUID->"898ae3c3-7b64-4304-9981-4e820dd187d9"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18583, 376, 105, 0, 53, "Subsection",ExpressionUUID->"789b758e-bf11-4af2-bab2-d0f6ebc96e62"],
+Cell[18691, 378, 192, 3, 33, "Text",ExpressionUUID->"9fe6f3fd-431e-47a1-a5a4-15d9f92ff3ec"],
+Cell[18886, 383, 117, 0, 33, "Text",ExpressionUUID->"7256843b-37e9-43a0-9de3-fce4716e64e9"],
+Cell[19006, 385, 225, 3, 55, "Text",ExpressionUUID->"5831d464-7a0a-4e0b-8d2b-5418d338ad79"],
+Cell[19234, 390, 126, 0, 33, "Text",ExpressionUUID->"c8f93bea-84ea-48c5-8a52-54e63947ca89"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[19397, 395, 84, 0, 37, "Subsection",ExpressionUUID->"50704693-a9b9-4067-acb6-9261b0b0114c"],
+Cell[19484, 397, 652, 17, 339, "Text",ExpressionUUID->"8cb61aa7-1376-4c5a-9bab-fa0ec2944f1d"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[20173, 419, 97, 0, 37, "Subsection",ExpressionUUID->"527bc61f-52ab-4791-9039-a0a8a7f20167"],
+Cell[20273, 421, 258, 4, 55, "Text",ExpressionUUID->"c6f175fe-c943-444c-a4d9-5eba7c5ba6dd"],
+Cell[20534, 427, 395, 6, 55, "Text",ExpressionUUID->"0dccb11e-2088-4dc2-84e5-d3f6bc794ab3"],
+Cell[20932, 435, 181, 3, 33, "Text",ExpressionUUID->"e5fd26ef-a959-47fd-932c-b520e679650d"],
+Cell[21116, 440, 295, 4, 55, "Text",ExpressionUUID->"db1f4910-d0c6-42bf-bd59-c55220a653cf"],
+Cell[21414, 446, 245, 4, 55, "Text",ExpressionUUID->"255e8c5d-9a9a-40e6-bc61-ea8ff2782baa"],
+Cell[21662, 452, 223, 3, 55, "Text",ExpressionUUID->"6328d75c-7b39-4603-a3f6-ec120b7ecaf8"],
+Cell[21888, 457, 288, 4, 55, "Text",ExpressionUUID->"e8e75588-91fb-462c-a4cd-736b529ff67e"],
+Cell[22179, 463, 209, 3, 33, "Text",ExpressionUUID->"e4de585c-3280-4471-a86a-338e6839ea75"]
+}, Closed]]
+}
+]
+*)
+

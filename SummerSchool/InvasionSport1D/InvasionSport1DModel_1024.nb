@@ -1,0 +1,102 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      2978,         94]
+NotebookOptionsPosition[      2620,         80]
+NotebookOutlinePosition[      3025,         96]
+CellTagsIndexPosition[      2982,         93]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"idIdxs", " ", "=", " ", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\"\<Ball\>\"", ",", " ", "1"}], "}"}], "->", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", " ", "1"}], "}"}]}], ",", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\"\<Passer\>\"", ",", " ", "1"}], "}"}], "->", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", " ", "1"}], "}"}]}], ",", " ", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\"\<Attacker\>\"", ",", " ", "1"}], "}"}], "->", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", " ", "6"}], "}"}]}], ",", " ", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\"\<Defender\>\"", ",", " ", "1"}], "}"}], "->", 
+      RowBox[{"{", 
+       RowBox[{"2", ",", " ", "11"}], "}"}]}]}], "|>"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"courtSize", " ", "=", " ", "10"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ballSpeed", " ", "=", " ", "2"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"playerSpeed", " ", "=", " ", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"reactionTime", " ", "=", " ", "1"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"colorRules", " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"1", "->", "Orange"}], ",", " ", 
+     RowBox[{"2", "->", "Black"}], ",", " ", 
+     RowBox[{"3", "->", "Blue"}], ",", " ", 
+     RowBox[{"4", "->", "Red"}]}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"playerAgility", " ", "=", " ", "1"}], ";"}], "\n", 
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+      ",", "0", ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+    "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0", ",", "0",
+      ",", "0", ",", "0"}], "}"}]}], "}"}]}], "Input",
+ CellChangeTimes->{{3.928508777591487*^9, 3.928508787343036*^9}, {
+  3.928673406924591*^9, 
+  3.928673407775325*^9}},ExpressionUUID->"900612ab-ae2a-4333-90db-\
+4297769beef1"]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{316, Automatic}, {Automatic, 50}},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"ReverseColor.nb",
+ExpressionUUID->"eb6d78f8-81d6-42cb-ace9-cc332a0eb1ad"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 2058, 58, 178, "Input",ExpressionUUID->"900612ab-ae2a-4333-90db-4297769beef1"]
+}
+]
+*)
+

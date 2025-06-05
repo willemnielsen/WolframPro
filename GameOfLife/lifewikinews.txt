@@ -1,0 +1,574 @@
+LifeWiki News
+* March 4: Period1GliderGun discovers a period-47 glider gun based on a partial result by Caleb R. Hilton that is 85% smaller than the previous record holder.
+* February 23: Matthias Merzenich reduces the bounding box of the period-35 glider gun significantly, using LLS to find smaller component p5 and p7 sparkers.
+* February 20: Caleb R. Hilton discovers a record-breaking small period-60 glider gun which, after being combined with a p8 filter and reduced by iNoMed and hotcrystal0, gives a true period p120 glider gun that is smaller than the true-period single-barreled Simkin glider gun.
+* February 17: Chris Rowett's LifeViewer celebrates its ten-year anniversary.
+* February 11-20: Manual and semi-manual searches, as well as search programs like Mitchell Riley's LightCone, continue to turn up new Spartan conduits such as HL226B, HF78B, and HLx86B; some of these are fairly compact and potentially useful in self-constructing circuitry, since they fill long-standing holes in toolkits used for adjusting timing parity and/or output color.
+
+* February 12: Keith Amling discovers the first 2c/5 orthogonal chicken wire greyship.
+* February 8: iNoMed constructs a record-breaking small period-80 HWSS gun based on a new p80 R-pentomino hassler by Caleb R. Hilton. This gun has the unusual property of being gliderless.
+* February 7: Matthias Merzenich uses Logic Life Search to reduce the p28 glider gun, making it the tenth period with a true-period gun smaller than the single-barreled Simkin glider gun.
+* February 6: Matthias Merzenich uses Logic Life Search to complete a single-engine p57 glider gun based on a partial result by ElijahKen. Subsequent reductions by Merzenich, ElijahKen, iNoMed, and vilc result in a single-engine gun that is 45% smaller than the previous 2-engine gun.
+* February 3: Keith Amling discovers and vilc synthesises a new 32-cell 2c/4 orthogonal spaceship.
+* February 1: Entity Valkyrie synthesises LWSS pulling Unnamed tagalong 23P4H2V0. At 32 cells, this was the smallest known spaceship without a previously known glider synthesis.
+* January 29-31: A flurry of activity produces a transparent-loaf-themed highway robber with record-breaking recovery time of 550 ticks, overclockable to 537-544, with a suggested mechanism by Tawal and contributions by Louis-François Handfield, Caleb R. Hilton, confocaloid, EvinZL, and Entity Valkyrie.
+* January 31-February 2: FWKnightship invents a novel mechanism for a new 31c/240 self-supporting spaceship, the water strider; over the next few days, the bounding box is then gradually reduced by more than half.
+* January 28: TigerCub414 discovers a 19-glider synthesis for 32P4H2V0. This leaves LWSS pulling Unnamed tagalong 23P4H2V0 as the only currently known spaceship up to 32 cells without a known glider synthesis.
+* January 18: 400spartans discovers a new record smallest-population unsynthesizable still life, population 162, with 271 specified cells in the self-forcing patch (124 ON, 147 OFF); this exactly ties the previous 271-cell record for total specified cells.
+* January 18: An apgsearch haul by 'ASA-X Supercomputer' contains the first natural appearance of long^9 snake from an asymmetric soup, almost a decade after the first occurrence of long^8 snake which currently has two dozen C1 occurrences.
+* January 18: iNoMed uses a small period-30 sparker to reduce the areas of the classic period-690 glider gun and the period-360 glider gun by double-digit percentages.
+* January 8: Frank Everdij discovers tarantula, a c/5 orthogonal spaceship which, in terms of its minimum population of 58 cells, is tied with spider as the smallest known spaceship of this speed.
+2024
+* December 31: blah posts a complete package containing a 32-bit computer implemented in Conway's Life -- the "323" -- along with an assembler script, example programs, extensive HTML documentation and an MP4 introductory video. (!)
+* December 30-31: Goldtiger997 constructs an activation step for a synthesis of the c/5 orthogonal spaceship Kermit. vilc completes a 343-glider synthesis through a collaborative effort with several other users.
+* December 27: Gustone completes the leaf bug, a record-breaking new self-supporting 31c/240 spaceship with a smaller population (though larger bounding box) than the previous record-holding self-supporting spaceship (the waterbear).
+* December 23: Rei posts an APGsembly program that calculates and displays in the Life universe a plot of the Mandelbrot set.
+* December 18-23: Tim Coe reduces the size of the smallest sawtooth-based diehard from 53×53 to 49×49, reduced again several days later to 47×47 by b3s23love; the resulting diehard's lifespan is much smaller than the 53×53 diehard's lifespan of 1826659985823844806 ticks -- i.e., the new lifespan of 1237975907532 ticks is only a record for the new reduced bounding box size.
+* December 18: confocaloid constructs a racetrack oscillator showcasing a diagonal 5c/26 biblock wire; the wire is supported by an extensible p4 sparker found by Keith Amling in July.
+* December 14: A significantly improved compiler and emulator package for APGsembly version 2 is posted by new contributor branoc, with new optimized arithmetic components, sample code and documentation.
+* December 11: Matthias Merzenich completes a very high-clearance period-7 middleweight sparker based on a partial result by hotcrystal0.
+* December 5: Matthias Merzenich completes the first true period-35 glider gun based on a partial result by iNoMed and hotcrystal0.
+* November 18: AlbertArmStain discovers a small, direct H-to-MWSS conduit with a repeat time of 141 ticks. Period1GliderGun and Lucy D'Agostino subsequently find variants that reduce the repeat time to 120 ticks.
+* November 3: Lucy D'Agostino discovers a new set of connectable Spartan converters with E-heptomino inputs, further expanding the set of known E-heptomino conduits.
+* November 2: iNoMed finds a way to use stable catalysts to make a p2 traffic jam wire turn a 90-degree corner with no help from sparkers.
+* October 28-30: Entity Valkyrie builds the first known true period-47 glider gun based on a partial result by iNoMed, after which the bounding box is reduced by more than a factor of four by several contributors over the next two days, from 311 × 289 down to Luka Okanishi's greatly simplified design at 147 × 144.
+* October 20: FWKnightship completes a redesigned (34,7)c/156 spaceship with a bounding box of (52514, 158980) and minimum population of 655,594; this is less than 1/38th of the population and less than 1/6000th of the area of the previous version of this spaceship constructed by Luka Okanishi last year.
+* October 10: AlbertArmstain rebuilds an initial stage from Mitchell Riley's H-to-Gs into a Herschel-to-B-heptomino converter; Lucy D'Agostino notices that this is actually a known E-heptomino converter appended to a previously unknown Herschel-to-E converter, HRx93E -- which enables completely new Spartan Herschel conduits Rx155 and R194, among other things.
+* October 10: Mitchell Riley's "LightCone" search program finds several new Spartan Herschel-to-glider converters.
+* October 9: Chris857 finds a synthesis for popover.
+* October 9: Entity Valkyrie adapts Kazyan's B29 spaceship recipe to construct a period-84 gun, with a considerable reduction in size and period from the previous B29 gun (which was period 148).
+* October 9 Tanner Jacobi reduces the glider construction recipe for the B29 spaceship to 16 gliders, with an improvement to 15G by DroneBetter.
+* October 7-8: vilc assembles an adjustable-period oblique spaceship based on (2,1)c/6 puffers and rakes, alternately building and then burning a (4, 2)c/6 bi-block fuse; the next day the spaceship is upgraded to an adjustable-period 48+24N forerake.
+* October 4: Alex Greason finds a large number of reduced-cost glider syntheses by running an exhaustive search in "QuSrc" (a custom-modified version of QuFince) to inspect all possible 5-glider collisions with glider placements in a 15x15 bounding box.
+* September 30: AlphaPhoenix posts a YouTube video walking through the process of starting with an arbitrary 16x13 target pattern and finding a 20-step predecessor of it; 20 steps might be the current record for an arbitrary pattern of this width -- though AlphaPhoenix's chosen pattern was a p2 oscillator, so a very large number of trivial predecessors are known for that specific pattern for any backtracking depth.
+* September 26: EvinZL notices that a catalyst used in one of Simon Ekstrom's H-to-Gs from July 29 solves a very long-standing limitation of the stable F171 conduit, reducing its repeat time from 227 ticks to as low as 120.
+* September 14: Mitchell Riley finds Lx65 duplicator, a record-breaking elementary Herschel fanout device -- a stable Spartan variant of the known Lx65 conduit, which until now has generally needed sparker support.
+* September 4: vilc makes available (via a published script) a general synthesis method for all members of the longN clock family of p2 oscillators.
+* September 2-4: 400spartans discovers a population-184 solution to the unique father problem with a self-forcing patch containing 283 specified (both on and off) cells and fitting in a 16 × 20 bounding box, each of these statistics being the smallest known. Matthias Merzenich notes that a self-forcing patch with as few as 271 specified cells exists for this still life.
+* September 1: The Spacefiller synthesis wins the 2023 Pattern of the Year competition.
+* August 29: Carson Cheng completes a new smallest period-74 gun based on a partial result by Mitchell Riley.
+* August 26: David Raucci discovers a surprising period-96 B-heptomino hassler that combines the functionality of p45 and p51 hasslers found by Period1GliderGun a day earlier.
+* August 23: Hippo.69 completes the RCT15 optimization project, reducing the tape length by roughly a factor of three from the first working RCT15 pattern -- and now constructing a working spacefiller instead of Alan Hensel's decimal counter.
+* August 19: After a quick sequence of syntheses by several contributors, May13 assembles a recipe for the final unsynthesized 22-bit still life, xs22_8k487p8z39c321; the 22-bit synthesis project is now complete.
+* August 14-15: The number of unsynthesized 22-bit still lifes dropped to only 75 by August 14; by the next day, recipes had been found for more than half of the remaining still lifes.
+* August 12: Keith Amling constructs a fully rectangular against-the-grain greyship.
+* August 1: Voting begins for the 2023 Pattern of the Year contest, with voting set to end at the end of August.
+* July 31: vilc shows an example of a compact period-32 2c/3 wire transmitter and receiver.
+* July 31: Keith Amling proves that the 140-cell statorless p3 is the unique smallest possible statorless period-3 oscillator in terms of its minimum population.
+* July 27: A long-term effort by May13 starting back in January brings the number of unsynthesized 22-bit still lifes down to below 400, with several people contributing more syntheses since then.
+* July 26: Period1GliderGun discovers 86P118, the smallest known period-118 oscillator, based on a partial by iNoMed.
+* July 16: Entity Valkyrie reduces the best known highway robber recovery time from 742 ticks to 651 ticks.
+* July 4: Entity Valkyrie improves the repeat time of the 2c/3 receiver from 742 ticks to 708, using a bronco, a Jubjub reflector, and an alternate ship-and-beehive bait proposed by Simon Ekström.
+* July 3: A recent optimization effort orchestrated by Vort starting in June, with many contributions by confocaloid, Louis-François Handfield, and others, has greatly reduced the maximum and average sizes of guns with four-digit prime periods.
+* June 30: vilc optimizes the 2-engine Cordership seed to use 14 objects instead of 15; on the next day the minimum object count is reduced from 14 to 12.
+* June 30: EvinZL completes a period-66 crab gun using a variant of Goldtiger997's crab recipe by iNoMed that allows for low-period guns; Entity Valkyrie builds a period-61 version.
+* June 28: Goldtiger997 improves the cost of synthesizing a crab (an important component of fast self-constructing circuitry) from 14 gliders to 11.
+* June 28: Entity Valkyrie constructs a period-89 loafer gun based on a very fast synthesis by Louis-François Handfield.
+* June 27: Goldtiger997 and Entity Valkyrie set new records for a compact pseudo-period-16 LWSS gun, using an improved insertion recipe by vilc from the previous day.
+* June 27: Hippo.69 updates the digital-clock seed from May, to make it possible to compile it into a slow salvo using pslmake.
+* June 21: Entity Valkyrie reworks the June 11 "loafer bitmap printer" design to use much more compact orthogonal MWSS-based memory loops.
+* June 20: Entity Valkyrie constructs the first gun for a c/6 diagonal spaceship using a synthesis found by Goldtiger997 in January 2024.
+* June 13: whatislife discovers a stable 50-cell, 18 × 14 135-degree LWSS-to-G using Silk, with an input file similar to the sample input used to re-find the Snark but with an input LWSS instead.
+* June 11: Entity Valkyrie completes a small, nearly edge-shooting glider-to-loafer converter with p154 technology to match the repeat time of the known 8-glider loafer synthesis.
+* June 10: Adam P. Goucher discovers (using Silk) a new glider-to-wing conduit, which can be connected to a known wing-to-Herschel conduit to make a glider-to-Herschel converter with only eater 1s and blocks.
+* June 8: iNoMed posts a period-10 pipsquirter, made by combining a known period-10 2c/3 signal injector found by Dongook Lee in 2015 with a new 2c/3-signal-to-pipsquirter converter from recent Silk searches.
+* May 29: Hippo.69 posts a one-glider seed for a complete 24-hour digital clock mechanism.
+* May 5: Adam P. Goucher reports in a new Discord thread the commencement of coding work on Silk, a new CUDA drifter search program inspired by Mitchell Riley's Barrister.
+* April 30: Lucy D'Agostino posts a modification of a partial Herschel-to-Herschel converter pointed out by AlbertArmStain, producing an easily connectable and completely Spartan L141 conduit with three output gliders including the FNG and SNG.
+* April 19: Nathaniel Johnston completes a "Herschel Tracks Tutorial" YouTube video about creating custom oscillators using Herschel conduits.
+* April 17: Caleb R. Hilton uses qfind to discover a new c/7 orthogonal spaceship that can support a wave found by Park Shinhwan. Furthermore, it can also support various c/7 pushalongs found by Matthias Merzenich and Frank Everdij.
+* April 8: David Bell constructs and refines a puffer demonstrating that all sufficiently high c/4 diagonal rake periods are achievable. Matthias Merzenich uses this to construct a clean p3532+4N rake.
+* March 31: Entity Valkyrie builds a complete 2c/3-wire-based pseudo-Heisenburp device with 742-tick repeat time.
+* March 27-30: Entity Valkyrie completes a 2c/3 receiver with a repeat time of 876 ticks, which Adam P. Goucher eventually improves to 742 ticks using staged recovery mechanisms; the previous record-setting receivers needed 964 or 970 ticks to recover.
+* March 20: Period1GliderGun discovers a period-26 bouncer-based reflector, the first independent reflector of this period, using components by Nico Brown and Dean Hickerson.
+* March 19: Keith Amling constructs new p6 c/2 orthogonal greystretchers in which the stripes are bounded by extended tables.
+* March 18: Nathaniel Johnston posts a YouTube video about the discovery of the true period-15 glider gun and period-16 glider gun, and the history leading up to those discoveries.
+* March 17: James Pascua discovers the first period-16 90-degree independent reflector based on a suggestion by Matthias Merzenich, using the period-16 glider gun to hassle a honey farm predecessor and produce a banana spark. 90-degree reflectors are known for all periods except 14, 17, and 19 with periods 15, 23, and 26 having only dependent reflectors.
+* March 16-17: Keith Amling completes a new c/4 diagonal unstable puffer engine (only the third known puffer engine at this speed) based on a partial result by Matthias Merzenich. Caleb R. Hilton uses sparkers to stabilise the unstable engine into explicit puffers. David Bell uses this engine to construct the first p52 c/4 diagonal rake, and "b3s23love" and Merzenich use it to substantially reduce the size of the p108 c/4 diagonal rake.
+* March 12: 400spartans discovers a population-236 solution to the unique father problem with a self-forcing patch containing 389 specified (both on and off) cells and fitting in a 22 × 20 bounding box, each of these statistics being the smallest known.
+* March 12: David Bell completes the first c/4 diagonal backward-to-sideways glider reflector using reactions by Keith Amling and Matthias Merzenich. Using one of Bell's glider-releasing reactions and a beehive-to-ship converter by Amling, Merzenich constructs the first c/4 diagonal p28 rake and demonstrates the existence of rakes at periods 32, 36, and 40.
+* March 9: James Pascua shows that a previously known "double beehive push catalyst" found by Tanner Jacobi in December 2020 can serve as a 2c/3 wire input conduit for either a single wire or two perpendicular wires, with a repeat time of only 100 ticks; Entity Valkyrie finds a way to activate the catalyst with a single passing Herschel with repeat time 176, and EvinZL points out a reset mechanism with a repeat time as low as 56 ticks (eventually reduced to 42 ticks).
+* March 1: Period1GliderGun discovers the first true period-15 glider gun using a B-heptomino hassler by Carson Cheng hours after finding the first p16 gun. Period-15 is now the smallest period for which a true-period gun is known.
+* February 29: Period1GliderGun discovers the first true period-16 glider gun using Charity's p16 and a B-heptomino hassler by Nico Brown. Period-16 is now the smallest period for which a true-period gun is known.
+* February 26: Keith Amling discovers a period-6 c/2 greystretcher in which the stripes are bounded by coiled snakes.
+* February 24: Period1GliderGun completes a non-period-doubling stabilization of iNoMed's p19 partial, which also allows for a stabilization of the wick. The result is goban, the second known period-19 oscillator. EvinZL notes that there are two variants with slightly different connection points.
+* February 23: Period1GliderGun discovers that a period-19 partial result by iNoMed can be completed with a period-doubling catalyst, giving a period-38 oscillator. May13 notices that the p19 component can be extended to form a wick.
+* February 23: Keith Amling discovers two different c/2 orthogonal stretchers for a pair of coiled snakes.
+* February 18: Period1GliderGun notices that a previously unrecognized pattern by Mitchell Riley from September 7, 2022 is actually a complete period-171 oscillator and is in fact the smallest known p171 oscillator.
+* January 29-February 2: Keith Amling, with some help from Matthias Merzenich, discovers new c/4 diagonal spaceships ([1], [2], [3]) capable of eating a variety of objects including ships, blocks, boats, beacons, beehives, barges, loaves, tubs, toads, and mangoes.
+* January 26-28: Goldtiger997 completes a 259-glider synthesis of 77P6H1V1, making it the first c/6 diagonal spaceship to be synthesized.
+* January 22: iNoMed discovers the first true period-53 glider gun based on a partial result by goldenratio.
+* January 20: Adam P. Goucher proves that every finite phoenix has period 2.
+* January 14-15: Keith Amling discovers c/4 diagonal eaters for blocks and blinkers and uses the block eater to construct the first period-40 c/4 diagonal ship. David Bell and May13 use these to reduce the p72, p80, and p116 rakes. Matthias Merzenich notices that an incidental reaction in the blinker eater allows a known ship to eat a glider stream and can also be used to complete the first c/4 diagonal ships of periods 28, 32, and 36.
+* January 10-13: Adam P. Goucher proves that no finite phoenix oscillators exist at periods 3 through 69.
+* January 9-12: Keith Amling discovers and Matthias Merzenich reduces the first period-9 c/3 backrake, the lowest possible period for a c/3 rake. May13, Evin, Merzenich, and Amling use this to construct the first c/3 rakes of periods 18, 63, 99, 117, and 126.
+* January 9: Keith Amling reduces the known upper bound on the average agar density from 320/559 ≈ 0.572 to 1176/2087 ≈ 0.563. The highest average density is conjectured to be 1/2.
+* January 5: May13 discovers (using qfind) the first period-9 4c/9 orthogonal spaceship in a Life-like cellular automaton (B3567/S14578), fitting within a 19 × 676 bounding box in one phase.
+* January 1: Layz Boi discovers (using WLS) two new p2 lightspeed spaceships in Life-like rules containing both B2 and B3 but not B0 or B1, increasing the number of such rules in which spaceships are known to 10 (of the 8192 without S0 that have not been disproved).
+2023
+* December 26: Goldtiger997 uses QuFince to find a 15-glider synthesis for the last remaining 17-bit still life that had cost 16 gliders -- completing the "17-in-15" project.
+* December 21-29: May13 finds a c/4 p80 puffer, which several days later is cleaned up by David Bell (and independently by May13) to produce complete c/4 p80 rakes.
+* December 20: Luke Kiernan uses Barrister to complete a boojum reflector variant with a different output glider -- which also implies a new G-to-R based on the Herschel receiver and a stable 4hd lane shifter based on the glider stopper.
+* December 19-21: Keith Amling discovers a period-8 c/4 diagonal rake. Other users find various applications for this, including a p72 rake by praosylen with a reduction by May13 and filtered to p144 by David Bell.
+* December 17: Carson Cheng discovers Snark64, a new color-preserving 90-degree glider reflector with repeat time 64 -- useful for synchronization problems, since it has a different output parity from the Snark.
+* December 16-26: 400spartans reduces the known upper bound on the average agar density from 8/13 ≈ 0.615 to 17/28 ≈ 0.607. NooneAtAll3 reduces this further to 320/559 ≈ 0.572.
+* December 12: Luke Kiernan finds a compact glider to wing to LWSS converter.
+* December 10: Keith Amling proves ([4], [5]) that there are no phoenix oscillators of periods 7, 9, or 11.
+* December 10: Alex Greason discovers a 5-glider synthesis for amphisbaena, proving that all 11-cell still lifes can be synthesized with 5 or fewer gliders.
+* December 8: Keith Amling discovers a new type of c/5 diagonal wickstretcher for a period-2 wick.
+* December 2: FWKnightship constructs a (6,3)c/1024 knightship caterpillar with an almost completely new support mechanism, re-using only the over-unity glider production mechanism from the half-baked knightship.
+* November 29: Charity Engine discovers a new longest-lasting known natural diehard, a 16 × 16 soup lasting 1,413 generations before completely dying out, via apgsearch.
+* November 22: Keith Amling proves that 37P4H1V0 is the unique smallest possible period-4 c/4 orthogonal spaceship in terms of its minimum population of 37 cells.
+* November 18-December 2: David Bell extends earlier work on period-116 c/4 spaceships and c/4 rakes by EvinZL and May13, respectively.
+* November 16: Several people extend a new beehive factory partial by Mitchell Riley to produce conduits, usually with repeat time 90, that convert gliders to other active objects.
+* November 15: Keith Amling proves that 30P5H2V0 is the unique smallest possible period-5 2c/5 orthogonal spaceship in terms of its minimum population of 30 cells.
+* November 14: Mitchell Riley discovers 44P49, the smallest known period-49 oscillator, which quickly leads to a number of related SKOP records being broken.
+* November 12-13: Keith Amling completes a census of all period-3 ships up to 49 cells and all period-2 ships up to 80 cells which discovers 6 new c/3 ships and proves that 64P2H1V0 is the smallest possible period-2 ship.
+* November 8-10: Keith Amling discovers a high-clearance variant of a known p28 c/4 diagonal puffer and combines two such engines to form a p116 puffer. Two days later, praosylen modifies the p116 puffer to form a dirty rake and Evin uses this dirty rake to construct a clean p116 rake. The previous lowest known c/4 diagonal rake period was 4508.
+* November 2: affamatodidio finds and EvinZL reduces a Spartan 180-degree same-lane glider reflector with the same timing as Jubjub.
+* October 22: iNoMed finds a new period-201 glider gun engine, the first engine of that period to be found and the smallest gun of that period by bounding box.
+* October 20: Nico Brown finds a new p41 engine, the p41 pi-heptomino hassler.
+* October 12: iNoMed combines an engine by Luke Kiernan and a sparker by Carson Cheng to create the first p81 engine, a p81 pi-heptomino hassler.
+* October 9: Luke Kiernan finds a toggle-safe glider to block converter.
+* October 5: Tim Coe adds two more levels of tetration to the lifespan of a 112×89 "diesuperhard", pushing the lower bound up beyond 13^^^3; the bounds are then moved beyond 17^^^3 on the same day due to improvements by Adam P. Goucher and Evin, with a similar sized bounding box (116×86).
+* October 5: Based on a partial result by Mitchell Riley, iNoMed completes a p42 glider gun fitting in a 32×23 bounding box, making it currently the seventh smallest true-period glider gun.
+* October 4: Randall D. Beer proves that no 7 × 7 Garden of Eden exists, and provides constraints on the population of 8 × 8 and 9 × 9 ones (which are not known to exist).
+* September 15-28: Collaborative progress on enormously long-lived diehards continues on the "engineered diehards" thread, passing the threshold on September 28 of 11^^^3 = 11 ^^ (11 ^^ 11) ticks (where ^^ is the operator for tetration, i.e., iterated exponentiation).
+* September 24: Carson Cheng discovers a period-76 shuttle for a pair of pi-heptominoes which, at 52 cells, is the smallest known oscillator of this period.
+* September 23: Evin discovers compact, stable glider pulse dividers with new period multipliers of 5, 11, 12, and 4+6n
+* September 18: Mitchell Riley discovers 86P107, the first engine-based period-107 oscillator, and the smallest known oscillator of that period.
+* September 9: Hartmut Holzwart constructs a new type of c/2 orthogonal agar ship.
+* September 6: Keith Amling completes a period-6 c/3 orthogonal ship containing a simple wick.
+* September 4: 400spartans constructs a 278-cell unconstructible still life, smaller in population and bounding box than the previous minimum 306-cell version.
+* September 1: The 2022 Pattern of the Year competition concludes with a tie for first place between the explicit 15-glider reverse caber-tosser and the unsynthesizable and limited-ancestor objects.
+* August 31: Keith Amling constructs the first c/3 against-the-grain greyship based on an idea by Hartmut Holzwart.
+* August 28: Carson Cheng, Mitchell Riley, and iNoMed collaborate to find the smallest known p140 oscillator.
+* August 27: Mitchell Riley, iNoMed, and Matthias Merzenich collaborate to find the smallest known p126 oscillator. Nico Brown and iNoMed then use this oscillator to construct a new record smallest p126 gun.
+* August 26: Keith Amling discovers the first 2c/5 orthogonal greystretcher.
+* August 11: Keith Amling discovers the first c/3 orthogonal wickstretchers and greystretchers.
+* August 9: Keith Amling discovers a new type of c/4 orthogonal greystretcher.
+* August 1: iNoMed completes a p93 R-pentomino hassler, the first engine-based period-93 oscillator, based on a partial result by Carson Cheng.
+* July 22: iNoMed completes a period-41 glider gun using a design by Matthias Merzenich based on a partial result by May13 and David Raucci. iNoMed subsequently constructs a much smaller p41 gun using an alternate design.
+* July 21: Keith Amling completes a c/5 orthogonal greyship with a record-breaking steep descent.
+* July 21: Nico Brown discovers a 180° p41 dependent reflector loop, the first period-41 oscillator, proving that Life is omniperiodic. Brown also finds a related 90° p41 dependent reflector a few hours later. May13 then constructs an independent bumper-based p41 reflector using the 180° dependent reflector.
+* July 14: Mitchell Riley discovers cribbage, the first period-19 oscillator, leaving period 41 as the only period for which no oscillator is known.
+* July 13: Nico Brown discovers and subsequently reduces the first engine-based period-59 gun which is much smaller than the previous Herschel-based record.
+* July 6: Darren Li releases scourge, an ikpx-like oscillator search program.
+* June 29: Nico Brown discovers the p71 dependent reflector loop, the smallest known period-71 oscillator.
+* June 29: Nico Brown releases a modification of LocalForce that can be used to search for dependent reflectors.
+* June 16: Martin Grant discovers fenceposts for a very thin period-8 wick that was first presented in Lifeline Volume 3 in 1971.
+* June 11: Andrew J. Wade disproves the existence of 4-cell-high orphans in Conway's Game of Life. 5-cell-high orphans had previously been discovered by Steven Eker in 2016.
+* June 6: The (34,7)c/156 spaceship project, based on the (34,7)c/156 Herschel climber, is completed by Luka Okanishi.
+* June 2: The Stable Storage Spaceship project is completed by Goldtiger997, resulting in an engineered spaceship consisting of a glider colliding with a large still life constellation.
+* May 26: Carson Cheng discovers the p78 pi-heptomino hassler, the first engine-based period-78 oscillator.
+* May 18: Period1GliderGun discovers mold on fire-spitting, a previously unnoticed LCM oscillator which is the smallest known non-trivial period-12 oscillator.
+* May 14: Mitchell Riley discovers the p82 lumps of muck hassler, the smallest known period-82 oscillator.
+* May 11-16: Andrew Trevorrow makes available two versions of a "HatLife" Glu script that can explore cellular automata running on tilings of the recently discovered aperiodic "hat" monotile.
+* May 11: Adam P. Goucher assembles a very large stable constellation (22,620 ON cells) that acts as a one-MWSS spacefiller seed.
+* May 8-9: Keith Amling discovers simple wick-based c/5 greyship connections that allow the construction of new greyships and stretchers.
+* April 23: Matthias Merzenich completes the first 2c/5 orthogonal wickstretcher based on a partial result by Keith Amling.
+* April 21: Mitchell Riley discovers 42P38, the smallest known period-38 oscillator.
+* April 21: Nico Brown discovers the p67 B-heptomino hassler, the first engine-based period-67 oscillator.
+* April 21: Nico Brown discovers the p68 century hassler, the smallest known period-68 oscillator.
+* April 19: Mitchell Riley discovers the p26 honey farm hassler, the smallest known non-trivial period-26 oscillator.
+* April 18: Forum user 'blah' completes a period-2^18 WireWorld metacell running in the Conway's Life rule.
+* April 18: Nico Brown discovers the first engine-based period-49 glider gun which is much smaller than previous glider loop based guns.
+* April 10: Frank Everdij discovers a c/6 diagonal tubstretcher, the first c/6 diagonal wickstretcher of any type.
+* April 8: Keith Amling discovers a c/5 diagonal barberpole stretcher.
+* April 5: Mitchell Riley discovers the first engine-based period-61 gun which is significantly smaller than previously known guns of this period.
+* April 4: Keith Amling completes a c/5 diagonal linestretcher with help from Matthias Merzenich. Merzenich finds an alternate solution to Amling's partial result soon after.
+* April 2: Mitchell Riley discovers a period-42 oscillator whose strict volatility matches its ordinary volatility. This was the last composite period for which no such oscillator was known.
+* April 1: New smallest known oscillators of periods 119, 128, 192, 256, and 384 -- SKOPs -- are posted by Mitchell Riley, and by iNoMed, Adam P. Goucher, and Carson Cheng based on the initial period-384 oscillator discovery.
+* March 23: Keith Amling constructs and Matthias Merzenich reduces a new quartermax variant based on a partial result by Hartmut Holzwart.
+* March 21: Keith Amling completes a c/2 orthogonal agar ship for a high-density period-2 agar.
+* March 19: Adam P. Goucher assembles a 1227-glider spacefiller synthesis based on a reduced final stage by Goldtiger997; optimizations are continuing, with a 1153-glider synthesis available on March 23.
+* March 15: Keith Amling completes a c/5 orthogonal ants waveguide.
+* March 13: Goldtiger997 completes a 2373-glider spacefiller synthesis, reduced the same day to 2283 gliders (with more reductions likely).
+* March 9: Keith Amling discovers a c/4 diagonal barberpole wickstretcher.
+* March 9: Mitchell Riley discovers a small elementary 0-degree colour preserving stable glider reflector with repeat time 59.
+* March 6: iNoMed discovers and Matthias Merzenich slightly reduces a record-breaking small period-68 gun based on a new oscillator by Mitchell Riley.
+* March 4: Charity Engine discovers a symmetric soup producing four copies of 14P2.4. This means that all known still lifes, oscillators, and spaceships up to 15 cells have occurred at least semi-naturally, although some have still not occurred naturally.
+* March 2: Mitchell Riley discovers a record-breaking small period-52 gun.
+* February 26: Goldtiger997 finds the activation step for a spacefiller synthesis.
+* February 21-22: The first occurrence of the 15-cell still life xs15_321e88gzxca1 appears in a random soup found by Charity Engine. Charity Engine also finds a second occurrence of this still life less than 24 hours later. This leaves the long9 extension of snake as the only 15-cell still life not known to occur naturally.
+* February 17: Keith Amling discovers a c/4 diagonal linestretcher that can stretch lines with the closest possible spacing.
+* February 15: Keith Amling completes a c/4 diagonal maximum-density multi-tubstretcher based on a wave by Hartmut Holzwart.
+* February 14: Carson Cheng discovers a 6-glider synthesis of amphisbaena, showing that every 11-cell still life can be synthesized with 6 or fewer gliders.
+* February 13: The Conwaylife Lounge Discord server reaches 1,000 members.
+* February 2: Keith Amling discovers an extensible wickstretcher and an agar ship based on the overweight spaceship.
+* February 1: David Bell completes, and Goldtiger997 later optimizes, a stable pseudo-Heisenburp device that detects a passing c/3 crotchet ship by removing its final anacrusis and then adding it back later.
+* January 31: Mitchell Riley discovers 94P53, the first known engine-based period-53 oscillator.
+* January 24: Charity Engine discovers a strictly volatile period-25 oscillator, Charity's p25.
+* January 23: Keith Amling discovers a period-8 c/2 greystretcher component that uses blocks to stabilize the zebra stripes.
+* January 20: Darren Li uses Open Science Grid and a modified ikpx2 to find a surprisingly small (2,1)c/6 tagalong, which can be attached to Sir Robin, Sir Sprayer, and various minstrels in a wide variety of ways, including a connection to itself.
+* January 20: Matthias Merzenich completes a gliderless lightweight spaceship gun based on a partial result by iNoMed and Lucy D'Agostino.
+* January 17-19: Carson Cheng and iNoMed discover small glider guns for periods 70, 72, and 84.
+* January 12: Adam P. Goucher discovers the walrus, the first known elementary c/8 diagonal spaceship.
+* January 2-8: Rocknlol reduces the minimum population record for a Max predecessor to 110 cells. Rocknlol subsequently reduces this by finding a 107-cell Max predecessor, as well as a predecessor fitting in a record 21×19 bounding box.
+2022
+* December 29-31: iNoMed finds a 127-cell Max predecessor, the smallest such pattern known in terms of population. Rocknlol improves this further by finding a 112-cell Max predecessor, as well as a predecessor fitting in a record 21×21 bounding box.
+* December 23-28: Goldtiger997 finds the key activation steps for another 2c/5 spaceship, 66P5H2V0, and another c/4 diagonal spaceship, 37P4H1V1.
+* December 13: Keith Amling constructs a c/4 orthogonal "agar spaceship" escorting an adjustable-sized patch of period-4 "OWSS agar".
+* December 12: Mitchell Riley discovers the first known engine-based period-61 oscillator, a p61 pi-heptomino hassler. This also becomes the smallest known p61 oscillator.
+* December 12: Keith Amling discovers a light speed fuse capable of extending a c/3 orthogonal wave.
+* December 9: Goldtiger997 finds a synthesis component for extending a c/3 orthogonal spaceship. This gives the first known infinite series of synthesizable c/3 spaceships.
+* December 5: Frank Everdij discovers taco, the third known elementary c/7 orthogonal spaceship.
+* December 2-3: Nico Brown publishes a script for constructing a strictly volatile oscillator with any period greater than or equal to 945.
+* November 25: Goldtiger997 finishes a 99-glider synthesis of a previously unsynthesized spaceship, "brain", solving a long-standing open problem.
+* November 21: gravity discovers another new puffer-based methuselah within 20 × 20, this time lasting 126,932,978 generations.
+* November 17: Nico Brown discovers the first true period-34 glider gun.
+* November 15: May13 completes the 21-cell still life synthesis project. The project has spanned over a year and is the work of a large number of contributors.
+* November 12: Nico Brown discovers the p43 pi-heptomino hassler, the smallest known period-43 oscillator.
+* November 12-15: Pavel Grankovskiy reduces the cost of the reverse caber-tosser to 15 gliders, and produces a new "RCT15" demo pattern and associated viewer scripts.
+* November 11: Goldtiger997 constructs the Speed Orthogonal Loopship, a new adjustable loopship design.
+* November 9: A "semi-natural" Gosper glider gun appears on Catagolue for the first time, in a symmetric soup.
+* November 8: May13 finds syntheses for the last two 20-cell pseudo still lifes.
+* November 8: Nico Brown discovers the diamondback, which is tied with rattlesnake for the smallest known period-11 oscillator.
+* November 8: Matthias Merzenich discovers a dependent bouncer-based period-23 glider reflector using an oscillator by Mitchell Riley. This is the first p23 reflector of any type to be found.
+* November 7: Mitchell Riley discovers the first true period-25 glider gun.
+* November 7-9: Pavel Grankovskiy posts an RCT demo pattern with all ash trails successfully cleaned up, and two days later completes the remaining cleanup and construction tasks at the epicentre -- demonstrating in detail that any glider-constructible pattern can be constructed with exactly 16 gliders.
+* November 4-6: Nico Brown discovers the p23 pi-heptomino hassler, the smallest known period-23 oscillator up to that point, and then finds yet another smaller p23 oscillator, 55P23, two days later.
+* November 3: Nico Brown discovers 54P94, the smallest known period-94 oscillator.
+* November 2: Nico Brown discovers a small period-51 glider gun, whose capped version is also the smallest known period-51 oscillator.
+* October 30: Luke Kiernan discovers p73 lumps of muck hassler, the smallest known period-73 oscillator.
+* October 24: Mitchell Riley discovers a smaller period-32 glider gun using a new twin bees hassler.
+* October 21: Simon Ekström discovers NW-2T16, a new Herschel-to-glider converter which can also be used to create the smallest known oscillators of periods 89, 97, 101, and 103.
+* October 20: New user gravity discovers a puffer-based methuselah within a 20 × 20 bounding box lasting 13,629,876 generations.
+* October 20: Voting for the belated 2012 Pattern of the year competition has been extended to the end of the year.
+* October 8: Charity Engine discovers 34P20, the smallest known non-LCM-based period-20 oscillator. It is also the first known period-20 oscillator with volatility 1, although it is not strictly volatile.
+* October 3: Mitchell Riley and iNoMed discover 52P44, the smallest non-LCM-based period-44 oscillator.
+* October 3: cvojan and iNoMed discover a period-40 glider gun with a 27×20 bounding box - the fourth smallest of a glider gun with a unique period.
+* October 3: The Open Science Grid discovers 76P86, the smallest known period-86 oscillator, using apgsearch.
+* October 2: Using parts of a new extensible 8-engine Cordership, Brett Berger completes a pattern that produces a single glider stream with an irrational bit density, followed by another pattern that emits gliders in a line whose slope is the golden ratio.
+* October 2: cvojan and vivi discover a period-24 glider gun with a 21×20 bounding box, later reduced to 20×20 by James Pascua, making it the second smallest known glider gun with a unique period.
+* October 2: Charity Engine discovers a small p28 block puffer using apgsearch.
+* October 2: Mitchell Riley finds a third period-23 oscillator engine, a beehive-and-honeyfarm hassler.
+* October 1: Nico Brown discovers 115P106, the smallest known period-106 oscillator.
+* October 1: Luke Kiernan and iNoMed discover the p68 pi-heptomino hassler, the smallest known period-68 oscillator.
+* September 27: Luke Kiernan discovers the p79 pi-heptomino hassler, both the smallest known period-79 oscillator and the first of that period not based on adjustable-period mechanisms.
+* September 23: Mitchell Riley finds a new SKOP26 (Smallest Known Oscillator of Period 26), using an unusual catalyst constellation made up of an elevener plus a common ship+fishhook combination.
+* September 22: googleplex completes a previously unfinished c/4 orthogonal moving wick from the jslife-moving collection, adding a front end to a back end found by Hartmut Holzwart.
+* September 22: A new period-86 R-pentomino hassling oscillator and Herschel factory is discovered by Nico Brown, adjusted by iNoMed, and made strict-volatility by Nico Brown with several variants with different relative phases.
+* September 14: The Open Science Grid finds simpler glider syntheses for multiple oscillators, specifically 5 gliders for the caterer and 6 gliders each for bi-pentadecathlon 1 and boat tie bipole.
+* September 14: Mitchell Riley discovers 108P59, the smallest known period-59 oscillator.
+* September 12: Mitchell Riley discovers the p94 R-pentomino hassler, the smallest known period-94 oscillator.
+* September 11: Nico Brown discovers the first true period-43 glider gun and, as a corollary, the first non-Snark-based period-43 oscillator.
+* September 1: Mitchell Riley discovers the p71 honey farm hassler, the smallest known period-71 oscillator.
+* August 26: Luke Kiernan discovers the p85 R-pentomino hassler, which in its minimum form is the smallest known period-85 oscillator.
+* August 21: Luka Okanishi completes the p129 R-pentomino hassler based on a partial result by Luke Kiernan. With only 38 cells, it is the smallest known period-129 oscillator.
+* August 16: Mitchell Riley discovers new pi-heptomino hasslers of periods 35, 40, 58, and 160, while Carson Cheng finds a new honey farm hassler of period 24.
+* August 16: EvinZL completes an "octo3g" orientation-agnostic hash library for the existing database of 3-glider collisions, allowing active 3G collision patterns to be searched in the same way as the previous octo3obj and octohash databases, with (probably) no false positives.
+* August 11: Charity Engine discovers p11 thumb, a small period-11 oscillator and the first with an asymmetric rotor to appear in an official Catagolue symmetry.
+* August 9: Luke Kiernan discovers a p45 pi-heptomino hassler with only 29 cells, making it the smallest known period-45 oscillator.
+* August 9: The Open Science Grid begins contributing CPU and GPU resources to Catagolue.
+* August 8: Luke Kiernan discovers R-pentomino hasslers of periods 49 and 91. The former is the smallest known period-49 oscillator by population, while the latter can be turned into the smallest known period-91 glider gun.
+* August 4: Nico Brown discovers a p220 honey farm hassler.
+* August 2: Charity Engine discovers 34P7, a small period-7 sparker with similar functionality to the previously-discovered meatball.
+* July 30 - August 2: Charity Engine discovers a semi-natural methuselah lasting 128,719 generations, the longest lifespan known for an apgsearch soup excluding those which continue to grow infinitely after "going boring". Three days later a second one is discovered lasting 132,364 generations.
+* July 29: iNoMed discovers the smallest known period-92 oscillator, a 44-cell LCM oscillator consisting of a mold interacting with a previously-overlooked spark from a twin bees shuttle variant.
+* July 25: Mitchell Riley discovers a new stabilization of the p44 pi-heptomino hassler using only blocks and eater 2s, while dani finds a period-sextupling mechanism that works with all versions of the oscillator.
+* July 25: Simon Ekström discovers a small, stable 180-degree glider reflector.
+* July 25: Entity Valkyrie discovers the p82 pi-heptomino hassler, the smallest known period-82 oscillator.
+* July 24: Tanner Jacobi discovers the speed tunnel, a non-Spartan glider-to-Herschel conduit with a repeat time of 61 ticks, which makes it the fastest G-to-H conduit discovered to date.
+* July 23: Mitchell Riley discovers a new period-22 century hassler.
+* July 15: Carson Cheng reveals himself as the author of numerous randomly-generated glider syntheses covertly submitted to Catagolue over the last few months, most notably a 4-glider bipole and a 5-glider octagon II.
+* July 15: Tanner Jacobi discovers an 8-glider synthesis for xs14_dbgzw1qm, which means that all strict 14-cell still lifes can be synthesized with 9 or fewer gliders.
+* July 14: Mitchell Riley discovers a new glider-releasing H-to-R conduit, and Matthias Merzenich uses it to reduce the size of the smallest known true period 59, 61, 67, and 77 guns.
+* July 11-14: Mitchell Riley and wwei23 discover 43P54, the smallest known period-54 oscillator. David Raucci and hotcrystal0 then use this oscillator to reduce the size of the smallest known period-54 gun.
+* July 6: Mitchell Riley and ljkiernan1 discover a period-199 oscillator whose reduced form also functions as a pipsquirter.
+* July 6: Mitchell Riley and ljkiernan1 discover a p146 pi-heptomino hassler, which is later monomerized by Evin and reduced to have a minimum population of only 52 cells.
+* July 6: Mitchell Riley discovers the first non-trivial period-34 oscillator, 74P34. Using a resulting p34 beehive hassler by "MAP bot", iNoMed completes a p34 bumper reflector.
+* July 6: Based on a partial result by Hartmut Holzwart, Keith Amling completes a width-12 chicken wire greyship with a slope-0 back end, filling in the final gap in the collection of slope-0 chicken wire back ends.
+* July 5: Mitchell Riley discovers a new period-83 oscillator, 62P83, and iNoMed uses two copies to construct a small period-83 glider gun.
+* July 2-3: yaochen2 and dani discover various switch engine-based methuselahs within a 16×16 bounding box, including one lasting 4,764,364 generations.
+* July 2: ljkiernan1 discovers 74P127, the highest prime-period oscillator not based on adjustable-period loops.
+* June 30: Charity Engine discovers Charity's p16, a relatively small period-16 oscillator.
+* June 29: Goldtiger997 discovers a glider synthesis for 29P3H1V0, meaning that all known spaceships with up to 31 cells have a known synthesis.
+* June 26: ljkiernan1 discovers the p58 pi-heptomino hassler, the smallest known period-58 oscillator. Dani uses this to construct a gliderless p58 lightweight spaceship gun.
+* June 24: ljkiernan1 discovers 58P37, the smallest known period-37 oscillator and the first one that can be used to create a period-37 glider gun.
+* June 20: iNoMed reduces the p4-assisted period-28 glider gun, making it the fifth-smallest glider gun with a distinct period and leading to additional reductions to the pseudo-p14 glider gun.
+* June 14: David Raucci discovers a strong period-10 domino sparker.
+* June 6: Keith Amling completes a c/2 wire width 2 chicken wire grayship using a dense wave front by Hartmut Holzwart.
+* June 2: Keith Amling, Matthias Merzenich and Hartmut Holzwart collaborate to complete a new greyship front edge, allowing for rectangular and trapezoidal greyships that mix different widths of chicken wire with a minimum width of 13.
+* May 28: Charity Engine discovers meatball, a small period-7 spark-producing oscillator which can be used in place of 38P7.2 in certain glider gun constructions.
+* May 27: Pavel Grankovskiy completes another stage of a 16G RCT implementation, moving the project gradually away from "we know vaguely how it would work" toward "we know exactly how it works".
+* May 25-June 2: Charity Engine's continuing focus on non-C1 symmetry produces several more new p9 and p6 oscillators.
+* May 18: Charity Engine discovers 30P25, the smallest known period-25 oscillator by population.
+* May 10: mvr discovers a p84 honey farm hassler with only 42 cells, the smallest known period-84 oscillator by population.
+* May 10: A modification of the CatForce search program by mvr allows for a significant speedup -- and also includes a symmetric search option that has very quickly started finding interesting new circuitry, such as a new Spartan version of a known pi-to-2G converter.
+* May 10: iNoMed posts reductions to two different oscillators: the p12 crown, and the p44 pi-heptomino hassler.
+* May 2: Keith Amling constructs quartermax, a quadratic-growth pattern that fills one quarter of the plane (instead of a half or full plane, as in halfmax and max.)
+* May 2: iNoMed discovers a new period-46 glider gun that does not rely on previously known p46 oscillators or on adjustable glider loops.
+* April 28: wwei23 discovers a record-breaking smallest p12 backrake using "WSS_Test", the modified apgsearch program that also found 35P12H6V0 (the record-breaking smallest p12 spaceship from February).
+* April 27: Ilkka Törmä and Ville Salo find a "self-forcing" finite patch of period-2 agar, and Oscar Cunningham stabilizes the patch to produce the first oscillator with a provably unsynthesizable rotor.
+* April 25: Andrew Wade uses his life slice spaceship search program (LSSS) to find a new 151-cell 2c/7 spaceship, and May13 produces a number of variations based on it and known 2c/7 components.
+* April 21: dani, Oscar Cunningham, Adam P. Goucher and Pavel Grankovskiy collaborate to reduce the number of gliders needed for any glider construction (via an RCT synthesis) from 17 to 16.
+* April 20: David Raucci finds a new period-114 glider gun engine using two pi-heptominoes and four period-6 sparkers.
+* April 16: Adam P. Goucher posts an example pattern demonstrating the reverse caber-tosser mechanism by constructing a shillelagh, along with a massive amount of debris, in approximately 5.23×10615 generations.
+* April 15: Goldtiger997 makes available a Python script that can assemble a Speed Orthogonoid for any rational orthogonal velocity below c/2 (with the usual practical limitations due to system resources).
+* April 12: iNoMed and David Raucci assemble a new-record smallest period-36 glider gun using just one engine (the previous record-holder used two).
+* April 11: Charity Engine discovers a symmetric soup via apgsearch exhibiting infinite growth whose center takes 225,593,194 generations to stabilize, a new record.
+* April 11-14: Pavel Grankovskiy completes a diehard with a size similar to previous efforts, that takes much longer to die out completely -- initially on the rough order of 8121 ticks, the eighth tetration of 121, and improved past 12121 ticks in the next few days.
+* April 7-10: Pavel Grankovskiy constructs a diehard fitting within a 10,000-cell bounding box while having an exponentially long lifespan using a sawtooth design. With optimizations by toroidalet, Dean Hickerson, and others, this pattern lasts for ~1.33616×101443 generations before disappearing.
+* April 6: Goldtiger997's self-synthesizing oblique loopship wins the Pattern of the Year competition for 2021.
+* April 4: dani finds a 20-cell quadratic growth pattern, the current record holder for the smallest breeder in terms of population.
+* April 2: Charity Engine discovers a pair of 44P5H2V0s via a symmetric soup search, making it the first period-5 spaceship to occur semi-naturally. iNoMed and Goldtiger997 use this soup to reduce the 44P5H2V0 glider synthesis.
+* April 1-8: Goldtiger997 completes two Speed Orthogonoid spaceships, which can be adjusted to travel arbitrarily close to the orthogonal speed limit of c/2, similar to the Speed Demonoid's adjustability for diagonal speeds arbitrarily close to c/4.
+* March 31: A forum thread dedicated to diehards, including engineered ones, is created, leading to the publication of constructions by Dean Hickerson and Pavel Grankovskiy fitting within small bounding boxes but lasting for tens of thousands (and even hundreds of thousands) of generations before disappearing completely.
+* March 28: Keith Amling discovers a c/2 orthogonal stretcher for a stable wick.
+* March 27: dani finds a 6-glider synthesis of a breeder, breaking the previous record of 7 gliders.
+* March 23-27: Rocknlol finds a 23×15 predecessor to a breeder, beating out Luka Okanishi's recent 26×18 pattern for the title of the smallest quadratic growth predecessor by bounding box. A few days later, this predecessor is further reduced to 23×13.
+* March 22-23: Adam P. Goucher posts a series of binary slow salvo recipes for the 17-glider reverse caber tosser that greatly simplify the problem of producing a complete proof-of-concept of RCT construction... not that it's all done yet!
+* March 17: New forum user 'Game of Life Fun' assembles the first gliderless Gosper glider gun puffer.
+* March 12-15: dani finds a small c/12 diagonal breeder using a custom apgsearch symmetry, with a 26×18 predecessor found by Luka Okanishi and a 22-cell predecessor found by David Raucci breaking the records for the smallest bounding box and population, respectively, of a pattern exhibiting quadratic growth. Three days later, dani finds a 21-cell solution with a different breeder.
+* March 11: Nathaniel Johnston announces the official launch of the textbook Conway's Game of Life: Mathematics and Construction.
+* March 8: Goldtiger997 posts an SSGRL (self-synthesizing glide-reflecting loopship) with a design similar to last year's self-synthesizing oblique loopship.
+* March 4: Charity Engine discovers a pair of darts via a symmetric soup search, making it the first period-3 spaceship to occur semi-naturally.
+* March 4: iNoMed discovers 30P3, a custom-built period-3 sparker which can be used to construct a record-breaking 51-cell p48 oscillator when combined with Rob's p16.
+* March 1: iNoMed and David Raucci discover the first p30 gun that does not use the queen bee shuttle.
+* February 24: Charity Engine discovers 58P8H4V0 via a symmetric soup search, making it the first period-8 spaceship to occur semi-naturally.
+* February 23: Keith Amling discovers 232P7H3V0, the smallest known 3c/7 orthogonal spaceship.
+* February 21: Charity Engine discovers a symmetric soup which takes 2,474 generations to die out completely, beating the previous "messless methuselah" record by over 400 ticks.
+* February 16: James Pascua discovers the p23 honey farm hassler, a smaller period-23 oscillator.
+* February 15: dani discovers a new period-30 glider gun that uses only a single queen bee shuttle based on a symmetric 4-barreled gun discovered by Charity Engine.
+* February 14: James Pascua discovers a smaller p28 glider gun, with a bounding box of only 37×24, which iNoMed uses to construct a smaller pseudo-p14 glider gun.
+* February 13: James Pascua discovers a smaller period-62 glider gun based on a glider-releasing wick.
+* February 12: Charity Engine discovers a symmetric soup containing a bi-gun, making it the second unique gun to have occurred semi-naturally.
+* February 11: Charity Engine discovers 32P21, the smallest known period-21 oscillator.
+* February 10: On Discord, "mystical" uses a modification of apgsearch to find a period-12 spaceship, 35P12H6V0, with a minimum population four cells less than that of the Schick engine, which had been the smallest known period-12 spaceship for about half a century.
+* January 29: David Raucci makes the 100,000th edit to LifeWiki.
+* January 29: David Raucci completes a true-period period-27 glider gun based on a reaction found by goldenratio.
+* January 26: Goldtiger997 finds a synthesis of another 2c/5 spaceship, 70P5H2V0, based on a final step completed on January 23rd.
+* January 17: goldenratio and iNoMed discover the p39 pi-heptomino hassler, the first period-39 oscillator not based on an LCM or glider loop mechanism.
+* January 13: Ilkka Törmä and Ville Salo solve the unique father problem in the positive, providing a 32×26 still life that cannot be constructed from scratch by any means.
+* January 12: David Raucci discovers 44P38, the first period-38 oscillator.
+* January 11: Martin Grant constructs the first pseudo-period 16 and 17 LWSS and MWSS guns. Period 16 is the minimum possible period for a MWSS gun.
+* January 10: James Pascua reduces the period-48 glider gun to a bounding box of 31×16 - beating period 46 for the title of second-smallest known glider gun. As a corollary, the smallest known period-96 oscillator now consists of a p48 gun with a boat-bit.
+* January 10: Goldtiger997 completes a 74-glider synthesis of Orion 2, making it the fifth c/4 diagonal spaceship (not including the glider!) with a known synthesis.
+* January 6: Ilkka Törmä and Ville Salo solve a generalized version of the grandfather problem, proving that for every natural number n, there exists a pattern that has an n-tick predecessor but not an (n+1)-tick predecessor.
+* January 4: iNoMed further reduces the p32 honey farm hassler to only 45 cells.
+* January 3: iNoMed discovers a smaller p143 Bandersnatch loop, using only relatively small still lifes, and later constructs a 58-glider synthesis of it.
+2021
+* December 31: Ilkka Törmä finds (and posts a few days later) a 6x3 still-life-compatible region that can be extended into an infinite agar that has no predecessors other than itself.
+* December 21: goldenratio, iNoMed, and praosylen construct a smaller period-48 glider gun, with a bounding box of 35×16, the third-smallest of any known unique-period gun.
+* December 19: Tanner Jacobi completes a small period-126 glider gun using a pi-hassling mechanism, based on contributions by David Raucci, iNoMed, and cvojan.
+* December 17: Pavel Grankovskiy completes a blueprint laid out by googleplex, to produce a QuickSilver self-constructing spaceship made with entirely 1990s-era technology such as Silver's reflectors (but definitely 21st-century design techniques).
+* December 14–21: cvojan discovers the three quarters traffic light catalyst, resulting in hasslers of periods 36, 48, and 60. Later, cvojan constructs a smaller p76 pi-heptomino hassler, with only 57 cells, using this hassling reaction as a catalyst, while iNoMed constructs a smaller period-46 glider gun with a bounding box of 37×15, the second-smallest of any known gun.
+* December 11: David Raucci assembles a bouncer with repeat time 22 and period 11, a previously unknown period for bouncers (though it was known for bumpers).
+* December 10: FractalFusion constructs statorless oscillators for all periods that are multiples of 33.
+* November 29: Pavel Grankovskiy completes "DOGun SaGaQR", a "shapeshifting" pattern that can be adjusted to become a diehard, high-period volatility 1 oscillator, 4-barrelled glider gun, c/24 spaceship, single glider, or quadratic growth replicator.
+* November 28: Luka Okanishi and Tanner Jacobi construct the first true-period glider guns of periods 51 and 49 respectively using a base reaction by wwei23 and hotcrystal0.
+* November 23–24: Martin Grant, Tanner Jacobi, and Matthias Merzenich complete a period-20 partial found by David Raucci to construct a record-breaking period-20 glider gun.
+* November 20: Dongook Lee finds 62P7, a new period-7 domino sparker that's more accessible than 132P7, stronger than hebdarole, and much smaller than 754P7 (which itself can be reduced to 678 cells with this same discovery).
+* November 18: Dongook Lee discovers the first strictly volatile p4 oscillator.
+* November 17: Rocknlol discovers several new Max predecessors using LogicLifeSearch including, among others, one with only 151 cells and another with a bounding box of only 25×21, making them the smallest known spacefillers by these metrics.
+* November 17: May13 constructs the first clean c/6 orthogonal rake using 8 copies of a dirty p1212 puffer, and iNoMed quickly reduces this to 4 copies.
+* November 13: Using the new weekender recipe, Goldtiger997 and Dave Greene complete a glider-to-weekender converter less than a quarter of the size of the previous mechanism, with an option to produce doo-dah spaceships instead.
+* November 13: Luka Okanishi assembles a working elementary Herschel merge circuit.
+* November 13: With population optimization help from Entity Valkyrie, Dongook Lee finds 180P8, a very high-clearance domino sparker that is a significant reduction to the previously known 230P8.
+* November 10: iNoMed announces yet another size reduction for the period-144 glider gun using a transparent-blinker component.
+* October 22: MathAndCode discovers a phase shift reaction for 50P9 with period 9n-1.
+* October 21: Various users discover new p3 pipsquirters which can be used to support the carnival shuttle.
+* October 13: Goldtiger997 completes a Python script capable of assembling the Nth Canada Grey greyship for N>2, at a cost of 84N2 + 371.5N + 204 - 43.5*MOD(N,2) gliders.
+* October 12: 83bismuth38 discovers 66P62, the smallest known period-62 oscillator.
+* October 11: Nicolas Loizeau ('Coban' on the forums) posts a new scalable programmable 8-bit computer (and accompanying video).
+* September 23: The textbook Conway's Game of Life: Mathematics and Construction by Nathaniel Johnston and Dave Greene is opened up to beta readers, available as a PDF at https://conwaylife.com/book/. Feedback can be submitted in this thread.
+* September 19: Rocknlol finds new record-breaking small 'pure nonfillers', one with 209 ON cells and one with a 33-by-27 bounding box.
+* September 17: Dongook Lee and others, in a Discord discussion, improve the period-55 glider gun with new customized p5 sparkers, making it the second-smallest odd-period gun after the period-21 glider gun by minimum population, and the outright smallest by bounding box.
+* September 16: David Raucci completes a new and significantly smaller true period period-54 glider gun, with improvements based on a Discord collaboration.
+* September 14: David Raucci discovers a smaller true-period-32 glider gun based on a new engine.
+* September 9: David Raucci and Aidan F. Pierce discover the p32 honey farm hassler, the smallest known period-32 oscillator, and Matthias Merzenich uses the underlying reaction to construct the first true-period-32 glider gun.
+* August 29-September 6: iNoMed and others, in a Discord discussion, radically improve the glider synthesis of the weekender from 56 gliders down to only 33, and reducing the repeat time from 444 ticks to 347 for a related 35-glider version (for 33G it's 427 ticks, and for 34G it's 447 ticks), making it one of the few known spaceships besides the *WSSes that cost less than one glider per bit to synthesize.
+* August 24: Matthias Merzenich constructs a period-18 reflector capable of reflecting a period-18 glider stream based on an oscillator by David Raucci.
+* August 24: Catagolue is updated to allow larger tabulations in the form of linked fragments, enabling among other things storage of all xs21s (still lifes consisting of 21 bits).
+* August 23: Matthias Merzenich constructs a new period-45 glider gun based on a partial result by David Raucci.
+* August 21: Goldtiger997 re-uses SMOS technology to build a reflectorless rotating oscillator with loopability 1, 2, 3, 4, and 6; with minor adjustments it can reach loopability 7, 10, or 11 (but not 8, 9, or 12 or higher).
+* August 2: Goldtiger997 constructs the first explicit example of a spaceship made of spaceships in Conway's Game of Life.
+* August 1: Tanner Jacobi constructs the first true-period period-21 gun using a new period-21 oscillator by David Raucci.
+* July 30: Martin Grant constructs a T-nosed p7 using a reaction from 2016.
+* July 25: Goldtiger997 published the detailed recipes needed to synthesize an infinite family of increasingly larger greyships.
+* July 12: James Pascua and Matthias Merzenich discover 90P51, a two-cell reduction to the smallest known non-trivial p51 oscillator.
+* July 9: iNoMed discovers an 83-cell variant of the p25 pre-pulsar shuttle, making it the smallest known period-25 oscillator.
+* July 6: David Raucci discovers a new glider gun engine with period 117.
+* July 1: Martin Grant and Goldtiger997 complete the synthesis of the greyship from June 20th in 753 gliders.
+* June 20: Goldtiger997 completes the final step of a greyship glider synthesis.
+* June 18: Adam P. Goucher adds to Catagolue the ability to recognize glider guns with up to four-digit periods, which can now be submitted to the collection via the nonmagical box at the bottom of the "Syntheses" page.
+* May 17: Matthias Merzenich constructs a new period-20 glider gun based on a period-20 oscillator by wwei23 and David Raucci.
+* May 14-21: Frank Everdij discovers two new elementary c/6 diagonal spaceships using ikpx2.
+* May 9: Adam P. Goucher constructs period-12 knightpuffer and knightrake technology using variants of the new sprayer knightship; this is quickly followed by other puffer and rake periods such as a p48 mechanism by cvojan.
+* May 9: After a three-month, 16-thread ikpx2 search, Adam P. Goucher finds a completion for a second elementary knightship front end found by Dylan Chen, which is known as the sprayer due to a huge accessible side spark at the front.
+* April 13 - June 30: David Raucci discovers many previously unseen oscillators, glider gun mechanisms, etc., including Raucci's p74, using a new search script that finds spark support for hassling common active objects in various symmetries.
+* April 11: David Raucci finds a new p76 pi-heptomino hassler oscillator, which is quickly reduced to a monomer form by JP21, A for awesome, and Matthias Merzenich.
+* April 10-14: Goldtiger997 completes a 152-glider synthesis of a third c/4 orthogonal spaceship, 61P4H1V0.1; within four days this was reduced to an 89-glider synthesis.
+* March 19: Matthias Merzenich discovers a new weekender tagalong.
+* March 18: Results for the 2020 Pattern of the Year competition include a tie for first place between the Bandersnatch and the Speed Demonoid.
+* March 17: A small synthesis efficiency improvement project, 12-in-7 (12-bit still lifes constructed with 7 gliders or less) is completed, with 13 expensive syntheses reduced to below the target cost in less than a week.
+* March 17: Pattern of the Year voting, on a record-breaking thirty-nine entries for 2020, will close on March 17th.
+* March 12: The 20-bit still life glider synthesis project is completed.
+* March 7-8: Goldtiger997 completes a 215-glider recipe for 72P4H1V0, the second c/4 orthogonal spaceship to be synthesized.
+* February 10-11: Chris Rowett uses ikpx2 to discover several new moving objects, including a p120 2c/5 puffer and c/5 diagonal tubstretcher, tagalong, and spaceship.
+* February 4-11: Tanner Jacobi, EvinZL, Louis-François Handfield and Sphenocorona find new Herschel-to-glider converters and variants of existing H-to-Gs: NW26T157b, NE30T17_NE1T22, NW10T137, SW-18T136 and a Spartan SE16T36b.
+* January 11-March 8: Hartmut Holzwart completes several new chicken wire greyships with different widths of chicken wire, with specific examples constructed for widths 2 through 12 among others.
+* January 25: Catagolue's B3/S23/C1 census reaches a total of one quadrillion objects.
+* January 24: goldenratio and bubblegum construct a glider synthesis for edge-repair spaceship 1.
+* January 17: wwei23 discovers 1320P7, a large but high-clearance period-7 sparker oscillator.
+* January 16: Dylan Chen discovers 52513M, the new longest-lasting known methuselah within a 16×16 bounding box, just a week after the discovery of 50093M.
+* January 16: Adam P. Goucher completes a 2c/5 waveguide for an oblique line of ants based on a partial result by Matthias Merzenich.
+* January 10: Alex Greason makes available a fresh set of transfer.py results. Fewer than 535 20-bit still lifes have no known glider synthesis, and 135 of these have soups available on Catagolue to assist with synthesis.
+* January 10: Dylan Chen discovers another new 3c/7 spaceship, using Andrew J. Wade's December update to LSSS. This is the first small 3c/7 spaceship with gutter symmetry.
+* January 9: Rob Liston discovers 50093M, the longest-lasting known methuselah within a 16×16 bounding box, using apgsearch.
+* January 5: Bullet51 uses ikpx2 to find a third elementary c/6 diagonal spaceship.
+* January 5: Martin Grant discovers a new variant of a known H-to-G conduit, NE16T14, with likely applications as a reflector and merge circuit in single-channel self-constructing circuitry.
+* January 5: Sphenocorona and Luka Okanishi assemble a new elementary conduit, HF96P, which allows for the creation of several new Herschel-to-glider converters.
+* January 2-3: bubblegum discovers a new 3c/7 orthogonal puffer engine, allowing Matthias Merzenich and iNoMed to construct the first clean 3c/7 rake.
+2020
+* December 28-31: Dylan Chen discovers Anura ([6]) and Soba ([7]), the two smallest known 3c/7 orthogonal spaceships, as stabilizations of the same frontend, and also a much smaller front end for the spaghetti monster on January 4.([8])
+* December 28: The New York Times publishes an article reflecting on 50 years of Conway's Game of Life.
+* December 20: A Bellman search by Tanner Jacobi turns up a new stable catalyst that can reset a beehive that has been pushed over by one cell by a collision.
+* December 17: Tanner Jacobi discovers a p61 pattern that moves one cell per cycle, and can be supported by single-bit sparks, glider streams, or additional copies of the pattern on each side.
+* December 15: Matthias Merzenich constructs the first true period-28 glider gun.
+* December 6: John Winston Garth discovers doo-dah, a new small period-21 tagalong for the weekender, which can be used to create various 2c/7 orthogonal puffers and rakes.
+* December 5: MathAndCode and yujh discover 'NW26T157', a new Spartan conduit that converts a Herschel into three gliders, similar to NW31 but with one glider on an output lane of a different color.
+* December 3-4: Goldtiger997 finds a final step for a turtle synthesis, followed by a complete 241-glider synthesis the next day.
+* November 24: Goldtiger997 completes a barge crosser, a mechanism which allows a glider signal to cross an arbitrarily long barge without causing permanent damage.
+* November 18: Goldtiger997 finds glider recipes that can convert M2 minstrels into M3 minstrels and vice versa.
+* November 15: wwei23 discovers a new sparker, a period-9 version of a heavyweight emulator.
+* October 30: Golly 4.0 is officially released.
+* October 16: Andrew Trevorrow makes available the first beta builds for Golly 4.0, supporting Python 3.x and new rule types and neighborhoods, and enabling multi-color "Super" and "History" support for a wide range of two-state rules.
+* September 27: A burloaferimeter variant appears in an asymmetric soup found by Rob Liston, making it the first natural period-7 oscillator.
+* September 26: Pavel Grankovskiy completes Speed Demonoid version 2, removing the 2c/9 limitation; a Golly script can now build a spaceship with any rational diagonal speed below c/4 (subject to some practical size limitations).
+* September 19: MathAndCode and Adam P. Goucher construct a 17-glider reverse caber-tosser, proving that all synthesizable patterns can be made with no more than 17 gliders and that all synthesizable still lifes can be constructed with no more than one glider per bit.
+* September 19: Goldtiger997 synthesizes 55P9H3V0, the first period-9 spaceship to be synthesized.
+* September 18: Pavel Grankovskiy constructs a complete Speed Demonoid, using double crabstretchers to accelerate a self-constructing spaceship to 3492022/17833792=1746011/8916896 ≈ 0.1958c, very close to c/5. The new spaceship can be adjusted to match any rational speed slower than 2c/9.
+* September 15: wwei23 discovers several new 3-engine Corderships, including one that cleans up its trailing blocks with sideways gliders, similar to a 5-, 6-, or 7-in-a-row Cordership.
+* September 9-17: wwei23 assembles a new type of period-192 4-in-a-row Cordership, and later constructs glider-to-Cordership and Cordership-to-glider converters for it.
+* August 29: Goldtiger997 completes a synthesis of the first known 2c/5 spaceship, 44P5H2V0, almost thirty years after its discovery; this is the third completed synthesis for a 2c/5 spaceship.
+* August 23: Adam P. Goucher adds to slmake a fast elbow push recipe created by Pavel Grankovskiy, based on a c/4 diagonal crab wickstretcher. This means that recipes for self-constructing structures with a not-quite-attainable limit speed of c/4 can now be semi-automatically compiled.
+* August 16: Tanner Jacobi discovers a 14-glider recipe for a crab spaceship, down from the previous cost of 16, which can be used to reduce the size and construction cost of a wickstretcher seed.
+* August 14: Rob Liston finds via apgsearch a third natural loafer emerging from asymmetric soup.
+* August 10: Syntheses of a variety of pufferfish spaceships make their way to Catagolue, thanks to an extension of the time required in online recipe submissions for all gliders to react.
+* August 2-18: Tanner Jacobi completes and later improves a 1G seed for a c/4 diagonal wickstretcher, enabling self-constructing spaceships with the fastest possible diagonal speed of (just below) c/4.
+* July 29: Goldtiger997 constructs a fast diagonal Demonoid puffer with velocity (4825784,4825784)c/45679544.
+* July 21: Adam P. Goucher reduces the cost of the reverse caber-tosser constructor to 32 gliders.
+* July 20: A for awesome completes a new stable L122 Herschel conduit, based on a P2 periodic variant by Entity Valkyrie.
+* July 18: A glider synthesis of 70P2H1V0.1 is posted to Catagolue by Martin Grant, making 70P2H1V0.1 the first period-2 spaceship to be synthesized.
+* July 7: Goldtiger997 completes a record-breaking seed constellation that, when triggered by a single gliders, turn into a clean 100-glider recipe for a c/5 spaceship, 58P5H1V1. This potentially improves the unreachable upper bound on Demonoid speed from c/12 to c/5.
+* July 1: A collaborative effort results in a series of HWSS Heisenburp circuits much smaller than the previous best known devices. Recovery time is under 1400 ticks. Some versions can also detect flotillas with an HWSS along one edge.
+* June 20-30: Several new signal converter circuits are constructed, including Luka Okanishi's 242-tick 30P5H2V0-to-G and Goldtiger997's 290-tick HWSS-to-G. Many others are catalogued here.
+* June 6-30: JP21's and then Jeremy Tan's eater collections spark new interest, and eaters are found for several previously inedible spaceships such as dragon, Canada goose, and brain.
+* June 8: A collaborative effort produces a fully universal *WSS-to-glider converter that recovers in only 588 ticks, and works even if moved by an odd number of cells along the input lane.
+* June 7: Matthias Merzenich completes an adjustable-width c/5 orthogonal wickstretcher using components by Keith Amling and Hartmut Holzwart.
+* June 5: Entity Valkyrie completes a mechanism suggested by Martin Grant to make a Bandersnatch, a glider-constructible color-changing glider shifter with a recovery time of only 70 ticks.
+* May 25: Louis-François Handfield and Goldtiger997 find improved highway robbers with better clearance and 876- and 873-tick recovery times.
+* May 22: Entity Valkyrie constructs a gun for 58P5H1V1, the first gun to produce a c/5 diagonal spaceship.
+* May 9: The silverfish, a self-supporting 31c/240 caterpillar-type spaceship designed using the slow salvo recipe from the Centipede but a simpler front end, is completed.
+* May 6: Goldtiger997 solves the problem of glider-constructing all pseudo still lifes consisting of 4×N chunks of blocks agar.
+* May 3-4: Louis-François Handfield adapts Martin Grant's new HL161H conduit to make a new compact color-changing edge shooter, HSW47T214.
+* Apr. 21: Rob Liston discovers 49768M, the longest-lasting known methuselah fitting within a 16×16 bounding box.
+* Apr. 11: John Horton Conway, the inventor of Conway's Game of Life, dies in Princeton, NJ at the age of 82.
+* Apr. 8: Louis-François Handfield constructs a much faster and more compact universal regulator.
+* Apr. 3: Goldtiger997, Tanner Jacobi, and others complete the glider synthesis for 58P5H1V1, the first synthesis for a c/5 diagonal spaceship.
+* Apr. 1: A loafer appears for the first time in an asymmetric soup, submitted to Catagolue by John Goodman. Coincidentally, this occurred exactly two years after Dave Greene posted a fake soup for April Fools' Day 2018.
+* Mar. 25: Martin Grant and others complete the glider synthesis for 56P6H1V0, the first synthesis for a c/6 orthogonal spaceship and the first for a period-6 spaceship.
+* Mar. 22: Andrew J. Wade uses life_slice_ship_search to find 186P7H2V0, a third 2c/7 orthogonal spaceship, part of an infinite family based on a known 2c/7 wave.
+* Mar. 22: Goldtiger997 completes the activation stage for a recipe for 56P6H1V0, which along with the spider and weekender is now one of the largest elementary spaceships for which a glider synthesis can (presumably) be completed.
+* Mar. 17: Andrew J. Wade discovers 409P6H1V0, the narrowest known c/6 orthogonal spaceship, using life_slice_ship_search.
+* Mar. 9: Richard K. Guy, discoverer of the glider, passes away at the age of 103.
+* Feb. 9: Rob Liston discovers a new p16 oscillator, Rob's p16, using apgsearch. It is the smallest known p16 by both population and bounding box, the first p16 to appear from an asymmetric soup, the first strictly volatile p16, and the first new rotor to be discovered by asymmetric soup search since the 1980s.
+* Feb. 8: All 19-bit still lifes are confirmed to have valid glider syntheses.
+* Jan. 26: Dave Greene creates LifeSuper, an extended version of LifeHistory for advanced pattern annotation.
+* Jan. 26: Entity Valkyrie constructs a period-11040 spider gun, the first gun to fire a c/5 orthogonal spaceship.
+* Jan. 13: Matthias Merzenich sets up a new "manually distributed" search (table here), to find out whether a symmetric c/8 spaceship exists at width 19.
+* Jan. 9: Nathaniel Johnston completes a long-running enumeration of 34-bit still lifes, finding 35,422,864,104 strict still lifes with 34 bits, and 41,058,173,683 pseudo still lifes with the same bit count, including 26 triple pseudo still lifes.
+* Jan. 5: A Rules namespace update on the LifeWiki allows LifeViewer to display in-browser many patterns using rule tables and trees, which previously couldn't be simulated without copying them into Golly.
+2019
+* Dec. 30: Andrew J. Wade uses his search program, life_slice_ship_search, to find the second elementary 2c/7 spaceship, scholar.
+* Dec. 29: Goldtiger997 synthesises a variant of David Hilbert.
+* Dec. 28: Martin Grant finds a counterexample to a 22-year old conjecture by Dean Hickerson about still-life finitization.
+* Dec. 25: Pavgran assembles Slavic [9], a quadratic-growth pattern similar to Hydra that doesn't need a central gun.
+* Dec. 9: Goldtiger997 reduces the cost of the spider synthesis by over 100 gliders.
+* Dec. 1: Martin Grant discovers a new period-49 oscillator based on a partial result by Jason Summers.
+* Nov. 24: Luka Okanishi discovers a period-23 oscillator, leaving only four periods for which no non-trivial oscillator is known.
+* Nov. 20: Dongook Lee finds a p7 pipsquirter that is significantly smaller than the old p7 pipsquirter, leading to bounding-box reductions in the gun collection and various oscillators.
+* Nov. 18: Tanner Jacobi, Goldtiger997 and others find improved recipes for a number of difficult-to-synthesize still lifes, reducing the maximum cost for 16-bit still lifes to 14 gliders.
+* Nov. 17: Michael Simkin uses pi calculator and Osqrtlogt technology to build a Life pattern that prints the song "99 Bottles of Beer on the Wall".
+* Nov. 12: Bullet51 and Aidan F. Pierce discover new sparky period-13 oscillators.
+* Nov. 4: Alex Greason, Arie Paap, BlinkerSpawn, and Dongook Lee collaborate on the discovery of phoenix agar oscillators on different-sized tori, which can reproduce the behavior of XOR oscillators in other rules (see OEIS A160657).
+* Oct. 28: Goldtiger997 finds a 64-glider synthesis for the 27P4H1V1 spaceship (later reduced to 31 gliders).
+* Oct. 22: Goldtiger997 constructs a p612 gun for the 46P4H1V0 spaceship.
+* Oct. 9: All 18-bit still lifes are confirmed to have valid glider syntheses.
+* Sep. 9: The 17-in-17 Project is completed, showing that every 17-bit still life can be constructed using at most 16 gliders.
+* Aug. 15: Update to a previous news item from 21 April 2019 (see archive): all 15-bit still lifes can now be constructed with at most 12 gliders.
+* July 16: Dave Greene constructs a large prime oscillator with a period equal to the largest Mersenne prime currently known, 282589933-1.
+* June 19: A huge long-term collaborative effort is completed, showing that all glider-constructible still lifes can (at least in theory) be constructed using less than two gliders per bit.
+* June 2: Goldtiger997 completes a glider-to-25P3H1V0.2 converter, based on Martin Grant's 25P3H1V0.2 synthesis from 2017.
+* May 29: Thomas Cabaret makes available a Passe-Science video featuring self-constructing CA patterns, including several minutes showing details of the 0E0P metacell.
+* May 25: Goldtiger997 completes a glider-to-crab converter, with the help of a script implementing a universal glider synchronization toolkit.
+* May 24-30: christoph.r posts several unusual breeder designs based on c/10 technology, including some variants on a pufferfish breeder.
+* May 9: GilGil makes available a huge but elegant 60-line printer traveling at c/10, based on fleets of fireships.
+* Apr. 21: Improvements to glider syntheses mean that every 15-bit still life has a recipe with at most 13 gliders. For current maximum costs, see the table in Still-life syntheses.
+* Apr. 17: Tanner Jacobi and Matthias Merzenich set several new bounding-box records with a new glider gun mechanism based on filtered MWSSes.
+* Apr. 14: Michael Simkin completes a self-constructing puffer pattern which he calls Remini ("retro Gemini"), using a single-channel design with nothing but 1970s circuit mechanisms.
+* Apr. 10: Jeremy Tan releases a new glider recipe database, Shinjuku, specifically for tracking lowest-cost syntheses.
+* Apr. 6-7: LifeViewer standardizes support for triangular neighbourhoods starting with Build 320.
+* Apr. 5: An exhaustive computer search run by Nathaniel Johnston reveals that there are 14,223,867,298 strict and 15,851,861,075 pseudo 33-bit still lifes, including eleven pseudo still lifes that can be partitioned into three stable pieces but not two, and none that can be partitioned into four stable pieces but not two or three.[10]
+* Mar. 27: The last remaining 14-bit still life, xs14_4ai3zwo9a4, appears in a C1 soup on Catagolue, in a haul submitted by an anonymous user.[11]
+* Mar. 24: apgsearch v5.03 gains the ability to log 'megasized' soups with final populations exceeding 3,000.[12] apgsearch 5.x can also pre-process asymmetric C1 B3/S23 soups on GPUs with CUDA support.[13]
+* Mar. 7: A spider synthesis using 574 gliders and 9 LWSSes is found by Martin Grant. [14]
+* Mar. 3: A period-120 oscillator, the highest period thus far, occurs from a natural soup on Catagolue.
+* Mar. 2: Several symmetric-soup diehards with lifespans over 1500 ticks are found by 'carybe', using apgsearch.
+* Feb. 12: A lightweight Schick engine appears from a natural (C1) soup on Catagolue.
+* Feb. 9: A 47,575-tick 16x16 methuselah found by Adam Goucher via apgsearch yields a 16-cell, 47,487-tick methuselah. This discovery skips over several empty 1000-tick bins in Catagolue above the previous record 16x16 methuselah, Homer.
+* Feb. 4: A glider detection and removal upgrade in apgsearch version 4.91 gives a search speed boost of well over 50% compared to version 4.88.
+* Feb. 4: Tanner Jacobi and Martin Grant find a recipe, subsequently reduced to 88 gliders, for the first-ever synthesizable c/4 spaceship, 46P4H1V0.
+* Jan. 21 - Feb. 1: Additional (2,1)c/6 minstrels and spaceship connections are found, bringing the number of combinations of elementary minstrels into double digits.
+* Jan. 25: the Pattern of the Year 2018 competition concludes, with Sir Robin taking first place.
+* Jan. 25: LifeViewer build 282 goes live on the LifeWiki and forums, with several enhancements including new labeling functionality.
+* Jan. 20: Catagolue collects a record-setting longest-lived asymmetrical 16x16 diehard, with a lifespan of 1058 ticks.
+* Jan. 17: A new period-8 domino sparker, 230P8, is discovered by Arie Paap and reduced by 'Bullet51'.
+* Jan 16-18: Four new minstrels are found, plus a lucky connection of an existing minstrel to knightwave, creating for the first time a grammar that allows for an infinite number of distinct elementary knightships.
+* Jan 10: A new period-24 oscillator, dueling banjos, turns up in an apgsearch soup search. Uses so far include a smaller period-24 glider gun, with associated improvements to p16 and p48 glider guns and a p48 LWSS gun.
+* Jan 3-7: Record-setting diehards are found by Rob Liston and Apple Bottom via apgsearch.
+2018
+* Dec 7: A new oblique camelship, much smaller and lower population than the Gemini 3 variant from 2010, is completed by Chris Cain.
+* Dec 2: The value of V, the lowest number for which an oscillator can be constructed with strict volatility 1 for that or any higher period, is reduced to 3,506,909 ticks.
+* Nov 30: Adam P. Goucher sets another new record using the latest apgsearch by finding "Homer", a 16x16 methuselah with a lifespan of 42883 ticks.
+* Nov 28: An update to slsparse allows it to recognize 45-degree MWSS-to-G converters in any orientation, and use unidirectional slow salvo recipes to construct them.
+* Nov 18: Entity Valkyrie discovers a new period-13 FNG suppression mechanism, allowing the true period-52 glider gun to be reduced to less than a seventh of its previous size.
+* Nov 12: A working 0E0P metacell is announced by Adam P. Goucher, along with several improvements to slmake, the program used to compile the metacell.
+* Oct 31: An update to apgsearch sets another new record by finding a 16x16 methuselah with a lifespan of 42,100 ticks.
+* Oct 31: A self-constructing "loopship", a new type of spaceship with a non-Geminoid design, is completed by Dave Greene.
+* Oct 30: A periodic (p5 or p4) quinti-Snark is constructed by Tanner Jacobi, with the usual implications for reductions to the glider gun collection.
+* Oct 29: apgluxe v4.56-ll2.0.5 and Catagolue add support for BSFKL rules.
+* Oct 28: A record-setting 39,693-tick methuselah, Wilma, is discovered by Rob Liston using a custom FPGA soup searcher.
+* Oct 27: An new LWSS synthesis by Chris Cain allows for LWSS, MWSS, and HWSS guns with pseudo periods as low as 18. 18 is the minimum for HWSS streams.)
+* Oct 21: Hartmut Holzwart completes a two-dimensionally extensible wick-supporting pushalong with a minimum width of over a thousand cells.
+* Oct 21: New Orthogonoids with periods 227 and 228 are constructed by Dave Greene, followed by a 225 version by Adam P. Goucher.
+* Oct 12: A new period-14 oscillator, 34P14.1, is found by 'carybe'.
+* Oct 11: Christoph R. discovers a new Fireship tagalong.
+* Oct 10: Dave Greene completes the construction of two new HashLife-friendly Demonoids.
+* Oct 07: A complex 140-glider synthesis of a c/2 signal traveling along a diagonal longN barge wire is completed by Martin Grant.
+* Oct 03: A p4 bouncer reflector is constructed by Arie Paap. With the p9 reflector, this completes the set of colour-changing and colour-preserving reflectors with periods from 4 to 9.
+* Oct 02: A p9 reflector is discovered by Matthias Merzenich and "carybe" based on Noam Elkies' bouncer reaction. This is the first reflector capable of reflecting a p27 glider stream.
+* Oct 02: A true p33 gun is discovered by Arie Paap and Matthias Merzenich.
+* Sep 27: A true p52 gun is completed by a collaborative effort.
+* Sep 9: Dave Greene completes the construction of a stable line crosser with a repeat time of 501 ticks.
+* Jul 15/19: The Minstrels, a group of tagalongs for Sir Robin, are discovered.
+* Jun 14: The construction of a reverse caber-tosser shows that any glider-constructible object can be constructed with at most 35 gliders.
+* Apr 04: A p3 reflector is discovered by Arie Paap based on Tanner Jacobi's bumper reaction. This is the first reflector capable of reflecting a p39 glider stream.
+* Mar 06: Sir Robin, the first elementary knightship in Life, is discovered by Adam P. Goucher and Tom Rokicki.
+* Feb 19: The 2-engine Cordership wins the 2017 Pattern of the Year competition, with Tanner's p46 taking second place.
+2009
+ 600 pattern milestone — June 19th, 2009
+LifeWiki is now home to a grand total of 600 patterns and over 750 articles. Exciting new additions to the wiki include weekly featured articles on the front page (as well as trivia snippets), rules boxes on pattern pages that describe what rules that particular pattern functions under, a much more complete list of the smallest known oscillators of each period, our first few articles about reflectors and recent reflector developments (see the rectifier), and several more pages detailing the accomplishments of specific Life enthusiasts. As always, thanks to all of our contributors!
+ 500 pattern milestone — April 26th, 2009
+Over 500 patterns are now catalogued in LifeWiki, and there are over 600 articles total. Some of the most notable recent additions to the database include the addition of glider syntheses in the infoboxes of patterns, greatly expanded information about first-discovered and smallest known spaceships and oscillators of specific speeds and periods, expanded articles about other Life-like cellular automata (such as 2x2, HighLife, and Move), and the first few pages to describe the accomplishments of specific Life enthusiasts (see Noam Elkies for an example). Thanks to all of our contributors!
+ 400 pattern milestone — March 13th, 2009
+LifeWiki is now home to over 400 patterns. Some of the more notable additions since the last milestone include a searchable interface for oscillators, and animated images for all oscillators and spaceships. With a solid base catalogue of patterns now established, one of the main goals for LifeWiki will now be to catalogue more recent discoveries.
+ 300 pattern milestone — February 6th, 2009
+It hasn't even been a month since its launch and LifeWiki has doubled the number of patterns, articles, and images that it contains. In particular, with these new additions LifeWiki now catalogues 132 still lifes; far more than any other source on the web. Thanks go out to Elithrion who has helped us increase the number of animated images available to 74, which is more than double the number that were available a week ago.
+ 200 pattern milestone — January 27th, 2009
+LifeWiki today passed its first notable milestone - it now catalogues over 200 patterns (201 as of this writing). In addition, there are now 263 images, and many of the non-pattern pages have been expanded considerably (see, for example, still life and methuselah).
+ LifeWiki goes live — January 16th, 2009
+After several weeks in development, the LifeWiki has gone live. It is making its debut with 138 patterns, 162 articles and 175 images, but this will hopefully be expanded greatly in the near future. If you consider yourself a Life enthusiast, please consider helping expand the wiki by adding or expanding articles.
+

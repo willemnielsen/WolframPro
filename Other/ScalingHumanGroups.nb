@@ -1,0 +1,2802 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    138266,       2792]
+NotebookOptionsPosition[    137381,       2769]
+NotebookOutlinePosition[    137781,       2785]
+CellTagsIndexPosition[    137738,       2782]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"SetDirectory", "[", "\"\</Users/erichegonzales\>\"", "]"}]], "Input",\
+
+ CellChangeTimes->{{3.926828916012995*^9, 3.926828955174293*^9}, {
+  3.926828993687199*^9, 3.926829029705662*^9}},
+ CellLabel->
+  "In[268]:=",ExpressionUUID->"886b25ca-956a-49ac-bd2c-a51ce527bcab"],
+
+Cell[BoxData["\<\"/Users/erichegonzales\"\>"], "Output",
+ CellChangeTimes->{3.9268290323132467`*^9},
+ CellLabel->
+  "Out[268]=",ExpressionUUID->"c7726cd9-67fc-4084-a930-4965b03774ec"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"img", " ", "=", " ", 
+  RowBox[{
+  "Import", "[", 
+   "\"\<Downloads/GHS_POP_E2030_GLOBE_R2023A_54009_100_V1_0_R5_C12/GHS_POP_\
+E2030_GLOBE_R2023A_54009_100_V1_0_R5_C12.tif\>\"", "]"}]}]], "Input",
+ CellChangeTimes->{{3.926829033536812*^9, 3.926829056461945*^9}},
+ CellLabel->
+  "In[269]:=",ExpressionUUID->"d3b193bd-0a10-42fe-8e59-3b193c3d2ec8"],
+
+Cell[BoxData[
+ RowBox[{"img", ";"}]], "Input",
+ CellChangeTimes->{{3.926830389839993*^9, 3.926830419376791*^9}},
+ CellLabel->
+  "In[274]:=",ExpressionUUID->"17daad42-5b16-420f-9159-e263e024e047"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"city", " ", "=", " ", 
+  RowBox[{"Import", "[", 
+   RowBox[{
+   "\"\<Downloads/New_York_City_Population_By_Community_Districts_20240608.\
+csv\>\"", ",", " ", "\"\<Dataset\>\"", ",", " ", 
+    RowBox[{"\"\<HeaderLines\>\"", "->", "1"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.926829306041689*^9, 3.9268293364748907`*^9}},
+ CellLabel->
+  "In[272]:=",ExpressionUUID->"fe214c6e-7c58-4a8e-96f3-b8c5abff988a"],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[
+   DynamicModuleBox[{TypeSystem`NestedGrid`PackagePrivate`$state$$ = <|
+    "InitialData" -> {<|
+       "Borough" -> "Bronx", "CD Number" -> 1, "CD Name" -> 
+        "Melrose, Mott Haven, Port Morris", "1970 Population" -> 138557, 
+        "1980 Population" -> 78441, "1990 Population" -> 77214, 
+        "2000 Population" -> 82159, "2010 Population" -> 91497|>, <|
+       "Borough" -> "Bronx", "CD Number" -> 2, "CD Name" -> 
+        "Hunts Point, Longwood", "1970 Population" -> 99493, 
+        "1980 Population" -> 34399, "1990 Population" -> 39443, 
+        "2000 Population" -> 46824, "2010 Population" -> 52246|>, <|
+       "Borough" -> "Bronx", "CD Number" -> 3, "CD Name" -> 
+        "Morrisania, Crotona Park East", "1970 Population" -> 150636, 
+        "1980 Population" -> 53635, "1990 Population" -> 57162, 
+        "2000 Population" -> 68574, "2010 Population" -> 79762|>, <|
+       "Borough" -> "Bronx", "CD Number" -> 4, "CD Name" -> 
+        "Highbridge, Concourse Village", "1970 Population" -> 144207, 
+        "1980 Population" -> 114312, "1990 Population" -> 119962, 
+        "2000 Population" -> 139563, "2010 Population" -> 146441|>, <|
+       "Borough" -> "Bronx", "CD Number" -> 5, "CD Name" -> 
+        "University Hts., Fordham, Mt. Hope", "1970 Population" -> 121807, 
+        "1980 Population" -> 107995, "1990 Population" -> 118435, 
+        "2000 Population" -> 128313, "2010 Population" -> 128200|>, <|
+       "Borough" -> "Bronx", "CD Number" -> 6, "CD Name" -> 
+        "East Tremont, Belmont", "1970 Population" -> 114137, 
+        "1980 Population" -> 65016, "1990 Population" -> 68061, 
+        "2000 Population" -> 75688, "2010 Population" -> 83268|>, <|
+       "Borough" -> "Bronx", "CD Number" -> 7, "CD Name" -> 
+        "Bedford Park, Norwood, Fordham", "1970 Population" -> 113764, 
+        "1980 Population" -> 116827, "1990 Population" -> 128588, 
+        "2000 Population" -> 141411, "2010 Population" -> 139286|>, <|
+       "Borough" -> "Bronx", "CD Number" -> 8, "CD Name" -> 
+        "Riverdale, Kingsbridge, Marble Hill", "1970 Population" -> 103543, 
+        "1980 Population" -> 98275, "1990 Population" -> 97030, 
+        "2000 Population" -> 101332, "2010 Population" -> 101731|>, <|
+       "Borough" -> "Bronx", "CD Number" -> 9, "CD Name" -> 
+        "Soundview, Parkchester", "1970 Population" -> 166442, 
+        "1980 Population" -> 167627, "1990 Population" -> 155970, 
+        "2000 Population" -> 167859, "2010 Population" -> 172298|>, <|
+       "Borough" -> "Bronx", "CD Number" -> 10, "CD Name" -> 
+        "Throgs Nk., Co-op City, Pelham Bay", "1970 Population" -> 84948, 
+        "1980 Population" -> 106516, "1990 Population" -> 108093, 
+        "2000 Population" -> 115948, "2010 Population" -> 120392|>, <|
+       "Borough" -> "Bronx", "CD Number" -> 11, "CD Name" -> 
+        "Pelham Pkwy, Morris Park, Laconia", "1970 Population" -> 105980, 
+        "1980 Population" -> 99080, "1990 Population" -> 97842, 
+        "2000 Population" -> 110706, "2010 Population" -> 113232|>, <|
+       "Borough" -> "Bronx", "CD Number" -> 12, "CD Name" -> 
+        "Wakefield, Williamsbridge", "1970 Population" -> 135010, 
+        "1980 Population" -> 128226, "1990 Population" -> 129620, 
+        "2000 Population" -> 149077, "2010 Population" -> 152344|>, <|
+       "Borough" -> "Brooklyn", "CD Number" -> 1, "CD Name" -> 
+        "Williamsburg, Greenpoint", "1970 Population" -> 179390, 
+        "1980 Population" -> 142942, "1990 Population" -> 155972, 
+        "2000 Population" -> 160338, "2010 Population" -> 173083|>, <|
+       "Borough" -> "Brooklyn", "CD Number" -> 2, "CD Name" -> 
+        "Brooklyn Heights, Fort Greene", "1970 Population" -> 110221, 
+        "1980 Population" -> 92732, "1990 Population" -> 94534, 
+        "2000 Population" -> 98620, "2010 Population" -> 99617|>, <|
+       "Borough" -> "Brooklyn", "CD Number" -> 3, "CD Name" -> 
+        "Bedford Stuyvesant", "1970 Population" -> 203380, "1980 Population" -> 
+        133379, "1990 Population" -> 138696, "2000 Population" -> 143867, 
+        "2010 Population" -> 152985|>, <|
+       "Borough" -> "Brooklyn", "CD Number" -> 4, "CD Name" -> "Bushwick", 
+        "1970 Population" -> 137902, "1980 Population" -> 92497, 
+        "1990 Population" -> 102572, "2000 Population" -> 104358, 
+        "2010 Population" -> 112634|>, <|
+       "Borough" -> "Brooklyn", "CD Number" -> 5, "CD Name" -> 
+        "East New York, Starrett City", "1970 Population" -> 170791, 
+        "1980 Population" -> 154931, "1990 Population" -> 161350, 
+        "2000 Population" -> 173198, "2010 Population" -> 182896|>, <|
+       "Borough" -> "Brooklyn", "CD Number" -> 6, "CD Name" -> 
+        "Park Slope, Carroll Gardens", "1970 Population" -> 138933, 
+        "1980 Population" -> 110228, "1990 Population" -> 102724, 
+        "2000 Population" -> 104054, "2010 Population" -> 104709|>, <|
+       "Borough" -> "Brooklyn", "CD Number" -> 7, "CD Name" -> 
+        "Sunset Park, Windsor Terrace", "1970 Population" -> 111607, 
+        "1980 Population" -> 98567, "1990 Population" -> 102553, 
+        "2000 Population" -> 120063, "2010 Population" -> 126230|>, <|
+       "Borough" -> "Brooklyn", "CD Number" -> 8, "CD Name" -> 
+        "Crown Heights North", "1970 Population" -> 121821, "1980 Population" -> 
+        88796, "1990 Population" -> 96400, "2000 Population" -> 96076, 
+        "2010 Population" -> 96317|>, <|
+       "Borough" -> "Brooklyn", "CD Number" -> 9, "CD Name" -> 
+        "Crown Heights South, Wingate", "1970 Population" -> 101047, 
+        "1980 Population" -> 96669, "1990 Population" -> 110715, 
+        "2000 Population" -> 104014, "2010 Population" -> 98429|>, <|
+       "Borough" -> "Brooklyn", "CD Number" -> 10, "CD Name" -> 
+        "Bay Ridge, Dyker Heights", "1970 Population" -> 129822, 
+        "1980 Population" -> 118187, "1990 Population" -> 110612, 
+        "2000 Population" -> 122542, "2010 Population" -> 124491|>, <|
+       "Borough" -> "Brooklyn", "CD Number" -> 11, "CD Name" -> 
+        "Bensonhurst, Bath Beach ", "1970 Population" -> 170119, 
+        "1980 Population" -> 155072, "1990 Population" -> 149994, 
+        "2000 Population" -> 172129, "2010 Population" -> 181981|>, <|
+       "Borough" -> "Brooklyn", "CD Number" -> 12, "CD Name" -> 
+        "Borough Park, Ocean Parkway", "1970 Population" -> 166301, 
+        "1980 Population" -> 155899, "1990 Population" -> 160018, 
+        "2000 Population" -> 185046, "2010 Population" -> 191382|>, <|
+       "Borough" -> "Brooklyn", "CD Number" -> 13, "CD Name" -> 
+        "Coney Island, Brighton Beach", "1970 Population" -> 97750, 
+        "1980 Population" -> 100030, "1990 Population" -> 102596, 
+        "2000 Population" -> 106120, "2010 Population" -> 104278|>, <|
+       "Borough" -> "Brooklyn", "CD Number" -> 14, "CD Name" -> 
+        "Flatbush, Midwood", "1970 Population" -> 137041, "1980 Population" -> 
+        143859, "1990 Population" -> 159825, "2000 Population" -> 168806, 
+        "2010 Population" -> 160664|>, <|
+       "Borough" -> "Brooklyn", "CD Number" -> 15, "CD Name" -> 
+        "Sheepshead Bay, Gerritsen Beach", "1970 Population" -> 164815, 
+        "1980 Population" -> 149572, "1990 Population" -> 143477, 
+        "2000 Population" -> 160319, "2010 Population" -> 159650|>, <|
+       "Borough" -> "Brooklyn", "CD Number" -> 16, "CD Name" -> 
+        "Brownsville, Ocean Hill", "1970 Population" -> 122589, 
+        "1980 Population" -> 73801, "1990 Population" -> 84923, 
+        "2000 Population" -> 85343, "2010 Population" -> 86468|>, <|
+       "Borough" -> "Brooklyn", "CD Number" -> 17, "CD Name" -> 
+        "East Flatbush, Rugby, Farragut", "1970 Population" -> 149496, 
+        "1980 Population" -> 154596, "1990 Population" -> 161261, 
+        "2000 Population" -> 165753, "2010 Population" -> 155252|>, <|
+       "Borough" -> "Brooklyn", "CD Number" -> 18, "CD Name" -> 
+        "Canarsie, Flatlands", "1970 Population" -> 188643, "1980 Population" -> 
+        169092, "1990 Population" -> 162428, "2000 Population" -> 194653, 
+        "2010 Population" -> 193543|>, <|
+       "Borough" -> "Manhattan", "CD Number" -> 1, "CD Name" -> 
+        "Battery Park City, Tribeca", "1970 Population" -> 7706, 
+        "1980 Population" -> 15918, "1990 Population" -> 25366, 
+        "2000 Population" -> 34420, "2010 Population" -> 60978|>, <|
+       "Borough" -> "Manhattan", "CD Number" -> 2, "CD Name" -> 
+        "Greenwich Village, Soho", "1970 Population" -> 84337, 
+        "1980 Population" -> 87069, "1990 Population" -> 94105, 
+        "2000 Population" -> 93119, "2010 Population" -> 90016|>, <|
+       "Borough" -> "Manhattan", "CD Number" -> 3, "CD Name" -> 
+        "Lower East Side, Chinatown", "1970 Population" -> 181845, 
+        "1980 Population" -> 154848, "1990 Population" -> 161617, 
+        "2000 Population" -> 164407, "2010 Population" -> 163277|>, <|
+       "Borough" -> "Manhattan", "CD Number" -> 4, "CD Name" -> 
+        "Chelsea, Clinton", "1970 Population" -> 83601, "1980 Population" -> 
+        82164, "1990 Population" -> 84431, "2000 Population" -> 87479, 
+        "2010 Population" -> 103245|>, <|
+       "Borough" -> "Manhattan", "CD Number" -> 5, "CD Name" -> 
+        "Midtown Business District", "1970 Population" -> 31076, 
+        "1980 Population" -> 39544, "1990 Population" -> 43507, 
+        "2000 Population" -> 44028, "2010 Population" -> 51673|>, <|
+       "Borough" -> "Manhattan", "CD Number" -> 6, "CD Name" -> 
+        "Stuyvesant Town, Turtle Bay", "1970 Population" -> 122465, 
+        "1980 Population" -> 127554, "1990 Population" -> 133748, 
+        "2000 Population" -> 136152, "2010 Population" -> 142745|>, <|
+       "Borough" -> "Manhattan", "CD Number" -> 7, "CD Name" -> 
+        "West Side, Upper West Side", "1970 Population" -> 212422, 
+        "1980 Population" -> 206669, "1990 Population" -> 210993, 
+        "2000 Population" -> 207699, "2010 Population" -> 209084|>, <|
+       "Borough" -> "Manhattan", "CD Number" -> 8, "CD Name" -> 
+        "Upper East Side", "1970 Population" -> 200851, "1980 Population" -> 
+        204305, "1990 Population" -> 210880, "2000 Population" -> 217063, 
+        "2010 Population" -> 219920|>, <|
+       "Borough" -> "Manhattan", "CD Number" -> 9, "CD Name" -> 
+        "Manhattanville, Hamilton Heights", "1970 Population" -> 113606, 
+        "1980 Population" -> 103038, "1990 Population" -> 106978, 
+        "2000 Population" -> 111724, "2010 Population" -> 110193|>, <|
+       "Borough" -> "Manhattan", "CD Number" -> 10, "CD Name" -> 
+        "Central Harlem", "1970 Population" -> 159267, "1980 Population" -> 
+        105641, "1990 Population" -> 99519, "2000 Population" -> 107109, 
+        "2010 Population" -> 115723|>, <|
+       "Borough" -> "Manhattan", "CD Number" -> 11, "CD Name" -> 
+        "East Harlem", "1970 Population" -> 154662, "1980 Population" -> 
+        114569, "1990 Population" -> 110508, "2000 Population" -> 117743, 
+        "2010 Population" -> 120511|>, <|
+       "Borough" -> "Manhattan", "CD Number" -> 12, "CD Name" -> 
+        "Washington Heights, Inwood", "1970 Population" -> 180561, 
+        "1980 Population" -> 179941, "1990 Population" -> 198192, 
+        "2000 Population" -> 208414, "2010 Population" -> 190020|>, <|
+       "Borough" -> "Queens", "CD Number" -> 1, "CD Name" -> 
+        "Astoria, Long Island City", "1970 Population" -> 185925, 
+        "1980 Population" -> 185198, "1990 Population" -> 188549, 
+        "2000 Population" -> 211220, "2010 Population" -> 191105|>, <|
+       "Borough" -> "Queens", "CD Number" -> 2, "CD Name" -> 
+        "Sunnyside, Woodside", "1970 Population" -> 95073, "1980 Population" -> 
+        88927, "1990 Population" -> 94845, "2000 Population" -> 109920, 
+        "2010 Population" -> 113200|>, <|
+       "Borough" -> "Queens", "CD Number" -> 3, "CD Name" -> 
+        "Jackson Heights, North Corona", "1970 Population" -> 123635, 
+        "1980 Population" -> 122090, "1990 Population" -> 128924, 
+        "2000 Population" -> 169083, "2010 Population" -> 171576|>, <|
+       "Borough" -> "Queens", "CD Number" -> 4, "CD Name" -> 
+        "Elmhurst, South Corona", "1970 Population" -> 108233, 
+        "1980 Population" -> 118430, "1990 Population" -> 137023, 
+        "2000 Population" -> 167005, "2010 Population" -> 172598|>, <|
+       "Borough" -> "Queens", "CD Number" -> 5, "CD Name" -> 
+        "Ridgewood, Glendale, Maspeth", "1970 Population" -> 161022, 
+        "1980 Population" -> 150142, "1990 Population" -> 149126, 
+        "2000 Population" -> 165911, "2010 Population" -> 169190|>, <|
+       "Borough" -> "Queens", "CD Number" -> 6, "CD Name" -> 
+        "Forest Hills, Rego Park", "1970 Population" -> 120429, 
+        "1980 Population" -> 112245, "1990 Population" -> 106996, 
+        "2000 Population" -> 115967, "2010 Population" -> 113257|>, <|
+       "Borough" -> "Queens", "CD Number" -> 7, "CD Name" -> 
+        "Flushing, Bay Terrace", "1970 Population" -> 207589, 
+        "1980 Population" -> 204785, "1990 Population" -> 220508, 
+        "2000 Population" -> 242952, "2010 Population" -> 247354|>, <|
+       "Borough" -> "Queens", "CD Number" -> 8, "CD Name" -> 
+        "Fresh Meadows, Briarwood", "1970 Population" -> 142468, 
+        "1980 Population" -> 125312, "1990 Population" -> 132101, 
+        "2000 Population" -> 146594, "2010 Population" -> 151107|>, <|
+       "Borough" -> "Queens", "CD Number" -> 9, "CD Name" -> 
+        "Woodhaven, Richmond Hill", "1970 Population" -> 110367, 
+        "1980 Population" -> 109505, "1990 Population" -> 112151, 
+        "2000 Population" -> 141608, "2010 Population" -> 143317|>, <|
+       "Borough" -> "Queens", "CD Number" -> 10, "CD Name" -> 
+        "Ozone Park, Howard Beach", "1970 Population" -> 113857, 
+        "1980 Population" -> 105651, "1990 Population" -> 107768, 
+        "2000 Population" -> 127274, "2010 Population" -> 122396|>, <|
+       "Borough" -> "Queens", "CD Number" -> 11, "CD Name" -> 
+        "Bayside, Douglaston, Little Neck", "1970 Population" -> 127883, 
+        "1980 Population" -> 110963, "1990 Population" -> 108056, 
+        "2000 Population" -> 116404, "2010 Population" -> 116431|>, <|
+       "Borough" -> "Queens", "CD Number" -> 12, "CD Name" -> 
+        "Jamaica, St. Albans, Hollis", "1970 Population" -> 206639, 
+        "1980 Population" -> 189383, "1990 Population" -> 201293, 
+        "2000 Population" -> 223602, "2010 Population" -> 225919|>, <|
+       "Borough" -> "Queens", "CD Number" -> 13, "CD Name" -> 
+        "Queens Village, Rosedale", "1970 Population" -> 184647, 
+        "1980 Population" -> 173178, "1990 Population" -> 177535, 
+        "2000 Population" -> 196284, "2010 Population" -> 188593|>, <|
+       "Borough" -> "Queens", "CD Number" -> 14, "CD Name" -> 
+        "The Rockaways, Broad Channel", "1970 Population" -> 98228, 
+        "1980 Population" -> 100592, "1990 Population" -> 100596, 
+        "2000 Population" -> 106686, "2010 Population" -> 114978|>, <|
+       "Borough" -> "Staten Island", "CD Number" -> 1, "CD Name" -> 
+        "Stapleton, Port Richmond", "1970 Population" -> 135875, 
+        "1980 Population" -> 138489, "1990 Population" -> 137806, 
+        "2000 Population" -> 162609, "2010 Population" -> 175756|>, <|
+       "Borough" -> "Staten Island", "CD Number" -> 2, "CD Name" -> 
+        "New Springville, South Beach", "1970 Population" -> 85985, 
+        "1980 Population" -> 105128, "1990 Population" -> 113944, 
+        "2000 Population" -> 127071, "2010 Population" -> 132003|>, <|
+       "Borough" -> "Staten Island", "CD Number" -> 3, "CD Name" -> 
+        "Tottenville, Woodrow, Great Kills", "1970 Population" -> 72815, 
+        "1980 Population" -> 108249, "1990 Population" -> 126956, 
+        "2000 Population" -> 152908, "2010 Population" -> 160209|>}, 
+     "AllowEmbedding" -> True, "InitialShape" -> 
+     TypeSystem`PackageScope`HeaderShape[<|{All, "Borough"} -> 
+        1, {All, "CD Number"} -> 1, {All, "CD Name"} -> 
+        1, {All, "1970 Population"} -> 1, {All, "1980 Population"} -> 
+        1, {All, "1990 Population"} -> 1, {All, "2000 Population"} -> 
+        1, {All, "2010 Population"} -> 1|>, 
+       TypeSystem`PackageScope`Limited[
+        TypeSystem`PackageScope`ColumnShape[
+         TypeSystem`PackageScope`Limited[
+          
+          TypeSystem`PackageScope`RowShape[<|
+           "Borough" -> TypeSystem`PackageScope`AtomShape[136.5], "CD Number" -> 
+            TypeSystem`PackageScope`AtomShape[34], "CD Name" -> 
+            TypeSystem`PackageScope`AtomShape[358.40000000000003`], 
+            "1970 Population" -> TypeSystem`PackageScope`AtomShape[34], 
+            "1980 Population" -> TypeSystem`PackageScope`AtomShape[34], 
+            "1990 Population" -> TypeSystem`PackageScope`AtomShape[34], 
+            "2000 Population" -> TypeSystem`PackageScope`AtomShape[34], 
+            "2010 Population" -> TypeSystem`PackageScope`AtomShape[34]|>], 
+          DirectedInfinity[1], 8, {All}]], 20, 
+        DirectedInfinity[1], {}]], "InitialType" -> TypeSystem`Vector[
+       TypeSystem`Struct[{
+        "Borough", "CD Number", "CD Name", "1970 Population", 
+         "1980 Population", "1990 Population", "2000 Population", 
+         "2010 Population"}, {
+         TypeSystem`Atom[
+          TypeSystem`Enumeration[
+          "Bronx", "Brooklyn", "Manhattan", "Queens", "Staten Island"]], 
+         TypeSystem`Atom[Integer], 
+         TypeSystem`Atom[String], 
+         TypeSystem`Atom[Integer], 
+         TypeSystem`Atom[Integer], 
+         TypeSystem`Atom[Integer], 
+         TypeSystem`Atom[Integer], 
+         TypeSystem`Atom[Integer]}], 59], "Meta" -> <||>, "RowTarget" -> 20, 
+     "ColumnTarget" -> 10, "Shape" -> 
+     TypeSystem`PackageScope`HeaderShape[<|{All, "Borough"} -> 
+        1, {All, "CD Number"} -> 1, {All, "CD Name"} -> 
+        1, {All, "1970 Population"} -> 1, {All, "1980 Population"} -> 
+        1, {All, "1990 Population"} -> 1, {All, "2000 Population"} -> 
+        1, {All, "2010 Population"} -> 1|>, 
+       TypeSystem`PackageScope`Limited[
+        TypeSystem`PackageScope`ColumnShape[
+         TypeSystem`PackageScope`Limited[
+          
+          TypeSystem`PackageScope`RowShape[<|
+           "Borough" -> TypeSystem`PackageScope`AtomShape[136.5], "CD Number" -> 
+            TypeSystem`PackageScope`AtomShape[34], "CD Name" -> 
+            TypeSystem`PackageScope`AtomShape[358.40000000000003`], 
+            "1970 Population" -> TypeSystem`PackageScope`AtomShape[34], 
+            "1980 Population" -> TypeSystem`PackageScope`AtomShape[34], 
+            "1990 Population" -> TypeSystem`PackageScope`AtomShape[34], 
+            "2000 Population" -> TypeSystem`PackageScope`AtomShape[34], 
+            "2010 Population" -> TypeSystem`PackageScope`AtomShape[34]|>], 
+          DirectedInfinity[1], 8, {All}]], 20, 
+        DirectedInfinity[1], {}]], "Type" -> TypeSystem`Vector[
+       TypeSystem`Struct[{
+        "Borough", "CD Number", "CD Name", "1970 Population", 
+         "1980 Population", "1990 Population", "2000 Population", 
+         "2010 Population"}, {
+         TypeSystem`Atom[
+          TypeSystem`Enumeration[
+          "Bronx", "Brooklyn", "Manhattan", "Queens", "Staten Island"]], 
+         TypeSystem`Atom[Integer], 
+         TypeSystem`Atom[String], 
+         TypeSystem`Atom[Integer], 
+         TypeSystem`Atom[Integer], 
+         TypeSystem`Atom[Integer], 
+         TypeSystem`Atom[Integer], 
+         TypeSystem`Atom[Integer]}], 59], "Path" -> {}, "DisplayedRowCount" -> 
+     20, "DisplayedColumnCount" -> 8, "DataRowCount" -> 59, "DataColumnCount" -> 
+     8, "SortPaths" -> {}, "SortDirections" -> {}, "HiddenItemsMap" -> Null, 
+     "UpdateType" -> 1|>, TypeSystem`NestedGrid`PackagePrivate`$outputID$$, 
+    TypeSystem`NestedGrid`PackagePrivate`$path$$ = {}, 
+    TypeSystem`NestedGrid`PackagePrivate`$vPos$$ = 29, 
+    TypeSystem`NestedGrid`PackagePrivate`$hPos$$ = 1, 
+    TypeSystem`NestedGrid`PackagePrivate`$grid$$ = 
+    DynamicModule[{
+     TypeSystem`NestedGrid`PackagePrivate`renderedGrid = Deploy[
+        Style[
+         Grid[{{
+            Item[
+             Pane[
+              Annotation[
+               EventHandler[
+                MouseAppearance[
+                 Mouseover["Borough", 
+                  Style[
+                  "Borough", FontColor -> 
+                   RGBColor[
+                    0.27450980392156865`, 0.5372549019607843, 
+                    0.792156862745098]]], "LinkHand"], {"MouseClicked", 1} :> 
+                If[
+                  TypeSystem`NestedGrid`PackagePrivate`checkInteractivity[
+                  TypeSystem`NestedGrid`PackagePrivate`$state$$], 
+                  TypeSystem`NestedGrid`PackagePrivate`updateState[
+                  TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`localHold[
+                   "a7345d40-b1db-44eb-baae-5ce84c4445aa"]][{All, "Borough"}, 
+                   1]]], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{All, "Borough"}, 
+                "ColumnHeader", True], "Mouse"], 
+              ImageSize -> {{1, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], Background -> 
+             GrayLevel[0.95], Alignment -> {Left, Baseline}], 
+            Item[
+             Pane[
+              Annotation[
+               EventHandler[
+                MouseAppearance[
+                 Mouseover["CD Number", 
+                  Style[
+                  "CD Number", FontColor -> 
+                   RGBColor[
+                    0.27450980392156865`, 0.5372549019607843, 
+                    0.792156862745098]]], "LinkHand"], {"MouseClicked", 1} :> 
+                If[
+                  TypeSystem`NestedGrid`PackagePrivate`checkInteractivity[
+                  TypeSystem`NestedGrid`PackagePrivate`$state$$], 
+                  TypeSystem`NestedGrid`PackagePrivate`updateState[
+                  TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`localHold[
+                   "a7345d40-b1db-44eb-baae-5ce84c4445aa"]][{
+                   All, "CD Number"}, 1]]], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{All, "CD Number"}, 
+                "ColumnHeader", True], "Mouse"], 
+              ImageSize -> {{1, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], Background -> 
+             GrayLevel[0.95], Alignment -> {Left, Baseline}], 
+            Item[
+             Pane[
+              Annotation[
+               EventHandler[
+                MouseAppearance[
+                 Mouseover["CD Name", 
+                  Style[
+                  "CD Name", FontColor -> 
+                   RGBColor[
+                    0.27450980392156865`, 0.5372549019607843, 
+                    0.792156862745098]]], "LinkHand"], {"MouseClicked", 1} :> 
+                If[
+                  TypeSystem`NestedGrid`PackagePrivate`checkInteractivity[
+                  TypeSystem`NestedGrid`PackagePrivate`$state$$], 
+                  TypeSystem`NestedGrid`PackagePrivate`updateState[
+                  TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`localHold[
+                   "a7345d40-b1db-44eb-baae-5ce84c4445aa"]][{All, "CD Name"}, 
+                   1]]], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{All, "CD Name"}, 
+                "ColumnHeader", True], "Mouse"], 
+              ImageSize -> {{1, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], Background -> 
+             GrayLevel[0.95], Alignment -> {Left, Baseline}], 
+            Item[
+             Pane[
+              Annotation[
+               EventHandler[
+                MouseAppearance[
+                 Mouseover["1970 Population", 
+                  Style[
+                  "1970 Population", FontColor -> 
+                   RGBColor[
+                    0.27450980392156865`, 0.5372549019607843, 
+                    0.792156862745098]]], "LinkHand"], {"MouseClicked", 1} :> 
+                If[
+                  TypeSystem`NestedGrid`PackagePrivate`checkInteractivity[
+                  TypeSystem`NestedGrid`PackagePrivate`$state$$], 
+                  TypeSystem`NestedGrid`PackagePrivate`updateState[
+                  TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`localHold[
+                   "a7345d40-b1db-44eb-baae-5ce84c4445aa"]][{
+                   All, "1970 Population"}, 1]]], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{
+                All, "1970 Population"}, "ColumnHeader", True], "Mouse"], 
+              ImageSize -> {{1, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], Background -> 
+             GrayLevel[0.95], Alignment -> {Left, Baseline}], 
+            Item[
+             Pane[
+              Annotation[
+               EventHandler[
+                MouseAppearance[
+                 Mouseover["1980 Population", 
+                  Style[
+                  "1980 Population", FontColor -> 
+                   RGBColor[
+                    0.27450980392156865`, 0.5372549019607843, 
+                    0.792156862745098]]], "LinkHand"], {"MouseClicked", 1} :> 
+                If[
+                  TypeSystem`NestedGrid`PackagePrivate`checkInteractivity[
+                  TypeSystem`NestedGrid`PackagePrivate`$state$$], 
+                  TypeSystem`NestedGrid`PackagePrivate`updateState[
+                  TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`localHold[
+                   "a7345d40-b1db-44eb-baae-5ce84c4445aa"]][{
+                   All, "1980 Population"}, 1]]], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{
+                All, "1980 Population"}, "ColumnHeader", True], "Mouse"], 
+              ImageSize -> {{1, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], Background -> 
+             GrayLevel[0.95], Alignment -> {Left, Baseline}], 
+            Item[
+             Pane[
+              Annotation[
+               EventHandler[
+                MouseAppearance[
+                 Mouseover["1990 Population", 
+                  Style[
+                  "1990 Population", FontColor -> 
+                   RGBColor[
+                    0.27450980392156865`, 0.5372549019607843, 
+                    0.792156862745098]]], "LinkHand"], {"MouseClicked", 1} :> 
+                If[
+                  TypeSystem`NestedGrid`PackagePrivate`checkInteractivity[
+                  TypeSystem`NestedGrid`PackagePrivate`$state$$], 
+                  TypeSystem`NestedGrid`PackagePrivate`updateState[
+                  TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`localHold[
+                   "a7345d40-b1db-44eb-baae-5ce84c4445aa"]][{
+                   All, "1990 Population"}, 1]]], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{
+                All, "1990 Population"}, "ColumnHeader", True], "Mouse"], 
+              ImageSize -> {{1, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], Background -> 
+             GrayLevel[0.95], Alignment -> {Left, Baseline}], 
+            Item[
+             Pane[
+              Annotation[
+               EventHandler[
+                MouseAppearance[
+                 Mouseover["2000 Population", 
+                  Style[
+                  "2000 Population", FontColor -> 
+                   RGBColor[
+                    0.27450980392156865`, 0.5372549019607843, 
+                    0.792156862745098]]], "LinkHand"], {"MouseClicked", 1} :> 
+                If[
+                  TypeSystem`NestedGrid`PackagePrivate`checkInteractivity[
+                  TypeSystem`NestedGrid`PackagePrivate`$state$$], 
+                  TypeSystem`NestedGrid`PackagePrivate`updateState[
+                  TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`localHold[
+                   "a7345d40-b1db-44eb-baae-5ce84c4445aa"]][{
+                   All, "2000 Population"}, 1]]], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{
+                All, "2000 Population"}, "ColumnHeader", True], "Mouse"], 
+              ImageSize -> {{1, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], Background -> 
+             GrayLevel[0.95], Alignment -> {Left, Baseline}], 
+            Item[
+             Pane[
+              Annotation[
+               EventHandler[
+                MouseAppearance[
+                 Mouseover["2010 Population", 
+                  Style[
+                  "2010 Population", FontColor -> 
+                   RGBColor[
+                    0.27450980392156865`, 0.5372549019607843, 
+                    0.792156862745098]]], "LinkHand"], {"MouseClicked", 1} :> 
+                If[
+                  TypeSystem`NestedGrid`PackagePrivate`checkInteractivity[
+                  TypeSystem`NestedGrid`PackagePrivate`$state$$], 
+                  TypeSystem`NestedGrid`PackagePrivate`updateState[
+                  TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                   TypeSystem`NestedGrid`PackagePrivate`localHold[
+                   "a7345d40-b1db-44eb-baae-5ce84c4445aa"]][{
+                   All, "2010 Population"}, 1]]], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{
+                All, "2010 Population"}, "ColumnHeader", True], "Mouse"], 
+              ImageSize -> {{1, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], Background -> 
+             GrayLevel[0.95], Alignment -> {Left, Baseline}]}, {
+            Item[
+             Pane[
+              Annotation["Brooklyn", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{29, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["17"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{29, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["East Flatbush, Rugby, Farragut", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{29, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["149496"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{29, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["154596"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{29, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["161261"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{29, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["165753"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{29, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["155252"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{29, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Brooklyn", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{30, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["18"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{30, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["Canarsie, Flatlands", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{30, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["188643"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{30, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["169092"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{30, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["162428"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{30, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["194653"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{30, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["193543"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{30, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Manhattan", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{31, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["1"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{31, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["Battery Park City, Tribeca", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{31, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["7706"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{31, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["15918"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{31, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["25366"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{31, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["34420"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{31, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["60978"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{31, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Manhattan", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{32, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["2"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{32, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["Greenwich Village, Soho", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{32, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["84337"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{32, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["87069"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{32, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["94105"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{32, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["93119"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{32, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["90016"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{32, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Manhattan", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{33, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["3"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{33, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["Lower East Side, Chinatown", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{33, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["181845"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{33, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["154848"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{33, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["161617"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{33, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["164407"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{33, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["163277"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{33, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Manhattan", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{34, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["4"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{34, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["Chelsea, Clinton", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{34, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["83601"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{34, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["82164"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{34, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["84431"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{34, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["87479"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{34, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["103245"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{34, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Manhattan", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{35, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["5"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{35, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["Midtown Business District", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{35, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["31076"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{35, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["39544"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{35, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["43507"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{35, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["44028"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{35, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["51673"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{35, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Manhattan", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{36, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["6"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{36, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["Stuyvesant Town, Turtle Bay", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{36, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["122465"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{36, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["127554"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{36, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["133748"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{36, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["136152"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{36, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["142745"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{36, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Manhattan", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{37, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["7"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{37, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["West Side, Upper West Side", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{37, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["212422"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{37, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["206669"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{37, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["210993"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{37, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["207699"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{37, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["209084"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{37, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Manhattan", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{38, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["8"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{38, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["Upper East Side", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{38, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["200851"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{38, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["204305"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{38, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["210880"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{38, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["217063"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{38, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["219920"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{38, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Manhattan", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{39, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["9"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{39, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["Manhattanville, Hamilton Heights", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{39, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["113606"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{39, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["103038"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{39, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["106978"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{39, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["111724"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{39, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["110193"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{39, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Manhattan", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{40, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["10"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{40, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["Central Harlem", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{40, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["159267"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{40, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["105641"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{40, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["99519"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{40, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["107109"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{40, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["115723"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{40, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Manhattan", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{41, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["11"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{41, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["East Harlem", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{41, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["154662"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{41, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["114569"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{41, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["110508"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{41, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["117743"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{41, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["120511"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{41, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Manhattan", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{42, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["12"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{42, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["Washington Heights, Inwood", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{42, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["180561"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{42, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["179941"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{42, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["198192"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{42, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["208414"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{42, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["190020"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{42, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Queens", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{43, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["1"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{43, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["Astoria, Long Island City", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{43, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["185925"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{43, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["185198"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{43, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["188549"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{43, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["211220"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{43, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["191105"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{43, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Queens", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{44, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["2"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{44, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["Sunnyside, Woodside", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{44, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["95073"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{44, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["88927"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{44, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["94845"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{44, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["109920"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{44, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["113200"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{44, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Queens", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{45, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["3"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{45, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["Jackson Heights, North Corona", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{45, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["123635"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{45, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["122090"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{45, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["128924"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{45, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["169083"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{45, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["171576"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{45, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Queens", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{46, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["4"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{46, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["Elmhurst, South Corona", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{46, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["108233"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{46, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["118430"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{46, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["137023"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{46, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["167005"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{46, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["172598"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{46, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Queens", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{47, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["5"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{47, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["Ridgewood, Glendale, Maspeth", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{47, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["161022"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{47, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["150142"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{47, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["149126"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{47, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["165911"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{47, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["169190"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{47, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Pane[
+              Annotation["Queens", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{48, 
+                 Key["Borough"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{136.5, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["6"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{48, 
+                 Key["CD Number"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation["Forest Hills, Rego Park", 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{48, 
+                 Key["CD Name"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{358.40000000000003`, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["120429"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{48, 
+                 Key["1970 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["112245"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{48, 
+                 Key["1980 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["106996"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{48, 
+                 Key["1990 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["115967"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{48, 
+                 Key["2000 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}], 
+            Item[
+             Pane[
+              Annotation[
+               RawBoxes["113257"], 
+               TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+               "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{48, 
+                 Key["2010 Population"]}, "Item", False], "Mouse"], 
+              ImageSize -> {{34, Full}, Automatic}, 
+              ImageMargins -> {{5, 3}, {4, 5}}], 
+             ItemSize -> {Full, Automatic}]}, {
+            Item[
+             Deploy[
+              Pane[
+               Row[{
+                 Spacer[2], 
+                 Style[
+                  Row[{
+                    Button[
+                    MouseAppearance[
+                    Mouseover[
+                    Graphics[{{
+                    EdgeForm[None], 
+                    FaceForm[None], 
+                    Rectangle[{0, 0}, {18, 18}, RoundingRadius -> 2]}, 
+                    Rotate[
+                    Translate[{
+                    CapForm[Round], 
+                    Line[{{0, 0}, {4, 5}, {8, 0}}], 
+                    Line[{{0, 5}, {8, 5}}]}, {5, 6.5}], 0, {9, 9}]}, 
+                    ImageSize -> (1 -> 1), ImagePadding -> {{0, 1}, {1, 0}}, 
+                    BaselinePosition -> Scaled[0.35], BaseStyle -> 
+                    RGBColor[
+                    0.5372549019607843, 0.5372549019607843, 
+                    0.5372549019607843]], 
+                    Graphics[{{
+                    EdgeForm[
+                    RGBColor[
+                    0.27450980392156865`, 0.5411764705882353, 
+                    0.796078431372549]], 
+                    FaceForm[None], 
+                    Rectangle[{0, 0}, {18, 18}, RoundingRadius -> 2]}, 
+                    Rotate[
+                    Translate[{
+                    CapForm[Round], 
+                    RGBColor[
+                    0.27450980392156865`, 0.5411764705882353, 
+                    0.796078431372549], 
+                    Line[{{0, 0}, {4, 5}, {8, 0}}], 
+                    Line[{{0, 5}, {8, 5}}]}, {5, 6.5}], 0, {9, 9}]}, 
+                    ImageSize -> (1 -> 1), ImagePadding -> {{0, 1}, {1, 0}}, 
+                    BaselinePosition -> Scaled[0.35]]], "LinkHand"], 
+                    If[
+                    TypeSystem`NestedGrid`PackagePrivate`checkInteractivity[
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$], 
+                    TypeSystem`NestedGrid`PackagePrivate`$vPos$$ = 
+                    Clip[TypeSystem`NestedGrid`PackagePrivate`$vPos$$ + (-20) 
+                    If[True, 59, 1], {1, 59 - -20 + 1}]; 
+                    TypeSystem`NestedGrid`PackagePrivate`updateState[
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`localHold[
+                    "a7345d40-b1db-44eb-baae-5ce84c4445aa"], True][
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$]], 
+                    Appearance -> None], 
+                    Button[
+                    MouseAppearance[
+                    Mouseover[
+                    Graphics[{{
+                    EdgeForm[None], 
+                    FaceForm[None], 
+                    Rectangle[{0, 0}, {18, 18}, RoundingRadius -> 2]}, 
+                    Rotate[
+                    Translate[{
+                    CapForm[Round], 
+                    Line[{{0, 0}, {4, 5}, {8, 0}}]}, {5, 6.5}], 0, {9, 9}]}, 
+                    ImageSize -> (1 -> 1), ImagePadding -> {{0, 1}, {1, 0}}, 
+                    BaselinePosition -> Scaled[0.35], BaseStyle -> 
+                    RGBColor[
+                    0.5372549019607843, 0.5372549019607843, 
+                    0.5372549019607843]], 
+                    Graphics[{{
+                    EdgeForm[
+                    RGBColor[
+                    0.27450980392156865`, 0.5411764705882353, 
+                    0.796078431372549]], 
+                    FaceForm[None], 
+                    Rectangle[{0, 0}, {18, 18}, RoundingRadius -> 2]}, 
+                    Rotate[
+                    Translate[{
+                    CapForm[Round], 
+                    RGBColor[
+                    0.27450980392156865`, 0.5411764705882353, 
+                    0.796078431372549], 
+                    Line[{{0, 0}, {4, 5}, {8, 0}}]}, {5, 6.5}], 0, {9, 9}]}, 
+                    ImageSize -> (1 -> 1), ImagePadding -> {{0, 1}, {1, 0}}, 
+                    BaselinePosition -> Scaled[0.35]]], "LinkHand"], 
+                    If[
+                    TypeSystem`NestedGrid`PackagePrivate`checkInteractivity[
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$], 
+                    TypeSystem`NestedGrid`PackagePrivate`$vPos$$ = 
+                    Clip[TypeSystem`NestedGrid`PackagePrivate`$vPos$$ + (-20) 
+                    If[False, 59, 1], {1, 59 - -20 + 1}]; 
+                    TypeSystem`NestedGrid`PackagePrivate`updateState[
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`localHold[
+                    "a7345d40-b1db-44eb-baae-5ce84c4445aa"], True][
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$]], 
+                    Appearance -> None], " ", 
+                    Style[
+                    Mouseover[
+                    Style[
+                    Row[{"rows ", 29, "\[Dash]", 48, " of ", 
+                    Style[59, FontWeight -> Bold]}], FontSize -> 
+                    9.333333333333332, FontColor -> 
+                    RGBColor[
+                    0.5098039215686274, 0.5098039215686274, 
+                    0.5098039215686274]], 
+                    Style[
+                    Row[{"rows ", 29, "\[Dash]", 48, " of ", 
+                    Style[59, FontWeight -> Bold]}], FontSize -> 
+                    9.333333333333332, FontColor -> 
+                    RGBColor[
+                    0.5098039215686274, 0.5098039215686274, 
+                    0.5098039215686274]]], ContextMenu -> {
+                    MenuItem["Hide", 
+                    KernelExecute[
+                    
+                    TypeSystem`NestedGrid`PackagePrivate`adjustLimits[{
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                    "a7345d40-b1db-44eb-baae-5ce84c4445aa"}, "Rows", 1, {}]], 
+                    MenuEvaluator -> Automatic], 
+                    MenuItem["Show up to 10 Rows", 
+                    KernelExecute[
+                    
+                    TypeSystem`NestedGrid`PackagePrivate`adjustLimits[{
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                    "a7345d40-b1db-44eb-baae-5ce84c4445aa"}, "Rows", 10, {}]],
+                     MenuEvaluator -> Automatic], 
+                    MenuItem["Show up to 30 Rows", 
+                    KernelExecute[
+                    
+                    TypeSystem`NestedGrid`PackagePrivate`adjustLimits[{
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                    "a7345d40-b1db-44eb-baae-5ce84c4445aa"}, "Rows", 30, {}]],
+                     MenuEvaluator -> Automatic], 
+                    MenuItem["Show up to 100 Rows", 
+                    KernelExecute[
+                    
+                    TypeSystem`NestedGrid`PackagePrivate`adjustLimits[{
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                    "a7345d40-b1db-44eb-baae-5ce84c4445aa"}, "Rows", 
+                    100, {}]], MenuEvaluator -> Automatic], 
+                    MenuItem["Show All", 
+                    KernelExecute[
+                    
+                    TypeSystem`NestedGrid`PackagePrivate`adjustLimits[{
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                    "a7345d40-b1db-44eb-baae-5ce84c4445aa"}, "Rows", 
+                    100000000, {}]], MenuEvaluator -> Automatic]}], " ", 
+                    Button[
+                    MouseAppearance[
+                    Mouseover[
+                    Graphics[{{
+                    EdgeForm[None], 
+                    FaceForm[None], 
+                    Rectangle[{0, 0}, {18, 18}, RoundingRadius -> 2]}, 
+                    Rotate[
+                    Translate[{
+                    CapForm[Round], 
+                    Line[{{0, 0}, {4, 5}, {8, 0}}]}, {5, 6.5}], 180 Degree, {
+                    9, 9}]}, ImageSize -> (1 -> 1), 
+                    ImagePadding -> {{0, 1}, {1, 0}}, BaselinePosition -> 
+                    Scaled[0.35], BaseStyle -> 
+                    RGBColor[
+                    0.5372549019607843, 0.5372549019607843, 
+                    0.5372549019607843]], 
+                    Graphics[{{
+                    EdgeForm[
+                    RGBColor[
+                    0.27450980392156865`, 0.5411764705882353, 
+                    0.796078431372549]], 
+                    FaceForm[None], 
+                    Rectangle[{0, 0}, {18, 18}, RoundingRadius -> 2]}, 
+                    Rotate[
+                    Translate[{
+                    CapForm[Round], 
+                    RGBColor[
+                    0.27450980392156865`, 0.5411764705882353, 
+                    0.796078431372549], 
+                    Line[{{0, 0}, {4, 5}, {8, 0}}]}, {5, 6.5}], 180 Degree, {
+                    9, 9}]}, ImageSize -> (1 -> 1), 
+                    ImagePadding -> {{0, 1}, {1, 0}}, BaselinePosition -> 
+                    Scaled[0.35]]], "LinkHand"], 
+                    If[
+                    TypeSystem`NestedGrid`PackagePrivate`checkInteractivity[
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$], 
+                    TypeSystem`NestedGrid`PackagePrivate`$vPos$$ = 
+                    Clip[TypeSystem`NestedGrid`PackagePrivate`$vPos$$ + 
+                    20 If[False, 59, 1], {1, 59 - 20 + 1}]; 
+                    TypeSystem`NestedGrid`PackagePrivate`updateState[
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`localHold[
+                    "a7345d40-b1db-44eb-baae-5ce84c4445aa"], True][
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$]], 
+                    Appearance -> None], 
+                    Button[
+                    MouseAppearance[
+                    Mouseover[
+                    Graphics[{{
+                    EdgeForm[None], 
+                    FaceForm[None], 
+                    Rectangle[{0, 0}, {18, 18}, RoundingRadius -> 2]}, 
+                    Rotate[
+                    Translate[{
+                    CapForm[Round], 
+                    Line[{{0, 0}, {4, 5}, {8, 0}}], 
+                    Line[{{0, 5}, {8, 5}}]}, {5, 6.5}], 180 Degree, {9, 9}]}, 
+                    ImageSize -> (1 -> 1), ImagePadding -> {{0, 1}, {1, 0}}, 
+                    BaselinePosition -> Scaled[0.35], BaseStyle -> 
+                    RGBColor[
+                    0.5372549019607843, 0.5372549019607843, 
+                    0.5372549019607843]], 
+                    Graphics[{{
+                    EdgeForm[
+                    RGBColor[
+                    0.27450980392156865`, 0.5411764705882353, 
+                    0.796078431372549]], 
+                    FaceForm[None], 
+                    Rectangle[{0, 0}, {18, 18}, RoundingRadius -> 2]}, 
+                    Rotate[
+                    Translate[{
+                    CapForm[Round], 
+                    RGBColor[
+                    0.27450980392156865`, 0.5411764705882353, 
+                    0.796078431372549], 
+                    Line[{{0, 0}, {4, 5}, {8, 0}}], 
+                    Line[{{0, 5}, {8, 5}}]}, {5, 6.5}], 180 Degree, {9, 9}]}, 
+                    ImageSize -> (1 -> 1), ImagePadding -> {{0, 1}, {1, 0}}, 
+                    BaselinePosition -> Scaled[0.35]]], "LinkHand"], 
+                    If[
+                    TypeSystem`NestedGrid`PackagePrivate`checkInteractivity[
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$], 
+                    TypeSystem`NestedGrid`PackagePrivate`$vPos$$ = 
+                    Clip[TypeSystem`NestedGrid`PackagePrivate`$vPos$$ + 
+                    20 If[True, 59, 1], {1, 59 - 20 + 1}]; 
+                    TypeSystem`NestedGrid`PackagePrivate`updateState[
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`localHold[
+                    "a7345d40-b1db-44eb-baae-5ce84c4445aa"], True][
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$]], 
+                    Appearance -> None]}], ContextMenu -> {}]}], 
+               ImageMargins -> {{0, -1}, {-1, 1}}]], Background -> 
+             RGBColor[
+              0.9764705882352941, 0.9764705882352941, 0.9764705882352941], 
+             Alignment -> {Left, Top}], SpanFromLeft, SpanFromLeft, 
+            SpanFromLeft, SpanFromLeft, SpanFromLeft, SpanFromLeft, 
+            SpanFromLeft}}, 
+          BaseStyle -> {
+           ContextMenu -> 
+            Dynamic[TypeSystem`NestedGrid`PackagePrivate`$contextMenuTrigger; 
+              Which[TypeSystem`NestedGrid`PackagePrivate`$lastOutputID =!= 
+                "a7345d40-b1db-44eb-baae-5ce84c4445aa", {}, 
+                TypeSystem`NestedGrid`PackagePrivate`$contextMenuTrigger === 
+                TypeSystem`NestedGrid`PackagePrivate`$lastContextMenuTrigger, 
+                TypeSystem`NestedGrid`PackagePrivate`$lastContextMenu, True, 
+                TypeSystem`NestedGrid`PackagePrivate`$lastContextMenuTrigger = 
+                 TypeSystem`NestedGrid`PackagePrivate`$contextMenuTrigger; 
+                TypeSystem`NestedGrid`PackagePrivate`$lastContextMenu = 
+                 Block[{TypeSystem`NestedGrid`PackagePrivate`$globalScrollPos = \
+{TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$hPos$$}}, 
+                   With[{
+                    TypeSystem`NestedGrid`PackagePrivate`lastPath$ = 
+                    TypeSystem`NestedGrid`PackagePrivate`$lastPath, 
+                    TypeSystem`NestedGrid`PackagePrivate`lastPathType$ = 
+                    TypeSystem`NestedGrid`PackagePrivate`$lastPathType, 
+                    TypeSystem`NestedGrid`PackagePrivate`isLeafHeader$ = 
+                    TypeSystem`NestedGrid`PackagePrivate`$\
+lastPathIsLeafHeader, TypeSystem`NestedGrid`PackagePrivate`headerHidden$ = And[
+                    MatchQ[TypeSystem`NestedGrid`PackagePrivate`$lastPathType, 
+                    Alternatives["RowHeader", "ColumnHeader"]], 
+                    TypeSystem`NestedGrid`PackagePrivate`headerHiddenQ[
+                    TypeSystem`NestedGrid`PackagePrivate`$lastPath, 
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$]], 
+                    TypeSystem`NestedGrid`PackagePrivate`allHidden$ = 
+                    TypeSystem`NestedGrid`PackagePrivate`allHiddenQ[
+                    TypeSystem`NestedGrid`PackagePrivate`$lastPath, 
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$], 
+                    TypeSystem`NestedGrid`PackagePrivate`anyHidden$ = 
+                    TypeSystem`NestedGrid`PackagePrivate`anyHiddenQ[
+                    TypeSystem`NestedGrid`PackagePrivate`$lastPath, 
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$], 
+                    TypeSystem`NestedGrid`PackagePrivate`sortDirection$ = 
+                    TypeSystem`NestedGrid`PackagePrivate`columnSortDirection[
+                    TypeSystem`NestedGrid`PackagePrivate`$lastPath, 
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$[
+                    "SortPaths"], 
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$[
+                    "SortDirections"]], 
+                    TypeSystem`NestedGrid`PackagePrivate`haveData$ = Not[
+                    FailureQ[
+                    TypeSystem`NestedGrid`PackagePrivate`datasetInitialData[
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$]]], 
+                    TypeSystem`NestedGrid`PackagePrivate`isKeyDummy$ = Not[
+                    FreeQ[
+                    TypeSystem`NestedGrid`PackagePrivate`$lastPath, Keys]]}, 
+                    Join[{
+                    If[
+                    Or[
+                    Not[TypeSystem`NestedGrid`PackagePrivate`haveData$], 
+                    Not[TypeSystem`NestedGrid`PackagePrivate`anyHidden$], 
+                    TypeSystem`NestedGrid`PackagePrivate`isKeyDummy$], 
+                    Nothing, 
+                    MenuItem[
+                    "Show " <> 
+                    Which[TypeSystem`NestedGrid`PackagePrivate`lastPathType$ == 
+                    "Item", "", 
+                    TypeSystem`NestedGrid`PackagePrivate`lastPathType$ == 
+                    "RowHeader", "Row", 
+                    TypeSystem`NestedGrid`PackagePrivate`lastPathType$ == 
+                    "ColumnHeader", "Column", True, ""], 
+                    KernelExecute[
+                    TypeSystem`NestedGrid`PackagePrivate`updateHiddenItems[
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`localHold[
+                    "a7345d40-b1db-44eb-baae-5ce84c4445aa"]][
+                    TypeSystem`NestedGrid`PackagePrivate`lastPath$, 
+                    "remove"]], MenuEvaluator -> Automatic]], 
+                    If[
+                    Or[
+                    Not[TypeSystem`NestedGrid`PackagePrivate`haveData$], 
+                    TypeSystem`NestedGrid`PackagePrivate`pathEmptyQ[
+                    TypeSystem`NestedGrid`PackagePrivate`$lastPath, 
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$], 
+                    TypeSystem`NestedGrid`PackagePrivate`isKeyDummy$, 
+                    And[
+                    TypeSystem`NestedGrid`PackagePrivate`allHidden$, 
+                    TypeSystem`NestedGrid`PackagePrivate`headerHidden$]], 
+                    Nothing, 
+                    MenuItem[
+                    "Hide " <> 
+                    Which[TypeSystem`NestedGrid`PackagePrivate`lastPathType$ == 
+                    "Item", "", 
+                    TypeSystem`NestedGrid`PackagePrivate`lastPathType$ == 
+                    "RowHeader", "Row", 
+                    TypeSystem`NestedGrid`PackagePrivate`lastPathType$ == 
+                    "ColumnHeader", "Column", True, ""], 
+                    KernelExecute[
+                    TypeSystem`NestedGrid`PackagePrivate`updateHiddenItems[
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`localHold[
+                    "a7345d40-b1db-44eb-baae-5ce84c4445aa"]][
+                    TypeSystem`NestedGrid`PackagePrivate`lastPath$, "add"]], 
+                    MenuEvaluator -> Automatic]], Delimiter}, 
+                    If[
+                    And[TypeSystem`NestedGrid`PackagePrivate`haveData$, 
+                    MatchQ[TypeSystem`NestedGrid`PackagePrivate`lastPathType$, 
+                    Alternatives["ColumnHeader", "KeyDummy"]], 
+                    TypeSystem`NestedGrid`PackagePrivate`isLeafHeader$, 
+                    Not[TypeSystem`NestedGrid`PackagePrivate`allHidden$]], {
+                    If[
+                    TypeSystem`NestedGrid`PackagePrivate`sortDirection$ =!= 
+                    "Ascending", 
+                    MenuItem["Sort", 
+                    KernelExecute[
+                    TypeSystem`NestedGrid`PackagePrivate`updateSort[
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                    "a7345d40-b1db-44eb-baae-5ce84c4445aa"][
+                    TypeSystem`NestedGrid`PackagePrivate`lastPath$, 
+                    "Ascending"]], MenuEvaluator -> Automatic], Nothing], 
+                    If[
+                    TypeSystem`NestedGrid`PackagePrivate`sortDirection$ =!= 
+                    "Descending", 
+                    MenuItem["Reverse Sort", 
+                    KernelExecute[
+                    TypeSystem`NestedGrid`PackagePrivate`updateSort[
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                    "a7345d40-b1db-44eb-baae-5ce84c4445aa"][
+                    TypeSystem`NestedGrid`PackagePrivate`lastPath$, 
+                    "Descending"]], MenuEvaluator -> Automatic], Nothing], 
+                    If[
+                    TypeSystem`NestedGrid`PackagePrivate`sortDirection$ =!= 
+                    None, 
+                    MenuItem["Unsort", 
+                    KernelExecute[
+                    TypeSystem`NestedGrid`PackagePrivate`updateSort[
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+                    "a7345d40-b1db-44eb-baae-5ce84c4445aa"][
+                    TypeSystem`NestedGrid`PackagePrivate`lastPath$, None]], 
+                    MenuEvaluator -> Automatic], Nothing], Delimiter}, {}], {
+                    MenuItem["Copy Position to Clipboard", 
+                    KernelExecute[
+                    TypeSystem`NestedGrid`PackagePrivate`toCurrentPosition[
+                    TypeSystem`NestedGrid`PackagePrivate`copyClip]], 
+                    MenuEvaluator -> Automatic], 
+                    If[TypeSystem`NestedGrid`PackagePrivate`haveData$, 
+                    MenuItem["Copy Data to Clipboard", 
+                    KernelExecute[
+                    TypeSystem`NestedGrid`PackagePrivate`toCurrentData[
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`copyClip]], 
+                    MenuEvaluator -> Automatic], Nothing], Delimiter, 
+                    MenuItem["Paste Position in New Cell", 
+                    KernelExecute[
+                    TypeSystem`NestedGrid`PackagePrivate`toCurrentPosition[
+                    TypeSystem`NestedGrid`PackagePrivate`cellPaste]], 
+                    MenuEvaluator -> Automatic], 
+                    If[TypeSystem`NestedGrid`PackagePrivate`haveData$, 
+                    MenuItem["Paste Data in New Cell", 
+                    KernelExecute[
+                    TypeSystem`NestedGrid`PackagePrivate`toCurrentData[
+                    TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+                    TypeSystem`NestedGrid`PackagePrivate`cellPaste]], 
+                    MenuEvaluator -> Automatic], Nothing]}]]]]], FontFamily -> 
+            "Source Sans Pro", FontSize -> 14, FontWeight -> Plain}, Dividers -> 
+          All, FrameStyle -> GrayLevel[0.7490196078431373], 
+          Spacings -> {0, 0}, Alignment -> Left, 
+          BaseStyle -> {
+           FontFamily -> "Source Sans Pro", FontSize -> 14, FontWeight -> 
+            Plain}], LineBreakWithin -> False, ContextMenu -> {}, NumberMarks -> 
+         False, ShowAutoStyles -> False]], 
+      TypeSystem`NestedGrid`PackagePrivate`initialQ = True}, 
+     Dynamic[
+      TypeSystem`NestedGrid`PackagePrivate`setupViewPath[
+      TypeSystem`NestedGrid`PackagePrivate`$path$$, If[
+         Not[TypeSystem`NestedGrid`PackagePrivate`initialQ], 
+         Module[{
+          TypeSystem`NestedGrid`PackagePrivate`tmpGrid$ = $Failed, 
+           TypeSystem`NestedGrid`PackagePrivate`tmpData$ = 
+           TypeSystem`NestedGrid`PackagePrivate`datasetData[
+            TypeSystem`NestedGrid`PackagePrivate`$state$$]}, 
+          TypeSystem`NestedGrid`PackagePrivate`tmpGrid$ = If[
+             FailureQ[TypeSystem`NestedGrid`PackagePrivate`tmpData$], 
+             TypeSystem`NestedGrid`PackagePrivate`renderedGrid, 
+             TypeSystem`NestedGrid`PackagePrivate`renderGrid[
+             TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+              TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+              TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+              TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+              TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+              "a7345d40-b1db-44eb-baae-5ce84c4445aa"][
+             TypeSystem`NestedGrid`PackagePrivate`tmpData$]]; If[
+            Not[
+             FailureQ[TypeSystem`NestedGrid`PackagePrivate`tmpGrid$]], 
+            TypeSystem`NestedGrid`PackagePrivate`renderedGrid = 
+            TypeSystem`NestedGrid`PackagePrivate`tmpGrid$]; Null]]; 
+       TypeSystem`NestedGrid`PackagePrivate`initialQ = False; 
+       TypeSystem`NestedGrid`PackagePrivate`$vPos$$; 
+       TypeSystem`NestedGrid`PackagePrivate`$hPos$$; If[
+         FailureQ[TypeSystem`NestedGrid`PackagePrivate`renderedGrid], 
+         TypeSystem`SparseGrid[
+          TypeSystem`H["(data no longer present)"]], 
+         TypeSystem`NestedGrid`PackagePrivate`renderedGrid]], 
+      TrackedSymbols :> {
+       TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+        TypeSystem`NestedGrid`PackagePrivate`$hPos$$}], 
+     DynamicModuleValues :> {}], 
+    TypeSystem`NestedGrid`PackagePrivate`$topBar$$ = Dynamic[
+     TypeSystem`NestedGrid`PackagePrivate`makeFramedBar[
+      TypeSystem`PackageScope`SubViewPathbar[
+      TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+       TypeSystem`NestedGrid`PackagePrivate`updateState[
+       TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+        TypeSystem`NestedGrid`PackagePrivate`$path$$, 
+        TypeSystem`NestedGrid`PackagePrivate`$vPos$$, 
+        TypeSystem`NestedGrid`PackagePrivate`$hPos$$, 
+        TypeSystem`NestedGrid`PackagePrivate`$grid$$, 
+        TypeSystem`NestedGrid`PackagePrivate`localHold[
+        TypeSystem`NestedGrid`PackagePrivate`$outputID$$]]]], 
+     TrackedSymbols :> {TypeSystem`NestedGrid`PackagePrivate`$path$$}], 
+    TypeSystem`NestedGrid`PackagePrivate`$bottomBar$$ = Style[
+     Framed[
+      Dynamic[
+       Replace[
+       TypeSystem`NestedGrid`PackagePrivate`mouseAnnotation$$, {
+        TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+           TypeSystem`NestedGrid`PackagePrivate`localHold[
+           TypeSystem`NestedGrid`PackagePrivate`$outputID$$]][Null, 
+           Blank[]] -> "", TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+           TypeSystem`NestedGrid`PackagePrivate`localHold[
+           TypeSystem`NestedGrid`PackagePrivate`$outputID$$]][
+           Pattern[TypeSystem`NestedGrid`PackagePrivate`path$, 
+            Blank[]], 
+           Pattern[TypeSystem`NestedGrid`PackagePrivate`pathType$, 
+            Blank[]], 
+           Pattern[TypeSystem`NestedGrid`PackagePrivate`isLeafHeader$, 
+            Blank[]]] :> (
+          Increment[TypeSystem`NestedGrid`PackagePrivate`$contextMenuTrigger]; 
+          TypeSystem`NestedGrid`PackagePrivate`$lastPath = 
+           TypeSystem`NestedGrid`PackagePrivate`path$; 
+          TypeSystem`NestedGrid`PackagePrivate`$lastPathType = 
+           TypeSystem`NestedGrid`PackagePrivate`pathType$; 
+          TypeSystem`NestedGrid`PackagePrivate`$lastPathIsLeafHeader = 
+           TypeSystem`NestedGrid`PackagePrivate`isLeafHeader$; 
+          TypeSystem`NestedGrid`PackagePrivate`$lastOutputID = 
+           TypeSystem`NestedGrid`PackagePrivate`localHold[
+            TypeSystem`NestedGrid`PackagePrivate`$outputID$$]; 
+          TypeSystem`NestedGrid`PackagePrivate`makePathTrail[
+           TypeSystem`NestedGrid`PackagePrivate`path$, 
+            TypeSystem`NestedGrid`PackagePrivate`makePathElements]), Null :> 
+         Spacer[10], Blank[] :> Spacer[10]}], 
+       TrackedSymbols :> {
+        TypeSystem`NestedGrid`PackagePrivate`mouseAnnotation$$}], FrameStyle -> 
+      None, ImageMargins -> 0, FrameMargins -> 0, Alignment -> Top, 
+      ImageSize -> {Automatic, 15}], FontSize -> 1], 
+    TypeSystem`NestedGrid`PackagePrivate`mouseAnnotation$$ = 
+    TypeSystem`NestedGrid`PackagePrivate`$SliceMarker[
+    "a7345d40-b1db-44eb-baae-5ce84c4445aa"][{29, 
+      Key["1970 Population"]}, "Item", False]}, 
+    DynamicWrapperBox[
+     DynamicBox[ToBoxes[
+       Dataset`DatasetContent[
+       2, "Path" -> Hold[TypeSystem`NestedGrid`PackagePrivate`$path$$], 
+        "Grid" -> Hold[TypeSystem`NestedGrid`PackagePrivate`$grid$$], "State" -> 
+        Hold[TypeSystem`NestedGrid`PackagePrivate`$state$$], "VPos" -> 
+        Hold[TypeSystem`NestedGrid`PackagePrivate`$vPos$$], "HPos" -> 
+        Hold[TypeSystem`NestedGrid`PackagePrivate`$hPos$$], "TopBar" -> 
+        Hold[TypeSystem`NestedGrid`PackagePrivate`$topBar$$], "BottomBar" -> 
+        Hold[TypeSystem`NestedGrid`PackagePrivate`$bottomBar$$], "OutputID" -> 
+        Hold[
+          TypeSystem`NestedGrid`PackagePrivate`localHold[
+          TypeSystem`NestedGrid`PackagePrivate`$outputID$$]]], StandardForm],
+      ImageSizeCache->{1445., {456.2010498046875, 464.7989501953125}},
+      TrackedSymbols:>{
+       TypeSystem`NestedGrid`PackagePrivate`$state$$, 
+        TypeSystem`NestedGrid`PackagePrivate`$grid$$}], 
+     TypeSystem`NestedGrid`PackagePrivate`mouseAnnotation$$ = 
+     MouseAnnotation[],
+     ImageSizeCache->{1445., {456.2010498046875, 464.7989501953125}}],
+    BaseStyle->{LineBreakWithin -> False},
+    DynamicModuleValues:>{},
+    Initialization:>(TypeSystem`NestedGrid`PackagePrivate`$outputID$$ = 
+     CreateUUID[]),
+    UnsavedVariables:>{TypeSystem`NestedGrid`PackagePrivate`$outputID$$}],
+   Deploy,
+   DefaultBaseStyle->"Deploy"],
+  Dataset`InterpretDataset[1],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{{3.926829320448851*^9, 3.926829336921043*^9}},
+ CellLabel->
+  "Out[272]=",ExpressionUUID->"72554c80-57e5-4cf1-ac97-20b1b31c2f37"]
+}, Open  ]]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{316, Automatic}, {Automatic, 50}},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"c1ee0a4f-3b63-4479-b3fd-f0f972f6286e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 293, 6, 46, "Input",ExpressionUUID->"886b25ca-956a-49ac-bd2c-a51ce527bcab"],
+Cell[876, 30, 183, 3, 52, "Output",ExpressionUUID->"c7726cd9-67fc-4084-a930-4965b03774ec"]
+}, Open  ]],
+Cell[1074, 36, 370, 8, 140, "Input",ExpressionUUID->"d3b193bd-0a10-42fe-8e59-3b193c3d2ec8"],
+Cell[1447, 46, 195, 4, 46, "Input",ExpressionUUID->"17daad42-5b16-420f-9159-e263e024e047"],
+Cell[CellGroupData[{
+Cell[1667, 54, 431, 9, 78, "Input",ExpressionUUID->"fe214c6e-7c58-4a8e-96f3-b8c5abff988a"],
+Cell[2101, 65, 135264, 2701, 949, "Output",ExpressionUUID->"72554c80-57e5-4cf1-ac97-20b1b31c2f37"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

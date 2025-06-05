@@ -1,0 +1,158 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      7242,        150]
+NotebookOptionsPosition[      5525,        121]
+NotebookOutlinePosition[      5922,        137]
+CellTagsIndexPosition[      5879,        134]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Similarly and somewhat counterintuitively, I\[CloseCurlyQuote]d expect that \
+our understanding of diseases that are more lethal has progressed faster than \
+that of milder diseases, because in the case of a lethal diagnosis, the \
+physician has more freedom to do trial and error, because there is no fear of \
+making things worse. [[need examples]] \
+\>", "Text",ExpressionUUID->"c4fc14fc-9fa0-4040-aa60-9a5b001dbcc2"],
+
+Cell["\<\
+To combat these issues, biologists often resort to model organisms, which \
+have faster speeds of iteration and less risk. And this creates another thing \
+we\[CloseCurlyQuote]d expect to observe, which is that, the aspects of humans \
+that are different from other organisms, will be less well understood. [[need \
+examples]]\
+\>", "Text",ExpressionUUID->"a6a002f8-c3f4-4e22-87a1-dde72806b17a"],
+
+Cell["\<\
+Me being a fan of science, it felt like, buying a ticket to watch the NBA \
+finals one year, and then the next year being put into the game and trying to \
+keep up. \
+\>", "Text",ExpressionUUID->"91f8fefc-d3a2-4959-8942-a47d778b58e0"],
+
+Cell[" on building models, instead of mathematics, but with ", "Text",ExpressionUUID->"22ed8646-9515-4209-8fb1-f087a54da8e8"],
+
+Cell["\<\
+Most of the models in theoretical biology are mathematical in nature, and for \
+the majority of people, including myself, these models are inaccessible. \
+\>", "Text",ExpressionUUID->"0bb81e17-856c-4ad5-a8bd-7ac5c4bb9be3"],
+
+Cell["\<\
+It is often vaguely assumed that the bottleneck on our medical capabilities \
+is intelligence; we need smarter scientists, smarter doctors, and smarter \
+robots.  \
+\>", "Text",ExpressionUUID->"b52375d4-0142-4335-882a-07ee5383e782"],
+
+Cell["\<\
+But I think one of the things that our recent work in biology makes clear, is \
+that biological systems are full of irreducibility, and therefore it is \
+sometimes not possible to \[OpenCurlyDoubleQuote]jump ahead\
+\[CloseCurlyDoubleQuote] with a more sophisticated computational process in \
+order to predict their behavior. \
+\>", "Text",ExpressionUUID->"cefa5e5d-eea8-44ca-973f-d2bf6a5a31f6"],
+
+Cell["\<\
+In the case of medicine, this means that no matter how \
+\[OpenCurlyDoubleQuote]intelligent\[CloseCurlyDoubleQuote] the \
+\[OpenCurlyDoubleQuote]medical observer\[CloseCurlyDoubleQuote] is, in some \
+cases, there is no way to predict which treatment will be effective, without \
+just trying it. \
+\>", "Text",ExpressionUUID->"99961510-aae4-4fad-b1f1-05fa99be6c39"],
+
+Cell["\<\
+And what becomes obvious in such cases, is that the rate of medical progress, \
+will be determined not by our intelligence, but our speed of iteration. In \
+other words, how fast we can apply the treatment, and how fast we can tell \
+whether it\[CloseCurlyQuote]s worked.  \
+\>", "Text",ExpressionUUID->"b5ec6a75-1f2c-43b0-aecb-acbfa940b6ec"],
+
+Cell["\<\
+And in fact, surveying the different areas of medicine, iteration speed is \
+strongly correlated with the rate of progress. Areas like longevity and limb \
+regeneration take years before we can accurately determine the outcome of a \
+given treatment, and therefore, progress is slow. In contrast, with \
+infections and certain cancers, it is clear quite soon whether the treatment \
+was successful. \
+\>", "Text",ExpressionUUID->"ef084dc2-d545-4601-be9d-81eacd37a2cc"],
+
+Cell["\<\
+But okay, we\[CloseCurlyQuote]ve made this general statement that biology is \
+full of irreducible systems. But can we be more specific, can we tell when \
+and where we\[CloseCurlyQuote]d most expect to see this irreducibility?\
+\>", "Text",ExpressionUUID->"25421556-898a-4f78-a879-fb7fbc8ffa32"],
+
+Cell["\<\
+Well, we can look at our model, and see the conditions for which reducibility \
+and irreducibility arrive. [[give origin of structure spiel]]\
+\>", "Text",ExpressionUUID->"1ef4370d-9937-49d0-8ec6-25e30f29d589"],
+
+Cell["So okay we\[CloseCurlyQuote]ve looked at two ", "Text",ExpressionUUID->"baa72466-e189-40f6-9cd9-8e1ee8dd333a"],
+
+Cell["\<\
+The vast majority of work in theoretical biology uses mathematics to model \
+biological systems. For most people, including myself, who don\
+\[CloseCurlyQuote]t have a background in math, these models are largely \
+inaccessible. \
+\>", "Text",ExpressionUUID->"7c114626-3993-4409-b937-24c33ad8c7dd"],
+
+Cell["\<\
+Over the past few months, I\[CloseCurlyQuote]ve worked intensely with Stephen \
+Wolfram on building new foundational models for theoretical biology using a \
+minimal computational model. And because these computational models can be \
+readily manipulated and visualized, they are much more accessible than the \
+traditional mathematical models. And, in working with them, I\
+\[CloseCurlyQuote]ve felt my understanding of biology grow rapidly. \
+\>", "Text",ExpressionUUID->"c0a7751b-c157-404a-a080-1f1ff81097c5"],
+
+Cell["\<\
+Using this powerful new model, I feel like we\[CloseCurlyQuote]re in a \
+position to\
+\>", "Text",ExpressionUUID->"386b4cf7-8f98-4b61-a2b8-444b5091e31a"]
+},
+WindowSize->{808, 673},
+WindowMargins->{{363, Automatic}, {2, Automatic}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"b75350a8-dae9-4d14-9825-42310f60ba3c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 430, 6, 77, "Text",ExpressionUUID->"c4fc14fc-9fa0-4040-aa60-9a5b001dbcc2"],
+Cell[987, 28, 405, 6, 77, "Text",ExpressionUUID->"a6a002f8-c3f4-4e22-87a1-dde72806b17a"],
+Cell[1395, 36, 244, 4, 55, "Text",ExpressionUUID->"91f8fefc-d3a2-4959-8942-a47d778b58e0"],
+Cell[1642, 42, 125, 0, 33, "Text",ExpressionUUID->"22ed8646-9515-4209-8fb1-f087a54da8e8"],
+Cell[1770, 44, 232, 3, 55, "Text",ExpressionUUID->"0bb81e17-856c-4ad5-a8bd-7ac5c4bb9be3"],
+Cell[2005, 49, 242, 4, 55, "Text",ExpressionUUID->"b52375d4-0142-4335-882a-07ee5383e782"],
+Cell[2250, 55, 405, 6, 77, "Text",ExpressionUUID->"cefa5e5d-eea8-44ca-973f-d2bf6a5a31f6"],
+Cell[2658, 63, 374, 6, 55, "Text",ExpressionUUID->"99961510-aae4-4fad-b1f1-05fa99be6c39"],
+Cell[3035, 71, 352, 5, 77, "Text",ExpressionUUID->"b5ec6a75-1f2c-43b0-aecb-acbfa940b6ec"],
+Cell[3390, 78, 478, 7, 99, "Text",ExpressionUUID->"ef084dc2-d545-4601-be9d-81eacd37a2cc"],
+Cell[3871, 87, 306, 4, 55, "Text",ExpressionUUID->"25421556-898a-4f78-a879-fb7fbc8ffa32"],
+Cell[4180, 93, 220, 3, 55, "Text",ExpressionUUID->"1ef4370d-9937-49d0-8ec6-25e30f29d589"],
+Cell[4403, 98, 116, 0, 33, "Text",ExpressionUUID->"baa72466-e189-40f6-9cd9-8e1ee8dd333a"],
+Cell[4522, 100, 308, 5, 55, "Text",ExpressionUUID->"7c114626-3993-4409-b937-24c33ad8c7dd"],
+Cell[4833, 107, 522, 7, 99, "Text",ExpressionUUID->"c0a7751b-c157-404a-a080-1f1ff81097c5"],
+Cell[5358, 116, 163, 3, 33, "Text",ExpressionUUID->"386b4cf7-8f98-4b61-a2b8-444b5091e31a"]
+}
+]
+*)
+

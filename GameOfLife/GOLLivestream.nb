@@ -1,0 +1,729 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     32753,        721]
+NotebookOptionsPosition[     32274,        704]
+NotebookOutlinePosition[     32669,        720]
+CellTagsIndexPosition[     32626,        717]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"RulePlot", "[", 
+  RowBox[{"CellularAutomaton", "[", "\"\<GameOfLife\>\"", "]"}], 
+  "]"}]], "Input",
+ CellLabel->"In[1]:=",ExpressionUUID->"af3633e6-4a15-4696-80d6-534ab2716fd6"],
+
+Cell[BoxData[
+ GraphicsBox[{{{InsetBox[
+      GraphicsBox[{{
+         {EdgeForm[GrayLevel[0]], 
+          {GrayLevel[0], RectangleBox[{-3, 1}], RectangleBox[{-2, 1}], 
+           RectangleBox[{-1, 1}], RectangleBox[{-3, 0}], 
+           RectangleBox[{-1, 0}], RectangleBox[{-3, -1}], 
+           RectangleBox[{-2, -1}], RectangleBox[{-1, -1}]}, 
+          {GrayLevel[0], RectangleBox[{-2, 0}]}}, 
+         {Opacity[0], EdgeForm[GrayLevel[
+           NCache[-1 + GoldenRatio, 0.6180339887498949]]], {
+           PolygonBox[{{-3, 0}, {-3, -1}, {-2, -1}, {-1, -1}, {0, -1}, {0, 
+            0}, {0, 1}, {0, 2}, {-1, 2}, {-2, 2}, {-3, 2}, {-3, 1}}], 
+           PolygonBox[{{-2, 0}, {-2, 1}, {-1, 1}, {-1, 0}}]}, 
+          PolygonBox[{{-2, 1}, {-2, 0}, {-1, 0}, {-1, 1}}]}}, 
+        {Arrowheads[{{Automatic, Automatic, 
+            GraphicsBox[
+             LineBox[
+              NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[1, 2]}, {0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[-1, 2]}}, {{-0.8660254037844386, 0.5}, {0, 
+                0}, {-0.8660254037844386, -0.5}}]]]}}], 
+         ArrowBox[
+          NCache[{{0.5, Rational[1, 2]}, {1.5, Rational[1, 2]}}, {{0.5, 
+           0.5}, {1.5, 0.5}}]]}, 
+        {EdgeForm[GrayLevel[
+          NCache[-1 + GoldenRatio, 0.6180339887498949]]], 
+         {GrayLevel[1], RectangleBox[{2, 0}]}}},
+       PlotRange->NCache[{{
+           Rational[-7, 2], 
+           Rational[7, 2]}, {
+           Rational[-3, 2], 
+           Rational[5, 2]}}, {{-3.5, 3.5}, {-1.5, 2.5}}]], 
+      NCache[{0.875, Rational[5, 2]}, {0.875, 2.5}], {
+      Center, Center}, {1.75, 1}], InsetBox[
+      GraphicsBox[{{
+         {EdgeForm[GrayLevel[
+           NCache[
+            Rational[1, 8], 0.125]]], 
+          {GrayLevel[
+            NCache[
+             Rational[1, 8], 0.125]], RectangleBox[{-3, 1}], 
+           RectangleBox[{-2, 1}], RectangleBox[{-1, 1}], 
+           RectangleBox[{-3, 0}], RectangleBox[{-1, 0}], 
+           RectangleBox[{-3, -1}], RectangleBox[{-2, -1}], 
+           RectangleBox[{-1, -1}]}, 
+          {GrayLevel[1], RectangleBox[{-2, 0}]}}, 
+         {Opacity[0], EdgeForm[GrayLevel[
+           NCache[-1 + GoldenRatio, 0.6180339887498949]]], {
+           PolygonBox[{{-3, 0}, {-3, -1}, {-2, -1}, {-1, -1}, {0, -1}, {0, 
+            0}, {0, 1}, {0, 2}, {-1, 2}, {-2, 2}, {-3, 2}, {-3, 1}}], 
+           PolygonBox[{{-2, 0}, {-2, 1}, {-1, 1}, {-1, 0}}]}, 
+          PolygonBox[{{-2, 1}, {-2, 0}, {-1, 0}, {-1, 1}}]}}, 
+        {Arrowheads[{{Automatic, Automatic, 
+            GraphicsBox[
+             LineBox[
+              NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[1, 2]}, {0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[-1, 2]}}, {{-0.8660254037844386, 0.5}, {0, 
+                0}, {-0.8660254037844386, -0.5}}]]]}}], 
+         ArrowBox[
+          NCache[{{0.5, Rational[1, 2]}, {1.5, Rational[1, 2]}}, {{0.5, 
+           0.5}, {1.5, 0.5}}]]}, 
+        {EdgeForm[GrayLevel[
+          NCache[-1 + GoldenRatio, 0.6180339887498949]]], 
+         {GrayLevel[1], RectangleBox[{2, 0}]}}},
+       PlotRange->NCache[{{
+           Rational[-7, 2], 
+           Rational[7, 2]}, {
+           Rational[-3, 2], 
+           Rational[5, 2]}}, {{-3.5, 3.5}, {-1.5, 2.5}}]], 
+      NCache[{2.625, Rational[5, 2]}, {2.625, 2.5}], {
+      Center, Center}, {1.75, 1}], InsetBox[
+      GraphicsBox[{{
+         {EdgeForm[GrayLevel[
+           NCache[
+            Rational[3, 8], 0.375]]], 
+          {GrayLevel[
+            NCache[
+             Rational[3, 8], 0.375]], RectangleBox[{-3, 1}], 
+           RectangleBox[{-2, 1}], RectangleBox[{-1, 1}], 
+           RectangleBox[{-3, 0}], RectangleBox[{-1, 0}], 
+           RectangleBox[{-3, -1}], RectangleBox[{-2, -1}], 
+           RectangleBox[{-1, -1}]}, 
+          {GrayLevel[0], RectangleBox[{-2, 0}]}}, 
+         {Opacity[0], EdgeForm[GrayLevel[
+           NCache[-1 + GoldenRatio, 0.6180339887498949]]], {
+           PolygonBox[{{-3, 0}, {-3, -1}, {-2, -1}, {-1, -1}, {0, -1}, {0, 
+            0}, {0, 1}, {0, 2}, {-1, 2}, {-2, 2}, {-3, 2}, {-3, 1}}], 
+           PolygonBox[{{-2, 0}, {-2, 1}, {-1, 1}, {-1, 0}}]}, 
+          PolygonBox[{{-2, 1}, {-2, 0}, {-1, 0}, {-1, 1}}]}}, 
+        {Arrowheads[{{Automatic, Automatic, 
+            GraphicsBox[
+             LineBox[
+              NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[1, 2]}, {0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[-1, 2]}}, {{-0.8660254037844386, 0.5}, {0, 
+                0}, {-0.8660254037844386, -0.5}}]]]}}], 
+         ArrowBox[
+          NCache[{{0.5, Rational[1, 2]}, {1.5, Rational[1, 2]}}, {{0.5, 
+           0.5}, {1.5, 0.5}}]]}, 
+        {EdgeForm[GrayLevel[
+          NCache[-1 + GoldenRatio, 0.6180339887498949]]], 
+         {GrayLevel[1], RectangleBox[{2, 0}]}}},
+       PlotRange->NCache[{{
+           Rational[-7, 2], 
+           Rational[7, 2]}, {
+           Rational[-3, 2], 
+           Rational[5, 2]}}, {{-3.5, 3.5}, {-1.5, 2.5}}]], 
+      NCache[{4.375, Rational[5, 2]}, {4.375, 2.5}], {
+      Center, Center}, {1.75, 1}], InsetBox[
+      GraphicsBox[{{
+         {EdgeForm[GrayLevel[
+           NCache[
+            Rational[1, 2], 0.5]]], 
+          {GrayLevel[
+            NCache[
+             Rational[1, 2], 0.5]], RectangleBox[{-3, 1}], 
+           RectangleBox[{-2, 1}], RectangleBox[{-1, 1}], 
+           RectangleBox[{-3, 0}], RectangleBox[{-1, 0}], 
+           RectangleBox[{-3, -1}], RectangleBox[{-2, -1}], 
+           RectangleBox[{-1, -1}]}, 
+          {GrayLevel[1], RectangleBox[{-2, 0}]}}, 
+         {Opacity[0], EdgeForm[GrayLevel[
+           NCache[-1 + GoldenRatio, 0.6180339887498949]]], {
+           PolygonBox[{{-3, 0}, {-3, -1}, {-2, -1}, {-1, -1}, {0, -1}, {0, 
+            0}, {0, 1}, {0, 2}, {-1, 2}, {-2, 2}, {-3, 2}, {-3, 1}}], 
+           PolygonBox[{{-2, 0}, {-2, 1}, {-1, 1}, {-1, 0}}]}, 
+          PolygonBox[{{-2, 1}, {-2, 0}, {-1, 0}, {-1, 1}}]}}, 
+        {Arrowheads[{{Automatic, Automatic, 
+            GraphicsBox[
+             LineBox[
+              NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[1, 2]}, {0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[-1, 2]}}, {{-0.8660254037844386, 0.5}, {0, 
+                0}, {-0.8660254037844386, -0.5}}]]]}}], 
+         ArrowBox[
+          NCache[{{0.5, Rational[1, 2]}, {1.5, Rational[1, 2]}}, {{0.5, 
+           0.5}, {1.5, 0.5}}]]}, 
+        {EdgeForm[GrayLevel[
+          NCache[-1 + GoldenRatio, 0.6180339887498949]]], 
+         {GrayLevel[1], RectangleBox[{2, 0}]}}},
+       PlotRange->NCache[{{
+           Rational[-7, 2], 
+           Rational[7, 2]}, {
+           Rational[-3, 2], 
+           Rational[5, 2]}}, {{-3.5, 3.5}, {-1.5, 2.5}}]], 
+      NCache[{6.125, Rational[5, 2]}, {6.125, 2.5}], {
+      Center, Center}, {1.75, 1}], InsetBox[
+      GraphicsBox[{{
+         {EdgeForm[GrayLevel[
+           NCache[
+            Rational[3, 4], 0.75]]], 
+          {GrayLevel[
+            NCache[
+             Rational[3, 4], 0.75]], RectangleBox[{-3, 1}], 
+           RectangleBox[{-2, 1}], RectangleBox[{-1, 1}], 
+           RectangleBox[{-3, 0}], RectangleBox[{-1, 0}], 
+           RectangleBox[{-3, -1}], RectangleBox[{-2, -1}], 
+           RectangleBox[{-1, -1}]}, 
+          {GrayLevel[0], RectangleBox[{-2, 0}]}}, 
+         {Opacity[0], EdgeForm[GrayLevel[
+           NCache[-1 + GoldenRatio, 0.6180339887498949]]], {
+           PolygonBox[{{-3, 0}, {-3, -1}, {-2, -1}, {-1, -1}, {0, -1}, {0, 
+            0}, {0, 1}, {0, 2}, {-1, 2}, {-2, 2}, {-3, 2}, {-3, 1}}], 
+           PolygonBox[{{-2, 0}, {-2, 1}, {-1, 1}, {-1, 0}}]}, 
+          PolygonBox[{{-2, 1}, {-2, 0}, {-1, 0}, {-1, 1}}]}}, 
+        {Arrowheads[{{Automatic, Automatic, 
+            GraphicsBox[
+             LineBox[
+              NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[1, 2]}, {0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[-1, 2]}}, {{-0.8660254037844386, 0.5}, {0, 
+                0}, {-0.8660254037844386, -0.5}}]]]}}], 
+         ArrowBox[
+          NCache[{{0.5, Rational[1, 2]}, {1.5, Rational[1, 2]}}, {{0.5, 
+           0.5}, {1.5, 0.5}}]]}, 
+        {EdgeForm[GrayLevel[
+          NCache[-1 + GoldenRatio, 0.6180339887498949]]], 
+         {GrayLevel[0], RectangleBox[{2, 0}]}}},
+       PlotRange->NCache[{{
+           Rational[-7, 2], 
+           Rational[7, 2]}, {
+           Rational[-3, 2], 
+           Rational[5, 2]}}, {{-3.5, 3.5}, {-1.5, 2.5}}]], 
+      NCache[{7.875, Rational[5, 2]}, {7.875, 2.5}], {
+      Center, Center}, {1.75, 1}], InsetBox[
+      GraphicsBox[{{
+         {EdgeForm[GrayLevel[
+           NCache[
+            Rational[7, 8], 0.875]]], 
+          {GrayLevel[
+            NCache[
+             Rational[7, 8], 0.875]], RectangleBox[{-3, 1}], 
+           RectangleBox[{-2, 1}], RectangleBox[{-1, 1}], 
+           RectangleBox[{-3, 0}], RectangleBox[{-1, 0}], 
+           RectangleBox[{-3, -1}], RectangleBox[{-2, -1}], 
+           RectangleBox[{-1, -1}]}, 
+          {GrayLevel[1], RectangleBox[{-2, 0}]}}, 
+         {Opacity[0], EdgeForm[GrayLevel[
+           NCache[-1 + GoldenRatio, 0.6180339887498949]]], {
+           PolygonBox[{{-3, 0}, {-3, -1}, {-2, -1}, {-1, -1}, {0, -1}, {0, 
+            0}, {0, 1}, {0, 2}, {-1, 2}, {-2, 2}, {-3, 2}, {-3, 1}}], 
+           PolygonBox[{{-2, 0}, {-2, 1}, {-1, 1}, {-1, 0}}]}, 
+          PolygonBox[{{-2, 1}, {-2, 0}, {-1, 0}, {-1, 1}}]}}, 
+        {Arrowheads[{{Automatic, Automatic, 
+            GraphicsBox[
+             LineBox[
+              NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[1, 2]}, {0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[-1, 2]}}, {{-0.8660254037844386, 0.5}, {0, 
+                0}, {-0.8660254037844386, -0.5}}]]]}}], 
+         ArrowBox[
+          NCache[{{0.5, Rational[1, 2]}, {1.5, Rational[1, 2]}}, {{0.5, 
+           0.5}, {1.5, 0.5}}]]}, 
+        {EdgeForm[GrayLevel[
+          NCache[-1 + GoldenRatio, 0.6180339887498949]]], 
+         {GrayLevel[1], RectangleBox[{2, 0}]}}},
+       PlotRange->NCache[{{
+           Rational[-7, 2], 
+           Rational[7, 2]}, {
+           Rational[-3, 2], 
+           Rational[5, 2]}}, {{-3.5, 3.5}, {-1.5, 2.5}}]], 
+      NCache[{9.625, Rational[5, 2]}, {9.625, 2.5}], {
+      Center, Center}, {1.75, 1}]}, {InsetBox[
+      GraphicsBox[{{
+         {EdgeForm[GrayLevel[0]], 
+          {GrayLevel[0], RectangleBox[{-3, 1}], RectangleBox[{-2, 1}], 
+           RectangleBox[{-1, 1}], RectangleBox[{-3, 0}], 
+           RectangleBox[{-1, 0}], RectangleBox[{-3, -1}], 
+           RectangleBox[{-2, -1}], RectangleBox[{-1, -1}]}, 
+          {GrayLevel[1], RectangleBox[{-2, 0}]}}, 
+         {Opacity[0], EdgeForm[GrayLevel[
+           NCache[-1 + GoldenRatio, 0.6180339887498949]]], {
+           PolygonBox[{{-3, 0}, {-3, -1}, {-2, -1}, {-1, -1}, {0, -1}, {0, 
+            0}, {0, 1}, {0, 2}, {-1, 2}, {-2, 2}, {-3, 2}, {-3, 1}}], 
+           PolygonBox[{{-2, 0}, {-2, 1}, {-1, 1}, {-1, 0}}]}, 
+          PolygonBox[{{-2, 1}, {-2, 0}, {-1, 0}, {-1, 1}}]}}, 
+        {Arrowheads[{{Automatic, Automatic, 
+            GraphicsBox[
+             LineBox[
+              NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[1, 2]}, {0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[-1, 2]}}, {{-0.8660254037844386, 0.5}, {0, 
+                0}, {-0.8660254037844386, -0.5}}]]]}}], 
+         ArrowBox[
+          NCache[{{0.5, Rational[1, 2]}, {1.5, Rational[1, 2]}}, {{0.5, 
+           0.5}, {1.5, 0.5}}]]}, 
+        {EdgeForm[GrayLevel[
+          NCache[-1 + GoldenRatio, 0.6180339887498949]]], 
+         {GrayLevel[1], RectangleBox[{2, 0}]}}},
+       PlotRange->NCache[{{
+           Rational[-7, 2], 
+           Rational[7, 2]}, {
+           Rational[-3, 2], 
+           Rational[5, 2]}}, {{-3.5, 3.5}, {-1.5, 2.5}}]], 
+      NCache[{0.875, Rational[3, 2]}, {0.875, 1.5}], {
+      Center, Center}, {1.75, 1}], InsetBox[
+      GraphicsBox[{{
+         {EdgeForm[GrayLevel[
+           NCache[
+            Rational[1, 4], 0.25]]], 
+          {GrayLevel[
+            NCache[
+             Rational[1, 4], 0.25]], RectangleBox[{-3, 1}], 
+           RectangleBox[{-2, 1}], RectangleBox[{-1, 1}], 
+           RectangleBox[{-3, 0}], RectangleBox[{-1, 0}], 
+           RectangleBox[{-3, -1}], RectangleBox[{-2, -1}], 
+           RectangleBox[{-1, -1}]}, 
+          {GrayLevel[0], RectangleBox[{-2, 0}]}}, 
+         {Opacity[0], EdgeForm[GrayLevel[
+           NCache[-1 + GoldenRatio, 0.6180339887498949]]], {
+           PolygonBox[{{-3, 0}, {-3, -1}, {-2, -1}, {-1, -1}, {0, -1}, {0, 
+            0}, {0, 1}, {0, 2}, {-1, 2}, {-2, 2}, {-3, 2}, {-3, 1}}], 
+           PolygonBox[{{-2, 0}, {-2, 1}, {-1, 1}, {-1, 0}}]}, 
+          PolygonBox[{{-2, 1}, {-2, 0}, {-1, 0}, {-1, 1}}]}}, 
+        {Arrowheads[{{Automatic, Automatic, 
+            GraphicsBox[
+             LineBox[
+              NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[1, 2]}, {0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[-1, 2]}}, {{-0.8660254037844386, 0.5}, {0, 
+                0}, {-0.8660254037844386, -0.5}}]]]}}], 
+         ArrowBox[
+          NCache[{{0.5, Rational[1, 2]}, {1.5, Rational[1, 2]}}, {{0.5, 
+           0.5}, {1.5, 0.5}}]]}, 
+        {EdgeForm[GrayLevel[
+          NCache[-1 + GoldenRatio, 0.6180339887498949]]], 
+         {GrayLevel[1], RectangleBox[{2, 0}]}}},
+       PlotRange->NCache[{{
+           Rational[-7, 2], 
+           Rational[7, 2]}, {
+           Rational[-3, 2], 
+           Rational[5, 2]}}, {{-3.5, 3.5}, {-1.5, 2.5}}]], 
+      NCache[{2.625, Rational[3, 2]}, {2.625, 1.5}], {
+      Center, Center}, {1.75, 1}], InsetBox[
+      GraphicsBox[{{
+         {EdgeForm[GrayLevel[
+           NCache[
+            Rational[3, 8], 0.375]]], 
+          {GrayLevel[
+            NCache[
+             Rational[3, 8], 0.375]], RectangleBox[{-3, 1}], 
+           RectangleBox[{-2, 1}], RectangleBox[{-1, 1}], 
+           RectangleBox[{-3, 0}], RectangleBox[{-1, 0}], 
+           RectangleBox[{-3, -1}], RectangleBox[{-2, -1}], 
+           RectangleBox[{-1, -1}]}, 
+          {GrayLevel[1], RectangleBox[{-2, 0}]}}, 
+         {Opacity[0], EdgeForm[GrayLevel[
+           NCache[-1 + GoldenRatio, 0.6180339887498949]]], {
+           PolygonBox[{{-3, 0}, {-3, -1}, {-2, -1}, {-1, -1}, {0, -1}, {0, 
+            0}, {0, 1}, {0, 2}, {-1, 2}, {-2, 2}, {-3, 2}, {-3, 1}}], 
+           PolygonBox[{{-2, 0}, {-2, 1}, {-1, 1}, {-1, 0}}]}, 
+          PolygonBox[{{-2, 1}, {-2, 0}, {-1, 0}, {-1, 1}}]}}, 
+        {Arrowheads[{{Automatic, Automatic, 
+            GraphicsBox[
+             LineBox[
+              NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[1, 2]}, {0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[-1, 2]}}, {{-0.8660254037844386, 0.5}, {0, 
+                0}, {-0.8660254037844386, -0.5}}]]]}}], 
+         ArrowBox[
+          NCache[{{0.5, Rational[1, 2]}, {1.5, Rational[1, 2]}}, {{0.5, 
+           0.5}, {1.5, 0.5}}]]}, 
+        {EdgeForm[GrayLevel[
+          NCache[-1 + GoldenRatio, 0.6180339887498949]]], 
+         {GrayLevel[1], RectangleBox[{2, 0}]}}},
+       PlotRange->NCache[{{
+           Rational[-7, 2], 
+           Rational[7, 2]}, {
+           Rational[-3, 2], 
+           Rational[5, 2]}}, {{-3.5, 3.5}, {-1.5, 2.5}}]], 
+      NCache[{4.375, Rational[3, 2]}, {4.375, 1.5}], {
+      Center, Center}, {1.75, 1}], InsetBox[
+      GraphicsBox[{{
+         {EdgeForm[GrayLevel[
+           NCache[
+            Rational[5, 8], 0.625]]], 
+          {GrayLevel[
+            NCache[
+             Rational[5, 8], 0.625]], RectangleBox[{-3, 1}], 
+           RectangleBox[{-2, 1}], RectangleBox[{-1, 1}], 
+           RectangleBox[{-3, 0}], RectangleBox[{-1, 0}], 
+           RectangleBox[{-3, -1}], RectangleBox[{-2, -1}], 
+           RectangleBox[{-1, -1}]}, 
+          {GrayLevel[0], RectangleBox[{-2, 0}]}}, 
+         {Opacity[0], EdgeForm[GrayLevel[
+           NCache[-1 + GoldenRatio, 0.6180339887498949]]], {
+           PolygonBox[{{-3, 0}, {-3, -1}, {-2, -1}, {-1, -1}, {0, -1}, {0, 
+            0}, {0, 1}, {0, 2}, {-1, 2}, {-2, 2}, {-3, 2}, {-3, 1}}], 
+           PolygonBox[{{-2, 0}, {-2, 1}, {-1, 1}, {-1, 0}}]}, 
+          PolygonBox[{{-2, 1}, {-2, 0}, {-1, 0}, {-1, 1}}]}}, 
+        {Arrowheads[{{Automatic, Automatic, 
+            GraphicsBox[
+             LineBox[
+              NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[1, 2]}, {0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[-1, 2]}}, {{-0.8660254037844386, 0.5}, {0, 
+                0}, {-0.8660254037844386, -0.5}}]]]}}], 
+         ArrowBox[
+          NCache[{{0.5, Rational[1, 2]}, {1.5, Rational[1, 2]}}, {{0.5, 
+           0.5}, {1.5, 0.5}}]]}, 
+        {EdgeForm[GrayLevel[
+          NCache[-1 + GoldenRatio, 0.6180339887498949]]], 
+         {GrayLevel[0], RectangleBox[{2, 0}]}}},
+       PlotRange->NCache[{{
+           Rational[-7, 2], 
+           Rational[7, 2]}, {
+           Rational[-3, 2], 
+           Rational[5, 2]}}, {{-3.5, 3.5}, {-1.5, 2.5}}]], 
+      NCache[{6.125, Rational[3, 2]}, {6.125, 1.5}], {
+      Center, Center}, {1.75, 1}], InsetBox[
+      GraphicsBox[{{
+         {EdgeForm[GrayLevel[
+           NCache[
+            Rational[3, 4], 0.75]]], 
+          {GrayLevel[
+            NCache[
+             Rational[3, 4], 0.75]], RectangleBox[{-3, 1}], 
+           RectangleBox[{-2, 1}], RectangleBox[{-1, 1}], 
+           RectangleBox[{-3, 0}], RectangleBox[{-1, 0}], 
+           RectangleBox[{-3, -1}], RectangleBox[{-2, -1}], 
+           RectangleBox[{-1, -1}]}, 
+          {GrayLevel[1], RectangleBox[{-2, 0}]}}, 
+         {Opacity[0], EdgeForm[GrayLevel[
+           NCache[-1 + GoldenRatio, 0.6180339887498949]]], {
+           PolygonBox[{{-3, 0}, {-3, -1}, {-2, -1}, {-1, -1}, {0, -1}, {0, 
+            0}, {0, 1}, {0, 2}, {-1, 2}, {-2, 2}, {-3, 2}, {-3, 1}}], 
+           PolygonBox[{{-2, 0}, {-2, 1}, {-1, 1}, {-1, 0}}]}, 
+          PolygonBox[{{-2, 1}, {-2, 0}, {-1, 0}, {-1, 1}}]}}, 
+        {Arrowheads[{{Automatic, Automatic, 
+            GraphicsBox[
+             LineBox[
+              NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[1, 2]}, {0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[-1, 2]}}, {{-0.8660254037844386, 0.5}, {0, 
+                0}, {-0.8660254037844386, -0.5}}]]]}}], 
+         ArrowBox[
+          NCache[{{0.5, Rational[1, 2]}, {1.5, Rational[1, 2]}}, {{0.5, 
+           0.5}, {1.5, 0.5}}]]}, 
+        {EdgeForm[GrayLevel[
+          NCache[-1 + GoldenRatio, 0.6180339887498949]]], 
+         {GrayLevel[1], RectangleBox[{2, 0}]}}},
+       PlotRange->NCache[{{
+           Rational[-7, 2], 
+           Rational[7, 2]}, {
+           Rational[-3, 2], 
+           Rational[5, 2]}}, {{-3.5, 3.5}, {-1.5, 2.5}}]], 
+      NCache[{7.875, Rational[3, 2]}, {7.875, 1.5}], {
+      Center, Center}, {1.75, 1}], InsetBox[
+      GraphicsBox[{{
+         {EdgeForm[GrayLevel[1]], 
+          {GrayLevel[1], RectangleBox[{-3, 1}], RectangleBox[{-2, 1}], 
+           RectangleBox[{-1, 1}], RectangleBox[{-3, 0}], 
+           RectangleBox[{-1, 0}], RectangleBox[{-3, -1}], 
+           RectangleBox[{-2, -1}], RectangleBox[{-1, -1}]}, 
+          {GrayLevel[0], RectangleBox[{-2, 0}]}}, 
+         {Opacity[0], EdgeForm[GrayLevel[
+           NCache[-1 + GoldenRatio, 0.6180339887498949]]], {
+           PolygonBox[{{-3, 0}, {-3, -1}, {-2, -1}, {-1, -1}, {0, -1}, {0, 
+            0}, {0, 1}, {0, 2}, {-1, 2}, {-2, 2}, {-3, 2}, {-3, 1}}], 
+           PolygonBox[{{-2, 0}, {-2, 1}, {-1, 1}, {-1, 0}}]}, 
+          PolygonBox[{{-2, 1}, {-2, 0}, {-1, 0}, {-1, 1}}]}}, 
+        {Arrowheads[{{Automatic, Automatic, 
+            GraphicsBox[
+             LineBox[
+              NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[1, 2]}, {0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[-1, 2]}}, {{-0.8660254037844386, 0.5}, {0, 
+                0}, {-0.8660254037844386, -0.5}}]]]}}], 
+         ArrowBox[
+          NCache[{{0.5, Rational[1, 2]}, {1.5, Rational[1, 2]}}, {{0.5, 
+           0.5}, {1.5, 0.5}}]]}, 
+        {EdgeForm[GrayLevel[
+          NCache[-1 + GoldenRatio, 0.6180339887498949]]], 
+         {GrayLevel[1], RectangleBox[{2, 0}]}}},
+       PlotRange->NCache[{{
+           Rational[-7, 2], 
+           Rational[7, 2]}, {
+           Rational[-3, 2], 
+           Rational[5, 2]}}, {{-3.5, 3.5}, {-1.5, 2.5}}]], 
+      NCache[{9.625, Rational[3, 2]}, {9.625, 1.5}], {
+      Center, Center}, {1.75, 1}]}, {InsetBox[
+      GraphicsBox[{{
+         {EdgeForm[GrayLevel[
+           NCache[
+            Rational[1, 8], 0.125]]], 
+          {GrayLevel[
+            NCache[
+             Rational[1, 8], 0.125]], RectangleBox[{-3, 1}], 
+           RectangleBox[{-2, 1}], RectangleBox[{-1, 1}], 
+           RectangleBox[{-3, 0}], RectangleBox[{-1, 0}], 
+           RectangleBox[{-3, -1}], RectangleBox[{-2, -1}], 
+           RectangleBox[{-1, -1}]}, 
+          {GrayLevel[0], RectangleBox[{-2, 0}]}}, 
+         {Opacity[0], EdgeForm[GrayLevel[
+           NCache[-1 + GoldenRatio, 0.6180339887498949]]], {
+           PolygonBox[{{-3, 0}, {-3, -1}, {-2, -1}, {-1, -1}, {0, -1}, {0, 
+            0}, {0, 1}, {0, 2}, {-1, 2}, {-2, 2}, {-3, 2}, {-3, 1}}], 
+           PolygonBox[{{-2, 0}, {-2, 1}, {-1, 1}, {-1, 0}}]}, 
+          PolygonBox[{{-2, 1}, {-2, 0}, {-1, 0}, {-1, 1}}]}}, 
+        {Arrowheads[{{Automatic, Automatic, 
+            GraphicsBox[
+             LineBox[
+              NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[1, 2]}, {0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[-1, 2]}}, {{-0.8660254037844386, 0.5}, {0, 
+                0}, {-0.8660254037844386, -0.5}}]]]}}], 
+         ArrowBox[
+          NCache[{{0.5, Rational[1, 2]}, {1.5, Rational[1, 2]}}, {{0.5, 
+           0.5}, {1.5, 0.5}}]]}, 
+        {EdgeForm[GrayLevel[
+          NCache[-1 + GoldenRatio, 0.6180339887498949]]], 
+         {GrayLevel[1], RectangleBox[{2, 0}]}}},
+       PlotRange->NCache[{{
+           Rational[-7, 2], 
+           Rational[7, 2]}, {
+           Rational[-3, 2], 
+           Rational[5, 2]}}, {{-3.5, 3.5}, {-1.5, 2.5}}]], 
+      NCache[{0.875, Rational[1, 2]}, {0.875, 0.5}], {
+      Center, Center}, {1.75, 1}], InsetBox[
+      GraphicsBox[{{
+         {EdgeForm[GrayLevel[
+           NCache[
+            Rational[1, 4], 0.25]]], 
+          {GrayLevel[
+            NCache[
+             Rational[1, 4], 0.25]], RectangleBox[{-3, 1}], 
+           RectangleBox[{-2, 1}], RectangleBox[{-1, 1}], 
+           RectangleBox[{-3, 0}], RectangleBox[{-1, 0}], 
+           RectangleBox[{-3, -1}], RectangleBox[{-2, -1}], 
+           RectangleBox[{-1, -1}]}, 
+          {GrayLevel[1], RectangleBox[{-2, 0}]}}, 
+         {Opacity[0], EdgeForm[GrayLevel[
+           NCache[-1 + GoldenRatio, 0.6180339887498949]]], {
+           PolygonBox[{{-3, 0}, {-3, -1}, {-2, -1}, {-1, -1}, {0, -1}, {0, 
+            0}, {0, 1}, {0, 2}, {-1, 2}, {-2, 2}, {-3, 2}, {-3, 1}}], 
+           PolygonBox[{{-2, 0}, {-2, 1}, {-1, 1}, {-1, 0}}]}, 
+          PolygonBox[{{-2, 1}, {-2, 0}, {-1, 0}, {-1, 1}}]}}, 
+        {Arrowheads[{{Automatic, Automatic, 
+            GraphicsBox[
+             LineBox[
+              NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[1, 2]}, {0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[-1, 2]}}, {{-0.8660254037844386, 0.5}, {0, 
+                0}, {-0.8660254037844386, -0.5}}]]]}}], 
+         ArrowBox[
+          NCache[{{0.5, Rational[1, 2]}, {1.5, Rational[1, 2]}}, {{0.5, 
+           0.5}, {1.5, 0.5}}]]}, 
+        {EdgeForm[GrayLevel[
+          NCache[-1 + GoldenRatio, 0.6180339887498949]]], 
+         {GrayLevel[1], RectangleBox[{2, 0}]}}},
+       PlotRange->NCache[{{
+           Rational[-7, 2], 
+           Rational[7, 2]}, {
+           Rational[-3, 2], 
+           Rational[5, 2]}}, {{-3.5, 3.5}, {-1.5, 2.5}}]], 
+      NCache[{2.625, Rational[1, 2]}, {2.625, 0.5}], {
+      Center, Center}, {1.75, 1}], InsetBox[
+      GraphicsBox[{{
+         {EdgeForm[GrayLevel[
+           NCache[
+            Rational[1, 2], 0.5]]], 
+          {GrayLevel[
+            NCache[
+             Rational[1, 2], 0.5]], RectangleBox[{-3, 1}], 
+           RectangleBox[{-2, 1}], RectangleBox[{-1, 1}], 
+           RectangleBox[{-3, 0}], RectangleBox[{-1, 0}], 
+           RectangleBox[{-3, -1}], RectangleBox[{-2, -1}], 
+           RectangleBox[{-1, -1}]}, 
+          {GrayLevel[0], RectangleBox[{-2, 0}]}}, 
+         {Opacity[0], EdgeForm[GrayLevel[
+           NCache[-1 + GoldenRatio, 0.6180339887498949]]], {
+           PolygonBox[{{-3, 0}, {-3, -1}, {-2, -1}, {-1, -1}, {0, -1}, {0, 
+            0}, {0, 1}, {0, 2}, {-1, 2}, {-2, 2}, {-3, 2}, {-3, 1}}], 
+           PolygonBox[{{-2, 0}, {-2, 1}, {-1, 1}, {-1, 0}}]}, 
+          PolygonBox[{{-2, 1}, {-2, 0}, {-1, 0}, {-1, 1}}]}}, 
+        {Arrowheads[{{Automatic, Automatic, 
+            GraphicsBox[
+             LineBox[
+              NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[1, 2]}, {0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[-1, 2]}}, {{-0.8660254037844386, 0.5}, {0, 
+                0}, {-0.8660254037844386, -0.5}}]]]}}], 
+         ArrowBox[
+          NCache[{{0.5, Rational[1, 2]}, {1.5, Rational[1, 2]}}, {{0.5, 
+           0.5}, {1.5, 0.5}}]]}, 
+        {EdgeForm[GrayLevel[
+          NCache[-1 + GoldenRatio, 0.6180339887498949]]], 
+         {GrayLevel[1], RectangleBox[{2, 0}]}}},
+       PlotRange->NCache[{{
+           Rational[-7, 2], 
+           Rational[7, 2]}, {
+           Rational[-3, 2], 
+           Rational[5, 2]}}, {{-3.5, 3.5}, {-1.5, 2.5}}]], 
+      NCache[{4.375, Rational[1, 2]}, {4.375, 0.5}], {
+      Center, Center}, {1.75, 1}], InsetBox[
+      GraphicsBox[{{
+         {EdgeForm[GrayLevel[
+           NCache[
+            Rational[5, 8], 0.625]]], 
+          {GrayLevel[
+            NCache[
+             Rational[5, 8], 0.625]], RectangleBox[{-3, 1}], 
+           RectangleBox[{-2, 1}], RectangleBox[{-1, 1}], 
+           RectangleBox[{-3, 0}], RectangleBox[{-1, 0}], 
+           RectangleBox[{-3, -1}], RectangleBox[{-2, -1}], 
+           RectangleBox[{-1, -1}]}, 
+          {GrayLevel[1], RectangleBox[{-2, 0}]}}, 
+         {Opacity[0], EdgeForm[GrayLevel[
+           NCache[-1 + GoldenRatio, 0.6180339887498949]]], {
+           PolygonBox[{{-3, 0}, {-3, -1}, {-2, -1}, {-1, -1}, {0, -1}, {0, 
+            0}, {0, 1}, {0, 2}, {-1, 2}, {-2, 2}, {-3, 2}, {-3, 1}}], 
+           PolygonBox[{{-2, 0}, {-2, 1}, {-1, 1}, {-1, 0}}]}, 
+          PolygonBox[{{-2, 1}, {-2, 0}, {-1, 0}, {-1, 1}}]}}, 
+        {Arrowheads[{{Automatic, Automatic, 
+            GraphicsBox[
+             LineBox[
+              NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[1, 2]}, {0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[-1, 2]}}, {{-0.8660254037844386, 0.5}, {0, 
+                0}, {-0.8660254037844386, -0.5}}]]]}}], 
+         ArrowBox[
+          NCache[{{0.5, Rational[1, 2]}, {1.5, Rational[1, 2]}}, {{0.5, 
+           0.5}, {1.5, 0.5}}]]}, 
+        {EdgeForm[GrayLevel[
+          NCache[-1 + GoldenRatio, 0.6180339887498949]]], 
+         {GrayLevel[0], RectangleBox[{2, 0}]}}},
+       PlotRange->NCache[{{
+           Rational[-7, 2], 
+           Rational[7, 2]}, {
+           Rational[-3, 2], 
+           Rational[5, 2]}}, {{-3.5, 3.5}, {-1.5, 2.5}}]], 
+      NCache[{6.125, Rational[1, 2]}, {6.125, 0.5}], {
+      Center, Center}, {1.75, 1}], InsetBox[
+      GraphicsBox[{{
+         {EdgeForm[GrayLevel[
+           NCache[
+            Rational[7, 8], 0.875]]], 
+          {GrayLevel[
+            NCache[
+             Rational[7, 8], 0.875]], RectangleBox[{-3, 1}], 
+           RectangleBox[{-2, 1}], RectangleBox[{-1, 1}], 
+           RectangleBox[{-3, 0}], RectangleBox[{-1, 0}], 
+           RectangleBox[{-3, -1}], RectangleBox[{-2, -1}], 
+           RectangleBox[{-1, -1}]}, 
+          {GrayLevel[0], RectangleBox[{-2, 0}]}}, 
+         {Opacity[0], EdgeForm[GrayLevel[
+           NCache[-1 + GoldenRatio, 0.6180339887498949]]], {
+           PolygonBox[{{-3, 0}, {-3, -1}, {-2, -1}, {-1, -1}, {0, -1}, {0, 
+            0}, {0, 1}, {0, 2}, {-1, 2}, {-2, 2}, {-3, 2}, {-3, 1}}], 
+           PolygonBox[{{-2, 0}, {-2, 1}, {-1, 1}, {-1, 0}}]}, 
+          PolygonBox[{{-2, 1}, {-2, 0}, {-1, 0}, {-1, 1}}]}}, 
+        {Arrowheads[{{Automatic, Automatic, 
+            GraphicsBox[
+             LineBox[
+              NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[1, 2]}, {0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[-1, 2]}}, {{-0.8660254037844386, 0.5}, {0, 
+                0}, {-0.8660254037844386, -0.5}}]]]}}], 
+         ArrowBox[
+          NCache[{{0.5, Rational[1, 2]}, {1.5, Rational[1, 2]}}, {{0.5, 
+           0.5}, {1.5, 0.5}}]]}, 
+        {EdgeForm[GrayLevel[
+          NCache[-1 + GoldenRatio, 0.6180339887498949]]], 
+         {GrayLevel[1], RectangleBox[{2, 0}]}}},
+       PlotRange->NCache[{{
+           Rational[-7, 2], 
+           Rational[7, 2]}, {
+           Rational[-3, 2], 
+           Rational[5, 2]}}, {{-3.5, 3.5}, {-1.5, 2.5}}]], 
+      NCache[{7.875, Rational[1, 2]}, {7.875, 0.5}], {
+      Center, Center}, {1.75, 1}], InsetBox[
+      GraphicsBox[{{
+         {EdgeForm[GrayLevel[1]], 
+          {GrayLevel[1], RectangleBox[{-3, 1}], RectangleBox[{-2, 1}], 
+           RectangleBox[{-1, 1}], RectangleBox[{-3, 0}], 
+           RectangleBox[{-1, 0}], RectangleBox[{-3, -1}], 
+           RectangleBox[{-2, -1}], RectangleBox[{-1, -1}]}, 
+          {GrayLevel[1], RectangleBox[{-2, 0}]}}, 
+         {Opacity[0], EdgeForm[GrayLevel[
+           NCache[-1 + GoldenRatio, 0.6180339887498949]]], {
+           PolygonBox[{{-3, 0}, {-3, -1}, {-2, -1}, {-1, -1}, {0, -1}, {0, 
+            0}, {0, 1}, {0, 2}, {-1, 2}, {-2, 2}, {-3, 2}, {-3, 1}}], 
+           PolygonBox[{{-2, 0}, {-2, 1}, {-1, 1}, {-1, 0}}]}, 
+          PolygonBox[{{-2, 1}, {-2, 0}, {-1, 0}, {-1, 1}}]}}, 
+        {Arrowheads[{{Automatic, Automatic, 
+            GraphicsBox[
+             LineBox[
+              NCache[{{Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[1, 2]}, {0, 0}, {Rational[-1, 2] 3^Rational[1, 2], 
+                 Rational[-1, 2]}}, {{-0.8660254037844386, 0.5}, {0, 
+                0}, {-0.8660254037844386, -0.5}}]]]}}], 
+         ArrowBox[
+          NCache[{{0.5, Rational[1, 2]}, {1.5, Rational[1, 2]}}, {{0.5, 
+           0.5}, {1.5, 0.5}}]]}, 
+        {EdgeForm[GrayLevel[
+          NCache[-1 + GoldenRatio, 0.6180339887498949]]], 
+         {GrayLevel[1], RectangleBox[{2, 0}]}}},
+       PlotRange->NCache[{{
+           Rational[-7, 2], 
+           Rational[7, 2]}, {
+           Rational[-3, 2], 
+           Rational[5, 2]}}, {{-3.5, 3.5}, {-1.5, 2.5}}]], 
+      NCache[{9.625, Rational[1, 2]}, {9.625, 0.5}], {
+      Center, Center}, {1.75, 1}]}}, 
+   {GrayLevel[
+    0.8], {LineBox[{{0, 0}, {0, 3}}], LineBox[{{1.75, 0}, {1.75, 3}}], 
+     LineBox[{{3.5, 0}, {3.5, 3}}], LineBox[{{5.25, 0}, {5.25, 3}}], 
+     LineBox[{{7., 0}, {7., 3}}], LineBox[{{8.75, 0}, {8.75, 3}}], 
+     LineBox[{{10.5, 0}, {10.5, 3}}]}, {LineBox[{{0, 0}, {10.5, 0}}], 
+     LineBox[{{0, 1}, {10.5, 1}}], LineBox[{{0, 2}, {10.5, 2}}], 
+     LineBox[{{0, 3}, {10.5, 3}}]}}}]], "Output",
+ CellLabel->"Out[1]=",ExpressionUUID->"686d3102-16da-4cd8-b8fd-196d2b3452df"]
+}, Open  ]]
+},
+WindowSize->{808, 673},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"53116102-d66d-4cc9-aac9-e94490963a4d"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 203, 4, 29, "Input",ExpressionUUID->"af3633e6-4a15-4696-80d6-534ab2716fd6"],
+Cell[782, 28, 31476, 673, 130, "Output",ExpressionUUID->"686d3102-16da-4cd8-b8fd-196d2b3452df"]
+}, Open  ]]
+}
+]
+*)
+

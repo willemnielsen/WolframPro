@@ -1,0 +1,352 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     11825,        344]
+NotebookOptionsPosition[     10307,        317]
+NotebookOutlinePosition[     10705,        333]
+CellTagsIndexPosition[     10662,        330]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["My external evaluate is broken...", "Text",
+ CellChangeTimes->{{3.949796848528298*^9, 3.949796852484514*^9}, {
+  3.949796904120582*^9, 
+  3.949796913946926*^9}},ExpressionUUID->"cec527f6-583b-46bf-9573-\
+7e73cb8d37b4"],
+
+Cell["\<\
+See https://johnhw.github.io/hashlife/index.md.html for source\
+\>", "Text",
+ CellChangeTimes->{{3.949796891842992*^9, 
+  3.949796899307749*^9}},ExpressionUUID->"ec9345d8-10e7-4d3d-b4a9-\
+872b965c60d3"],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+from collections import namedtuple
+_Node = namedtuple(\"Node\", [\"k\", \"a\", \"b\", \"c\", \"d\", \"n\", \
+\"hash\"])
+
+class Node(_Node):    
+     def __hash__(self):
+        return self.hash
+    
+     def __repr__(self):        
+        return f\"Node k={self.k}, {1<<self.k} x {1<<self.k}, pop {self.n}\"  \
+      
+\
+\>", "ExternalLanguage",
+ TaggingRules-><|
+  "ExternalEvaluateData" -> <|
+    "System" -> "Python", "ID" -> "DefaultPythonSession"|>|>,
+ CellEvaluationLanguage->"Python",
+ CellChangeTimes->{{3.949796411734818*^9, 3.949796412527444*^9}},
+ CellLabel->
+  "In[258]:=",ExpressionUUID->"04340c89-b725-4dec-b878-739ddd9ed032"],
+
+Cell[BoxData["$Aborted"], "Output",
+ CellChangeTimes->{3.949796843282543*^9},
+ CellLabel->
+  "Out[258]=",ExpressionUUID->"c2d8fda0-6666-42b8-bced-85011817e93c"]
+}, Open  ]],
+
+Cell["\<\
+on = Node(0, None, None, None, None, 1, 1)
+off = Node(0, None, None, None, None, 0, 0)\
+\>", "ExternalLanguage",
+ TaggingRules-><|
+  "ExternalEvaluateData" -> <|
+    "System" -> "Python", "ID" -> "DefaultPythonSession"|>|>,
+ CellEvaluationLanguage->"Python",
+ CellChangeTimes->{{3.949796416902338*^9, 
+  3.94979641737324*^9}},ExpressionUUID->"547e9dc1-d695-45eb-976d-\
+5ce9a022bda6"],
+
+Cell["\<\
+@lru_cache(maxsize=1024)
+def get_zero(k):
+    return off if k==0 else join(get_zero(k - 1), get_zero(k - 1), 
+                                 get_zero(k - 1), get_zero(k - 1))   \
+\>", "ExternalLanguage",
+ TaggingRules-><|
+  "ExternalEvaluateData" -> <|
+    "System" -> "Python", "ID" -> "DefaultPythonSession"|>|>,
+ CellEvaluationLanguage->"Python",
+ CellChangeTimes->{{3.949796432588715*^9, 
+  3.949796433110002*^9}},ExpressionUUID->"09d1eeef-f1a5-46ec-bb9d-\
+837c48d3efef"],
+
+Cell["\<\
+def centre(m):
+    z = get_zero(m.k - 1)  
+    return join(
+        join(z, z, z, m.a), join(z, z, m.b, z),
+        join(z, m.c, z, z), join(m.d, z, z, z)
+    )\
+\>", "ExternalLanguage",
+ TaggingRules-><|
+  "ExternalEvaluateData" -> <|
+    "System" -> "Python", "ID" -> "DefaultPythonSession"|>|>,
+ CellEvaluationLanguage->"Python",
+ CellChangeTimes->{{3.949796439571762*^9, 
+  3.949796443169149*^9}},ExpressionUUID->"c90de5e2-8c23-40e8-9d93-\
+cd5d5a6c5a07"],
+
+Cell["\<\
+# life rule, for a 3x3 collection of cells, where E is the centre
+def life(a, b, c, d, E, f, g, h, i):
+    outer = sum([t.n for t in [a, b, c, d, f, g, h, i]])
+    return on if (E.n and outer == 2) or outer == 3 else off
+
+def life_4x4(m):
+    ad = life(m.a.a, m.a.b, m.b.a, m.a.c, m.a.d, m.b.c, m.c.a, m.c.b, m.d.a)  \
+
+    bc = life(m.a.b, m.b.a, m.b.b, m.a.d, m.b.c, m.b.d, m.c.b, m.d.a, m.d.b)  \
+
+    cb = life(m.a.c, m.a.d, m.b.c, m.c.a, m.c.b, m.d.a, m.c.c, m.c.d, m.d.c)  \
+
+    da = life(m.a.d, m.b.c, m.b.d, m.c.b, m.d.a, m.d.b, m.c.d, m.d.c, m.d.d)  \
+
+    return join(ab, bc, cb, da)\
+\>", "ExternalLanguage",
+ TaggingRules-><|
+  "ExternalEvaluateData" -> <|
+    "System" -> "Python", "ID" -> "DefaultPythonSession"|>|>,
+ CellEvaluationLanguage->"Python",
+ CellChangeTimes->{{3.9497964632935123`*^9, 
+  3.9497964635900373`*^9}},ExpressionUUID->"1a1729ab-3642-48b9-b58d-\
+7600110af82a"],
+
+Cell["\<\
+from functools import lru_cache
+
+@lru_cache(maxsize=2**24)
+def join(a, b, c, d):        
+    n = a.n + b.n + c.n + d.n
+    nhash = (
+            a.k + 2 +
+            + 5131830419411 * a.hash + 3758991985019 * b.hash
+            + 8973110871315 * c.hash + 4318490180473 * d.hash
+        ) & ((1 << 63) - 1)    
+    return Node(a.k + 1, a, b, c, d, n, nhash) 
+\
+\>", "ExternalLanguage",
+ TaggingRules-><|
+  "ExternalEvaluateData" -> <|
+    "System" -> "Python", "ID" -> "DefaultPythonSession"|>|>,
+ CellEvaluationLanguage->"Python",
+ CellChangeTimes->{{3.949796423604623*^9, 
+  3.949796423999072*^9}},ExpressionUUID->"7a352d9e-7cbd-49ea-9e61-\
+6307c563bda4"],
+
+Cell["\<\
+lru_cache(maxsize=2 ** 24)
+def successor(m, j=None):
+    \"\"\"Return the 2**k-1 x 2**k-1 successor, 2**j generations in the \
+future\"\"\"
+    if m.n == 0:  # empty
+        return m.a
+    elif m.k == 2:  # base case
+        s = life_4x4(m)
+    else:
+        j = m.k - 2 if j is None else min(j, m.k - 2)
+        c1 = successor(join(m.a.a, m.a.b, m.a.c, m.a.d), j)
+        c2 = successor(join(m.a.b, m.b.a, m.a.d, m.b.c), j)
+        c3 = successor(join(m.b.a, m.b.b, m.b.c, m.b.d), j)
+        c4 = successor(join(m.a.c, m.a.d, m.c.a, m.c.b), j)
+        c5 = successor(join(m.a.d, m.b.c, m.c.b, m.d.a), j)
+        c6 = successor(join(m.b.c, m.b.d, m.d.a, m.d.b), j)
+        c7 = successor(join(m.c.a, m.c.b, m.c.c, m.c.d), j)
+        c8 = successor(join(m.c.b, m.d.a, m.c.d, m.d.c), j)
+        c9 = successor(join(m.d.a, m.d.b, m.d.c, m.d.d), j)
+
+        if j < m.k - 2:
+            s = join(
+                (join(c1.d, c2.c, c4.b, c5.a)),
+                (join(c2.d, c3.c, c5.b, c6.a)),
+                (join(c4.d, c5.c, c7.b, c8.a)),
+                (join(c5.d, c6.c, c8.b, c9.a)),
+            )
+        else:
+            s = join(
+                successor(join(c1, c2, c4, c5), j),
+                successor(join(c2, c3, c5, c6), j),
+                successor(join(c4, c5, c7, c8), j),
+                successor(join(c5, c6, c8, c9), j),
+            )
+    return s
+
+\
+\>", "ExternalLanguage",
+ TaggingRules-><|
+  "ExternalEvaluateData" -> <|
+    "System" -> "Python", "ID" -> "DefaultPythonSession"|>|>,
+ CellEvaluationLanguage->"Python",
+ CellChangeTimes->{3.949796191102667*^9, 
+  3.949796238210371*^9},ExpressionUUID->"1aab5d97-41a6-4602-b714-\
+c4c14d2b6904"],
+
+Cell["\<\
+def advance(node, n):        
+    if n==0:
+        return node    
+    
+    # get binary expansion and make sure we've padded enough
+    bits = []    
+    while n > 0:
+        bits.append(n & 1)
+        n = n >> 1
+        node = centre(node) # nest        
+    
+    for k, bit in enumerate(reversed(bits)):
+        j = len(bits) - k  - 1        
+        if bit:
+            node = successor(node, j)
+    return node
+
+def ffwd(node, n):    
+    for i in range(n):       
+        while (node.k < 3 or node.a.n != node.a.d.d.n or
+                node.b.n != node.b.c.c.n or
+                node.c.n != node.c.b.b.n or
+                node.d.n != node.d.a.a.n):
+                node = centre(node)    
+        node = successor(node)
+    return node
+
+def expand(node, x=0, y=0, clip=None, level=0):
+    \"\"\"Turn a quadtree a list of (x,y,gray) triples 
+    in the rectangle (x,y) -> (clip[0], clip[1]) (if clip is not-None).    
+    If `level` is given, quadtree elements at the given level are given 
+    as a grayscale level 0.0->1.0,  \"zooming out\" the display.\"\"\"
+    
+    if node.n==0: # quick zero check
+        return []    
+
+    size = 2 ** node.k
+    # bounds check
+    if clip is not None:
+        if x + size < clip[0] or x > clip[1] or 
+           y + size < clip[2] or y > clip[3]:
+            return []
+
+    if node.k == level:
+        # base case: return the gray level of this node
+        gray = node.n / (size ** 2)
+        return [(x >> level, y >> level, gray)]
+
+    else:
+        # return all points contained inside this node
+        offset = size >> 1
+        return (
+            expand(node.a, x, y, clip, level)
+            + expand(node.b, x + offset, y, clip, level)
+            + expand(node.c, x, y + offset, clip, level)
+            + expand(node.d, x + offset, y + offset, clip, level)
+        )       
+
+def construct(pts):
+    \"\"\"Turn a list of (x,y) coordinates into a quadtree\"\"\"
+    # Force start at (0,0)
+    min_x = min(*[x for x, y in pts])
+    min_y = min(*[y for x, y in pts])
+    pattern = {(x - min_x, y - min_y): on for x, y in pts}
+    k = 0
+
+    while len(pattern) != 1:
+        # bottom-up construction
+        next_level = {}
+        z = get_zero(k)
+
+        while len(pattern) > 0:
+            x, y = next(iter(pattern))
+            x, y = x - (x & 1), y - (y & 1)
+            # read all 2x2 neighbours, removing from those to work through
+            # at least one of these must exist by definition
+            a = pattern.pop((x, y), z)
+            b = pattern.pop((x + 1, y), z)
+            c = pattern.pop((x, y + 1), z)
+            d = pattern.pop((x + 1, y + 1), z)
+            next_level[x >> 1, y >> 1] = join(a, b, c, d)
+
+        # merge at the next level
+        pattern = next_level
+        k += 1
+    return pattern.popitem()[1]
+
+from lifeparsers import autoguess_life_file
+
+    def load_lif(fname):
+        pat, comments = autoguess_life_file(fname)
+        return construct(pat)
+\
+\>", "ExternalLanguage",
+ TaggingRules-><|
+  "ExternalEvaluateData" -> <|
+    "System" -> "Python", "ID" -> "DefaultPythonSession"|>|>,
+ CellEvaluationLanguage->"Python",
+ CellChangeTimes->{
+  3.949796243881888*^9, {3.949796297876974*^9, 3.949796317221047*^9}, {
+   3.9497963505849257`*^9, 
+   3.949796351075625*^9}},ExpressionUUID->"b3520e75-58b3-4241-a968-\
+5b87b63c2e8b"],
+
+Cell["\<\
+ffwd(load_lif(\"lifep/breeder.lif\"), 64)
+    (Node k=74, 18889465931478580854784 x 18889465931478580854784, population \
+464598858302721315414285904656952238927788, 18889465931478580853760)\
+\>", "ExternalLanguage",
+ TaggingRules-><|
+  "ExternalEvaluateData" -> <|
+    "System" -> "Python", "ID" -> "DefaultPythonSession"|>|>,
+ CellEvaluationLanguage->"Python",
+ CellChangeTimes->{{3.9497963635690947`*^9, 
+  3.9497963641935368`*^9}},ExpressionUUID->"735f45d4-24cc-44d4-9b65-\
+6a6bd13109cd"]
+},
+WindowSize->{808, 856},
+WindowMargins->{{275, Automatic}, {47, Automatic}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"8a4a5fa1-bf16-43bb-bbe3-a82025d6edd7"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 224, 4, 33, "Text",ExpressionUUID->"cec527f6-583b-46bf-9573-7e73cb8d37b4"],
+Cell[781, 26, 212, 5, 33, "Text",ExpressionUUID->"ec9345d8-10e7-4d3d-b4a9-872b965c60d3"],
+Cell[CellGroupData[{
+Cell[1018, 35, 650, 20, 193, "ExternalLanguage",ExpressionUUID->"04340c89-b725-4dec-b878-739ddd9ed032"],
+Cell[1671, 57, 160, 3, 33, "Output",ExpressionUUID->"c2d8fda0-6666-42b8-bced-85011817e93c"]
+}, Open  ]],
+Cell[1846, 63, 393, 10, 65, "ExternalLanguage",ExpressionUUID->"547e9dc1-d695-45eb-976d-5ce9a022bda6"],
+Cell[2242, 75, 487, 12, 97, "ExternalLanguage",ExpressionUUID->"09d1eeef-f1a5-46ec-bb9d-837c48d3efef"],
+Cell[2732, 89, 468, 14, 129, "ExternalLanguage",ExpressionUUID->"c90de5e2-8c23-40e8-9d93-cd5d5a6c5a07"],
+Cell[3203, 105, 906, 23, 209, "ExternalLanguage",ExpressionUUID->"1a1729ab-3642-48b9-b58d-7600110af82a"],
+Cell[4112, 130, 667, 20, 226, "ExternalLanguage",ExpressionUUID->"7a352d9e-7cbd-49ea-9e61-6307c563bda4"],
+Cell[4782, 152, 1676, 45, 612, "ExternalLanguage",ExpressionUUID->"1aab5d97-41a6-4602-b714-c4c14d2b6904"],
+Cell[6461, 199, 3337, 103, 1528, "ExternalLanguage",ExpressionUUID->"b3520e75-58b3-4241-a968-5b87b63c2e8b"],
+Cell[9801, 304, 502, 11, 81, "ExternalLanguage",ExpressionUUID->"735f45d4-24cc-44d4-9b65-6a6bd13109cd"]
+}
+]
+*)
+

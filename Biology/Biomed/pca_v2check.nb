@@ -1,0 +1,93 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      2522,         85]
+NotebookOptionsPosition[      1951,         67]
+NotebookOutlinePosition[      2348,         83]
+CellTagsIndexPosition[      2305,         80]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"ru", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{"299459058088077823758143088095350287424", ",", "4", ",", "1"}],
+       "}"}]}], ",", 
+    RowBox[{"init", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", "1", "}"}], ",", " ", "0"}], "}"}]}], ",", " ", 
+    RowBox[{"txspec", " ", "=", " ", 
+     RowBox[{"{", 
+      RowBox[{"400", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "110"}], ",", " ", "110"}], "}"}]}], "}"}]}]}], "}"}], 
+  ";"}]], "Input",
+ CellLabel->
+  "In[128]:=",ExpressionUUID->"8e56f440-7966-485c-a0a2-a3b4e42f2c6f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"TestCALifeTime", "[", 
+    RowBox[{"PerturbedCellularAutomaton", "[", 
+     RowBox[{
+     "ru", ",", " ", "init", ",", " ", "txspec", ",", " ", "#", ",", " ", 
+      RowBox[{"\"\<ReturnPerturbations\>\"", "->", "False"}]}], "]"}], "]"}], 
+   "&"}], "/@", " ", 
+  RowBox[{
+   RowBox[{"allperts", "[", 
+    RowBox[{"ru", ",", " ", "init", ",", " ", "txspec"}], "]"}], "[", 
+   RowBox[{"[", 
+    RowBox[{";;", "1"}], "]"}], "]"}]}]], "Input",
+ CellLabel->
+  "In[129]:=",ExpressionUUID->"3553bd2e-aa12-45f3-8d90-659c42bb76d5"],
+
+Cell[BoxData[
+ RowBox[{"{", "0", "}"}]], "Output",
+ CellLabel->
+  "Out[129]=",ExpressionUUID->"372ab8dd-d55b-48af-8691-82c719aa0e05"]
+}, Open  ]]
+},
+WindowSize->{808, 673},
+WindowMargins->{{95, Automatic}, {Automatic, 44}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"66d63ae2-fb7c-4182-b633-304418661e9a"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 651, 20, 49, "Input",ExpressionUUID->"8e56f440-7966-485c-a0a2-a3b4e42f2c6f"],
+Cell[CellGroupData[{
+Cell[1230, 44, 569, 15, 49, "Input",ExpressionUUID->"3553bd2e-aa12-45f3-8d90-659c42bb76d5"],
+Cell[1802, 61, 133, 3, 33, "Output",ExpressionUUID->"372ab8dd-d55b-48af-8691-82c719aa0e05"]
+}, Open  ]]
+}
+]
+*)
+

@@ -1,0 +1,806 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     32675,        798]
+NotebookOptionsPosition[     30846,        758]
+NotebookOutlinePosition[     31243,        774]
+CellTagsIndexPosition[     31200,        771]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"Module", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"many", "=", "100"}], ",", 
+     RowBox[{"deep", "=", "250"}], ",", 
+     RowBox[{"cut", "=", "200"}], ",", "ru", ",", "life", ",", "one", ",", 
+     "evo", ",", "data"}], "}"}], ",", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"SeedRandom", "[", "426778", "]"}], ";", "\[IndentingNewLine]", 
+    RowBox[{"one", "=", 
+     RowBox[{"NestList", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"CompoundExpression", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"ru", "=", 
+           RowBox[{
+            InterpretationBox[
+             TagBox[
+              FrameBox[
+               PaneBox[GridBox[{
+                  {
+                   StyleBox[
+                    StyleBox[
+                    AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                    FontColor->GrayLevel[0.45]],
+                    ShowStringCharacters->False,
+                    FontFamily->"Source Sans Pro Black",
+                    FontSize->0.65 Inherited,
+                    FontWeight->"Heavy",
+                    PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                   StyleBox[
+                    RowBox[{
+                    
+                    StyleBox["\<\"RandomRuleMutation\"\>", 
+                    "ResourceFunctionLabel"], " "}],
+                    ShowAutoStyles->False,
+                    ShowStringCharacters->False,
+                    FontSize->0.9 Inherited,
+                    FontColor->GrayLevel[0.1]]}
+                 },
+                 GridBoxSpacings->{"Columns" -> {{0.25}}}],
+                Alignment->Left,
+                BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+                BaselinePosition->Baseline,
+                FrameMargins->{{3, 0}, {0, 0}}],
+               Background->RGBColor[0.968627, 0.976471, 0.984314],
+               BaselinePosition->Baseline,
+               DefaultBaseStyle->{},
+               FrameMargins->{{0, 0}, {1, 1}},
+               FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+               RoundingRadius->4],
+              {"FunctionResourceBox", 
+               GrayLevel[0.45], "\"RandomRuleMutation\""},
+              TagBoxNote->"FunctionResourceBox"],
+             ResourceFunction[
+              
+              ResourceObject[<|
+               "Name" -> "RandomRuleMutation", "UUID" -> 
+                "05a45225-5be5-46bd-9833-9ef3be361333", "ResourceType" -> 
+                "Function", "ResourceLocations" -> {
+                  CloudObject[
+                  "https://www.wolframcloud.com/obj/sw-writings0/Resources/\
+05a/05a45225-5be5-46bd-9833-9ef3be361333"]}, "Version" -> None, 
+                "DocumentationLink" -> 
+                URL["https://www.wolframcloud.com/obj/sw-writings0/\
+BiologicalEvolution/RandomRuleMutation"], "ExampleNotebookData" -> Automatic, 
+                "FunctionLocation" -> 
+                CloudObject[
+                 "https://www.wolframcloud.com/obj/sw-writings0/Resources/05a/\
+05a45225-5be5-46bd-9833-9ef3be361333/download/DefinitionData"], "ShortName" -> 
+                "RandomRuleMutation", "SymbolName" -> 
+                "FunctionRepository`$05a452255be546bd98339ef3be361333`\
+RandomRuleMutation", "PageHeaderClickToCopy" -> 
+                "ResourceObject[CloudObject[\"https://www.wolframcloud.com/\
+obj/sw-writings0/BiologicalEvolution/RandomRuleMutation\"]]"|>]],
+             Selectable->False], "[", 
+            RowBox[{"First", "[", "#", "]"}], "]"}]}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{"life", "=", 
+           RowBox[{
+            InterpretationBox[
+             TagBox[
+              FrameBox[
+               PaneBox[GridBox[{
+                  {
+                   StyleBox[
+                    StyleBox[
+                    AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                    FontColor->GrayLevel[0.45]],
+                    ShowStringCharacters->False,
+                    FontFamily->"Source Sans Pro Black",
+                    FontSize->0.65 Inherited,
+                    FontWeight->"Heavy",
+                    PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                   StyleBox[
+                    RowBox[{
+                    StyleBox["\<\"TestLifetime\"\>", "ResourceFunctionLabel"],
+                     " "}],
+                    ShowAutoStyles->False,
+                    ShowStringCharacters->False,
+                    FontSize->0.9 Inherited,
+                    FontColor->GrayLevel[0.1]]}
+                 },
+                 GridBoxSpacings->{"Columns" -> {{0.25}}}],
+                Alignment->Left,
+                BaseStyle->{LineSpacing -> {0, 0}, LineBreakWithin -> False},
+                BaselinePosition->Baseline,
+                FrameMargins->{{3, 0}, {0, 0}}],
+               Background->RGBColor[0.968627, 0.976471, 0.984314],
+               BaselinePosition->Baseline,
+               DefaultBaseStyle->{},
+               FrameMargins->{{0, 0}, {1, 1}},
+               FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+               RoundingRadius->4],
+              {"FunctionResourceBox", 
+               GrayLevel[0.45], "\"TestLifetime\""},
+              TagBoxNote->"FunctionResourceBox"],
+             ResourceFunction[
+              
+              ResourceObject[<|
+               "Name" -> "TestLifetime", "UUID" -> 
+                "a75d3c27-ef05-4ae6-a303-c3d35eb480e1", "ResourceType" -> 
+                "Function", "ResourceLocations" -> {
+                  CloudObject[
+                  "https://www.wolframcloud.com/obj/sw-writings0/Resources/\
+a75/a75d3c27-ef05-4ae6-a303-c3d35eb480e1"]}, "Version" -> None, 
+                "DocumentationLink" -> 
+                URL["https://www.wolframcloud.com/obj/sw-writings0/\
+BiologicalEvolution/TestLifetime"], "ExampleNotebookData" -> Automatic, 
+                "FunctionLocation" -> 
+                CloudObject[
+                 "https://www.wolframcloud.com/obj/sw-writings0/Resources/a75/\
+a75d3c27-ef05-4ae6-a303-c3d35eb480e1/download/DefinitionData"], "ShortName" -> 
+                "TestLifetime", "SymbolName" -> 
+                "FunctionRepository`$a75d3c27ef054ae6a303c3d35eb480e1`\
+TestLifetime", "PageHeaderClickToCopy" -> 
+                "ResourceObject[CloudObject[\"https://www.wolframcloud.com/\
+obj/sw-writings0/BiologicalEvolution/TestLifetime\"]]"|>]],
+             Selectable->False], "[", 
+            RowBox[{"ru", ",", "cut"}], "]"}]}], ",", "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"life", ">=", 
+             RowBox[{"Last", "[", "#", "]"}]}], ",", 
+            RowBox[{"{", 
+             RowBox[{"ru", ",", "life"}], "}"}], ",", "#"}], "]"}]}], 
+         "\[IndentingNewLine]", "]"}], "&"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "3", ",", "1"}], "}"}], ",", "1"}], "}"}], ",", 
+       "deep"}], "]"}]}], ";", "\[IndentingNewLine]", 
+    RowBox[{"Show", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"ListLinePlot", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"ParallelTable", "[", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"SeedRandom", "[", 
+            RowBox[{"2524", "+", "i"}], "]"}], ";", "\[IndentingNewLine]", 
+           RowBox[{"evo", "=", 
+            RowBox[{"NestList", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"CompoundExpression", "[", "\[IndentingNewLine]", 
+                RowBox[{
+                 RowBox[{"ru", "=", 
+                  RowBox[{
+                   InterpretationBox[
+                    TagBox[
+                    FrameBox[
+                    PaneBox[GridBox[{
+                    {
+                    StyleBox[
+                    StyleBox[
+                    AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                    FontColor->GrayLevel[0.45]],
+                    ShowStringCharacters->False,
+                    FontFamily->"Source Sans Pro Black",
+                    FontSize->0.65 Inherited,
+                    FontWeight->"Heavy",
+                    PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                    StyleBox[
+                    RowBox[{
+                    
+                    StyleBox["\<\"RandomRuleMutation\"\>", 
+                    "ResourceFunctionLabel"], " "}],
+                    ShowAutoStyles->False,
+                    ShowStringCharacters->False,
+                    FontSize->0.9 Inherited,
+                    FontColor->GrayLevel[0.1]]}
+                    },
+                    GridBoxSpacings->{"Columns" -> {{0.25}}}],
+                    Alignment->Left,
+                    
+                    BaseStyle->{
+                    LineSpacing -> {0, 0}, LineBreakWithin -> False},
+                    BaselinePosition->Baseline,
+                    FrameMargins->{{3, 0}, {0, 0}}],
+                    Background->RGBColor[0.968627, 0.976471, 0.984314],
+                    BaselinePosition->Baseline,
+                    DefaultBaseStyle->{},
+                    FrameMargins->{{0, 0}, {1, 1}},
+                    FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+                    RoundingRadius->4],
+                    {"FunctionResourceBox", 
+                    GrayLevel[0.45], "\"RandomRuleMutation\""},
+                    TagBoxNote->"FunctionResourceBox"],
+                    ResourceFunction[
+                    
+                    ResourceObject[<|
+                    "Name" -> "RandomRuleMutation", "UUID" -> 
+                    "05a45225-5be5-46bd-9833-9ef3be361333", "ResourceType" -> 
+                    "Function", "ResourceLocations" -> {
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings0/Resources/\
+05a/05a45225-5be5-46bd-9833-9ef3be361333"]}, "Version" -> None, 
+                    "DocumentationLink" -> 
+                    URL["https://www.wolframcloud.com/obj/sw-writings0/\
+BiologicalEvolution/RandomRuleMutation"], "ExampleNotebookData" -> Automatic, 
+                    "FunctionLocation" -> 
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings0/Resources/\
+05a/05a45225-5be5-46bd-9833-9ef3be361333/download/DefinitionData"], 
+                    "ShortName" -> "RandomRuleMutation", "SymbolName" -> 
+                    "FunctionRepository`$05a452255be546bd98339ef3be361333`\
+RandomRuleMutation", "PageHeaderClickToCopy" -> 
+                    "ResourceObject[CloudObject[\"https://www.wolframcloud.\
+com/obj/sw-writings0/BiologicalEvolution/RandomRuleMutation\"]]"|>]],
+                    Selectable->False], "[", 
+                   RowBox[{"First", "[", "#", "]"}], "]"}]}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"life", "=", 
+                  RowBox[{
+                   InterpretationBox[
+                    TagBox[
+                    FrameBox[
+                    PaneBox[GridBox[{
+                    {
+                    StyleBox[
+                    StyleBox[
+                    AdjustmentBox["\<\"[\[FilledSmallSquare]]\"\>",
+                    BoxBaselineShift->-0.25,
+                    BoxMargins->{{0, 0}, {-1, -1}}], "ResourceFunctionIcon",
+                    FontColor->GrayLevel[0.45]],
+                    ShowStringCharacters->False,
+                    FontFamily->"Source Sans Pro Black",
+                    FontSize->0.65 Inherited,
+                    FontWeight->"Heavy",
+                    PrivateFontOptions->{"OperatorSubstitution"->False}], 
+                    StyleBox[
+                    RowBox[{
+                    StyleBox["\<\"TestLifetime\"\>", "ResourceFunctionLabel"],
+                     " "}],
+                    ShowAutoStyles->False,
+                    ShowStringCharacters->False,
+                    FontSize->0.9 Inherited,
+                    FontColor->GrayLevel[0.1]]}
+                    },
+                    GridBoxSpacings->{"Columns" -> {{0.25}}}],
+                    Alignment->Left,
+                    
+                    BaseStyle->{
+                    LineSpacing -> {0, 0}, LineBreakWithin -> False},
+                    BaselinePosition->Baseline,
+                    FrameMargins->{{3, 0}, {0, 0}}],
+                    Background->RGBColor[0.968627, 0.976471, 0.984314],
+                    BaselinePosition->Baseline,
+                    DefaultBaseStyle->{},
+                    FrameMargins->{{0, 0}, {1, 1}},
+                    FrameStyle->RGBColor[0.831373, 0.847059, 0.85098],
+                    RoundingRadius->4],
+                    {"FunctionResourceBox", 
+                    GrayLevel[0.45], "\"TestLifetime\""},
+                    TagBoxNote->"FunctionResourceBox"],
+                    ResourceFunction[
+                    
+                    ResourceObject[<|
+                    "Name" -> "TestLifetime", "UUID" -> 
+                    "a75d3c27-ef05-4ae6-a303-c3d35eb480e1", "ResourceType" -> 
+                    "Function", "ResourceLocations" -> {
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings0/Resources/\
+a75/a75d3c27-ef05-4ae6-a303-c3d35eb480e1"]}, "Version" -> None, 
+                    "DocumentationLink" -> 
+                    URL["https://www.wolframcloud.com/obj/sw-writings0/\
+BiologicalEvolution/TestLifetime"], "ExampleNotebookData" -> Automatic, 
+                    "FunctionLocation" -> 
+                    CloudObject[
+                    "https://www.wolframcloud.com/obj/sw-writings0/Resources/\
+a75/a75d3c27-ef05-4ae6-a303-c3d35eb480e1/download/DefinitionData"], 
+                    "ShortName" -> "TestLifetime", "SymbolName" -> 
+                    "FunctionRepository`$a75d3c27ef054ae6a303c3d35eb480e1`\
+TestLifetime", "PageHeaderClickToCopy" -> 
+                    "ResourceObject[CloudObject[\"https://www.wolframcloud.\
+com/obj/sw-writings0/BiologicalEvolution/TestLifetime\"]]"|>]],
+                    Selectable->False], "[", 
+                   RowBox[{"ru", ",", "cut"}], "]"}]}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{"If", "[", 
+                  RowBox[{
+                   RowBox[{"life", ">=", 
+                    RowBox[{"Last", "[", "#", "]"}]}], ",", 
+                   RowBox[{"{", 
+                    RowBox[{"ru", ",", "life"}], "}"}], ",", "#"}], "]"}]}], 
+                "\[IndentingNewLine]", "]"}], "&"}], ",", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"0", ",", "3", ",", "1"}], "}"}], ",", "1"}], "}"}], 
+              ",", "deep"}], "]"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"Last", "/@", "evo"}]}], "\[IndentingNewLine]", ",", 
+          RowBox[{"{", 
+           RowBox[{"i", ",", "many"}], "}"}]}], "]"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"PlotRange", "->", "All"}], ",", 
+        RowBox[{"AspectRatio", "->", 
+         RowBox[{"1", "/", "4"}]}], ",", 
+        RowBox[{"Frame", "->", "True"}]}], "\[IndentingNewLine]", "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"ListPlot", "[", 
+       RowBox[{
+        RowBox[{"Last", "/@", "one"}], ",", 
+        RowBox[{"PlotStyle", "->", "Black"}]}], "]"}]}], 
+     "\[IndentingNewLine]", "]"}]}]}], "\[IndentingNewLine]", "]"}]], "Input",\
+
+ CellChangeTimes->{{3.921852498185158*^9, 3.921852711610526*^9}, 
+   3.921887368926321*^9, {3.921973994637376*^9, 3.921974004041739*^9}, {
+   3.921974150413331*^9, 3.921974151014264*^9}, {3.92197445542133*^9, 
+   3.921974470248045*^9}, {3.923481842352892*^9, 3.923481886041914*^9}, {
+   3.923481919612259*^9, 3.92348194175197*^9}, {3.923511496778452*^9, 
+   3.923511505549635*^9}},
+ CellLabel->"In[18]:=",
+ CellID->203709881,ExpressionUUID->"2d0abf12-9600-47df-8c5f-1bbd74369441"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.9572072446997347`*^9, 
+  3.957207245029241*^9}},ExpressionUUID->"ddaddbec-75ed-47e9-b303-\
+1e21ae74f7fa"],
+
+Cell[CellGroupData[{
+
+Cell["1D Causal graph", "Subsection",
+ CellChangeTimes->{{3.957215833250084*^9, 3.9572158365609293`*^9}, {
+  3.957216099556465*^9, 
+  3.9572161030370073`*^9}},ExpressionUUID->"ab82d081-ff4a-458e-a59a-\
+7510c212ac7b"],
+
+Cell["How do you separate time? ", "Subsubsection",
+ CellChangeTimes->{{3.957216105407817*^9, 
+  3.957216109866146*^9}},ExpressionUUID->"1e037438-b44b-44a1-88ce-\
+19f0a5615651"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["O", "Subsection",
+ CellChangeTimes->{
+  3.957222343515718*^9},ExpressionUUID->"095196fb-4ea1-4040-a7f6-\
+7881920f70ad"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RulePlot", "[", 
+  RowBox[{"CellularAutomaton", "[", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<RuleNumber\>\"", "->", "40"}], ",", " ", 
+     RowBox[{"\"\<Neighborhood\>\"", "->", "5"}], ",", " ", 
+     RowBox[{"\"\<Dimension\>\"", "->", "2"}]}], "|>"}], "]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.95722234450872*^9, 3.957222376293646*^9}, {
+  3.9572224163462477`*^9, 3.957222446629385*^9}},
+ CellLabel->
+  "In[259]:=",ExpressionUUID->"7c7edd53-66d8-432c-816c-1bbc5a796db1"],
+
+Cell[BoxData[
+ RowBox[{"RulePlot", "[", 
+  RowBox[{"CellularAutomaton", "[", 
+   RowBox[{"\[LeftAssociation]", 
+    RowBox[{
+     RowBox[{"\<\"RuleNumber\"\>", "\[Rule]", "40"}], ",", 
+     RowBox[{"\<\"Neighborhood\"\>", "\[Rule]", "5"}], ",", 
+     RowBox[{"\<\"Dimension\"\>", "\[Rule]", "2"}]}], "\[RightAssociation]"}],
+    "]"}], "]"}]], "Output",
+ CellChangeTimes->{{3.957222354575539*^9, 3.957222376666438*^9}, {
+  3.9572224176088333`*^9, 3.957222446864685*^9}},
+ CellLabel->
+  "Out[259]=",ExpressionUUID->"78219c26-e373-40f8-8946-cf7ae7bf191f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RulePlot", "[", 
+  RowBox[{
+   RowBox[{"TuringMachine", "[", "2506", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", "}"}], ",", "0"}], "}"}]}], "}"}], ",", "20"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.9572242690197144`*^9, 3.9572242690240803`*^9}},
+ CellLabel->
+  "In[260]:=",ExpressionUUID->"1c07fa6d-7ecb-4414-9438-2d2b7193493c"],
+
+Cell[BoxData[
+ GraphicsBox[RasterBox[CompressedData["
+1:eJxTTMoPSmVmYGAQBWIOIAaxIeCDPdf1xQW2XNftGVDAB3tcNKnqqWUOLvWD
+zRxa20tr91DL/QPlnlH15NFDxf1DJb0NNnMGm71D3f20tneg3D9c6ylq0YPN
+PQPl/oHy12DLj9SydzRdDaz7ae3fwebOoe7+kU4DAKgHkU0=
+   "], {{0, 0}, {8, 21}}, {0, 1}],
+  Epilog->{{
+     GrayLevel[0], {{
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQPWsmCAg5MIBAg4kDjH/B5caHL7NMIOIMQg7GIPCZ
+MD8NDATh+mF8mPkwvoEAy4kLpSYOj38/CppaJujw4kBRC0+OicPB/2GbkicL
+OnzYP/XNjRQTh/nMpwWNNgg6/Ny3I2RprInDAQcBBefrghB3RiLsh/Ed9r+/
+v0cDwU/8Y/LurL8QXL89w0rfOTlCcPNlWWTXZnUKwe2H+R/mPvTwAQDpfXM/
+
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQnQYGog4MINBg7ADjG+xW5+dONYaIM4g5nD0DBDyE
++bNmgoAYXD+MDzMfxr/w/re5fpexgyyL7NqsTjEHCfve6s+TjR3sGVb6zskR
+cxBwyBJWn23skPjH5N1ZfzEHdkf31VGLjB0c9r+/v0dDDOLOZQj7YfwDDgIK
+ztdF4fz5zKcFjTaIwvUf/B+2KXmyKNz8x78fBU0tE4XbD/M/zH3o4QMA5/pq
+Ng==
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQPWsmCAg5MIBAg5EDjH/B5caHL7OMIOIMQg7GIPCZ
+MD8NDATh+mF8mPkwvoEAy4kLpUYOj38/CppaJujw4kBRC0+OkcPB/2GbkicL
+OnzYP/XNjRQjh/nMpwWNNgg6/Ny3I2RprJHDAQcBBefrghB3RiLsh/Ed9r+/
+v0cDwU/8Y/LurL8QXL89w0rfOTlCcPNlWWTXZnUKwe2H+R/mPvTwAQDT0XMZ
+
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQffYMCHA5MIBAg6EDjG+wW52fO9UQIs7AAxHnIcw3
+BgNeuH4YH2Y+jH/h/W9z/S5DBysOq6irQrwOEva91Z8nGzrUMQTNtrjJ4yDg
+kCWsPtvQ4dCPzDuz5/M4sDu6r45aZOjQUHd/f2Ugj0MaCCxD2A/jNzQqOLSt
+44bz7dinKackcMP1N/1fm3JcjRtu/rHvR5dqveWC2w/zP8x96OEDAKYOa7Y=
+
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQbQwGrA4MINBg4ADjX3C58eHLLAOIOAMLRPwzYf7Z
+MyDABNcP48PMh/ENBFhOXCg1cDj2/ehSrbdMDi8OFLXw5Bg4NP1fm3Jcjdnh
+w/6pb26kGDjYsU9TTklgdvi5b0fI0lgDh4ZGBYe2dcwOs2YCQSTCfhi/oe7+
+/spABP/Qj8w7s+ezwPXXMQTNtrjJAjffisMq6qoQK9x+mP9h7kMPHwDYBm+F
+
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQffYMCHA5MICBvgOMn1DmLyd2Sg8qzuMwayYQSBLm
+G4MBL1w/jA8zH8ZfcP97fpyIvoMVh1XUVSFeB8M6qe/P1PUd6hiCZlvc5HGQ
+b7ii5mem73DoR+ad2fN5HPia+sK2uug7NNTd318ZyANxp48+3H4Yv6FRwaFt
+HTecb8c+TTklgRuuv+n/2pTjatxw8499P7pU6y0X3H6Y/2HuQw8fAD0dbfw=
+
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQPWsmCAg5MICBrgOMv6Bzw8OXprpQcSGHNBB4RpgP
+ptME4fphfJj5MH6CAseEha91HB7/fhQ0tUzQ4XzjUw7JGzoOB/+HbUqeLOjw
+sF775saTOg7zmU8LGm0QdPhUW7jSa7eOwwEHAQXn64IOxiCwWQduP4zvsP/9
+/T0aCH7iH5N3Z/2F4PrtGVb6zskRgpsvyyK7NqtTCG4/zP8w96GHDwD+2m0+
+
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQnQYGog4MYKDtAOMnlPnLiZ3SgoqLOcyaCQSShPlg
+eqYYXD+MDzMfxl9w/3t+nIi2gyyL7NqsTjEHwzqp78/UtR3sGVb6zskRc5Bv
+uKLmZ6btkPjH5N1ZfzEHvqa+sK0u2g4O+9/f36Mh5nD2DBD4aMPth/EPOAgo
+OF8XhfPnM58WNNogCtd/8H/YpuTJonDzH/9+FDS1TBRuP8z/MPehhw8APgVs
+Cg==
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQPWsmCEg5MICBpgOMv6Bzw8OXpppQcSmHNBB4RpgP
+ptMk4fphfJj5MH6CAseEha81HB7/fhQ0tUzS4XzjUw7JGxoOB/+HbUqeLOnw
+sF775saTGg7zmU8LGm2QdPhUW7jSa7eGwwEHAQXn65IOxiCwWQNuP4zvsP/9
+/T0aCH7iH5N3Z/2l4PrtGVb6zsmRgpsvyyK7NqtTCm4/zP8w96GHDwAvAW2K
+
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQnQYGsg4MYKDuAOMnlPnLiZ1Sg4rLOcyaCQSShPlg
+eqYcXD+MDzMfxl9w/3t+nIi6gyyL7NqsTjkHwzqp78/U1R3sGVb6zsmRc5Bv
+uKLmZ6bukPjH5N1ZfzkHvqa+sK0u6g4O+9/f36Mh53D2DBD4qMPth/EPOAgo
+OF+XhfPnM58WNNogC9d/8H/YpuTJsnDzH/9+FDS1TBZuP8z/MPehhw8Abh1s
+Vg==
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQPWsmCEg5MICBqgOMv6Bzw8OXpqpQcSmHNBB4RpgP
+ptMk4fphfJj5MH6CAseEha9VHB7/fhQ0tUzS4XzjUw7JGyoOB/+HbUqeLOnw
+sF775saTKg7zmU8LGm2QdPhUW7jSa7eKwwEHAQXn65IOxiCwWQVuP4zvsP/9
+/T0aCH7iH5N3Z/2l4PrtGVb6zsmRgpsvyyK7NqtTCm4/zP8w96GHDwADqW0+
+
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQnQYGog4MYKDsAOMnlPnLiZ1SgoqLOcyaCQSShPlg
+eqYYXD+MDzMfxl9w/3t+nIiygyyL7NqsTjEHwzqp78/UlR3sGVb6zskRc5Bv
+uKLmZ6bskPjH5N1ZfzEHvqa+sK0uyg4O+9/f36Mh5nD2DBD4KMPth/EPOAgo
+OF8XhfPnM58WNNogCtd/8H/YpuTJonDzH/9+FDS1TBRuP8z/MPehhw8A50Zr
+cg==
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQPWsmCAg5MICBogOMv6Bzw8OXpopQcSGHNBB4RpgP
+ptME4fphfJj5MH6CAseEha8VHB7/fhQ0tUzQ4XzjUw7JGwoOB/+HbUqeLOjw
+sF775saTCg7zmU8LGm0QdPhUW7jSa7eCwwEHAQXn64IOxiCwWQFuP4zvsP/9
+/T0aCH7iH5N3Z/2F4PrtGVb6zskRgpsvyyK7NqtTCG4/zP8w96GHDwB80mxa
+
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQffYMCHA5MICBnAOMf+DNPBudKbJQcR4HYzCQIciH
+0Lxw/TA+zHwY32H/+/t7NOQcrDisoq4K8Tok/jF5d9ZfzqGOIWi2xU0eB3uG
+lb5zcuQcDv3IvDN7Po+DLIvs2qxOOYeGuvv7KwN5HGbNBAE5uP0wfkOjgkPb
+Om443459mnJKAjdcf9P/tSnH1bjh5h/7fnSp1lsuuP0w/8Pchx4+APCHaKk=
+
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQbQwGrA4MYCDlAOM7CCcevpwtBRVncTh7BgSkCfIh
+NBNcP4wPMx/GP+AgoOB8XdLh2PejS7XeMjnMZz4taLRB0qHp/9qU42rMDgf/
+h21KnizpYMc+TTklgdnh8e9HQVPLJB0aGhUc2tYxO6SBgSTcfhi/oe7+/spA
+BP/Qj8w7s+ezwPXXMQTNtrjJAjffisMq6qoQK9x+mP9h7kMPHwDfG2x3
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQPWsmCHy1ZwADMQcY/8CbeTY6U0QdIOI/7I3BQIQg
+Pw0MfsH1w/gw82F8h/3v7+/REHMoFijZskr1l33iH5N3Z/3FHP4wLDEr3PTT
+3p5hpe+cHDGHlo+Xd5jb/7SXZZFdm9Up5sDwd1/950U/7CHuFIPbD+P/Z3Js
+4In9DufX8Om4nzjwDa6f5X/0yT7fb3Dze993e4fe+gq3H+Z/mPvQwwcActx4
+Tg==
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQffYMCDyxZwADIQcY30E48fDlbCEHiPgDe4i4MEF+
+Ghhcg+uH8WHmw/gHHAQUnK8LOpjs09cLzbxuP5/5tKDRBkEHoT/5qtZmN+0P
+/g/blDxZ0OG95QYZRebb9o9/PwqaWibo8I+bhdGo5K49xBxBuP0wPuOv2v/P
+XB/C+RyPlxfm1z2C6//O6JH7KOUx3PxnCi8yQr2fwO2H+R/mPvTwAQC9XX+y
+
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQPWsmCHy1ZwADHgcYv/6mbWWEBrcDRPyHfRoYcBDk
+Q+hfcP0wPsx8GL+h7v7+ykAeh2KBki2rVH/ZH/qReWf2fB6HPwxLzAo3/bSv
+YwiabXGTx6Hl4+Ud5vY/7a04rKKuCvE6MPzdV/950Q97YzDghdsP4/9ncmzg
+if0O59fw6bifOPANrp/lf/TJPt9vcPN733d7h976Crcf5n+Y+9DDBwCVfHNo
+
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQbQwGrA4MYMDiAOM3qh1qW36dBS4+ayYIsBPknz0D
+Akxw/TA+TB2M39Co4NC2jtnh2PejS7XeMjnYsU9TTklgdmj6vzbluBqChonD
+1MH04TS37v7+ykAE/9CPzDuz57PA9dcxBM22uMkCN9+KwyrqqhAr3B6Y/2H2
+oIcPAGGsbv0=
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQffYMCHA5MIDBD3sY//+m6k8bAr7ZQ8R5HCDiHwjy
+jcGAF64fxoeZD+Mz/t1X/3nRD3srDquoq0K8Di0fL+8wt/9pX8cQNNviJo/D
+H4YlZoWbftof+pF5Z/Z8HodigZItq1R/2TfU3d9fGcjjkAYGv+D2w/gNjQoO
+beu44Xw79mnKKQnccP1N/9emHFfjhpt/7PvRpVpvueD2w8MD6j708AEAqnuE
+PQ==
+          "]]}]}, {
+       FilledCurveBox[{
+         BezierCurve[CompressedData["
+1:eJxTTMoPSmViYGAQBmIQPWsmCAg5MIDBA3sYn2kWh/S8uMf2EHEhhzQweEeQ
+D6EF4fphfJj5MP4/bhZGo5K79o9/PwqaWibo8N5yg4wi8237g//DNiVPFnQQ
++pOvam12034+82lBow2CDib79PVCM6/bH3AQUHC+Lgi17xqa/dfsHfa/v79H
+A8FP/GPy7qy/EFy/PcNK3zk5QnDzZVlk12Z1CsHth/kf5j708AEAyf1sGQ==
+
+          "]]}]}}}, {}},
+  Frame->True,
+  FrameLabel->{None, None},
+  FrameStyle->GrayLevel[0.25],
+  FrameTicks->{{None, None}, {None, None}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{
+   "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultPlotStyle" -> 
+    Automatic}]], "Output",
+ CellChangeTimes->{3.957224271244138*^9},
+ CellLabel->
+  "Out[260]=",ExpressionUUID->"7a0b76f0-8236-41b4-86a1-ce6eb6f39b80"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TuringMachine", "[", "2506", "]"}]], "Input",
+ CellLabel->
+  "In[261]:=",ExpressionUUID->"bfa70b02-1d8b-47cd-9109-043a9361e867"],
+
+Cell[BoxData[
+ RowBox[{"TuringMachine", "[", "2506", "]"}]], "Output",
+ CellChangeTimes->{3.9572242763353662`*^9},
+ CellLabel->
+  "Out[261]=",ExpressionUUID->"7c627f82-a1a1-47c2-acaa-3a06871bc1b8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ResourceFunction", "[", "\"\<ComputationalSystemRules\>\"", "]"}], 
+  "[", 
+  RowBox[{"TuringMachine", "[", "2506", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.9572242848377028`*^9, 3.957224286812623*^9}},
+ CellLabel->
+  "In[262]:=",ExpressionUUID->"aae98235-18af-434b-81cd-6c161ca9219d"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"1", ",", "1"}], "}"}], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "0", ",", 
+      RowBox[{"-", "1"}]}], "}"}]}], ",", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"1", ",", "0"}], "}"}], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"2", ",", "1", ",", "1"}], "}"}]}], ",", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"2", ",", "1"}], "}"}], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "0", ",", "1"}], "}"}]}], ",", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"2", ",", "0"}], "}"}], "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"1", ",", "1", ",", 
+      RowBox[{"-", "1"}]}], "}"}]}]}], "}"}]], "Output",
+ CellChangeTimes->{3.957224289665471*^9},
+ CellLabel->
+  "Out[262]=",ExpressionUUID->"d2ab3d88-548e-482e-8c1e-764120098e57"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"rules", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"_", ",", "x_", ",", "3"}], "}"}], ":>", 
+      RowBox[{"4", "+", "x"}]}], ",", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"_", ",", "3", ",", "_"}], "}"}], ":>", "0"}], ",", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"2", ",", "x_", ",", "_"}], "}"}], ":>", 
+      RowBox[{"4", "+", "x"}]}], ",", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"_", ",", "2", ",", "_"}], "}"}], ":>", "1"}], ",", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"5", ",", "x_", ",", "_"}], "}"}], ":>", 
+      RowBox[{"2", "+", "x"}]}], ",", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"_", ",", "5", ",", "_"}], "}"}], ":>", "0"}], ",", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"_", ",", "x_", ",", "4"}], "}"}], ":>", 
+      RowBox[{"2", "+", "x"}]}], ",", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"_", ",", "4", ",", "_"}], "}"}], ":>", "3"}], ",", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"_", ",", "x_", ",", "_"}], "}"}], ":>", "x"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"f", "[", 
+    RowBox[{"{", 
+     RowBox[{"a_", ",", "b_", ",", "c_"}], "}"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"a", ",", "b", ",", "c"}], "}"}], "/.", " ", "rules"}]}], 
+  "\[IndentingNewLine]"}], "\n", 
+ RowBox[{
+  RowBox[{"explicitRules", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"i", ",", "j", ",", "k"}], "}"}], "->", 
+        RowBox[{"f", "[", 
+         RowBox[{"{", 
+          RowBox[{"i", ",", "j", ",", "k"}], "}"}], "]"}]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "0", ",", "5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"j", ",", "0", ",", "5"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"k", ",", "0", ",", "5"}], "}"}]}], "]"}], ",", "2"}], 
+    "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.957224956164431*^9, 
+  3.9572249625553713`*^9}},ExpressionUUID->"9bc6940b-9ab6-487e-b850-\
+a37230e9b986"]
+}, Open  ]]
+},
+WindowSize->{808, 673},
+WindowMargins->{{20, Automatic}, {Automatic, 10}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"afc19ff8-b895-4cc5-8529-3b803b47391b"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 16297, 343, 602, "Input",ExpressionUUID->"2d0abf12-9600-47df-8c5f-1bbd74369441",
+ CellID->203709881],
+Cell[16854, 365, 154, 3, 29, "Input",ExpressionUUID->"ddaddbec-75ed-47e9-b303-1e21ae74f7fa"],
+Cell[CellGroupData[{
+Cell[17033, 372, 216, 4, 53, "Subsection",ExpressionUUID->"ab82d081-ff4a-458e-a59a-7510c212ac7b"],
+Cell[17252, 378, 177, 3, 43, "Subsubsection",ExpressionUUID->"1e037438-b44b-44a1-88ce-19f0a5615651"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17466, 386, 125, 3, 53, "Subsection",ExpressionUUID->"095196fb-4ea1-4040-a7f6-7881920f70ad"],
+Cell[CellGroupData[{
+Cell[17616, 393, 512, 12, 29, "Input",ExpressionUUID->"7c7edd53-66d8-432c-816c-1bbc5a796db1"],
+Cell[18131, 407, 553, 12, 33, "Output",ExpressionUUID->"78219c26-e373-40f8-8946-cf7ae7bf191f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[18721, 424, 420, 12, 29, "Input",ExpressionUUID->"1c07fa6d-7ecb-4414-9438-2d2b7193493c"],
+Cell[19144, 438, 7931, 192, 449, "Output",ExpressionUUID->"7a0b76f0-8236-41b4-86a1-ce6eb6f39b80"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27112, 635, 152, 3, 29, "Input",ExpressionUUID->"bfa70b02-1d8b-47cd-9109-043a9361e867"],
+Cell[27267, 640, 197, 4, 33, "Output",ExpressionUUID->"7c627f82-a1a1-47c2-acaa-3a06871bc1b8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[27501, 649, 325, 7, 29, "Input",ExpressionUUID->"aae98235-18af-434b-81cd-6c161ca9219d"],
+Cell[27829, 658, 830, 27, 33, "Output",ExpressionUUID->"d2ab3d88-548e-482e-8c1e-764120098e57"]
+}, Open  ]],
+Cell[28674, 688, 2156, 67, 111, "Input",ExpressionUUID->"9bc6940b-9ab6-487e-b850-a37230e9b986"]
+}, Open  ]]
+}
+]
+*)
+

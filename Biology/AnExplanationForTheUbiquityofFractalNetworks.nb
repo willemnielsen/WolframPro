@@ -1,0 +1,202 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      9544,        194]
+NotebookOptionsPosition[      8227,        168]
+NotebookOutlinePosition[      8625,        184]
+CellTagsIndexPosition[      8582,        181]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["An Explanation for The Ubiquity of Fractal Networks ", "Title",
+ CellChangeTimes->{{3.94059189076921*^9, 3.940591906683174*^9}, {
+  3.940594468929735*^9, 3.940594483238584*^9}, {3.940594556330432*^9, 
+  3.940594569630117*^9}},ExpressionUUID->"cdd0804b-693b-42ca-9d45-\
+728b5cc82b61"],
+
+Cell["Willem Nielsen", "Subtitle",
+ CellChangeTimes->{{3.940594770367446*^9, 
+  3.940594772280361*^9}},ExpressionUUID->"329bcdc0-6d49-45b5-ac65-\
+d0d9fdca935b"],
+
+Cell["\<\
+Klieber\[CloseCurlyQuote]s law showed that as you increase the size of an \
+organism, you increase the metabolism of the organism by a 3/4 power. This \
+went unexplained for many years, until Geoffrey West proposed that the effect \
+was a result of the similarity in shape of energy networks found in all \
+animals.  Namely, that the most efficient way to get energy to all the cells \
+in the body, was with a fractal network, and therefore all the animals \
+converged to this solution. In this sense, an elephant is just a mouse but \
+with a larger fractal network. From the mathematical properties of these \
+networks, the quarter power scaling laws that Klieber found, naturally arise. \
+To give you an example, (enter example about quarter power scaling with \
+circulatory system). \
+\>", "Text",
+ CellChangeTimes->{{3.940591910277994*^9, 3.940592206503862*^9}, {
+  3.9405944880052958`*^9, 3.9405945903271523`*^9}, {3.940594777189045*^9, 
+  3.940594844752317*^9}, {3.940594875708703*^9, 3.9405949317775593`*^9}, {
+  3.940594985551091*^9, 3.940595041328919*^9}, {3.940595084549982*^9, 
+  3.940595376385456*^9}},ExpressionUUID->"d4aab733-7eb1-4f3c-b2b5-\
+e7227a695ff2"],
+
+Cell["\<\
+West then goes on to find other non-biological examples of this convergence \
+towards fractal networks, in cities, companies and human social groups.\
+\>", "Text",
+ CellChangeTimes->{{3.940595425452405*^9, 
+  3.940595468473077*^9}},ExpressionUUID->"181ec6f1-9416-42bf-8ad8-\
+897ec431e2f0"],
+
+Cell["\<\
+One of the assumptions of West\[CloseCurlyQuote]s model is what he calls \
+\[OpenCurlyDoubleQuote]invariant terminal units\[CloseCurlyDoubleQuote]. For \
+the scaling laws to emerge, the cells of the organism, or the leaves of the \
+plant, or the size of the household, must be about the same size. One \
+question that West does not explore, is why these invariant terminal units \
+are so common? In other words, why aren\[CloseCurlyQuote]t humans made out of \
+cells of different sizes? You could give the biochemical reason, that cells \
+can\[CloseCurlyQuote]t get any bigger. But that doesn\[CloseCurlyQuote]t \
+explain why some of them aren\[CloseCurlyQuote]t smaller. And I\
+\[CloseCurlyQuote]m sure some of them are smaller and bigger. But if you \
+could take a microscope and just move it around in the human body, most of \
+the cells look about the same. Why is that? \
+\>", "Text",
+ CellChangeTimes->{{3.940595384696562*^9, 3.940595418570065*^9}, {
+  3.9405954762656307`*^9, 3.940595601714651*^9}, {3.940595633060836*^9, 
+  3.940595876865673*^9}},ExpressionUUID->"8297b64d-70f6-4eeb-97c5-\
+4a1bcd8af453"],
+
+Cell["\<\
+My idea is that this these invariant terminal units naturally arise out of \
+the volatility in speed of evolutionary processes. What my explorations into \
+the world of biology, both computational and empirical, is that large changes \
+in the speed of evolution can happen. These \[OpenCurlyDoubleQuote]windows of \
+opportunity\[CloseCurlyDoubleQuote] naturally lead to winner-take-all \
+effects, which leads to a lot of similarity between terminal units. X Billion \
+years ago an opportunity opened up for a self-reproducing molecule to be \
+formed, DNA was formed. This created an opportunity for bacteria to evolve \
+and spread all across the globe. Bacteria, being energy consuming, destroyed \
+any other molecule with a chance to become self-reproducing. This would \
+explain the ubiquity of DNA we see on earth. Some X hundred millions years \
+later, a new opportunity formed for multicellular organisms, animalia, \
+plantae and fungi were formed, and destroyed any other potential candidates \
+that were slightly behind. You can think of this like a river, where we \
+assume there is great variation in the width of the river, in a squeeze only \
+a few organisms make it, and then when the river gets wider and more full of \
+resources those few organisms dominate.  \
+\>", "Text",
+ CellChangeTimes->{{3.940595880527912*^9, 3.940596405401758*^9}, {
+  3.9405964395880537`*^9, 
+  3.940596519091057*^9}},ExpressionUUID->"f2aeb135-b411-4401-8872-\
+07bb0da5ee4b"],
+
+Cell["\<\
+This happened again with humans, where the widening of the river allowed many \
+similar ideas for human-like organisms to emerge with austrealia pithcicus \
+and neanderthals, but the river squeezed in, and for whatever reason, be it \
+mixing, or extinction, one idea one out. As I\[CloseCurlyQuote]m writing this \
+I\[CloseCurlyQuote]m realizing that a distinction must be made between a \
+resource constraint and simply one idea being better than the others. \
+\>", "Text",
+ CellChangeTimes->{{3.940596576615777*^9, 
+  3.940596719486203*^9}},ExpressionUUID->"cbf66044-162f-4519-82e8-\
+a87338d3ce28"],
+
+Cell["\<\
+What this pattern leads inevitably leads to is winner-take-all effects and \
+thus with each squeeze we are left with only a few options as building blocks \
+for larger systems. The bacteria won out, being the only option for larger \
+cells to form from, then a few types of larger cells won out, becoming the \
+building blocks for multicellular organisms, then humans won out, becoming \
+the building blocks for civilizations, and eventually companies, cities and \
+governments. \
+\>", "Text",
+ CellChangeTimes->{{3.94059672687424*^9, 3.940596901540223*^9}, {
+  3.940596945636263*^9, 
+  3.9405969955166187`*^9}},ExpressionUUID->"f26cd206-dfe5-412d-8afb-\
+12c1ebfc4232"],
+
+Cell["\<\
+As I\[CloseCurlyQuote]m writing this, I\[CloseCurlyQuote]m thinking about \
+another potential reason for this that seems to make a bit more sense, which \
+is more of a constraint on the ability of adaptive processes to find optimal \
+solutions, maybe the the most natural solution is just to keep a bunch of the \
+same units that \[OpenCurlyDoubleQuote]get the job done\
+\[CloseCurlyDoubleQuote] and just adapt them slightly for your needs. It\
+\[CloseCurlyQuote]s much easier just to copy the same cell and then just \
+tweak it, then design from the bottom up every single time. Yea that\
+\[CloseCurlyQuote]s good. But regardless, it still connects.\
+\>", "Text",
+ CellChangeTimes->{{3.940596999251173*^9, 
+  3.94059718988103*^9}},ExpressionUUID->"33a14f98-c6d5-4be1-9863-\
+4f739244313b"],
+
+Cell["\<\
+Anyways the prediction of this model that I\[CloseCurlyQuote]m laying out, is \
+that we should observe these quarter-power scaling laws, on other planets and \
+in other domains. I think West does a good job of covering his basis in human \
+culture, one thing I\[CloseCurlyQuote]m thinking about, is applying this idea \
+to software design. So the SQL read writes would be the terminal units and \
+the flow of information through the different parts of the application would \
+be the fractal network. \
+\>", "Text",
+ CellChangeTimes->{{3.9405971965671673`*^9, 3.940597298835235*^9}, {
+  3.940597342672626*^9, 
+  3.9405974295154953`*^9}},ExpressionUUID->"2613f775-1546-43af-a582-\
+c04c91610662"],
+
+Cell["\<\
+A similar idea would be human social networks, which West definitely tackles, \
+so maybe I won\[CloseCurlyQuote]t go into it as much. \
+\>", "Text",
+ CellChangeTimes->{{3.940597431723318*^9, 
+  3.940597466360291*^9}},ExpressionUUID->"829ddf9e-119e-44c1-bede-\
+12d4f9660130"]
+}, Open  ]]
+},
+WindowSize->{923, 675},
+WindowMargins->{{177, Automatic}, {22, Automatic}},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"5a98ad3d-89a2-40e1-a54b-3f3b6cad57e1"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 289, 4, 160, "Title",ExpressionUUID->"cdd0804b-693b-42ca-9d45-728b5cc82b61"],
+Cell[872, 28, 160, 3, 53, "Subtitle",ExpressionUUID->"329bcdc0-6d49-45b5-ac65-d0d9fdca935b"],
+Cell[1035, 33, 1181, 18, 150, "Text",ExpressionUUID->"d4aab733-7eb1-4f3c-b2b5-e7227a695ff2"],
+Cell[2219, 53, 299, 6, 58, "Text",ExpressionUUID->"181ec6f1-9416-42bf-8ad8-897ec431e2f0"],
+Cell[2521, 61, 1122, 17, 150, "Text",ExpressionUUID->"8297b64d-70f6-4eeb-97c5-4a1bcd8af453"],
+Cell[3646, 80, 1475, 22, 242, "Text",ExpressionUUID->"f2aeb135-b411-4401-8872-07bb0da5ee4b"],
+Cell[5124, 104, 610, 10, 104, "Text",ExpressionUUID->"cbf66044-162f-4519-82e8-a87338d3ce28"],
+Cell[5737, 116, 679, 12, 104, "Text",ExpressionUUID->"f26cd206-dfe5-412d-8afb-12c1ebfc4232"],
+Cell[6419, 130, 799, 13, 104, "Text",ExpressionUUID->"33a14f98-c6d5-4be1-9863-4f739244313b"],
+Cell[7221, 145, 703, 12, 104, "Text",ExpressionUUID->"2613f775-1546-43af-a582-c04c91610662"],
+Cell[7927, 159, 284, 6, 35, "Text",ExpressionUUID->"829ddf9e-119e-44c1-bede-12d4f9660130"]
+}, Open  ]]
+}
+]
+*)
+

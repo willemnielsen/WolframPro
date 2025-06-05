@@ -1,0 +1,75 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      2464,         67]
+NotebookOptionsPosition[      1806,         48]
+NotebookOutlinePosition[      2205,         64]
+CellTagsIndexPosition[      2162,         61]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+Wolframian Biology Course - Lesson 01: Backstory and New Kind of Science \
+\>", "Title",ExpressionUUID->"fb6e478b-bb49-4133-a39a-723533879331"],
+
+Cell["\<\
+Famously, Stephen Wolfram got his start in science at the age of thirteen, \
+when he spotted this book on the second law of thermodynamics in a book store:\
+\>", "Text",ExpressionUUID->"6509b9fc-0756-4494-b678-07a97cda2a4d"],
+
+Cell["\<\
+Intrigued he began to learn the field of physics and started contributing, \
+publishing multiple scientific papers before he even turned twenty. After \
+working as a physicist for a while, he moved to the world of engineering \
+working on a precursor to Mathematica called S&P. The initial task of \
+creating Mathematica, was to essentially translate various tools of \
+engineering and science, into their simplest and most efficient computational \
+form. \
+\>", "Text",ExpressionUUID->"d309c52a-2693-469b-b8ca-91ea00cf11fa"],
+
+Cell["\<\
+In building the language, he repeatedly found that the application of simple \
+computational rules could be made to represent all of the systems humans had \
+built. This gave him confidence that he could \
+\>", "Text",ExpressionUUID->"f18a3ac4-73dd-4b9e-8915-32894cc95c24"]
+}, Open  ]]
+},
+WindowSize->{808, 673},
+WindowMargins->{{315, Automatic}, {-33, Automatic}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"1fb890cf-03da-4133-a3d9-af4157c77493"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 153, 2, 157, "Title",ExpressionUUID->"fb6e478b-bb49-4133-a39a-723533879331"],
+Cell[732, 26, 234, 3, 55, "Text",ExpressionUUID->"6509b9fc-0756-4494-b678-07a97cda2a4d"],
+Cell[969, 31, 535, 8, 99, "Text",ExpressionUUID->"d309c52a-2693-469b-b8ca-91ea00cf11fa"],
+Cell[1507, 41, 283, 4, 55, "Text",ExpressionUUID->"f18a3ac4-73dd-4b9e-8915-32894cc95c24"]
+}, Open  ]]
+}
+]
+*)
+

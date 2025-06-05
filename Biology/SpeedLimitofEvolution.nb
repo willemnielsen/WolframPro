@@ -1,0 +1,166 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      6049,        158]
+NotebookOptionsPosition[      4537,        125]
+NotebookOutlinePosition[      4935,        141]
+CellTagsIndexPosition[      4892,        138]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["The Universal Speed Limit on Adaptive Processes", "Title",
+ CellChangeTimes->{{3.94059189076921*^9, 3.940591906683174*^9}, {
+  3.940593674102777*^9, 3.9405936827721167`*^9}, {3.94059437564886*^9, 
+  3.940594380701542*^9}},ExpressionUUID->"cdd0804b-693b-42ca-9d45-\
+728b5cc82b61"],
+
+Cell["Willem Nielsen", "Subtitle",
+ CellChangeTimes->{{3.94059360129396*^9, 
+  3.940593602915547*^9}},ExpressionUUID->"2a427cc8-7377-4a98-b23b-\
+b10179ed7c65"],
+
+Cell[CellGroupData[{
+
+Cell["Introduction", "Subsection",
+ CellChangeTimes->{{3.9405936156018744`*^9, 
+  3.940593624327335*^9}},ExpressionUUID->"d3b66a38-467d-480c-b9f2-\
+b9a7639d4fae"],
+
+Cell["\<\
+The Kelly Criterion gives you the optimal betting strategy under different \
+circumstances. The basic idea is as follows [GIVE KELLY CRITERION IDEA]\
+\>", "Text",
+ CellChangeTimes->{{3.940591910277994*^9, 
+  3.940592206503862*^9}},ExpressionUUID->"d4aab733-7eb1-4f3c-b2b5-\
+e7227a695ff2"],
+
+Cell["\<\
+The criterion is not a statement about finance, or gambling, but a statement \
+about the structure of information. And therefore has wider-reaching \
+implications. Anyone (or thing) making decisions under uncertainty implicitly \
+or explicitly follows this formula. Whether it\[CloseCurlyQuote]s financial \
+traders like Charlie Munger, your elderly neighbor,  the community of mice in \
+your apartment, the trilobite communities 500 million years ago, your \
+favorite LLM, or aliens on a planet many light years away, they all have to \
+obey the Kelly Criterion. \
+\>", "Text",
+ CellChangeTimes->{{3.940591910277994*^9, 3.940592591592966*^9}, {
+  3.940592843441572*^9, 3.940592848383162*^9}, {3.940593143821563*^9, 
+  3.940593148558372*^9}},ExpressionUUID->"dbddbc9f-aefb-4fc6-bc24-\
+e6103db9ee02"],
+
+Cell["\<\
+Any agent that attempts to take more risks than the criterion allows, and \
+therefore discover better solutions faster, will inevitably perish over time, \
+and any systems who have survived long enough to reach a state of \
+consciousness (like ourselves) will not observe these overly bold agents. \
+\>", "Text",
+ CellChangeTimes->{{3.940592608384239*^9, 3.94059282216604*^9}, {
+  3.940592859720759*^9, 3.940593133965918*^9}, {3.940593186832444*^9, 
+  3.94059322010938*^9}, {3.940593342956397*^9, 
+  3.940593435528646*^9}},ExpressionUUID->"377eea54-dca4-4f95-a650-\
+199ad7dd8263"],
+
+Cell["\<\
+I will first explore whether we can observe this speed limit from data on \
+biological evolution. I will then see if we can observe it in human domains \
+such as technology and culture. \
+\>", "Text",
+ CellChangeTimes->{{3.940593227330474*^9, 3.940593263839571*^9}, {
+  3.9405935019259987`*^9, 
+  3.940593593327572*^9}},ExpressionUUID->"6d3d862c-5ed3-433b-b842-\
+b06f5e725a25"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Predictions", "Subsection",
+ CellChangeTimes->{{3.940593896002358*^9, 
+  3.94059393747858*^9}},ExpressionUUID->"093500cf-dce0-4a56-a9ee-\
+bc56d73e41ea"],
+
+Cell["\<\
+Before we dive in, you may be wondering, so what if this is true? How should \
+it change the way I see the world? The answer is that any domain that exists \
+now or in the future, no matter the substrate, you can expect to see this \
+limit on progress. \
+\>", "Text",
+ CellChangeTimes->{{3.940593899095314*^9, 3.94059415461618*^9}, {
+  3.940594203917601*^9, 
+  3.940594333466638*^9}},ExpressionUUID->"92bf78f6-4f7c-49b7-b349-\
+35589f20e421"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["BIological Evolution ", "Subsection",
+ CellChangeTimes->{{3.940593632524021*^9, 3.94059365062374*^9}, {
+  3.94059369122789*^9, 
+  3.940593694852145*^9}},ExpressionUUID->"04dd780b-0abb-4a01-a0ce-\
+bd846d991274"],
+
+Cell["", "Text",
+ CellChangeTimes->{{3.940593878734757*^9, 
+  3.9405938815010033`*^9}},ExpressionUUID->"9941c891-0127-4b8b-b186-\
+1c5afaf96006"]
+}, Open  ]],
+
+Cell["", "Chapter",
+ CellChangeTimes->{{3.940593606301651*^9, 
+  3.9405936075302057`*^9}},ExpressionUUID->"a98d5d94-5138-4665-909b-\
+3c7e2e88def9"]
+}, Open  ]]
+},
+WindowSize->{923, 675},
+WindowMargins->{{186, Automatic}, {Automatic, 31}},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"5a98ad3d-89a2-40e1-a54b-3f3b6cad57e1"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 285, 4, 160, "Title",ExpressionUUID->"cdd0804b-693b-42ca-9d45-728b5cc82b61"],
+Cell[868, 28, 159, 3, 53, "Subtitle",ExpressionUUID->"2a427cc8-7377-4a98-b23b-b10179ed7c65"],
+Cell[CellGroupData[{
+Cell[1052, 35, 162, 3, 54, "Subsection",ExpressionUUID->"d3b66a38-467d-480c-b9f2-b9a7639d4fae"],
+Cell[1217, 40, 298, 6, 58, "Text",ExpressionUUID->"d4aab733-7eb1-4f3c-b2b5-e7227a695ff2"],
+Cell[1518, 48, 809, 13, 127, "Text",ExpressionUUID->"dbddbc9f-aefb-4fc6-bc24-e6103db9ee02"],
+Cell[2330, 63, 590, 10, 81, "Text",ExpressionUUID->"377eea54-dca4-4f95-a650-199ad7dd8263"],
+Cell[2923, 75, 387, 8, 58, "Text",ExpressionUUID->"6d3d862c-5ed3-433b-b842-b06f5e725a25"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3347, 88, 158, 3, 54, "Subsection",ExpressionUUID->"093500cf-dce0-4a56-a9ee-bc56d73e41ea"],
+Cell[3508, 93, 451, 9, 58, "Text",ExpressionUUID->"92bf78f6-4f7c-49b7-b349-35589f20e421"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3996, 107, 216, 4, 54, "Subsection",ExpressionUUID->"04dd780b-0abb-4a01-a0ce-bd846d991274"],
+Cell[4215, 113, 144, 3, 35, "Text",ExpressionUUID->"9941c891-0127-4b8b-b186-1c5afaf96006"]
+}, Open  ]],
+Cell[4374, 119, 147, 3, 69, "Chapter",ExpressionUUID->"a98d5d94-5138-4665-909b-3c7e2e88def9"]
+}, Open  ]]
+}
+]
+*)
+

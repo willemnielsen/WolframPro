@@ -1,0 +1,1891 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[     93992,       1883]
+NotebookOptionsPosition[     90677,       1817]
+NotebookOutlinePosition[     91350,       1840]
+CellTagsIndexPosition[     91307,       1837]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Friend Request Graph Generator", "Title",
+ CellChangeTimes->{{3.922245668737317*^9, 
+  3.9222456765112133`*^9}},ExpressionUUID->"d839f5ef-b48f-4c75-ab13-\
+8322c9c8bee0"],
+
+Cell["\<\
+Program that visualizes friend requests in a graph making it much easier to \
+form teams. \
+\>", "Subtitle",
+ CellChangeTimes->{{3.922246672088529*^9, 
+  3.922246786495332*^9}},ExpressionUUID->"6d7e4cd8-a7c3-45e5-802d-\
+b248f784eed0"],
+
+Cell["\<\
+This was made by Willem Nielsen. Any issues please reach out to \
+will@fastbreakkids.com and I will be happy to help\
+\>", "Subtitle",
+ CellChangeTimes->{
+  3.922246798295039*^9},ExpressionUUID->"d17f35eb-2af3-4ef1-ae23-\
+4bfea98621e8"],
+
+Cell[CellGroupData[{
+
+Cell["Import Data", "Section",
+ CellChangeTimes->{{3.922245736330765*^9, 
+  3.922245784468317*^9}},ExpressionUUID->"7d268a8c-8180-46b0-9a21-\
+300ec9dc8cc4"],
+
+Cell[CellGroupData[{
+
+Cell["Notes on required data structure", "Subsection",
+ CellChangeTimes->{{3.9222461401024837`*^9, 
+  3.922246149605674*^9}},ExpressionUUID->"3e5deca0-1673-424f-b062-\
+2e6593ae84d7"],
+
+Cell["\<\
+Your data must be in the form of a CSV file with two and only two columns, \
+The names should be in the left column and the requests in the right. The \
+requests can be delimited by commas or newlines. Any names that are \
+misspelled will not register as the same person. I recommend you make the \
+graph first and then correct the spelling in the view and edit your data \
+section\
+\>", "Text",
+ CellChangeTimes->{{3.92224577172264*^9, 3.92224594071126*^9}, {
+  3.92224605814599*^9, 
+  3.922246115802367*^9}},ExpressionUUID->"9fbcc17e-05fd-4031-8d12-\
+f43c76e46243"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["How to import", "Subsection",
+ CellChangeTimes->{{3.92224616125556*^9, 
+  3.922246163055416*^9}},ExpressionUUID->"ab47d9c2-dc9c-459d-81fa-\
+ed75c4c10c59"],
+
+Cell["\<\
+Upload your file to the wolfram cloud. Enter the file name in the quotes. To \
+run a piece of code in this program you have to click it and press \
+\[OpenCurlyDoubleQuote]Shift\[CloseCurlyDoubleQuote]+\[OpenCurlyDoubleQuote]\
+Enter\[CloseCurlyDoubleQuote].\
+\>", "Text",
+ CellChangeTimes->{{3.922246606796708*^9, 3.922246650430895*^9}, {
+  3.922247110741864*^9, 3.922247123041882*^9}, {3.922247433362331*^9, 
+  3.922247498395228*^9}},ExpressionUUID->"702d247a-f5be-46db-a23f-\
+cbd4ef1d8ff8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"friendRequestData", " ", "=", " ", 
+   RowBox[{
+   "Import", "[", 
+    "\"\</Users/erichegonzales/Downloads/4v4 Spring 24 Team Builder - M 3_4th \
+Final Master Massaged.csv\>\"", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.922239763651211*^9, 3.922239795501932*^9}, {
+  3.922239840084663*^9, 3.922239840086875*^9}, {3.922239997528731*^9, 
+  3.922240001631764*^9}, {3.922243436425635*^9, 3.922243441990087*^9}, {
+  3.922246178583409*^9, 3.9222461827338448`*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"f2dbea04-dc82-4fdc-b88e-af0277e6b97f"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Data processing", "Section",
+ CellChangeTimes->{{3.9222459823156233`*^9, 3.9222459881976013`*^9}, {
+  3.92224651803407*^9, 
+  3.922246519681365*^9}},ExpressionUUID->"5f163356-3a45-4384-8e31-\
+e209f1524154"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"requests", " ", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"StringTrim", "[", 
+      RowBox[{"StringSplit", "[", 
+       RowBox[{"#", ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"\"\<,\>\"", ",", " ", "\"\<\\n\>\""}], "}"}]}], "]"}], 
+      "]"}], "&"}], " ", "/@", " ", 
+    RowBox[{"friendRequestData", "[", 
+     RowBox[{"[", 
+      RowBox[{"All", ",", " ", "2"}], "]"}], "]"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.922240814933075*^9, 3.922240835089822*^9}, {
+   3.922240895315886*^9, 3.9222409010519114`*^9}, 3.922241258091494*^9, {
+   3.9222413668274198`*^9, 3.92224136926336*^9}, {3.922242570677871*^9, 
+   3.922242597462572*^9}, {3.92224359004351*^9, 3.922243633349158*^9}, 
+   3.922245360962235*^9, {3.922246189823004*^9, 3.922246194521422*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"cfab5acd-1081-4502-95d7-caeb14d61cda"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"names", " ", "=", " ", 
+   RowBox[{"friendRequestData", "[", 
+    RowBox[{"[", 
+     RowBox[{"All", ",", " ", "1"}], "]"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.922243699919493*^9, 3.922243707504582*^9}, 
+   3.922245367158121*^9, {3.922246205097071*^9, 3.922246209057209*^9}, 
+   3.9222465234827337`*^9},
+ CellLabel->"In[25]:=",ExpressionUUID->"e985bff3-cc68-4f7f-9677-db1c0c8d48ff"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"friendRequestDataCleaned", " ", "=", " ", 
+   RowBox[{"Transpose", "[", 
+    RowBox[{"{", 
+     RowBox[{"names", ",", "requests"}], "}"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.922242614600823*^9, 3.922242641359117*^9}, {
+  3.922242751740203*^9, 3.9222428146866293`*^9}, {3.922242954559329*^9, 
+  3.922242958449238*^9}, {3.922243193023768*^9, 3.922243196759894*^9}, {
+  3.9222432558406143`*^9, 3.922243284321446*^9}, {3.9222436526396837`*^9, 
+  3.922243682034817*^9}, {3.922243716198544*^9, 3.922243717485055*^9}, {
+  3.922245382153318*^9, 3.922245385222348*^9}, {3.922246211999778*^9, 
+  3.922246217272688*^9}},
+ CellLabel->"In[26]:=",ExpressionUUID->"3826c952-e0d2-4289-a833-0fa6b7231099"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["View and edit your data", "Section",
+ CellChangeTimes->{{3.922246009540792*^9, 
+  3.922246019412992*^9}},ExpressionUUID->"d6b5d47a-220d-447e-958d-\
+2d0b903f5a3a"],
+
+Cell["\<\
+To view and edit your data I recommend going back in the CSV that you \
+uploaded and correcting any misspellings that you see. Then upload and run \
+all cells again\
+\>", "Text",
+ CellChangeTimes->{{3.922248349503112*^9, 
+  3.922248422353104*^9}},ExpressionUUID->"52833434-e7e3-4a1b-9d07-\
+594fbea8e80b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Graph your data", "Section",
+ CellChangeTimes->{{3.922246537786934*^9, 
+  3.92224655775742*^9}},ExpressionUUID->"ebedc006-e7aa-4895-8c88-\
+145bc2c7d54f"],
+
+Cell["\<\
+You can control the size of the graph with the number next to ImageSize. The \
+vertices highlighted in red are people who were requested but not found in \
+the names. Many of the red nodes are misspelled names. \
+\>", "Text",
+ CellChangeTimes->{{3.9222471588950644`*^9, 
+  3.922247247693372*^9}},ExpressionUUID->"e01c07a9-c459-45ec-8be4-\
+67290a44c9fc"],
+
+Cell["\<\
+I recommend looking through the red nodes and then editing your data in the \
+spreadsheet above. Rinse repeat.\
+\>", "Text",
+ CellChangeTimes->{{3.922247386146724*^9, 
+  3.922247414709629*^9}},ExpressionUUID->"9658ec83-1d3b-4bde-8420-\
+d93cf7dbe4d2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"getEdges", "[", "req_", "]"}], ":=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"req", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], "->", " ", "#"}], " ", "&"}], " ", "/@",
+    " ", 
+   RowBox[{"req", "[", 
+    RowBox[{"[", "2", "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.922244625811507*^9, 3.922244738397592*^9}},
+ CellLabel->"In[27]:=",ExpressionUUID->"05da7f95-101e-4988-95de-144ae13f4834"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"edges", " ", "=", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"getEdges", "[", "#", "]"}], "&"}], "/@", " ", 
+     "friendRequestDataCleaned"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.922243800453228*^9, 3.922243873774064*^9}, {
+   3.922244432211628*^9, 3.922244444435361*^9}, {3.922244532245453*^9, 
+   3.922244607449141*^9}, {3.922244757276388*^9, 3.922244772055604*^9}, 
+   3.922244803146978*^9, {3.922244844585525*^9, 3.922244923530246*^9}, {
+   3.922246252028323*^9, 3.92224625676334*^9}},
+ CellLabel->"In[28]:=",ExpressionUUID->"1932bdae-ddc8-4177-954e-014ea1af8320"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"vertices", " ", "=", " ", 
+   RowBox[{"VertexList", "[", "edges", "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"notRegistered", " ", "=", 
+  RowBox[{"Complement", "[", 
+   RowBox[{"vertices", ",", "names"}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.9222450931605*^9, 3.922245168478465*^9}, 
+   3.92224539987951*^9, {3.922246318444269*^9, 3.922246358624749*^9}, {
+   3.922246403347303*^9, 3.922246481551827*^9}},
+ CellLabel->"In[29]:=",ExpressionUUID->"b747dd0c-689e-463b-9051-f9a9a94cce42"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"\"\>", ",", "\<\"1)teddy kasell\"\>", 
+   ",", "\<\"aiden stern\"\>", ",", "\<\"alex moss\"\>", 
+   ",", "\<\"anyone from allen-stevenson or jack zegen\"\>", 
+   ",", "\<\"arin\"\>", ",", "\<\"beckett schein\"\>", 
+   ",", "\<\"ben ganfer\"\>", ",", "\<\"ben krawitz\"\>", 
+   ",", "\<\"ben moss\"\>", ",", "\<\"bobby vogulhut and harry trichon\"\>", 
+   ",", "\<\"carter\"\>", ",", "\<\"coach curtis team\"\>", 
+   ",", "\<\"coach mamadou if possible\"\>", ",", "\<\"coach shakeem\"\>", 
+   ",", "\<\"connor marcell\"\>", ",", "\<\"dalton 4th graders\"\>", 
+   ",", "\<\"david cunow\"\>", ",", "\<\"david dwek\"\>", 
+   ",", "\<\"dont put brothers together\"\>", ",", "\<\"elliot shalam\"\>", 
+   ",", "\<\"ethan adhoot\"\>", ",", "\<\"ethan s.\"\>", 
+   ",", "\<\"graham howard's group\"\>", ",", "\<\"henry bohm.\"\>", 
+   ",", "\<\"howie d\"\>", ",", "\<\"jacob bisselman\"\>", 
+   ",", "\<\"jacon b\"\>", ",", "\<\"jake henef\"\>", 
+   ",", "\<\"jake hennes\"\>", ",", "\<\"jake ibraham\"\>", 
+   ",", "\<\"jemal abraham\"\>", 
+   ",", "\<\"jeremiah o\[CloseCurlyQuote]connor\"\>", ",", "\<\"jonah\"\>", 
+   ",", "\<\"jon michael slattery\"\>", ",", "\<\"josh boucai\"\>", 
+   ",", "\<\"levi lichy\"\>", ",", "\<\"logan\"\>", 
+   ",", "\<\"makoto noguchi\"\>", 
+   ",", "\<\"maybe mix up the dalton kids?\"\>", 
+   ",", "\<\"maybe one 4th grader?\"\>", 
+   ",", "\<\"meijer butterman or jack zegan\"\>", ",", "\<\"n/as\"\>", 
+   ",", "\<\"nate and teddy kassel\"\>", 
+   ",", "\<\"nate kasell and jacob bisselman\"\>", ",", "\<\"nate kassel\"\>",
+    ",", "\<\"nate kassell\"\>", ",", "\<\"nathan amar\"\>", 
+   ",", "\<\"needs to be with harry ahdoot and pierce ebrahimzadeh\"\>", 
+   ",", "\<\"niam\"\>", ",", "\<\"nico\"\>", ",", "\<\"noah\"\>", 
+   ",", "\<\"noah edelman\"\>", ",", "\<\"noah schankler\"\>", 
+   ",", "\<\"noah sky\"\>", ",", "\<\"patrick durkin\"\>", 
+   ",", "\<\"pax phillips\"\>", ",", "\<\"ramaz kids\"\>", 
+   ",", "\<\"riverdale boys\"\>", ",", "\<\"roark\"\>", ",", "\<\"roman\"\>", 
+   ",", "\<\"same as brother teddy\"\>", 
+   ",", "\<\"same team as the fall (rcs)\"\>", ",", "\<\"sam waldron\"\>", 
+   ",", "\<\"teddy and nate kasell\"\>", 
+   ",", "\<\"teddy and nate kassel.\"\>", ",", "\<\"teddy defusco\"\>", 
+   ",", "\<\"teddy kassel\"\>", ",", "\<\"teddy kassell\"\>", 
+   ",", "\<\"teddy traxler and jackson sullivan\"\>", 
+   ",", "\<\"thomas smith\"\>", ",", "\<\"william gribbetz\"\>", 
+   ",", "\<\"will update\"\>", ",", "\<\"zach goldshmid\"\>", 
+   ",", "\<\"zach goldshmidt\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.9267771760321836`*^9},
+ CellLabel->"Out[30]=",ExpressionUUID->"9796349e-e410-4fe3-8880-117b1392e669"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graph", "[", 
+  RowBox[{"edges", ",", " ", 
+   RowBox[{"VertexLabels", "->", "\"\<Name\>\""}], ",", 
+   RowBox[{"VertexStyle", "->", 
+    RowBox[{"Thread", "[", 
+     RowBox[{"notRegistered", "->", " ", "Red"}], "]"}]}], ",", " ", 
+   RowBox[{"ImageSize", "->", "1500"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.922244925648185*^9, 3.922244972950137*^9}, {
+  3.922245073691227*^9, 3.922245074589961*^9}, {3.922245184044005*^9, 
+  3.922245184683644*^9}, {3.922245250498965*^9, 3.922245252244918*^9}, {
+  3.922245417819866*^9, 3.922245419284913*^9}, {3.922246345202335*^9, 
+  3.922246371135613*^9}, {3.922246420263708*^9, 3.922246422843549*^9}, {
+  3.922246459304002*^9, 3.9222464850205994`*^9}, {3.922246852908986*^9, 
+  3.922246857880323*^9}},
+ CellLabel->"In[31]:=",ExpressionUUID->"6c30f983-603b-4c5c-97a4-d295e628b599"],
+
+Cell[BoxData[
+ GraphicsBox[
+  NamespaceBox["NetworkGraphics",
+   DynamicModuleBox[{Typeset`graph = HoldComplete[
+     Graph[{
+      "truman terwilliger", "anyone from allen-stevenson or jack zegen", 
+       "zachariah andrei", "henry bohm", "graham howard", "bowden cruz", 
+       "nicky acquavella", "patrick durkin", "john michael slattery", 
+       "charles durkin", "pax phillips", "jon michael slattery", 
+       "henry bohm.", "teddy defusco", "jeremiah o\[CloseCurlyQuote]connor", 
+       "sam waldron", "izzy patel", "alexander phillips", 
+       "graham howard's group", "joshua boucai", "noah kay", "ryan reichman", 
+       "jake henes", "noah sky", "jake henef", "josh boucai", "jake hennes", 
+       "roark lambert", "maybe mix up the dalton kids?", "safin qalbani", 
+       "dalton 4th graders", "", "roman", "niam", "carter", "nico", "roark", 
+       "arin", "logan", "niam soni", "spencer berk", "jesse edelson", 
+       "noah edelman", "beckett schein", "noah", "teddy traxler", "n/as", 
+       "asher vecsler", "harry trichon", "ryan marx", "zach goldshmid", 
+       "bobby vogelhut", "zach goldschmid", "sam meyer", 
+       "meijer butterman or jack zegan", "mason brown", "maurice stern", 
+       "shaun desai", "matteo richstone", "makoto noguchi", "meijer buterman",
+        "ramaz kids", "matthew feit", "alex moss", "ben moss", 
+       "coach curtis team", "nate kasell", "same as brother teddy", 
+       "joshua sultan", "raymond sardar", "jordan mann", "abraham jemal", 
+       "jonah ritter", "jack spodek", "teddy kassel", "nate kassel", 
+       "jack levine", "howie dushey", "leo kaufthal", "jacob biselman", 
+       "harry ahdoot", "jemal abraham", "1)teddy kasell", 
+       "nate kasell and jacob bisselman", "pierce ebrahimzadeh", 
+       "dont put brothers together", "benjamin ganfer", 
+       "teddy and nate kasell", "teddy kasell", "jonah", "howie d", "jacon b",
+        "jacob bisselman", "ben ganfer", "alexander moss", "freddy packin", 
+       "bear packin", "david spodek", "william gribbetz", 
+       "nate and teddy kassel", "nathan amar", "teddy and nate kassel.", 
+       "ethan ahdoot", 
+       "needs to be with harry ahdoot and pierce ebrahimzadeh", 
+       "maybe one 4th grader?", "amit brachot", "robbie dabah", 
+       "elliot shalom", "jake ebrahimzadeh", "ben krawitz", 
+       "coach mamadou if possible", "elias esses", "david dwek", 
+       "nate kassell", "teddy kassell", "william rishty", "ethan adhoot", 
+       "aiden stern", "dylan englander", "same team as the fall (rcs)", 
+       "grayson brill", "max tisch", "addison wallach", "minjun park", 
+       "miles schankler", "jake sporn", "bobby vogulhut and harry trichon", 
+       "riverdale boys", "zach goldshmidt", "noah schankler", "connor marcel",
+        "thomas smith", "parker elms", "thomas david smith", "david dweck", 
+       "jake ibraham", "elliot shalam", "ethan s.", "connor marcell", 
+       "oliver connolly", "teddy traxler and jackson sullivan", 
+       "jackson sullivan", "kaeden rametra", "will update", "nikhil belani", 
+       "coach shakeem", "ari taplitzky", "levi lichy", 
+       "david cunow"}, {CompressedData["
+1:eJwVhQlbwWAAgHV8G92K6VzpRNesdaC1dNnn2FCSLrYOpXQqkeki3Zf6G/3G
+9LzP+75a8dArFstkst+C/y8qLikqBQhAUESOKMoACtByVI5WADmoBOWgClQD
+BagBSiVQypVIbZ0CqNQqTKXB6rEGNaZuVDc1t+CteFsBLd6Od+CdeBfejffo
+unQdOq3eYOg19Bn0GkzTPzBIGAmSGCKoYWpkdMxktljMlnF6gqGZScbKTE3P
+zNJztjkW2qEDOqELcpCHELo9Xg/n4bl5bsHn8bl9rG/Rb/MvBZYDK4HVgIt3
+8E6e49dstG09aA3SQSYkhMTQhn3TztvdJtbkMm25tsM74d2IuLcfPYiK0cPo
+4lH46Jg9YU9ZnuWEkCAKkVg4JuyfiRHxPH6RSCYuE6lCktKwREpGiZLSUlwi
+0lfGa4qkblIJ8pYkSIpM32XusvfZ3EPuMfeUzWSfX17fBt5e3j8+v/Lf+Z8/
++0pgnw==
+       "], Null}, {
+      ImageSize -> 1500, VertexLabels -> {"Name"}, 
+       VertexStyle -> {
+        "levi lichy" -> RGBColor[1, 0, 0], "ben moss" -> RGBColor[1, 0, 0], 
+         "jemal abraham" -> RGBColor[1, 0, 0], "will update" -> 
+         RGBColor[1, 0, 0], "thomas smith" -> RGBColor[1, 0, 0], 
+         "elliot shalam" -> RGBColor[1, 0, 0], "connor marcell" -> 
+         RGBColor[1, 0, 0], 
+         "needs to be with harry ahdoot and pierce ebrahimzadeh" -> 
+         RGBColor[1, 0, 0], "teddy kassell" -> RGBColor[1, 0, 0], 
+         "bobby vogulhut and harry trichon" -> RGBColor[1, 0, 0], 
+         "teddy kassel" -> RGBColor[1, 0, 0], "coach shakeem" -> 
+         RGBColor[1, 0, 0], "jake ibraham" -> RGBColor[1, 0, 0], 
+         "jacob bisselman" -> RGBColor[1, 0, 0], "noah sky" -> 
+         RGBColor[1, 0, 0], "arin" -> RGBColor[1, 0, 0], "david cunow" -> 
+         RGBColor[1, 0, 0], "david dwek" -> RGBColor[1, 0, 0], 
+         "meijer butterman or jack zegan" -> RGBColor[1, 0, 0], 
+         "graham howard's group" -> RGBColor[1, 0, 0], "nate kassell" -> 
+         RGBColor[1, 0, 0], "zach goldshmidt" -> RGBColor[1, 0, 0], "niam" -> 
+         RGBColor[1, 0, 0], "noah schankler" -> RGBColor[1, 0, 0], "logan" -> 
+         RGBColor[1, 0, 0], "" -> RGBColor[1, 0, 0], "william gribbetz" -> 
+         RGBColor[1, 0, 0], "zach goldshmid" -> RGBColor[1, 0, 0], "howie d" -> 
+         RGBColor[1, 0, 0], "nate and teddy kassel" -> RGBColor[1, 0, 0], 
+         "jonah" -> RGBColor[1, 0, 0], "nate kasell and jacob bisselman" -> 
+         RGBColor[1, 0, 0], "anyone from allen-stevenson or jack zegen" -> 
+         RGBColor[1, 0, 0], "jake henef" -> RGBColor[1, 0, 0], 
+         "same as brother teddy" -> RGBColor[1, 0, 0], "coach curtis team" -> 
+         RGBColor[1, 0, 0], "alex moss" -> RGBColor[1, 0, 0], "aiden stern" -> 
+         RGBColor[1, 0, 0], "maybe one 4th grader?" -> RGBColor[1, 0, 0], 
+         "nico" -> RGBColor[1, 0, 0], "ramaz kids" -> RGBColor[1, 0, 0], 
+         "patrick durkin" -> RGBColor[1, 0, 0], "noah" -> RGBColor[1, 0, 0], 
+         "dalton 4th graders" -> RGBColor[1, 0, 0], "teddy and nate kasell" -> 
+         RGBColor[1, 0, 0], "noah edelman" -> RGBColor[1, 0, 0], "n/as" -> 
+         RGBColor[1, 0, 0], "coach mamadou if possible" -> RGBColor[1, 0, 0], 
+         "nathan amar" -> RGBColor[1, 0, 0], "beckett schein" -> 
+         RGBColor[1, 0, 0], "jacon b" -> RGBColor[1, 0, 0], "makoto noguchi" -> 
+         RGBColor[1, 0, 0], "maybe mix up the dalton kids?" -> 
+         RGBColor[1, 0, 0], "same team as the fall (rcs)" -> 
+         RGBColor[1, 0, 0], "jake hennes" -> RGBColor[1, 0, 0], 
+         "jon michael slattery" -> RGBColor[1, 0, 0], "carter" -> 
+         RGBColor[1, 0, 0], "teddy and nate kassel." -> RGBColor[1, 0, 0], 
+         "ethan s." -> RGBColor[1, 0, 0], "teddy defusco" -> 
+         RGBColor[1, 0, 0], "ben krawitz" -> RGBColor[1, 0, 0], "ben ganfer" -> 
+         RGBColor[1, 0, 0], "roark" -> RGBColor[1, 0, 0], 
+         "dont put brothers together" -> RGBColor[1, 0, 0], 
+         "teddy traxler and jackson sullivan" -> RGBColor[1, 0, 0], 
+         "jeremiah o\[CloseCurlyQuote]connor" -> RGBColor[1, 0, 0], 
+         "1)teddy kasell" -> RGBColor[1, 0, 0], "riverdale boys" -> 
+         RGBColor[1, 0, 0], "ethan adhoot" -> RGBColor[1, 0, 0], 
+         "henry bohm." -> RGBColor[1, 0, 0], "pax phillips" -> 
+         RGBColor[1, 0, 0], "sam waldron" -> RGBColor[1, 0, 0], "nate kassel" -> 
+         RGBColor[1, 0, 0], "roman" -> RGBColor[1, 0, 0], "josh boucai" -> 
+         RGBColor[1, 0, 0]}}]]}, 
+    TagBox[GraphicsGroupBox[{
+       {Hue[0.6, 0.7, 0.5], Opacity[0.7], Arrowheads[0.011413697858553654`], 
+        ArrowBox[{{4.63089122597766, -19.513060088150095`}, {
+         3.630241419878582, -19.513060088150098`}}, 0.09023566421690014], 
+        ArrowBox[{{5.630240997355969, -19.513060088150098`}, {
+         4.63089122597766, -19.513060088150095`}}, 0.09023566421690014], 
+        ArrowBox[{{10.713182663421083`, -13.801674517876444`}, {
+         11.883007971195486`, -13.962563522090221`}}, 0.09023566421690014], 
+        ArrowBox[{{11.883007971195486`, -13.962563522090221`}, {
+         12.926838271552347`, -14.421645830027616`}}, 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{11.883007971195486`, -13.962563522090221`}, {
+          12.06650303057861, -14.429279089441481`}, {
+          11.937153336341742`, -14.913802065393426`}}], 0.09023566421690014], 
+        ArrowBox[{{11.883007971195486`, -13.962563522090221`}, {
+         12.772529398143805`, -13.342477821244618`}}, 0.09023566421690014], 
+        ArrowBox[{{11.883007971195486`, -13.962563522090221`}, {
+         11.46789119639778, -12.861512471370784`}}, 0.09023566421690014], 
+        ArrowBox[{{11.883007971195486`, -13.962563522090221`}, {
+         12.119028631224179`, -12.816339320515038`}}, 0.09023566421690014], 
+        ArrowBox[{{11.883007971195486`, -13.962563522090221`}, {
+         10.960094212893962`, -13.23067537120241}}, 0.09023566421690014], 
+        ArrowBox[{{11.883007971195486`, -13.962563522090221`}, {
+         11.185014792242947`, -14.967804117070493`}}, 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{11.883007971195486`, -13.962563522090221`}, {
+          12.388975846688819`, -14.326354888596319`}, {
+          12.580240443716171`, -14.919453112585005`}}], 0.09023566421690014], 
+        ArrowBox[{{12.500080344607234`, -14.428155979455406`}, {
+         11.883007971195486`, -13.962563522090221`}}, 0.09023566421690014], 
+        ArrowBox[{{12.500080344607234`, -14.428155979455406`}, {
+         13.170140877588814`, -13.876911076340635`}}, 0.09023566421690014], 
+        ArrowBox[{{12.500080344607234`, -14.428155979455406`}, {
+         12.926838271552347`, -14.421645830027616`}}, 0.09023566421690014], 
+        ArrowBox[{{12.500080344607234`, -14.428155979455406`}, {
+         11.937153336341742`, -14.913802065393426`}}, 0.09023566421690014], 
+        ArrowBox[{{13.170140877588814`, -13.876911076340635`}, {
+         11.883007971195486`, -13.962563522090221`}}, 0.09023566421690014], 
+        ArrowBox[{{13.170140877588814`, -13.876911076340635`}, {
+         12.926838271552347`, -14.421645830027616`}}, 0.09023566421690014], 
+        ArrowBox[{{13.170140877588814`, -13.876911076340635`}, {
+         12.772529398143805`, -13.342477821244618`}}, 0.09023566421690014], 
+        ArrowBox[{{13.170140877588814`, -13.876911076340635`}, {
+         14.300882705447071`, -13.702869538092946`}}, 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{11.937153336341742`, -14.913802065393426`}, {
+          11.753658276958628`, -14.44708649804187}, {
+          11.883007971195486`, -13.962563522090221`}}], 0.09023566421690014], 
+        ArrowBox[{{10.794985447826686`, -14.424847872108323`}, {
+         11.883007971195486`, -13.962563522090221`}}, 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{12.580240443716171`, -14.919453112585005`}, {
+          12.074272568223849`, -14.555661746079492`}, {
+          11.883007971195486`, -13.962563522090221`}}], 0.09023566421690014], 
+        ArrowBox[{{12.580240443716171`, -14.919453112585005`}, {
+         12.500080344607234`, -14.428155979455406`}}, 0.09023566421690014], 
+        ArrowBox[{{12.580240443716171`, -14.919453112585005`}, {
+         12.926838271552347`, -14.421645830027616`}}, 0.09023566421690014], 
+        ArrowBox[{{18.176450651460186`, -19.513060088150098`}, {
+         17.176450651460186`, -19.513060088150098`}}, 0.09023566421690014], 
+        ArrowBox[{{7.693474403895992, -13.408182677249169`}, {
+         8.593412475271228, -13.631330104910784`}}, 0.09023566421690014], 
+        ArrowBox[{{7.693474403895992, -13.408182677249169`}, {
+         7.474235874773772, -14.123523189324622`}}, 0.09023566421690014], 
+        ArrowBox[{{7.693474403895992, -13.408182677249169`}, {
+         6.832434878292813, -13.256711018164124`}}, 0.09023566421690014], 
+        ArrowBox[{{8.593412475271228, -13.631330104910784`}, {
+         7.474235874773772, -14.123523189324622`}}, 0.09023566421690014], 
+        ArrowBox[{{8.593412475271228, -13.631330104910784`}, {
+         9.335955003838592, -12.939484751891312`}}, 0.09023566421690014], 
+        ArrowBox[{{8.593412475271228, -13.631330104910784`}, {
+         9.541117408167096, -13.986353317156098`}}, 0.09023566421690014], 
+        ArrowBox[{{7.474235874773772, -14.123523189324622`}, {
+         6.65801415906142, -14.747919902046513`}}, 0.09023566421690014], 
+        ArrowBox[{{7.474235874773772, -14.123523189324622`}, {
+         7.600351791458932, -15.135282036841623`}}, 0.09023566421690014], 
+        ArrowBox[{{6.832434878292813, -13.256711018164124`}, {
+         7.474235874773772, -14.123523189324622`}}, 0.09023566421690014], 
+        ArrowBox[{{6.832434878292813, -13.256711018164124`}, {
+         6.033193226556502, -12.648861400743908`}}, 0.09023566421690014], 
+        ArrowBox[{{16.06716794824512, -19.513060088150098`}, {
+         15.06716794824512, -19.513060088150098`}}, 0.09023566421690014], 
+        ArrowBox[{{17.105545284342075`, -13.891933073706094`}, {
+         18.113668099421268`, -13.54343053198432}}, 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{17.105545284342075`, -13.891933073706094`}, {
+          17.21077342174567, -14.433524764257324`}, {
+          16.973991813118964`, -14.93185095260452}}], 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{17.105545284342075`, -13.891933073706094`}, {
+          16.8687636757148, -14.390259262052583`}, {
+          16.973991813118964`, -14.93185095260452}}], 0.09023566421690014], 
+        ArrowBox[{{17.105545284342075`, -13.891933073706094`}, {
+         16.083244080932854`, -14.4066506905215}}, 0.09023566421690014], 
+        ArrowBox[{{17.105545284342075`, -13.891933073706094`}, {
+         17.67786825977801, -12.994875937193033`}}, 0.09023566421690014], 
+        ArrowBox[{{17.105545284342075`, -13.891933073706094`}, {
+         16.156008035171663`, -13.892323336558142`}}, 0.09023566421690014], 
+        ArrowBox[{{17.105545284342075`, -13.891933073706094`}, {
+         16.973575607226255`, -12.85229248498101}}, 0.09023566421690014], 
+        ArrowBox[{{17.105545284342075`, -13.891933073706094`}, {
+         16.083082884017383`, -13.376761889087444`}}, 0.09023566421690014], 
+        ArrowBox[{{17.105545284342075`, -13.891933073706094`}, {
+         17.67827075396062, -14.788964315245833`}}, 0.09023566421690014], 
+        ArrowBox[{{17.105545284342075`, -13.891933073706094`}, {
+         18.113141360632277`, -14.239664636361782`}}, 0.09023566421690014], 
+        ArrowBox[{{15.472947960701052`, -13.891842623646443`}, {
+         16.083244080932854`, -14.4066506905215}}, 0.09023566421690014], 
+        ArrowBox[{{15.472947960701052`, -13.891842623646443`}, {
+         16.156008035171663`, -13.892323336558142`}}, 0.09023566421690014], 
+        ArrowBox[{{15.472947960701052`, -13.891842623646443`}, {
+         16.083082884017383`, -13.376761889087444`}}, 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{8.723150031967926, -18.40998999271787}, {
+          8.20725300803472, -18.30540585100087}, {
+          7.854142099206947, -17.91502108174023}}], 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{7.854142099206947, -17.91502108174023}, {
+          8.370039123141881, -18.019605223458285`}, {
+          8.723150031967926, -18.40998999271787}}], 0.09023566421690014], 
+        ArrowBox[{{7.854142099206947, -17.91502108174023}, {
+         6.9914352544244025`, -18.41948378356605}}, 0.09023566421690014], 
+        ArrowBox[{{7.854142099206947, -17.91502108174023}, {
+         7.846848639993089, -16.91458964090441}}, 0.09023566421690014], 
+        ArrowBox[{{16.827000244603525`, -17.667036689483762`}, {
+         17.75803531465737, -17.667036741867708`}}, 0.09023566421690014], 
+        ArrowBox[{{3.94086131568213, -13.56845062158198}, {
+         3.930801042847252, -14.592916433168938`}}, 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{3.94086131568213, -13.56845062158198}, {
+          3.8444447841438634`, -13.864412357417756`}, {
+          3.5911783485239175`, -14.04536983646017}}], 0.09023566421690014], 
+        ArrowBox[{{3.94086131568213, -13.56845062158198}, {
+         4.861127971302516, -12.940708782305661`}}, 0.09023566421690014], 
+        ArrowBox[{{3.94086131568213, -13.56845062158198}, {
+         3.305110187221779, -13.065597031902698`}}, 0.09023566421690014], 
+        ArrowBox[{{3.930801042847252, -14.592916433168938`}, {
+         4.564906341076917, -15.494863874511843`}}, 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{3.5911783485239175`, -14.04536983646017}, {
+          3.687594880062761, -13.749408100623736`}, {
+          3.94086131568213, -13.56845062158198}}], 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{3.5911783485239175`, -14.04536983646017}, {
+          3.2870296958217855`, -13.602524696371633`}, {
+          3.305110187221779, -13.065597031902698`}}], 0.09023566421690014], 
+        ArrowBox[{{3.5911783485239175`, -14.04536983646017}, {
+         2.8278343984813947`, -14.863218677395901`}}, 0.09023566421690014], 
+        ArrowBox[{{3.5911783485239175`, -14.04536983646017}, {
+         4.707371045813986, -14.241712645862517`}}, 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{3.305110187221779, -13.065597031902698`}, {
+          3.6092588399239722`, -13.508442171991607`}, {
+          3.5911783485239175`, -14.04536983646017}}], 0.09023566421690014], 
+        ArrowBox[{{3.305110187221779, -13.065597031902698`}, {
+         3.3185988851465167`, -11.963130101265163`}}, 0.09023566421690014], 
+        ArrowBox[{{2.5810988244312845`, -13.048716213142564`}, {
+         3.305110187221779, -13.065597031902698`}}, 0.09023566421690014], 
+        ArrowBox[{{13.957885245030049`, -19.513060088150098`}, {
+         12.957885245030049`, -19.513060088150098`}}, 0.09023566421690014], 
+        ArrowBox[{{3.818789793419702, -3.462474192188955}, {
+         4.519123394027993, -3.7424930450250082`}}, 0.09023566421690014], 
+        ArrowBox[{{4.519123394027993, -3.7424930450250082`}, {
+         5.494021934595557, -4.835706507612257}}, 0.09023566421690014], 
+        ArrowBox[{{4.519123394027993, -3.7424930450250082`}, {
+         4.463047461960418, -2.5182818795174757`}}, 0.09023566421690014], 
+        ArrowBox[{{4.519123394027993, -3.7424930450250082`}, {
+         3.8225651115486725`, -3.9139094803748176`}}, 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{9.84880631041946, -19.513060088150098`}, {
+          10.348908132488285`, -19.34858585357204}, {
+          10.849009954560435`, -19.513060088150098`}}], 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{10.849009954560435`, -19.513060088150098`}, {
+          10.348908132489953`, -19.677534322727713`}, {
+          9.84880631041946, -19.513060088150098`}}], 0.09023566421690014], 
+        ArrowBox[{{10.849009954560435`, -19.513060088150098`}, {
+         11.848602541814978`, -19.513060088150098`}}, 0.09023566421690014], 
+        ArrowBox[{{1.9900626390072667`, -9.20148057239684}, {
+         1.3470773224600583`, -9.269431393849125}}, 0.09023566421690014], 
+        ArrowBox[{{1.2244352944575905`, -10.188533145747233`}, {
+         1.9900626390072667`, -9.20148057239684}}, 0.09023566421690014], 
+        ArrowBox[{{1.2244352944575905`, -10.188533145747233`}, {
+         0.8979927027368362, -10.921211718479002`}}, 0.09023566421690014], 
+        ArrowBox[{{1.2244352944575905`, -10.188533145747233`}, {
+         1.4230812864877151`, -10.608103799782867`}}, 0.09023566421690014], 
+        ArrowBox[{{1.2244352944575905`, -10.188533145747233`}, {
+         0.5209591913930822, -10.54568630687718}}, 0.09023566421690014], 
+        ArrowBox[{{20.28573335467526, -13.876972044421867`}, {
+         19.28573335467526, -13.876972044421867`}}, 0.09023566421690014], 
+        ArrowBox[{{2.2234008024414766`, -9.765764149180344}, {
+         1.9900626390072667`, -9.20148057239684}}, 0.09023566421690014], 
+        ArrowBox[{{4.198858364804247, -6.341963914500664}, {
+         2.9492573342662496`, -7.780958563457432}}, 0.09023566421690014], 
+        ArrowBox[{{4.198858364804247, -6.341963914500664}, {
+         5.494021934595557, -4.835706507612257}}, 0.09023566421690014], 
+        ArrowBox[{{2.9492573342662496`, -7.780958563457432}, {
+         1.9900626390072667`, -9.20148057239684}}, 0.09023566421690014], 
+        ArrowBox[{{2.9492573342662496`, -7.780958563457432}, {
+         2.996635307313209, -8.321526655875516}}, 0.09023566421690014], 
+        ArrowBox[{{5.494021934595557, -4.835706507612257}, {
+         6.220263169693078, -4.045071616805993}}, 0.09023566421690014], 
+        ArrowBox[{{5.494021934595557, -4.835706507612257}, {
+         5.985974245916589, -3.7040648678937}}, 0.09023566421690014], 
+        ArrowBox[{{5.494021934595557, -4.835706507612257}, {
+         5.492391465155145, -5.538919051515796}}, 0.09023566421690014], 
+        ArrowBox[{{5.494021934595557, -4.835706507612257}, {
+         4.987425269191014, -5.2648970939905055`}}, 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{5.655279587831746, -3.2557509265373286`}, {
+          5.787655265262118, -3.591657116398792}, {
+          5.741779826746002, -3.690604682373507}, {
+          5.6828537324177315`, -3.7342333684595044`}, {
+          5.477156251077323, -3.70069795437427}, {
+          5.435139000657938, -3.6406122030719072`}, {
+          5.423067157175848, -3.532217335728889}, {
+          5.655279587831746, -3.2557509265373286`}},
+          SplineDegree->7], 0.09023566421690014], 
+        ArrowBox[{{5.655279587831746, -3.2557509265373286`}, {
+         6.218211114359918, -2.9972643168492006`}}, 0.09023566421690014], 
+        ArrowBox[{{5.655279587831746, -3.2557509265373286`}, {
+         5.3849083437207055`, -3.4513682558409435`}}, 0.09023566421690014], 
+        ArrowBox[{{5.655279587831746, -3.2557509265373286`}, {
+         5.735378418437135, -2.9405049963435514`}}, 0.09023566421690014], 
+        ArrowBox[{{5.655279587831746, -3.2557509265373286`}, {
+         4.463047461960418, -2.5182818795174757`}}, 0.09023566421690014], 
+        ArrowBox[{{5.655279587831746, -3.2557509265373286`}, {
+         6.220263169693078, -4.045071616805993}}, 0.09023566421690014], 
+        ArrowBox[{{5.655279587831746, -3.2557509265373286`}, {
+         5.985974245916589, -3.7040648678937}}, 0.09023566421690014], 
+        ArrowBox[{{5.655279587831746, -3.2557509265373286`}, {
+         6.517328850898402, -3.7464450110793086`}}, 0.09023566421690014], 
+        ArrowBox[{{6.218211114359918, -2.9972643168492006`}, {
+         5.985974245916589, -3.7040648678937}}, 0.09023566421690014], 
+        ArrowBox[{{6.218211114359918, -2.9972643168492006`}, {
+         6.517328850898402, -3.7464450110793086`}}, 0.09023566421690014], 
+        ArrowBox[{{6.218211114359918, -2.9972643168492006`}, {
+         6.461258987904616, -2.1869561936968456`}}, 0.09023566421690014], 
+        ArrowBox[{{4.463047461960418, -2.5182818795174757`}, {
+         4.044289848869654, -1.9607604083599934`}}, 0.09023566421690014], 
+        ArrowBox[{{6.220263169693078, -4.045071616805993}, {
+         6.930600250441303, -3.5676767221214343`}}, 0.09023566421690014], 
+        ArrowBox[{{6.220263169693078, -4.045071616805993}, {
+         6.95942750223885, -4.013223716155219}}, 0.09023566421690014], 
+        ArrowBox[{{5.985974245916589, -3.7040648678937}, {
+         5.3849083437207055`, -3.4513682558409435`}}, 0.09023566421690014], 
+        ArrowBox[{{5.985974245916589, -3.7040648678937}, {
+         5.735378418437135, -2.9405049963435514`}}, 0.09023566421690014], 
+        ArrowBox[{{5.985974245916589, -3.7040648678937}, {
+         6.220263169693078, -4.045071616805993}}, 0.09023566421690014], 
+        ArrowBox[{{5.985974245916589, -3.7040648678937}, {
+         6.541586260433673, -3.0454671930129553`}}, 0.09023566421690014], 
+        ArrowBox[{{6.77705432825406, -4.29987055138145}, {
+         6.220263169693078, -4.045071616805993}}, 0.09023566421690014], 
+        ArrowBox[{{6.77705432825406, -4.29987055138145}, {
+         5.985974245916589, -3.7040648678937}}, 0.09023566421690014], 
+        ArrowBox[{{6.77705432825406, -4.29987055138145}, {
+         7.565572069120506, -4.372438258239381}}, 0.09023566421690014], 
+        ArrowBox[{{7.244982173100783, -4.730049391423322}, {
+         5.494021934595557, -4.835706507612257}}, 0.09023566421690014], 
+        ArrowBox[{{7.244982173100783, -4.730049391423322}, {
+         6.517328850898402, -3.7464450110793086`}}, 0.09023566421690014], 
+        ArrowBox[{{7.244982173100783, -4.730049391423322}, {
+         6.77705432825406, -4.29987055138145}}, 0.09023566421690014], 
+        ArrowBox[{{7.244982173100783, -4.730049391423322}, {
+         9.193735538744688, -5.151849164088394}}, 0.09023566421690014], 
+        ArrowBox[{{2.108611128940204, -7.774472438017943}, {
+         2.9492573342662496`, -7.780958563457432}}, 0.09023566421690014], 
+        ArrowBox[{{2.108611128940204, -7.774472438017943}, {
+         1.4335357651546916`, -7.745163029157554}}, 0.09023566421690014], 
+        ArrowBox[{{3.6519657860029486`, -1.2987374956036373`}, {
+         4.463047461960418, -2.5182818795174757`}}, 0.09023566421690014], 
+        ArrowBox[{{3.6519657860029486`, -1.2987374956036373`}, {
+         3.6042919002655376`, -0.5209591913930804}}, 0.09023566421690014], 
+        ArrowBox[{{3.6519657860029486`, -1.2987374956036373`}, {
+         2.9525259018626624`, -0.9466676558896214}}, 0.09023566421690014], 
+        ArrowBox[{{3.6519657860029486`, -1.2987374956036373`}, {
+         3.193949720158071, -0.6123776672980465}}, 0.09023566421690014], 
+        ArrowBox[{{1.6092390459123642`, -10.010770635835167`}, {
+         1.9900626390072667`, -9.20148057239684}}, 0.09023566421690014], 
+        ArrowBox[{{1.6092390459123642`, -10.010770635835167`}, {
+         1.2244352944575905`, -10.188533145747233`}}, 0.09023566421690014], 
+        ArrowBox[{{1.6092390459123642`, -10.010770635835167`}, {
+         1.4230812864877151`, -10.608103799782867`}}, 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{13.796268546421043`, -5.895117654915811}, {
+          14.030535036666697`, -6.080066391116141}, {
+          14.109291572201435`, -6.367962607806472}}], 0.09023566421690014], 
+        ArrowBox[{{13.796268546421043`, -5.895117654915811}, {
+         12.854448081502703`, -5.9288685355441615`}}, 0.09023566421690014], 
+        ArrowBox[{{13.796268546421043`, -5.895117654915811}, {
+         14.42228827713799, -5.614843855037581}}, 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{14.109291572201435`, -6.367962607806472}, {
+          13.875025081956352`, -6.1830138716059455`}, {
+          13.796268546421043`, -5.895117654915811}}], 0.09023566421690014], 
+        ArrowBox[{{14.109291572201435`, -6.367962607806472}, {
+         12.854448081502703`, -5.9288685355441615`}}, 0.09023566421690014], 
+        ArrowBox[{{14.109291572201435`, -6.367962607806472}, {
+         13.496097380335218`, -6.329065553706}}, 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{12.854448081502703`, -5.9288685355441615`}, {
+          13.241081427605392`, -6.0234537544952556`}, {
+          13.496097380335218`, -6.329065553706}}], 0.09023566421690014], 
+        ArrowBox[{{12.854448081502703`, -5.9288685355441615`}, {
+         13.173784160269605`, -5.462832855644381}}, 0.09023566421690014], 
+        ArrowBox[{{16.648873781655073`, -7.23816800431983}, {
+         16.979318018098272`, -7.750114198510023}}, 0.09023566421690014], 
+        ArrowBox[{{16.648873781655073`, -7.23816800431983}, {
+         17.231440098588614`, -7.031564197446973}}, 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{13.496097380335218`, -6.329065553706}, {
+          13.109464034231298`, -6.2344803347545215`}, {
+          12.854448081502703`, -5.9288685355441615`}}], 0.09023566421690014], 
+        ArrowBox[{{6.739523700571039, -19.513060088150098`}, {
+         7.73982921344839, -19.513060088150098`}}, 0.09023566421690014], 
+        ArrowBox[{{7.73982921344839, -19.513060088150098`}, {
+         8.739523607204392, -19.513060088150098`}}, 0.09023566421690014], 
+        ArrowBox[{{11.074732697929145`, -5.551228940755301}, {
+         9.193735538744688, -5.151849164088394}}, 0.09023566421690014], 
+        ArrowBox[{{11.074732697929145`, -5.551228940755301}, {
+         12.854448081502703`, -5.9288685355441615`}}, 0.09023566421690014], 
+        ArrowBox[{{11.074732697929145`, -5.551228940755301}, {
+         11.337329769262524`, -6.023038938299516}}, 0.09023566421690014], 
+        ArrowBox[{{11.074732697929145`, -5.551228940755301}, {
+         11.49822057678491, -5.221486603364072}}, 0.09023566421690014], 
+        ArrowBox[{{17.571872924433787`, -7.5642488004968715`}, {
+         16.648873781655073`, -7.23816800431983}}, 0.09023566421690014], 
+        ArrowBox[{{17.571872924433787`, -7.5642488004968715`}, {
+         18.243814971889098`, -7.800802725280654}}, 0.09023566421690014], 
+        ArrowBox[{{15.42805876111721, -6.821049336593329}, {
+         14.109291572201435`, -6.367962607806472}}, 0.09023566421690014], 
+        ArrowBox[{{15.42805876111721, -6.821049336593329}, {
+         16.648873781655073`, -7.23816800431983}}, 0.09023566421690014], 
+        ArrowBox[{{1.5435203499434533`, -13.855701794602368`}, {
+         0.5209591913930804, -13.805785917278778`}}, 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{11.341399310444604`, -17.667125904453528`}, {
+          11.858489873157223`, -17.72672568313773}, {
+          12.239262317374262`, -18.0816159892779}}], 0.09023566421690014], 
+        ArrowBox[{{11.341399310444604`, -17.667125904453528`}, {
+         12.239186650845735`, -17.252457435192557`}}, 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{11.341399310444604`, -17.667125904453528`}, {
+          10.796111055499592`, -17.84641854468111}, {
+          10.250848071985812`, -17.667049063920533`}}], 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{12.239262317374262`, -18.0816159892779}, {
+          11.722171754659888`, -18.022016210593627`}, {
+          11.341399310444604`, -17.667125904453528`}}], 0.09023566421690014], 
+        ArrowBox[{{12.239186650845735`, -17.252457435192557`}, {
+         12.239262317374262`, -18.0816159892779}}, 0.09023566421690014], 
+        ArrowBox[
+         BezierCurveBox[{{10.250848071985812`, -17.667049063920533`}, {
+          10.796136326928904`, -17.487756423693245`}, {
+          11.341399310444604`, -17.667125904453528`}}], 0.09023566421690014], 
+        ArrowBox[{{2.9341532965254005`, -13.899369150774705`}, {
+         3.94086131568213, -13.56845062158198}}, 0.09023566421690014], 
+        ArrowBox[{{2.9341532965254005`, -13.899369150774705`}, {
+         3.930801042847252, -14.592916433168938`}}, 0.09023566421690014], 
+        ArrowBox[{{2.9341532965254005`, -13.899369150774705`}, {
+         3.5911783485239175`, -14.04536983646017}}, 0.09023566421690014], 
+        ArrowBox[{{2.9341532965254005`, -13.899369150774705`}, {
+         3.305110187221779, -13.065597031902698`}}, 0.09023566421690014], 
+        ArrowBox[{{2.9341532965254005`, -13.899369150774705`}, {
+         2.5810988244312845`, -13.048716213142564`}}, 0.09023566421690014], 
+        ArrowBox[{{2.9341532965254005`, -13.899369150774705`}, {
+         1.5435203499434533`, -13.855701794602368`}}, 0.09023566421690014], 
+        ArrowBox[{{2.9341532965254005`, -13.899369150774705`}, {
+         2.8278343984813947`, -14.863218677395901`}}, 0.09023566421690014], 
+        ArrowBox[{{2.8278343984813947`, -14.863218677395901`}, {
+         2.3753471074728356`, -15.821013336320368`}}, 0.09023566421690014], 
+        ArrowBox[{{0.5209591913930804, -18.039403601867438`}, {
+         0.521653013637246, -17.29157989996697}}, 0.09023566421690014], 
+        ArrowBox[{{0.5209591913930804, -18.039403601867438`}, {
+         1.4648730549213667`, -17.666196014965575`}}, 0.09023566421690014], 
+        ArrowBox[{{1.4648730549213667`, -17.666196014965575`}, {
+         0.521653013637246, -17.29157989996697}}, 0.09023566421690014], 
+        ArrowBox[{{1.4648730549213667`, -17.666196014965575`}, {
+         2.2036578865707885`, -16.862931719106527`}}, 0.09023566421690014], 
+        ArrowBox[{{2.200757926310779, -18.471141705363934`}, {
+         1.4648730549213667`, -17.666196014965575`}}, 0.09023566421690014], 
+        ArrowBox[{{4.592903139881804, -17.421121659064067`}, {
+         5.463737214406516, -16.930763574537835`}}, 0.09023566421690014], 
+        ArrowBox[{{4.592903139881804, -17.421121659064067`}, {
+         4.5840719505497525`, -18.421326757972256`}}, 0.09023566421690014], 
+        ArrowBox[{{4.592903139881804, -17.421121659064067`}, {
+         3.7313559265886753`, -16.912746666498204`}}, 0.09023566421690014], 
+        ArrowBox[{{14.69793859955859, -17.66703669328643}, {
+         13.766960357392149`, -17.667036739828543`}}, 0.09023566421690014], 
+        ArrowBox[{{15.763325792849255`, -17.667036682602753`}, {
+         16.827000244603525`, -17.667036689483762`}}, 0.09023566421690014], 
+        ArrowBox[{{15.763325792849255`, -17.667036682602753`}, {
+         14.69793859955859, -17.66703669328643}}, 0.09023566421690014], 
+        ArrowBox[{{20.28573335467526, -0.5209591913930806}, {
+         19.28573335467526, -0.5209591913930806}}, 0.09023566421690014], 
+        ArrowBox[{{20.28573335467526, -7.198965617907474}, {
+         19.28573335467526, -7.198965617907474}}, 0.09023566421690014], 
+        ArrowBox[{{1.5202699478509412`, -19.513060088150095`}, {
+         2.520958716663512, -19.513060088150098`}}, 0.09023566421690014], 
+        ArrowBox[{{1.5202699478509412`, -19.513060088150095`}, {
+         0.5209591913930806, -19.513060088150098`}}, 0.09023566421690014]}, 
+       {Hue[0.6, 0.2, 0.8], EdgeForm[{GrayLevel[0], Opacity[
+        0.7]}], {
+         DiskBox[{4.63089122597766, -19.513060088150095`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"truman terwilliger\"\>", 
+          Offset[{2, 2}, {4.72112689019456, -19.422824423933193}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{3.630241419878582, -19.513060088150098`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"anyone from allen-stevenson or jack zegen\"\>", 
+          Offset[{2, 2}, {3.720477084095482, -19.422824423933196}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{5.630240997355969, -19.513060088150098`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"zachariah andrei\"\>", 
+          Offset[{2, 2}, {5.720476661572869, -19.422824423933196}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{10.713182663421083`, -13.801674517876444`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"henry bohm\"\>", 
+          Offset[{2, 2}, {10.803418327637983, -13.711438853659544}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{11.883007971195486`, -13.962563522090221`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"graham howard\"\>", 
+          Offset[{2, 2}, {11.973243635412386, -13.872327857873321}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{12.500080344607234`, -14.428155979455406`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"bowden cruz\"\>", 
+          Offset[{2, 2}, {12.590316008824134, -14.337920315238506}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{13.170140877588814`, -13.876911076340635`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"nicky acquavella\"\>", 
+          Offset[{2, 2}, {13.260376541805714, -13.786675412123735}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{12.926838271552347`, -14.421645830027616`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"patrick durkin\"\>", 
+          Offset[{2, 2}, {13.017073935769247, -14.331410165810716}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{11.937153336341742`, -14.913802065393426`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"john michael slattery\"\>", Offset[{2, 2}, 
+          {12.027389000558642, -14.823566401176526}], ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{10.794985447826686`, -14.424847872108323`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"charles durkin\"\>", 
+          Offset[{2, 2}, {10.885221112043586, -14.334612207891423}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{12.772529398143805`, -13.342477821244618`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"pax phillips\"\>", 
+          Offset[{2, 2}, {12.862765062360705, -13.252242157027718}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{14.300882705447071`, -13.702869538092946`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"jon michael slattery\"\>", 
+          Offset[{2, 2}, {14.391118369663971, -13.612633873876046}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{11.46789119639778, -12.861512471370784`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"henry bohm.\"\>", 
+          Offset[{2, 2}, {11.55812686061468, -12.771276807153884}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{12.119028631224179`, -12.816339320515038`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"teddy defusco\"\>", 
+          Offset[{2, 2}, {12.209264295441079, -12.726103656298138}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{10.960094212893962`, -13.23067537120241}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"jeremiah o\[CloseCurlyQuote]connor\"\>", 
+          Offset[{2, 2}, {11.050329877110862, -13.14043970698551}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{11.185014792242947`, -14.967804117070493`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"sam waldron\"\>", 
+          Offset[{2, 2}, {11.275250456459847, -14.877568452853593}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{12.580240443716171`, -14.919453112585005`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"izzy patel\"\>", 
+          Offset[{2, 2}, {12.670476107933071, -14.829217448368105}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{18.176450651460186`, -19.513060088150098`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"alexander phillips\"\>", 
+          Offset[{2, 2}, {18.266686315677088, -19.422824423933196}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{17.176450651460186`, -19.513060088150098`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"graham howard's group\"\>", 
+          Offset[{2, 2}, {17.266686315677088, -19.422824423933196}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{7.693474403895992, -13.408182677249169`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"joshua boucai\"\>", 
+          Offset[{2, 2}, {7.783710068112892, -13.317947013032269}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{8.593412475271228, -13.631330104910784`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"noah kay\"\>", 
+          Offset[{2, 2}, {8.683648139488128, -13.541094440693884}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{7.474235874773772, -14.123523189324622`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"ryan reichman\"\>", 
+          Offset[{2, 2}, {7.564471538990672, -14.033287525107722}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{6.832434878292813, -13.256711018164124`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"jake henes\"\>", 
+          Offset[{2, 2}, {6.922670542509713, -13.166475353947224}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{6.65801415906142, -14.747919902046513`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"noah sky\"\>", 
+          Offset[{2, 2}, {6.74824982327832, -14.657684237829613}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{7.600351791458932, -15.135282036841623`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"jake henef\"\>", Offset[{2, 2}, 
+          {7.690587455675832, -15.045046372624723}], ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{9.335955003838592, -12.939484751891312`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"josh boucai\"\>", 
+          Offset[{2, 2}, {9.426190668055492, -12.849249087674412}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{9.541117408167096, -13.986353317156098`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"jake hennes\"\>", 
+          Offset[{2, 2}, {9.631353072383996, -13.896117652939198}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{16.06716794824512, -19.513060088150098`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"roark lambert\"\>", 
+          Offset[{2, 2}, {16.157403612462023, -19.422824423933196}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{15.06716794824512, -19.513060088150098`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"maybe mix up the dalton kids?\"\>", 
+          Offset[{2, 2}, {15.15740361246202, -19.422824423933196}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{17.105545284342075`, -13.891933073706094`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"safin qalbani\"\>", 
+          Offset[{2, 2}, {17.195780948558976, -13.801697409489194}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{18.113668099421268`, -13.54343053198432}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"dalton 4th graders\"\>", 
+          Offset[{2, 2}, {18.20390376363817, -13.45319486776742}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{16.973991813118964`, -14.93185095260452}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"\"\>", 
+          Offset[{2, 2}, {17.064227477335866, -14.84161528838762}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{16.083244080932854`, -14.4066506905215}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"roman\"\>", 
+          Offset[{2, 2}, {16.173479745149756, -14.3164150263046}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{17.67786825977801, -12.994875937193033`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"niam\"\>", 
+          Offset[{2, 2}, {17.76810392399491, -12.904640272976133}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{16.156008035171663`, -13.892323336558142`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"carter\"\>", 
+          Offset[{2, 2}, {16.246243699388565, -13.802087672341242}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{16.973575607226255`, -12.85229248498101}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"nico\"\>", 
+          Offset[{2, 2}, {17.063811271443157, -12.76205682076411}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{16.083082884017383`, -13.376761889087444`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"roark\"\>", 
+          Offset[{2, 2}, {16.173318548234285, -13.286526224870544}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{17.67827075396062, -14.788964315245833`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"arin\"\>", 
+          Offset[{2, 2}, {17.768506418177523, -14.698728651028933}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{18.113141360632277`, -14.239664636361782`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"logan\"\>", 
+          Offset[{2, 2}, {18.20337702484918, -14.149428972144882}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{15.472947960701052`, -13.891842623646443`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"niam soni\"\>", 
+          Offset[{2, 2}, {15.563183624917952, -13.801606959429543}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{8.723150031967926, -18.40998999271787}, 
+          0.09023566421690014], 
+         InsetBox["\<\"spencer berk\"\>", Offset[{2, 2}, 
+          {8.813385696184826, -18.319754328500967}], ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{7.854142099206947, -17.91502108174023}, 
+          0.09023566421690014], 
+         InsetBox["\<\"jesse edelson\"\>", 
+          Offset[{2, 2}, {7.944377763423847, -17.824785417523326}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{6.9914352544244025`, -18.41948378356605}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"noah edelman\"\>", 
+          Offset[{2, 2}, {7.0816709186413025, -18.32924811934915}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{7.846848639993089, -16.91458964090441}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"beckett schein\"\>", 
+          Offset[{2, 2}, {7.937084304209989, -16.824353976687508}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{6.033193226556502, -12.648861400743908`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"noah\"\>", 
+          Offset[{2, 2}, {6.123428890773402, -12.558625736527008}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{16.827000244603525`, -17.667036689483762`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"teddy traxler\"\>", 
+          Offset[{2, 2}, {16.917235908820427, -17.57680102526686}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{17.75803531465737, -17.667036741867708`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"n/as\"\>", 
+          Offset[{2, 2}, {17.84827097887427, -17.576801077650806}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{3.94086131568213, -13.56845062158198}, 0.09023566421690014],
+          InsetBox["\<\"asher vecsler\"\>", 
+          Offset[{2, 2}, {4.03109697989903, -13.47821495736508}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{3.930801042847252, -14.592916433168938`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"harry trichon\"\>", 
+          Offset[{2, 2}, {4.021036707064153, -14.502680768952038}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{3.5911783485239175`, -14.04536983646017}, 
+          0.09023566421690014], 
+         InsetBox["\<\"ryan marx\"\>", 
+          Offset[{2, 2}, {3.6814140127408175, -13.95513417224327}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{4.861127971302516, -12.940708782305661`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"zach goldshmid\"\>", 
+          Offset[{2, 2}, {4.951363635519416, -12.850473118088761}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{3.305110187221779, -13.065597031902698`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"bobby vogelhut\"\>", 
+          Offset[{2, 2}, {3.395345851438679, -12.975361367685798}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{2.5810988244312845`, -13.048716213142564`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"zach goldschmid\"\>", 
+          Offset[{2, 2}, {2.6713344886481845, -12.958480548925664}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{13.957885245030049`, -19.513060088150098`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"sam meyer\"\>", 
+          Offset[{2, 2}, {14.048120909246949, -19.422824423933196}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{12.957885245030049`, -19.513060088150098`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"meijer butterman or jack zegan\"\>", 
+          Offset[{2, 2}, {13.048120909246949, -19.422824423933196}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{3.818789793419702, -3.462474192188955}, 
+          0.09023566421690014], 
+         InsetBox["\<\"mason brown\"\>", 
+          Offset[{2, 2}, {3.909025457636602, -3.372238527972055}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{4.519123394027993, -3.7424930450250082`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"maurice stern\"\>", 
+          Offset[{2, 2}, {4.609359058244893, -3.6522573808081082}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{9.84880631041946, -19.513060088150098`}, 0.09023566421690014
+          ], 
+         InsetBox["\<\"shaun desai\"\>", 
+          Offset[{2, 2}, {9.93904197463636, -19.422824423933196}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{10.849009954560435`, -19.513060088150098`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"matteo richstone\"\>", 
+          Offset[{2, 2}, {10.939245618777335, -19.422824423933196}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{11.848602541814978`, -19.513060088150098`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"makoto noguchi\"\>", 
+          Offset[{2, 2}, {11.938838206031878, -19.422824423933196}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{1.9900626390072667`, -9.20148057239684}, 
+          0.09023566421690014], 
+         InsetBox["\<\"meijer buterman\"\>", 
+          Offset[{2, 2}, {2.0802983032241666, -9.11124490817994}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{1.3470773224600583`, -9.269431393849125}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"ramaz kids\"\>", 
+          Offset[{2, 2}, {1.4373129866769585, -9.179195729632225}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{1.2244352944575905`, -10.188533145747233`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"matthew feit\"\>", 
+          Offset[{2, 2}, {1.3146709586744907, -10.098297481530333}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{0.8979927027368362, -10.921211718479002`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"alex moss\"\>", 
+          Offset[{2, 2}, {0.9882283669537363, -10.830976054262102}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{1.4230812864877151`, -10.608103799782867`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"ben moss\"\>", 
+          Offset[{2, 2}, {1.5133169507046154, -10.517868135565967}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{0.5209591913930822, -10.54568630687718}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"coach curtis team\"\>", 
+          Offset[{2, 2}, {0.6111948556099823, -10.45545064266028}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{20.28573335467526, -13.876972044421867`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"nate kasell\"\>", 
+          Offset[{2, 2}, {20.37596901889216, -13.786736380204967}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{19.28573335467526, -13.876972044421867`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"same as brother teddy\"\>", 
+          Offset[{2, 2}, {19.37596901889216, -13.786736380204967}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{2.2234008024414766`, -9.765764149180344}, 
+          0.09023566421690014], 
+         InsetBox["\<\"joshua sultan\"\>", 
+          Offset[{2, 2}, {2.3136364666583766, -9.675528484963444}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{4.198858364804247, -6.341963914500664}, 
+          0.09023566421690014], 
+         InsetBox["\<\"raymond sardar\"\>", 
+          Offset[{2, 2}, {4.289094029021147, -6.251728250283764}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{2.9492573342662496`, -7.780958563457432}, 
+          0.09023566421690014], 
+         InsetBox["\<\"jordan mann\"\>", 
+          Offset[{2, 2}, {3.0394929984831496, -7.690722899240532}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{5.494021934595557, -4.835706507612257}, 
+          0.09023566421690014], 
+         InsetBox["\<\"abraham jemal\"\>", 
+          Offset[{2, 2}, {5.584257598812457, -4.745470843395357}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{5.655279587831746, -3.2557509265373286`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"jonah ritter\"\>", 
+          Offset[{2, 2}, {5.745515252048646, -3.1655152623204286}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{6.218211114359918, -2.9972643168492006`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"jack spodek\"\>", 
+          Offset[{2, 2}, {6.308446778576818, -2.9070286526323006}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{5.3849083437207055`, -3.4513682558409435`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"teddy kassel\"\>", 
+          Offset[{2, 2}, {5.4751440079376055, -3.3611325916240435}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{5.735378418437135, -2.9405049963435514`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"nate kassel\"\>", 
+          Offset[{2, 2}, {5.825614082654035, -2.8502693321266515}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{4.463047461960418, -2.5182818795174757`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"jack levine\"\>", 
+          Offset[{2, 2}, {4.553283126177318, -2.4280462153005757}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{6.220263169693078, -4.045071616805993}, 
+          0.09023566421690014], 
+         InsetBox["\<\"howie dushey\"\>", 
+          Offset[{2, 2}, {6.310498833909978, -3.954835952589093}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{5.985974245916589, -3.7040648678937}, 0.09023566421690014], 
+         InsetBox["\<\"leo kaufthal\"\>", 
+          Offset[{2, 2}, {6.076209910133489, -3.6138292036768}], ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{6.517328850898402, -3.7464450110793086`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"jacob biselman\"\>", 
+          Offset[{2, 2}, {6.607564515115302, -3.6562093468624086}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{6.77705432825406, -4.29987055138145}, 0.09023566421690014], 
+         InsetBox["\<\"harry ahdoot\"\>", 
+          Offset[{2, 2}, {6.86728999247096, -4.20963488716455}], ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{7.565572069120506, -4.372438258239381}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"jemal abraham\"\>", 
+          Offset[{2, 2}, {7.655807733337406, -4.282202594022481}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{6.930600250441303, -3.5676767221214343`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"1)teddy kasell\"\>", 
+          Offset[{2, 2}, {7.020835914658203, -3.4774410579045343}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{6.95942750223885, -4.013223716155219}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"nate kasell and jacob bisselman\"\>", 
+          Offset[{2, 2}, {7.04966316645575, -3.9229880519383187}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{7.244982173100783, -4.730049391423322}, 
+          0.09023566421690014], 
+         InsetBox["\<\"pierce ebrahimzadeh\"\>", 
+          Offset[{2, 2}, {7.335217837317683, -4.639813727206422}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{9.193735538744688, -5.151849164088394}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"dont put brothers together\"\>", 
+          Offset[{2, 2}, {9.283971202961588, -5.061613499871494}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{2.108611128940204, -7.774472438017943}, 
+          0.09023566421690014], 
+         InsetBox["\<\"benjamin ganfer\"\>", 
+          Offset[{2, 2}, {2.198846793157104, -7.684236773801043}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{1.4335357651546916`, -7.745163029157554}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"teddy and nate kasell\"\>", 
+          Offset[{2, 2}, {1.5237714293715918, -7.654927364940654}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{3.6519657860029486`, -1.2987374956036373`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"teddy kasell\"\>", 
+          Offset[{2, 2}, {3.7422014502198486, -1.208501831386737}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{3.6042919002655376`, -0.5209591913930804}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"jonah\"\>", 
+          Offset[{2, 2}, {3.6945275644824376, -0.4307235271761803}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{2.9525259018626624`, -0.9466676558896214}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"howie d\"\>", 
+          Offset[{2, 2}, {3.0427615660795624, -0.8564319916727213}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{3.193949720158071, -0.6123776672980465}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"jacon b\"\>", 
+          Offset[{2, 2}, {3.284185384374971, -0.5221420030811464}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{6.541586260433673, -3.0454671930129553`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"jacob bisselman\"\>", 
+          Offset[{2, 2}, {6.631821924650573, -2.9552315287960553}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{2.996635307313209, -8.321526655875516}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"ben ganfer\"\>", 
+          Offset[{2, 2}, {3.086870971530109, -8.231290991658616}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{1.6092390459123642`, -10.010770635835167`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"alexander moss\"\>", 
+          Offset[{2, 2}, {1.6994747101292644, -9.920534971618267}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{13.796268546421043`, -5.895117654915811}, 
+          0.09023566421690014], 
+         InsetBox["\<\"freddy packin\"\>", 
+          Offset[{2, 2}, {13.886504210637943, -5.804881990698911}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{14.109291572201435`, -6.367962607806472}, 
+          0.09023566421690014], 
+         InsetBox["\<\"bear packin\"\>", 
+          Offset[{2, 2}, {14.199527236418335, -6.277726943589572}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{12.854448081502703`, -5.9288685355441615`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"david spodek\"\>", 
+          Offset[{2, 2}, {12.944683745719603, -5.8386328713272615}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{14.42228827713799, -5.614843855037581}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"william gribbetz\"\>", 
+          Offset[{2, 2}, {14.51252394135489, -5.524608190820681}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{6.461258987904616, -2.1869561936968456`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"nate and teddy kassel\"\>", 
+          Offset[{2, 2}, {6.551494652121516, -2.0967205294799456}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{3.8225651115486725`, -3.9139094803748176`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"nathan amar\"\>", 
+          Offset[{2, 2}, {3.9128007757655725, -3.8236738161579176}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{4.044289848869654, -1.9607604083599934`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"teddy and nate kassel.\"\>", 
+          Offset[{2, 2}, {4.134525513086554, -1.8705247441430932}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{16.648873781655073`, -7.23816800431983}, 
+          0.09023566421690014], 
+         InsetBox["\<\"ethan ahdoot\"\>", 
+          Offset[{2, 2}, {16.739109445871975, -7.14793234010293}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{16.979318018098272`, -7.750114198510023}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"needs to be with harry ahdoot and pierce \
+ebrahimzadeh\"\>", Offset[{2, 2}, {17.069553682315174, -7.659878534293123}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{17.231440098588614`, -7.031564197446973}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"maybe one 4th grader?\"\>", 
+          Offset[{2, 2}, {17.321675762805516, -6.941328533230073}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{13.496097380335218`, -6.329065553706}, 0.09023566421690014],
+          InsetBox["\<\"amit brachot\"\>", 
+          Offset[{2, 2}, {13.586333044552118, -6.2388298894891}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{6.739523700571039, -19.513060088150098`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"robbie dabah\"\>", 
+          Offset[{2, 2}, {6.829759364787939, -19.422824423933196}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{7.73982921344839, -19.513060088150098`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"elliot shalom\"\>", 
+          Offset[{2, 2}, {7.83006487766529, -19.422824423933196}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{11.074732697929145`, -5.551228940755301}, 
+          0.09023566421690014], 
+         InsetBox["\<\"jake ebrahimzadeh\"\>", 
+          Offset[{2, 2}, {11.164968362146045, -5.460993276538401}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{11.337329769262524`, -6.023038938299516}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"ben krawitz\"\>", 
+          Offset[{2, 2}, {11.427565433479424, -5.932803274082616}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{11.49822057678491, -5.221486603364072}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"coach mamadou if possible\"\>", 
+          Offset[{2, 2}, {11.58845624100181, -5.131250939147172}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{17.571872924433787`, -7.5642488004968715`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"elias esses\"\>", 
+          Offset[{2, 2}, {17.66210858865069, -7.4740131362799715}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{18.243814971889098`, -7.800802725280654}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"david dwek\"\>", 
+          Offset[{2, 2}, {18.334050636106, -7.710567061063754}], ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{5.492391465155145, -5.538919051515796}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"nate kassell\"\>", 
+          Offset[{2, 2}, {5.582627129372045, -5.448683387298896}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{4.987425269191014, -5.2648970939905055`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"teddy kassell\"\>", 
+          Offset[{2, 2}, {5.077660933407914, -5.1746614297736055}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{15.42805876111721, -6.821049336593329}, 
+          0.09023566421690014], 
+         InsetBox["\<\"william rishty\"\>", 
+          Offset[{2, 2}, {15.51829442533411, -6.730813672376429}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{8.739523607204392, -19.513060088150098`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"ethan adhoot\"\>", 
+          Offset[{2, 2}, {8.829759271421292, -19.422824423933196}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{13.173784160269605`, -5.462832855644381}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"aiden stern\"\>", 
+          Offset[{2, 2}, {13.264019824486505, -5.372597191427481}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{1.5435203499434533`, -13.855701794602368`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"dylan englander\"\>", 
+          Offset[{2, 2}, {1.6337560141603535, -13.765466130385468}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{0.5209591913930804, -13.805785917278778`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"same team as the fall (rcs)\"\>", 
+          Offset[{2, 2}, {0.6111948556099805, -13.715550253061878}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{11.341399310444604`, -17.667125904453528`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"grayson brill\"\>", 
+          Offset[{2, 2}, {11.431634974661504, -17.576890240236626}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{12.239262317374262`, -18.0816159892779}, 
+          0.09023566421690014], 
+         InsetBox["\<\"max tisch\"\>", 
+          Offset[{2, 2}, {12.329497981591162, -17.991380325060998}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{12.239186650845735`, -17.252457435192557`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"addison wallach\"\>", 
+          Offset[{2, 2}, {12.329422315062635, -17.162221770975655}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{10.250848071985812`, -17.667049063920533`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"minjun park\"\>", 
+          Offset[{2, 2}, {10.341083736202712, -17.57681339970363}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{2.9341532965254005`, -13.899369150774705`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"miles schankler\"\>", 
+          Offset[{2, 2}, {3.0243889607423005, -13.809133486557805}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{2.8278343984813947`, -14.863218677395901`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"jake sporn\"\>", 
+          Offset[{2, 2}, {2.9180700626982947, -14.772983013179001}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{2.3753471074728356`, -15.821013336320368`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"bobby vogulhut and harry trichon\"\>", 
+          Offset[{2, 2}, {2.4655827716897356, -15.730777672103468}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{4.564906341076917, -15.494863874511843`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"riverdale boys\"\>", 
+          Offset[{2, 2}, {4.655142005293817, -15.404628210294943}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{3.3185988851465167`, -11.963130101265163`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"zach goldshmidt\"\>", 
+          Offset[{2, 2}, {3.4088345493634167, -11.872894437048263}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{4.707371045813986, -14.241712645862517`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"noah schankler\"\>", 
+          Offset[{2, 2}, {4.797606710030886, -14.151476981645617}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{0.5209591913930804, -18.039403601867438`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"connor marcel\"\>", 
+          Offset[{2, 2}, {0.6111948556099805, -17.949167937650536}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{0.521653013637246, -17.29157989996697}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"thomas smith\"\>", 
+          Offset[{2, 2}, {0.6118886778541461, -17.201344235750067}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{1.4648730549213667`, -17.666196014965575`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"parker elms\"\>", 
+          Offset[{2, 2}, {1.5551087191382669, -17.575960350748673}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{2.200757926310779, -18.471141705363934`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"thomas david smith\"\>", 
+          Offset[{2, 2}, {2.290993590527679, -18.380906041147032}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{4.592903139881804, -17.421121659064067`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"david dweck\"\>", 
+          Offset[{2, 2}, {4.683138804098704, -17.330885994847165}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{5.463737214406516, -16.930763574537835`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"jake ibraham\"\>", 
+          Offset[{2, 2}, {5.553972878623416, -16.840527910320933}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{4.5840719505497525`, -18.421326757972256`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"elliot shalam\"\>", 
+          Offset[{2, 2}, {4.6743076147666525, -18.331091093755354}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{3.7313559265886753`, -16.912746666498204`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"ethan s.\"\>", 
+          Offset[{2, 2}, {3.8215915908055753, -16.822511002281303}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{2.2036578865707885`, -16.862931719106527`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"connor marcell\"\>", 
+          Offset[{2, 2}, {2.2938935507876885, -16.772696054889625}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{14.69793859955859, -17.66703669328643}, 
+          0.09023566421690014], 
+         InsetBox["\<\"oliver connolly\"\>", 
+          Offset[{2, 2}, {14.78817426377549, -17.57680102906953}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{13.766960357392149`, -17.667036739828543`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"teddy traxler and jackson sullivan\"\>", 
+          Offset[{2, 2}, {13.857196021609049, -17.57680107561164}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{15.763325792849255`, -17.667036682602753`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"jackson sullivan\"\>", 
+          Offset[{2, 2}, {15.853561457066155, -17.57680101838585}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{20.28573335467526, -0.5209591913930806}, 
+          0.09023566421690014], 
+         InsetBox["\<\"kaeden rametra\"\>", 
+          Offset[{2, 2}, {20.37596901889216, -0.4307235271761804}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{19.28573335467526, -0.5209591913930806}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"will update\"\>", 
+          Offset[{2, 2}, {19.37596901889216, -0.4307235271761804}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{20.28573335467526, -7.198965617907474}, 
+          0.09023566421690014], 
+         InsetBox["\<\"nikhil belani\"\>", 
+          Offset[{2, 2}, {20.37596901889216, -7.108729953690574}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{19.28573335467526, -7.198965617907474}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"coach shakeem\"\>", 
+          Offset[{2, 2}, {19.37596901889216, -7.108729953690574}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         DiskBox[{1.5202699478509412`, -19.513060088150095`}, 
+          0.09023566421690014], 
+         InsetBox["\<\"ari taplitzky\"\>", 
+          Offset[{2, 2}, {1.6105056120678414, -19.422824423933193}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{2.520958716663512, -19.513060088150098`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"levi lichy\"\>", 
+          Offset[{2, 2}, {2.611194380880412, -19.422824423933196}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}, {
+         {RGBColor[1, 0, 0], 
+          DiskBox[{0.5209591913930806, -19.513060088150098`}, 
+           0.09023566421690014]}, 
+         InsetBox["\<\"david cunow\"\>", 
+          Offset[{2, 2}, {0.6111948556099807, -19.422824423933196}], 
+          ImageScaled[{0, 0}],
+          BaseStyle->"Graphics"]}}}],
+     MouseAppearanceTag["NetworkGraphics"]],
+    AllowKernelInitialization->False]],
+  DefaultBaseStyle->"NetworkGraphics",
+  FormatType->TraditionalForm,
+  FrameTicks->None,
+  ImageSize->1500]], "Output",
+ CellChangeTimes->{3.922245075787394*^9, 3.922245185421712*^9, 
+  3.9222454205680294`*^9, 3.92224642477067*^9, 3.922246473722275*^9, 
+  3.922246859464535*^9, 3.926777187675544*^9},
+ CellLabel->"Out[31]=",ExpressionUUID->"5e325c2c-6021-48cf-94bf-69fd97678239"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["To save your graph right click it and select \
+\[OpenCurlyDoubleQuote]save graphic\[CloseCurlyDoubleQuote]", "Subsection",
+ CellChangeTimes->{{3.922247285026002*^9, 
+  3.922247299311673*^9}},ExpressionUUID->"a627ebd1-b426-49cd-8d4d-\
+999bb87c01cb"],
+
+Cell["\<\
+Thanks for using! Again any issues please reach out to me either in person or \
+at will@fastbreakkids.com.\
+\>", "Text",
+ CellChangeTimes->{{3.922247317648081*^9, 
+  3.9222473622256937`*^9}},ExpressionUUID->"9b9c3e2a-41c2-4270-958b-\
+9e04bb8cf232"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{84, Automatic}, {Automatic, 198}},
+PrivateNotebookOptions->{"CloudPublishPath"->"/Published/\
+FriendRequestGraphGenerator.nb"},
+TaggingRules-><|
+ "ChatNotebookSettings" -> <|
+   "Model" -> <|"Service" -> "OpenAI", "Name" -> "gpt-3.5-turbo-16k"|>, 
+    "LLMEvaluator" -> "CodeWriter"|>|>,
+Magnification->1.,
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Chatbook.nb",
+ExpressionUUID->"4f9f8059-24e9-441d-812e-3b2510ec5c83"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[583, 22, 175, 3, 98, "Title",ExpressionUUID->"d839f5ef-b48f-4c75-ab13-8322c9c8bee0"],
+Cell[761, 27, 244, 6, 53, "Subtitle",ExpressionUUID->"6d7e4cd8-a7c3-45e5-802d-b248f784eed0"],
+Cell[1008, 35, 246, 6, 53, "Subtitle",ExpressionUUID->"d17f35eb-2af3-4ef1-ae23-4bfea98621e8"],
+Cell[CellGroupData[{
+Cell[1279, 45, 156, 3, 67, "Section",ExpressionUUID->"7d268a8c-8180-46b0-9a21-300ec9dc8cc4"],
+Cell[CellGroupData[{
+Cell[1460, 52, 182, 3, 54, "Subsection",ExpressionUUID->"3e5deca0-1673-424f-b062-2e6593ae84d7"],
+Cell[1645, 57, 577, 11, 58, "Text",ExpressionUUID->"9fbcc17e-05fd-4031-8d12-f43c76e46243"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2259, 73, 160, 3, 54, "Subsection",ExpressionUUID->"ab47d9c2-dc9c-459d-81fa-ed75c4c10c59"],
+Cell[2422, 78, 501, 9, 35, "Text",ExpressionUUID->"702d247a-f5be-46db-a23f-cbd4ef1d8ff8"],
+Cell[2926, 89, 579, 11, 30, "Input",ExpressionUUID->"f2dbea04-dc82-4fdc-b88e-af0277e6b97f"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3554, 106, 212, 4, 67, "Section",ExpressionUUID->"5f163356-3a45-4384-8e31-e209f1524154"],
+Cell[3769, 112, 881, 19, 30, "Input",ExpressionUUID->"cfab5acd-1081-4502-95d7-caeb14d61cda"],
+Cell[4653, 133, 429, 9, 30, "Input",ExpressionUUID->"e985bff3-cc68-4f7f-9677-db1c0c8d48ff"],
+Cell[5085, 144, 736, 13, 30, "Input",ExpressionUUID->"3826c952-e0d2-4289-a833-0fa6b7231099"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5858, 162, 168, 3, 67, "Section",ExpressionUUID->"d6b5d47a-220d-447e-958d-2d0b903f5a3a"],
+Cell[6029, 167, 314, 7, 35, "Text",ExpressionUUID->"52833434-e7e3-4a1b-9d07-594fbea8e80b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6380, 179, 159, 3, 67, "Section",ExpressionUUID->"ebedc006-e7aa-4895-8c88-145bc2c7d54f"],
+Cell[6542, 184, 363, 7, 35, "Text",ExpressionUUID->"e01c07a9-c459-45ec-8be4-67290a44c9fc"],
+Cell[6908, 193, 260, 6, 35, "Text",ExpressionUUID->"9658ec83-1d3b-4bde-8420-d93cf7dbe4d2"],
+Cell[7171, 201, 447, 12, 30, "Input",ExpressionUUID->"05da7f95-101e-4988-95de-144ae13f4834"],
+Cell[7621, 215, 643, 13, 30, "Input",ExpressionUUID->"1932bdae-ddc8-4177-954e-014ea1af8320"],
+Cell[CellGroupData[{
+Cell[8289, 232, 534, 11, 52, "Input",ExpressionUUID->"b747dd0c-689e-463b-9051-f9a9a94cce42"],
+Cell[8826, 245, 2719, 45, 182, "Output",ExpressionUUID->"9796349e-e410-4fe3-8880-117b1392e669"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11582, 295, 847, 15, 30, "Input",ExpressionUUID->"6c30f983-603b-4c5c-97a4-d295e628b599"],
+Cell[12432, 312, 77653, 1483, 1423, "Output",ExpressionUUID->"5e325c2c-6021-48cf-94bf-69fd97678239"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[90122, 1800, 254, 4, 54, "Subsection",ExpressionUUID->"a627ebd1-b426-49cd-8d4d-999bb87c01cb"],
+Cell[90379, 1806, 258, 6, 35, "Text",ExpressionUUID->"9b9c3e2a-41c2-4270-958b-9e04bb8cf232"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

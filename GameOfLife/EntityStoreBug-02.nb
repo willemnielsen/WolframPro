@@ -1,0 +1,168 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[      5846,        160]
+NotebookOptionsPosition[      4796,        132]
+NotebookOutlinePosition[      5193,        148]
+CellTagsIndexPosition[      5150,        145]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Code", "Subsection",
+ CellChangeTimes->{{3.955657906236291*^9, 
+  3.955657906842811*^9}},ExpressionUUID->"bc1e44ec-7c46-45dd-82fb-\
+fdf620931931"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"EntityRegister", "[", 
+  RowBox[{"ResourceData", "[", 
+   TagBox["\"\<LifeWiki Entity Store 2025\>\"",
+    #& ,
+    BoxID -> "ResourceTag-LifeWiki Entity Store 2025-Input",
+    AutoDelete->True], "]"}], "]"}]], "Input",
+ CellChangeTimes->{3.955657956196653*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"4aac8385-fbf8-4630-ac90-fdf0cad9a1cb"],
+
+Cell[BoxData[
+ RowBox[{"{", "\<\"GameOfLife2025\"\>", "}"}]], "Output",
+ CellChangeTimes->{3.95565799010264*^9},
+ CellLabel->"Out[1]=",ExpressionUUID->"6e0632cb-eca1-4ec7-81ef-0e7fcf842fdb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ArrayPlot", "[", 
+  RowBox[{
+   RowBox[{"First", "[", 
+    RowBox[{"EntityList", "[", 
+     RowBox[{"EntityClass", "[", 
+      RowBox[{"\"\<GameOfLife2025\>\"", ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"\"\<Name\>\"", "->", "\"\<30P5H2V0\>\""}], "}"}]}], "]"}], 
+     "]"}], "]"}], "[", "\"\<MatrixData\>\"", "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.9556578835613194`*^9, 3.9556578887750893`*^9}, 
+   3.955658135331139*^9},
+ CellLabel->"In[6]:=",ExpressionUUID->"290e208b-6c46-44e6-96f7-61f1064dde4a"],
+
+Cell[BoxData[
+ GraphicsBox[
+  RasterBox[SparseArray[
+   Automatic, {11, 13}, 1., {
+    1, {{0, 1, 3, 5, 7, 11, 17, 22, 22, 26, 29, 30}, {{13}, {10}, {13}, {9}, {
+      11}, {11}, {13}, {1}, {2}, {6}, {13}, {1}, {2}, {6}, {10}, {11}, {12}, {
+      2}, {4}, {6}, {8}, {11}, {3}, {4}, {6}, {7}, {4}, {5}, {6}, {5}}}, {0., 
+     0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 
+     0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.}}], {{0, 0}, {13, 11}}, {0, 
+   1}],
+  Frame->Automatic,
+  FrameLabel->{None, None},
+  FrameTicks->{{None, None}, {None, None}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{
+   "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultPlotStyle" -> 
+    Automatic}]], "Output",
+ CellChangeTimes->{3.955657889539295*^9, 3.955657993958119*^9, 
+  3.95565813599487*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"cee8fa86-934b-49c0-b805-b585d82b7bfd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ArrayPlot", "[", 
+  RowBox[{
+   RowBox[{"ResourceData", "[", "\"\<LifeWiki Dataset 2025\>\"", "]"}], "[", 
+   RowBox[{"\"\<30P5H2V0\>\"", ",", " ", "\"\<MatrixData\>\""}], "]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.9556583717552557`*^9, 3.955658398940269*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"4197509e-1292-4d4e-9690-35835fe91444"],
+
+Cell[BoxData[
+ GraphicsBox[
+  RasterBox[SparseArray[
+   Automatic, {11, 13}, 1., {
+    1, {{0, 1, 3, 5, 7, 11, 17, 22, 22, 26, 29, 30}, {{13}, {10}, {13}, {9}, {
+      11}, {11}, {13}, {1}, {2}, {6}, {13}, {1}, {2}, {6}, {10}, {11}, {12}, {
+      2}, {4}, {6}, {8}, {11}, {3}, {4}, {6}, {7}, {4}, {5}, {6}, {5}}}, {0., 
+     0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 
+     0., 0., 0., 0., 0., 0., 0., 0., 0., 0., 0.}}], {{0, 0}, {13, 11}}, {0, 
+   1}],
+  Frame->Automatic,
+  FrameLabel->{None, None},
+  FrameTicks->{{None, None}, {None, None}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{
+   "GridLinesInFront" -> True, "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultPlotStyle" -> 
+    Automatic}]], "Output",
+ CellChangeTimes->{{3.955658393801586*^9, 3.955658399259391*^9}},
+ CellLabel->"Out[8]=",ExpressionUUID->"cba1bd35-196d-4e44-8452-ef6200f67b51"]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 673},
+WindowMargins->{{Automatic, 244}, {Automatic, 0}},
+FrontEndVersion->"14.2 for Mac OS X x86 (64-bit) (December 26, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"2c92c7c8-e849-44d9-bf51-5efe01a8eb15"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 152, 3, 53, "Subsection",ExpressionUUID->"bc1e44ec-7c46-45dd-82fb-fdf620931931"],
+Cell[CellGroupData[{
+Cell[753, 29, 363, 8, 29, "Input",ExpressionUUID->"4aac8385-fbf8-4630-ac90-fdf0cad9a1cb"],
+Cell[1119, 39, 190, 3, 33, "Output",ExpressionUUID->"6e0632cb-eca1-4ec7-81ef-0e7fcf842fdb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1346, 47, 537, 12, 49, "Input",ExpressionUUID->"290e208b-6c46-44e6-96f7-61f1064dde4a"],
+Cell[1886, 61, 1248, 27, 323, "Output",ExpressionUUID->"cee8fa86-934b-49c0-b805-b585d82b7bfd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3171, 93, 368, 7, 29, "Input",ExpressionUUID->"4197509e-1292-4d4e-9690-35835fe91444"],
+Cell[3542, 102, 1226, 26, 323, "Output",ExpressionUUID->"cba1bd35-196d-4e44-8452-ef6200f67b51"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

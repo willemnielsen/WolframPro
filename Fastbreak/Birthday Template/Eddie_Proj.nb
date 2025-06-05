@@ -1,0 +1,1098 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     48159,       1090]
+NotebookOptionsPosition[     44737,       1042]
+NotebookOutlinePosition[     45138,       1058]
+CellTagsIndexPosition[     45095,       1055]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+To work on:
+1. See how much of Eddie project I can finish
+2. College basketball data research
+3. Explore wolfram image to text
+4. Analyze voice data
+5. Explore wolfram company data
+6. Add explanations to api website
+7. Add grades and schools to API graph
+8. Add retention graph
+9. Explore Fractal art
+10. Explore randomness visualizations
+11. Fastbreak Map\
+\>", "Text",
+ CellChangeTimes->{{3.922650196888963*^9, 3.922650235464287*^9}, {
+  3.922650280465144*^9, 3.9226503061306067`*^9}, {3.9226503376316967`*^9, 
+  3.922650445809998*^9}, {3.922650759340903*^9, 3.922650764542577*^9}, {
+  3.922650796911508*^9, 
+  3.922650827001781*^9}},ExpressionUUID->"fa3eab1c-85ba-46eb-86d3-\
+be36b129d53a"],
+
+Cell["\<\
+Problem solving hierarchy:
+1. Wolfram docs
+2. Stack Overflow
+3. Test yourself
+4. GPT 3.5
+5. GPT 4
+6. Give up, Move on\
+\>", "Text",
+ CellChangeTimes->{{3.9226508359070463`*^9, 
+  3.922650908391656*^9}},ExpressionUUID->"b5768bb7-3f0e-465e-adcd-\
+9d4d8a3c8592"],
+
+Cell["", "ChatInput",ExpressionUUID->"89ba633e-603a-4d96-9c11-695331b267eb"],
+
+Cell[TextData[{
+ "Input-> Range Output Email template\nLocation: ",
+ StyleBox["Fastbreak HQ:\nDates: 4/6, 4/8\nLocation 2",
+  FontWeight->"Bold"]
+}], "Text",
+ CellChangeTimes->{{3.9226512205127687`*^9, 
+  3.922651268373645*^9}},ExpressionUUID->"811ab3d4-ca16-4c2d-b7b5-\
+9dcaeb26052f"],
+
+Cell["\<\
+Import data from dash
+Spit out template\
+\>", "Text",
+ CellChangeTimes->{{3.92265135172323*^9, 
+  3.922651385998508*^9}},ExpressionUUID->"852e83d4-e18a-4bd1-9b1e-\
+ef42a92ed322"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"events", " ", "=", 
+   RowBox[{
+   "SemanticImport", "[", 
+    "\"\</Users/erichegonzales/Downloads/EventSearch Result - DaySmart Rec \
+Admin-2.csv\>\"", " ", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.922651488598799*^9, 3.92265156548909*^9}, {
+   3.9226516146120033`*^9, 3.922651681851708*^9}, 3.922657524554914*^9, {
+   3.92266591160703*^9, 
+   3.922665928639427*^9}},ExpressionUUID->"025b7a7d-282f-486a-ab02-\
+d125ff494465"],
+
+Cell[BoxData["events"], "Input",
+ CellLabel->"In[3]:=",ExpressionUUID->"9a80d355-57e7-4867-9dd1-07c08e19432c"],
+
+Cell[BoxData[
+ RowBox[{"Normal", "[", "events", "]"}]], "Input",
+ CellChangeTimes->{{3.922665959371423*^9, 3.922665964364605*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"a3b67522-5674-4d47-b163-8f5725ed10fb"],
+
+Cell[BoxData[
+ RowBox[{"eventsloc2", " ", "=", " ", 
+  RowBox[{"Dataset", "[", 
+   TemplateBox[<|"shortenedBoxes" -> TagBox[
+       RowBox[{"{", 
+         RowBox[{
+           RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+               RowBox[{"\"Event ID\"", "\[Rule]", "207494"}], ",", 
+               RowBox[{"\"Type\"", "\[Rule]", "\"Birthday - Court\""}], ",", 
+               
+               RowBox[{
+                "\"Description\"", "\[Rule]", "\"Lincoln's 6th Birthday\""}], 
+               ",", 
+               RowBox[{"\"Published\"", "\[Rule]", "\"No\""}], ",", 
+               RowBox[{"\"Booking ID\"", "\[Rule]", 
+                 RowBox[{"Missing", "[", "\"Empty\"", "]"}]}], ",", 
+               RowBox[{"\"Booking Name\"", "\[Rule]", 
+                 RowBox[{"Missing", "[", "\"Empty\"", "]"}]}], ",", 
+               RowBox[{"\"Customer\"", "\[Rule]", "\"Alison Smith\""}], ",", 
+               RowBox[{"\"Email\"", "\[Rule]", "\"alisonrsmith@gmail.com\""}],
+                ",", 
+               RowBox[{"\"Phone\"", "\[Rule]", "8563134457"}], ",", 
+               RowBox[{"\"Mobile\"", "\[Rule]", 
+                 RowBox[{"Missing", "[", "\"Empty\"", "]"}]}], ",", 
+               RowBox[{"\"Location\"", "\[Rule]", "\"Fastbreak Sports\""}], 
+               ",", 
+               RowBox[{"\"Resource\"", "\[Rule]", "\"All Souls Court\""}], 
+               ",", 
+               RowBox[{"\"Sub-Resource\"", "\[Rule]", 
+                 RowBox[{"Missing", "[", "\"Empty\"", "]"}]}], ",", 
+               RowBox[{"\"Start Date\"", "\[Rule]", 
+                 TemplateBox[{
+                   RowBox[{"\"Sat 20 Apr 2024\""}], 
+                   RowBox[{"DateObject", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2024", ",", "4", ",", "20"}], "}"}], ",", 
+                    "\"Day\""}], "]"}]}, "DateObject", Editable -> False]}], 
+               ",", 
+               RowBox[{"\"Start Time\"", "\[Rule]", 
+                 TemplateBox[{
+                   RowBox[{
+                    StyleBox["\"Minute: \"", "TimeObjectLabel"], 
+                    "\"11:15\""}], 
+                   RowBox[{"TimeObject", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"11", ",", "15"}], "}"}], ",", "\"Minute\""}], 
+                    "]"}]}, "TimeObject", Editable -> False]}], ",", 
+               RowBox[{"\"End Time\"", "\[Rule]", 
+                 TemplateBox[{
+                   RowBox[{
+                    StyleBox["\"Minute: \"", "TimeObjectLabel"], 
+                    "\"13:15\""}], 
+                   RowBox[{"TimeObject", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"13", ",", "15"}], "}"}], ",", "\"Minute\""}], 
+                    "]"}]}, "TimeObject", Editable -> False]}], ",", 
+               RowBox[{"\"Length (min)\"", "\[Rule]", "120"}], ",", 
+               RowBox[{"\"Created\"", "\[Rule]", 
+                 TemplateBox[{
+                   RowBox[{"\"Wed 26 Apr 2023 11:00:55\"", 
+                    StyleBox[
+                    RowBox[{"\"GMT\"", "\[InvisibleSpace]", 
+                    StyleBox[
+                    RowBox[{"-", "4"}], NumberMarks -> False, StripOnInput -> 
+                    False]}], FontColor -> GrayLevel[0.5]]}], 
+                   RowBox[{"DateObject", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{
+                    "2023", ",", "4", ",", "26", ",", "11", ",", "0", ",", 
+                    "55"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+                    ",", 
+                    RowBox[{"-", "4.`"}]}], "]"}]}, "DateObject", Editable -> 
+                  False]}]}], "\[RightAssociation]"}], ",", 
+           TemplateBox[{"108"}, "OutputSizeLimit`Skeleton"], ",", 
+           RowBox[{"\[LeftAssociation]", 
+             RowBox[{
+               RowBox[{"\"Event ID\"", "\[Rule]", "234941"}], ",", 
+               RowBox[{"\"Type\"", "\[Rule]", "\"Birthday - Court\""}], ",", 
+               
+               RowBox[{
+                "\"Description\"", "\[Rule]", "\"Asher's 5th Birthday!\""}], 
+               ",", 
+               RowBox[{"\"Published\"", "\[Rule]", "\"No\""}], ",", 
+               RowBox[{"\"Booking ID\"", "\[Rule]", 
+                 RowBox[{"Missing", "[", "\"Empty\"", "]"}]}], ",", 
+               RowBox[{"\"Booking Name\"", "\[Rule]", 
+                 RowBox[{"Missing", "[", "\"Empty\"", "]"}]}], ",", 
+               
+               RowBox[{
+                "\"Customer\"", "\[Rule]", "\"Whitney Mostafiz-Levinson\""}], 
+               ",", 
+               
+               RowBox[{
+                "\"Email\"", "\[Rule]", "\"whitney.mostafiz@gmail.com\""}], 
+               ",", 
+               RowBox[{"\"Phone\"", "\[Rule]", "5167656488"}], ",", 
+               RowBox[{"\"Mobile\"", "\[Rule]", 
+                 RowBox[{"Missing", "[", "\"Empty\"", "]"}]}], ",", 
+               RowBox[{"\"Location\"", "\[Rule]", "\"Fastbreak Sports\""}], 
+               ",", 
+               RowBox[{"\"Resource\"", "\[Rule]", "\"FB HQ Main Court\""}], 
+               ",", 
+               RowBox[{"\"Sub-Resource\"", "\[Rule]", 
+                 RowBox[{"Missing", "[", "\"Empty\"", "]"}]}], ",", 
+               RowBox[{"\"Start Date\"", "\[Rule]", 
+                 TemplateBox[{
+                   RowBox[{"\"Sun 14 Jul 2024\""}], 
+                   RowBox[{"DateObject", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2024", ",", "7", ",", "14"}], "}"}], ",", 
+                    "\"Day\""}], "]"}]}, "DateObject", Editable -> False]}], 
+               ",", 
+               RowBox[{"\"Start Time\"", "\[Rule]", 
+                 TemplateBox[{
+                   RowBox[{
+                    StyleBox["\"Minute: \"", "TimeObjectLabel"], 
+                    "\"11:30\""}], 
+                   RowBox[{"TimeObject", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"11", ",", "30"}], "}"}], ",", "\"Minute\""}], 
+                    "]"}]}, "TimeObject", Editable -> False]}], ",", 
+               RowBox[{"\"End Time\"", "\[Rule]", 
+                 TemplateBox[{
+                   RowBox[{
+                    StyleBox["\"Minute: \"", "TimeObjectLabel"], 
+                    "\"13:00\""}], 
+                   RowBox[{"TimeObject", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"13", ",", "0"}], "}"}], ",", "\"Minute\""}], 
+                    "]"}]}, "TimeObject", Editable -> False]}], ",", 
+               RowBox[{"\"Length (min)\"", "\[Rule]", "90"}], ",", 
+               RowBox[{"\"Created\"", "\[Rule]", 
+                 TemplateBox[{
+                   RowBox[{"\"Sun 7 Apr 2024 16:50:30\"", 
+                    StyleBox[
+                    RowBox[{"\"GMT\"", "\[InvisibleSpace]", 
+                    StyleBox[
+                    RowBox[{"-", "4"}], NumberMarks -> False, StripOnInput -> 
+                    False]}], FontColor -> GrayLevel[0.5]]}], 
+                   RowBox[{"DateObject", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{
+                    "2024", ",", "4", ",", "7", ",", "16", ",", "50", ",", 
+                    "30"}], "}"}], ",", "\"Instant\"", ",", "\"Gregorian\"", 
+                    ",", 
+                    RowBox[{"-", "4.`"}]}], "]"}]}, "DateObject", Editable -> 
+                  False]}]}], "\[RightAssociation]"}]}], "}"}], 
+       Short[#, 8]& ], "line" -> 6, "sessionID" -> 27583739564317756161, 
+     "byteCount" -> 446984, "size" -> 8, "stored" -> False, "expr" -> 
+     Missing["NotAvailable", "NewSessionID"], "wrap" -> OutputSizeLimit`Defer,
+      "version" -> 1|>,
+    "OutputSizeLimitTemplate"], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9226661404884*^9, 3.922666155651164*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"4391bb34-1ad8-4768-b4a5-523edb1c99a9"],
+
+Cell[BoxData[
+ RowBox[{"ne", " ", "=", " ", 
+  RowBox[{"events", "[", 
+   RowBox[{"Select", "[", 
+    RowBox[{
+     RowBox[{"#Type", " ", "==", " ", "\"\<Birthday Time Slot\>\""}], "&"}], 
+    "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.922658200151941*^9, 3.9226582269929533`*^9}, 
+   3.922662105746591*^9},
+ CellLabel->
+  "In[323]:=",ExpressionUUID->"93f4cfee-ec06-424c-a5fd-5778f205ea05"],
+
+Cell[BoxData["%247"], "Input",
+ NumberMarks->False,
+ CellLabel->
+  "In[248]:=",ExpressionUUID->"65261825-e4b0-4448-be37-f228076f2661"],
+
+Cell[BoxData[{
+ RowBox[{"d1", " ", "=", " ", 
+  RowBox[{"DateObject", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"2015", ",", "2", ",", "4"}], "}"}], ",", "\"\<Day\>\"", ",", 
+    "\"\<Gregorian\>\"", ",", 
+    RowBox[{"-", "5.`"}]}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{"d2", " ", "=", " ", 
+  RowBox[{"DateObject", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"2019", ",", "8", ",", "15"}], "}"}], ",", "\"\<Day\>\"", ",", 
+    "\"\<Gregorian\>\"", ",", 
+    RowBox[{"-", "5.`"}]}], "]"}]}]}], "Input",
+ CellChangeTimes->{{3.922658200151941*^9, 3.9226582269929533`*^9}},
+ CellLabel->
+  "In[197]:=",ExpressionUUID->"e5ad4f47-73df-4068-9550-af0d4647448e"],
+
+Cell[BoxData[
+ RowBox[{"di", " ", "=", " ", 
+  RowBox[{"DateInterval", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"DateObject", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"2015", ",", "2", ",", "4"}], "}"}], ",", "\"\<Day\>\"", ",", 
+       "\"\<Gregorian\>\"", ",", 
+       RowBox[{"-", "5.`"}]}], "]"}], ",", 
+     RowBox[{"DateObject", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"2024", ",", "8", ",", "15"}], "}"}], ",", "\"\<Day\>\"", 
+       ",", "\"\<Gregorian\>\"", ",", 
+       RowBox[{"-", "5.`"}]}], "]"}]}], "}"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.922652509989702*^9, 3.9226525320820723`*^9}, {
+  3.9226619315606737`*^9, 3.922661935464867*^9}},
+ CellLabel->
+  "In[257]:=",ExpressionUUID->"5d197f0b-8761-4873-8674-0c8897ba7ac6"],
+
+Cell[BoxData[
+ RowBox[{"nne", " ", "=", " ", 
+  RowBox[{"ne", "[", 
+   RowBox[{
+    RowBox[{"Select", "[", 
+     RowBox[{
+      RowBox[{"IntervalMemberQ", "[", 
+       RowBox[{"di", ",", " ", 
+        RowBox[{"#", "[", 
+         RowBox[{"[", "\"\<Start Date\>\"", "]"}], "]"}]}], "]"}], "&"}], 
+     "]"}], ",", " ", 
+    RowBox[{"{", 
+     RowBox[{
+     "\"\<Resource\>\"", ",", " ", "\"\<Start Date\>\"", ",", " ", 
+      "\"\<Start Time\>\""}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.922652288544914*^9, 3.9226523428660603`*^9}, {
+   3.9226524563133492`*^9, 3.922652462088582*^9}, {3.922652605277573*^9, 
+   3.922652605949806*^9}, {3.92265276504669*^9, 3.922652772756112*^9}, {
+   3.9226528443959613`*^9, 3.922652881787592*^9}, {3.922652925540738*^9, 
+   3.922652929689295*^9}, {3.922654857827944*^9, 3.922654869072747*^9}, {
+   3.922655048288828*^9, 3.922655050471147*^9}, {3.9226551180531044`*^9, 
+   3.922655118438575*^9}, 3.922657435144923*^9, {3.922657610078065*^9, 
+   3.922657619964565*^9}, 3.922661904340022*^9, {3.922662001724902*^9, 
+   3.922662010082667*^9}},
+ CellLabel->
+  "In[308]:=",ExpressionUUID->"8733de1f-4c2e-4daa-a63f-077960fa219e"],
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", 
+  RowBox[{
+   RowBox[{"DateInterval", "[", "date", "]"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"date", ",", 
+     RowBox[{"AbsoluteTime", "[", "d1", "]"}], ",", 
+     RowBox[{"AbsoluteTime", "[", "d2", "]"}], ",", 
+     RowBox[{"ControlType", "->", "IntervalSlider"}]}], "}"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.922657998989867*^9, 3.922657998995563*^9}, {
+  3.922658080134646*^9, 3.922658130722766*^9}, {3.922658241349766*^9, 
+  3.922658275523874*^9}, {3.922658394186213*^9, 3.922658488891545*^9}, {
+  3.922658717421549*^9, 3.922658730089759*^9}, {3.9226587850414047`*^9, 
+  3.922658792391477*^9}},
+ CellLabel->
+  "In[205]:=",ExpressionUUID->"3a99053e-d547-4bb3-a4a0-586a983e124b"],
+
+Cell[BoxData[
+ RowBox[{"Row", "[", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"ResourceFunction", "[", "\"\<DateSetter\>\"", "]"}], "[", 
+     RowBox[{"Dynamic", "[", "d1", "]"}], "]"}], ",", " ", 
+    RowBox[{
+     RowBox[{"ResourceFunction", "[", "\"\<DateSetter\>\"", "]"}], "[", 
+     RowBox[{"Dynamic", "[", "d2", "]"}], "]"}]}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.922661211982349*^9, 3.922661213086704*^9}, {
+  3.922661302728205*^9, 3.922661334206455*^9}},
+ CellLabel->
+  "In[236]:=",ExpressionUUID->"5bf3888c-d83f-44b1-bb8b-dd22b52cb230"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"m", " ", "=", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "di", ",", "events", ",", "ne", ",", " ", "nne", ",", " ", "tn", ",", 
+         " ", "ntn", ",", " ", "as", ",", " ", "fb", ",", " ", "dgas", ",", 
+         " ", "dgfb", ",", " ", "dtas", ",", " ", "dtfb", ",", " ", "sas", 
+         ",", " ", "sfb", ",", " ", "sffb", ",", " ", "sfas"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"events", " ", "=", " ", 
+         RowBox[{"Dataset", "[", 
+          TemplateBox[<|"shortenedBoxes" -> TagBox[
+              RowBox[{"{", 
+                RowBox[{
+                  RowBox[{"\[LeftAssociation]", 
+                    RowBox[{
+                    RowBox[{"\"Event ID\"", "\[Rule]", "207494"}], ",", 
+                    RowBox[{"\"Type\"", "\[Rule]", "\"Birthday - Court\""}], 
+                    ",", 
+                    
+                    RowBox[{
+                    "\"Description\"", "\[Rule]", 
+                    "\"Lincoln's 6th Birthday\""}], ",", 
+                    RowBox[{"\"Published\"", "\[Rule]", "\"No\""}], ",", 
+                    RowBox[{"\"Booking ID\"", "\[Rule]", 
+                    RowBox[{"Missing", "[", "\"Empty\"", "]"}]}], ",", 
+                    RowBox[{"\"Booking Name\"", "\[Rule]", 
+                    RowBox[{"Missing", "[", "\"Empty\"", "]"}]}], ",", 
+                    RowBox[{"\"Customer\"", "\[Rule]", "\"Alison Smith\""}], 
+                    ",", 
+                    
+                    RowBox[{
+                    "\"Email\"", "\[Rule]", "\"alisonrsmith@gmail.com\""}], 
+                    ",", 
+                    RowBox[{"\"Phone\"", "\[Rule]", "8563134457"}], ",", 
+                    RowBox[{"\"Mobile\"", "\[Rule]", 
+                    RowBox[{"Missing", "[", "\"Empty\"", "]"}]}], ",", 
+                    
+                    RowBox[{
+                    "\"Location\"", "\[Rule]", "\"Fastbreak Sports\""}], ",", 
+                    
+                    
+                    RowBox[{
+                    "\"Resource\"", "\[Rule]", "\"All Souls Court\""}], ",", 
+                    RowBox[{"\"Sub-Resource\"", "\[Rule]", 
+                    RowBox[{"Missing", "[", "\"Empty\"", "]"}]}], ",", 
+                    RowBox[{"\"Start Date\"", "\[Rule]", 
+                    TemplateBox[{
+                    RowBox[{"\"Sat 20 Apr 2024\""}], 
+                    RowBox[{"DateObject", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2024", ",", "4", ",", "20"}], "}"}], ",", 
+                    "\"Day\""}], "]"}]}, "DateObject", Editable -> False]}], 
+                    ",", 
+                    RowBox[{"\"Start Time\"", "\[Rule]", 
+                    TemplateBox[{
+                    RowBox[{
+                    StyleBox["\"Minute: \"", "TimeObjectLabel"], 
+                    "\"11:15\""}], 
+                    RowBox[{"TimeObject", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"11", ",", "15"}], "}"}], ",", "\"Minute\""}], 
+                    "]"}]}, "TimeObject", Editable -> False]}], ",", 
+                    RowBox[{"\"End Time\"", "\[Rule]", 
+                    TemplateBox[{
+                    RowBox[{
+                    StyleBox["\"Minute: \"", "TimeObjectLabel"], 
+                    "\"13:15\""}], 
+                    RowBox[{"TimeObject", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"13", ",", "15"}], "}"}], ",", "\"Minute\""}], 
+                    "]"}]}, "TimeObject", Editable -> False]}], ",", 
+                    RowBox[{"\"Length (min)\"", "\[Rule]", "120"}], ",", 
+                    RowBox[{"\"Created\"", "\[Rule]", 
+                    TemplateBox[{
+                    RowBox[{"\"Wed 26 Apr 2023 11:00:55\"", 
+                    StyleBox[
+                    RowBox[{"\"GMT\"", "\[InvisibleSpace]", 
+                    StyleBox[
+                    RowBox[{"-", "4"}], NumberMarks -> False, StripOnInput -> 
+                    False]}], FontColor -> GrayLevel[0.5]]}], 
+                    RowBox[{"DateObject", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2023", ",", "4", ",", "26", ",", "11", ",", "0", 
+                    ",", "55"}], "}"}], ",", "\"Instant\"", ",", 
+                    "\"Gregorian\"", ",", 
+                    RowBox[{"-", "4.`"}]}], "]"}]}, "DateObject", Editable -> 
+                    False]}]}], "\[RightAssociation]"}], ",", 
+                  TemplateBox[{"108"}, "OutputSizeLimit`Skeleton"], ",", 
+                  RowBox[{"\[LeftAssociation]", 
+                    RowBox[{
+                    RowBox[{"\"Event ID\"", "\[Rule]", "234941"}], ",", 
+                    RowBox[{"\"Type\"", "\[Rule]", "\"Birthday - Court\""}], 
+                    ",", 
+                    
+                    RowBox[{
+                    "\"Description\"", "\[Rule]", 
+                    "\"Asher's 5th Birthday!\""}], ",", 
+                    RowBox[{"\"Published\"", "\[Rule]", "\"No\""}], ",", 
+                    RowBox[{"\"Booking ID\"", "\[Rule]", 
+                    RowBox[{"Missing", "[", "\"Empty\"", "]"}]}], ",", 
+                    RowBox[{"\"Booking Name\"", "\[Rule]", 
+                    RowBox[{"Missing", "[", "\"Empty\"", "]"}]}], ",", 
+                    
+                    RowBox[{
+                    "\"Customer\"", "\[Rule]", 
+                    "\"Whitney Mostafiz-Levinson\""}], ",", 
+                    
+                    RowBox[{
+                    "\"Email\"", "\[Rule]", 
+                    "\"whitney.mostafiz@gmail.com\""}], ",", 
+                    RowBox[{"\"Phone\"", "\[Rule]", "5167656488"}], ",", 
+                    RowBox[{"\"Mobile\"", "\[Rule]", 
+                    RowBox[{"Missing", "[", "\"Empty\"", "]"}]}], ",", 
+                    
+                    RowBox[{
+                    "\"Location\"", "\[Rule]", "\"Fastbreak Sports\""}], ",", 
+                    
+                    
+                    RowBox[{
+                    "\"Resource\"", "\[Rule]", "\"FB HQ Main Court\""}], ",", 
+                    
+                    RowBox[{"\"Sub-Resource\"", "\[Rule]", 
+                    RowBox[{"Missing", "[", "\"Empty\"", "]"}]}], ",", 
+                    RowBox[{"\"Start Date\"", "\[Rule]", 
+                    TemplateBox[{
+                    RowBox[{"\"Sun 14 Jul 2024\""}], 
+                    RowBox[{"DateObject", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"2024", ",", "7", ",", "14"}], "}"}], ",", 
+                    "\"Day\""}], "]"}]}, "DateObject", Editable -> False]}], 
+                    ",", 
+                    RowBox[{"\"Start Time\"", "\[Rule]", 
+                    TemplateBox[{
+                    RowBox[{
+                    StyleBox["\"Minute: \"", "TimeObjectLabel"], 
+                    "\"11:30\""}], 
+                    RowBox[{"TimeObject", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"11", ",", "30"}], "}"}], ",", "\"Minute\""}], 
+                    "]"}]}, "TimeObject", Editable -> False]}], ",", 
+                    RowBox[{"\"End Time\"", "\[Rule]", 
+                    TemplateBox[{
+                    RowBox[{
+                    StyleBox["\"Minute: \"", "TimeObjectLabel"], 
+                    "\"13:00\""}], 
+                    RowBox[{"TimeObject", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"13", ",", "0"}], "}"}], ",", "\"Minute\""}], 
+                    "]"}]}, "TimeObject", Editable -> False]}], ",", 
+                    RowBox[{"\"Length (min)\"", "\[Rule]", "90"}], ",", 
+                    RowBox[{"\"Created\"", "\[Rule]", 
+                    TemplateBox[{
+                    RowBox[{"\"Sun 7 Apr 2024 16:50:30\"", 
+                    StyleBox[
+                    RowBox[{"\"GMT\"", "\[InvisibleSpace]", 
+                    StyleBox[
+                    RowBox[{"-", "4"}], NumberMarks -> False, StripOnInput -> 
+                    False]}], FontColor -> GrayLevel[0.5]]}], 
+                    RowBox[{"DateObject", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    
+                    RowBox[{"2024", ",", "4", ",", "7", ",", "16", ",", "50", 
+                    ",", "30"}], "}"}], ",", "\"Instant\"", ",", 
+                    "\"Gregorian\"", ",", 
+                    RowBox[{"-", "4.`"}]}], "]"}]}, "DateObject", Editable -> 
+                    False]}]}], "\[RightAssociation]"}]}], "}"}], 
+              Short[#, 8]& ], "line" -> 6, "sessionID" -> 
+            27583739564317756161, "byteCount" -> 446984, "size" -> 8, 
+            "stored" -> False, "expr" -> 
+            Missing["NotAvailable", "NewSessionID"], "wrap" -> 
+            OutputSizeLimit`Defer, "version" -> 1|>,
+           "OutputSizeLimitTemplate"], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"ne", " ", "=", " ", 
+         RowBox[{"events", "[", 
+          RowBox[{"Select", "[", 
+           RowBox[{
+            RowBox[{"#Type", " ", "==", " ", "\"\<Birthday Time Slot\>\""}], 
+            "&"}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"di", " ", "=", " ", 
+         RowBox[{"DateInterval", "[", 
+          RowBox[{"Dynamic", "[", 
+           RowBox[{"{", 
+            RowBox[{"d1", ",", "d2"}], "}"}], "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"nne", " ", "=", " ", 
+         RowBox[{"ne", "[", 
+          RowBox[{
+           RowBox[{"Select", "[", 
+            RowBox[{
+             RowBox[{"IntervalMemberQ", "[", 
+              RowBox[{"di", ",", " ", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "\"\<Start Date\>\"", "]"}], "]"}]}], "]"}], 
+             "&"}], "]"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<Resource\>\"", ",", " ", "\"\<Start Date\>\"", ",", " ", 
+             "\"\<Start Time\>\""}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"tn", " ", "=", " ", 
+         RowBox[{"nne", "[", 
+          RowBox[{"GroupBy", "[", "\"\<Resource\>\"", "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"ntn", " ", "=", 
+         RowBox[{"Values", "[", "tn", "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"as", "  ", "=", " ", 
+         RowBox[{
+          RowBox[{"GroupBy", "[", 
+           RowBox[{
+            RowBox[{"ntn", "[", 
+             RowBox[{"[", "1", "]"}], "]"}], ",", " ", "\"\<Resource\>\""}], 
+           "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"fb", " ", "=", " ", 
+         RowBox[{
+          RowBox[{"GroupBy", "[", 
+           RowBox[{
+            RowBox[{"ntn", "[", 
+             RowBox[{"[", "2", "]"}], "]"}], ",", " ", "\"\<Resource\>\""}], 
+           "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"dgas", " ", "=", " ", 
+         RowBox[{"as", "[", 
+          RowBox[{"GroupBy", "[", "\"\<Start Date\>\"", "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"dtas", " ", "=", " ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Normal", "[", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", 
+              RowBox[{"All", ",", " ", "\"\<Start Time\>\""}], "]"}], "]"}], 
+            "]"}], "&"}], " ", "/@", " ", "dgas"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"dgfb", " ", "=", " ", 
+         RowBox[{"fb", "[", 
+          RowBox[{"GroupBy", "[", "\"\<Start Date\>\"", "]"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"dtas", " ", "=", " ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Normal", "[", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", 
+              RowBox[{"All", ",", " ", "\"\<Start Time\>\""}], "]"}], "]"}], 
+            "]"}], "&"}], " ", "/@", " ", "dgas"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"dtfb", " ", "=", " ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Normal", "[", 
+            RowBox[{"#", "[", 
+             RowBox[{"[", 
+              RowBox[{"All", ",", " ", "\"\<Start Time\>\""}], "]"}], "]"}], 
+            "]"}], "&"}], " ", "/@", " ", "dgfb"}]}], ";", "\n", 
+        RowBox[{"sas", " ", "=", " ", 
+         RowBox[{"KeyValueMap", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"DateString", "[", "#1", "]"}], "<>", "\"\<\\n\>\"", "<>", 
+             RowBox[{"StringRiffle", "[", 
+              RowBox[{"#2", ",", " ", "\"\<\\n\>\""}], "]"}]}], "&"}], ",", 
+           " ", 
+           RowBox[{"Normal", "[", "dtas", "]"}]}], "]"}]}], ";", "\n", 
+        RowBox[{"sfb", " ", "=", " ", 
+         RowBox[{"KeyValueMap", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"DateString", "[", "#1", "]"}], "<>", "\"\<\\n\>\"", "<>", 
+             RowBox[{"StringRiffle", "[", 
+              RowBox[{"#2", ",", " ", "\"\<\\n\>\""}], "]"}]}], "&"}], ",", 
+           " ", 
+           RowBox[{"Normal", "[", "dtfb", "]"}]}], "]"}]}], ";", "\n", 
+        RowBox[{"sffb", " ", "=", " ", 
+         RowBox[{"StringRiffle", "[", 
+          RowBox[{"sfb", ",", " ", "\"\<\\n\>\""}], "]"}]}], ";", "\n", 
+        RowBox[{"sfas", " ", "=", 
+         RowBox[{"StringRiffle", "[", 
+          RowBox[{"sas", ",", " ", "\"\<\\n\>\""}], "]"}]}], ";", "\n", 
+        RowBox[{
+         RowBox[{"StringTemplate", "[", 
+          RowBox[{
+          "\"\<FB HQ:\>\"", "<>", 
+           "\"\<\\n`FB DT`\\n\\nAll Souls:\\n`AS DT`\>\""}], "]"}], "[", 
+         RowBox[{"<|", 
+          RowBox[{
+           RowBox[{"\"\<FB DT\>\"", "->", "sffb"}], ",", 
+           RowBox[{"\"\<AS DT\>\"", "->", "sfas"}]}], "|>"}], "]"}]}]}], 
+      "]"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"d1", ",", "Today", ",", "\"\<Date\>\""}], "}"}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ResourceFunction", "[", "\"\<DateSetter\>\"", "]"}], "[", 
+         "##", "]"}], "&"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"d2", ",", 
+         RowBox[{"DateObject", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"2024", ",", "6", ",", "4"}], "}"}], ",", "\"\<Day\>\"", 
+           ",", "\"\<Gregorian\>\"", ",", 
+           RowBox[{"-", "5.`"}]}], "]"}], ",", "\"\<Date\>\""}], "}"}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ResourceFunction", "[", "\"\<DateSetter\>\"", "]"}], "[", 
+         "##", "]"}], "&"}]}], "}"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.922661445495388*^9, 3.922661445503042*^9}, {
+   3.92266148591456*^9, 3.92266148981216*^9}, {3.922661551063396*^9, 
+   3.92266165724378*^9}, {3.92266169133208*^9, 3.922661753252215*^9}, {
+   3.922661824813629*^9, 3.922661844013062*^9}, {3.922661879125842*^9, 
+   3.92266188178179*^9}, {3.92266203057708*^9, 3.922662047662736*^9}, {
+   3.922662193766294*^9, 3.922662221959326*^9}, {3.922662255244703*^9, 
+   3.9226623629118423`*^9}, {3.922662401787805*^9, 3.922662483879708*^9}, {
+   3.922662549013307*^9, 3.922662552158664*^9}, {3.922662723557541*^9, 
+   3.922662726981947*^9}, {3.922662873552071*^9, 3.922662952204845*^9}, {
+   3.922662988793233*^9, 3.922663032370639*^9}, {3.92266308181299*^9, 
+   3.922663101083912*^9}, {3.922663173903554*^9, 3.922663238387933*^9}, {
+   3.92266332219755*^9, 3.922663381356838*^9}, {3.922663414015987*^9, 
+   3.922663467302141*^9}, {3.922663522092479*^9, 3.922663524668714*^9}, {
+   3.922663556774296*^9, 3.92266365122536*^9}, {3.92266418260752*^9, 
+   3.922664237069995*^9}, {3.922664447252193*^9, 3.9226644817141743`*^9}, {
+   3.922664579306821*^9, 3.922664662786119*^9}, {3.922664698095958*^9, 
+   3.92266471912529*^9}, {3.922664753436668*^9, 3.922664774870759*^9}, {
+   3.922664831178646*^9, 3.9226648950208397`*^9}, {3.922665122736724*^9, 
+   3.922665150030185*^9}, {3.922665439848115*^9, 3.922665464421748*^9}, {
+   3.922666207116315*^9, 3.922666267366946*^9}, {3.9226664891590233`*^9, 
+   3.922666494580903*^9}, 3.922666541044976*^9, {3.9226665786529307`*^9, 
+   3.922666583738135*^9}, {3.922666676306564*^9, 3.9226666851065073`*^9}, 
+   3.922667064111462*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"fe6ff7a4-ade1-4be3-92af-2408707d3fba"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CloudDeploy", "[", 
+  RowBox[{"m", ",", " ", "\"\<bdayTemplateMaker\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.922652892190144*^9, 3.922652916918923*^9}, {
+   3.922653015694901*^9, 3.922653075009056*^9}, {3.922654811834771*^9, 
+   3.922654827581936*^9}, {3.922655138406058*^9, 3.922655139865397*^9}, 
+   3.922657438771587*^9, 3.922657588576412*^9, {3.922657716460239*^9, 
+   3.922657716625606*^9}, {3.922662564770574*^9, 3.922662594352832*^9}, {
+   3.922663662490907*^9, 3.92266369650737*^9}, {3.922667014714445*^9, 
+   3.922667048207045*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"8ac75465-9aca-424a-bdb6-86fd43bad4f7"],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+  ResourceSystemClient`Private`$ProgressIndicatorContent, StandardForm],
+  ImageSizeCache->{325., {12., 17.}}]], "PrintTemporary",
+ CellChangeTimes->{3.922667079928327*^9},
+ CellLabel->
+  "During evaluation of \
+In[2]:=",ExpressionUUID->"468ffeb9-7962-4b4b-a8f5-f2e498881904"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"tn", " ", "=", " ", 
+  RowBox[{"nne", "[", 
+   RowBox[{"GroupBy", "[", "\"\<Resource\>\"", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.922652892190144*^9, 3.922652916918923*^9}, {
+   3.922653015694901*^9, 3.922653075009056*^9}, {3.922654811834771*^9, 
+   3.922654827581936*^9}, {3.922655138406058*^9, 3.922655139865397*^9}, 
+   3.922657438771587*^9, 3.922657588576412*^9, {3.922657716460239*^9, 
+   3.922657716625606*^9}, {3.922662564770574*^9, 3.922662594352832*^9}, {
+   3.922663662490907*^9, 3.922663705310869*^9}},
+ CellLabel->
+  "In[349]:=",ExpressionUUID->"c9691196-7f06-4271-97a5-c9df97bfbac9"],
+
+Cell[BoxData[
+ RowBox[{"ntn", " ", "=", 
+  RowBox[{"Values", "[", "tn", "]"}]}]], "Input",
+ CellChangeTimes->{{3.922652892190144*^9, 3.922652916918923*^9}, {
+   3.922653015694901*^9, 3.922653075009056*^9}, {3.922654811834771*^9, 
+   3.922654827581936*^9}, {3.922655138406058*^9, 3.922655139865397*^9}, 
+   3.922657438771587*^9, 3.922657588576412*^9, {3.922657716460239*^9, 
+   3.922657716625606*^9}, {3.922662564770574*^9, 3.922662594352832*^9}, {
+   3.922663662490907*^9, 3.922663707701086*^9}},
+ CellLabel->
+  "In[350]:=",ExpressionUUID->"cc6e9075-84a0-461e-ad54-5dc028f35a24"],
+
+Cell[BoxData[
+ RowBox[{"as", "  ", "=", " ", 
+  RowBox[{
+   RowBox[{"GroupBy", "[", 
+    RowBox[{
+     RowBox[{"ntn", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], ",", " ", "\"\<Resource\>\""}], "]"}], 
+   "[", 
+   RowBox[{"[", "1", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.922652892190144*^9, 3.922652916918923*^9}, {
+   3.922653015694901*^9, 3.922653075009056*^9}, {3.922654811834771*^9, 
+   3.922654827581936*^9}, {3.922655138406058*^9, 3.922655139865397*^9}, 
+   3.922657438771587*^9, 3.922657588576412*^9, {3.922657716460239*^9, 
+   3.922657716625606*^9}, {3.922662564770574*^9, 3.922662594352832*^9}, {
+   3.922663662490907*^9, 3.922663710072994*^9}},
+ CellLabel->
+  "In[351]:=",ExpressionUUID->"2847922b-1df3-493c-b15f-513cc3943ded"],
+
+Cell[BoxData[
+ RowBox[{"fb", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"GroupBy", "[", 
+    RowBox[{
+     RowBox[{"ntn", "[", 
+      RowBox[{"[", "2", "]"}], "]"}], ",", " ", "\"\<Resource\>\""}], "]"}], 
+   "[", 
+   RowBox[{"[", "1", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.922652892190144*^9, 3.922652916918923*^9}, {
+   3.922653015694901*^9, 3.922653075009056*^9}, {3.922654811834771*^9, 
+   3.922654827581936*^9}, {3.922655138406058*^9, 3.922655139865397*^9}, 
+   3.922657438771587*^9, 3.922657588576412*^9, {3.922657716460239*^9, 
+   3.922657716625606*^9}, {3.922662564770574*^9, 3.922662594352832*^9}, {
+   3.922663662490907*^9, 3.9226637119156637`*^9}, {3.922663822519991*^9, 
+   3.9226638226468267`*^9}},
+ CellLabel->
+  "In[357]:=",ExpressionUUID->"d6ed0d72-24e7-4ed6-a75b-3bf90a6d6222"],
+
+Cell[BoxData[
+ RowBox[{"dgas", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"as", "[", 
+    RowBox[{"GroupBy", "[", "\"\<Start Date\>\"", "]"}], "]"}], "[", 
+   RowBox[{"[", "1", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.922652892190144*^9, 3.922652916918923*^9}, {
+   3.922653015694901*^9, 3.922653075009056*^9}, {3.922654811834771*^9, 
+   3.922654827581936*^9}, {3.922655138406058*^9, 3.922655139865397*^9}, 
+   3.922657438771587*^9, 3.922657588576412*^9, {3.922657716460239*^9, 
+   3.922657716625606*^9}, {3.922662564770574*^9, 3.922662594352832*^9}, {
+   3.922663662490907*^9, 3.9226637138873158`*^9}, {3.922663847797711*^9, 
+   3.922663848111455*^9}, {3.922663908399736*^9, 3.92266390937504*^9}, {
+   3.922663987659132*^9, 3.922663988636229*^9}},
+ CellLabel->
+  "In[372]:=",ExpressionUUID->"ffbfb18d-16af-4ad2-9739-e82f62dc0f6c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<|", 
+   RowBox[{
+    RowBox[{"DateObject", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"2024", ",", "4", ",", "27"}], "}"}], ",", "\"\<Day\>\""}], 
+     "]"}], "->", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<Resource\>\"", "->", "\"\<All Souls Court\>\""}], ",", 
+        RowBox[{"\"\<Start Date\>\"", "->", 
+         RowBox[{"DateObject", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"2024", ",", "4", ",", "27"}], "}"}], ",", 
+           "\"\<Day\>\""}], "]"}]}], ",", 
+        RowBox[{"\"\<Start Time\>\"", "->", 
+         RowBox[{"TimeObject", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"11", ",", "30"}], "}"}], ",", "\"\<Minute\>\""}], 
+          "]"}]}]}], "|>"}], ",", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<Resource\>\"", "->", "\"\<All Souls Court\>\""}], ",", 
+        RowBox[{"\"\<Start Date\>\"", "->", 
+         RowBox[{"DateObject", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"2024", ",", "4", ",", "27"}], "}"}], ",", 
+           "\"\<Day\>\""}], "]"}]}], ",", 
+        RowBox[{"\"\<Start Time\>\"", "->", 
+         RowBox[{"TimeObject", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"16", ",", "15"}], "}"}], ",", "\"\<Minute\>\""}], 
+          "]"}]}]}], "|>"}]}], "}"}]}], "|>"}], " ", "==", " ", 
+  RowBox[{"<|", 
+   RowBox[{
+    RowBox[{"DateObject", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"2024", ",", "4", ",", "27"}], "}"}], ",", "\"\<Day\>\""}], 
+     "]"}], "->", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<Resource\>\"", "->", "\"\<All Souls Court\>\""}], ",", 
+        RowBox[{"\"\<Start Date\>\"", "->", 
+         RowBox[{"DateObject", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"2024", ",", "4", ",", "27"}], "}"}], ",", 
+           "\"\<Day\>\""}], "]"}]}], ",", 
+        RowBox[{"\"\<Start Time\>\"", "->", 
+         RowBox[{"TimeObject", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"11", ",", "30"}], "}"}], ",", "\"\<Minute\>\""}], 
+          "]"}]}]}], "|>"}], ",", 
+      RowBox[{"<|", 
+       RowBox[{
+        RowBox[{"\"\<Resource\>\"", "->", "\"\<All Souls Court\>\""}], ",", 
+        RowBox[{"\"\<Start Date\>\"", "->", 
+         RowBox[{"DateObject", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"2024", ",", "4", ",", "27"}], "}"}], ",", 
+           "\"\<Day\>\""}], "]"}]}], ",", 
+        RowBox[{"\"\<Start Time\>\"", "->", 
+         RowBox[{"TimeObject", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"16", ",", "15"}], "}"}], ",", "\"\<Minute\>\""}], 
+          "]"}]}]}], "|>"}]}], "}"}]}], "|>"}]}]], "Input",
+ CellChangeTimes->{{3.922664287400272*^9, 3.922664302170855*^9}, 
+   3.922664352750799*^9},
+ CellLabel->
+  "In[378]:=",ExpressionUUID->"4c14338a-e22d-488d-a301-07d2095128b2"],
+
+Cell[BoxData[
+ RowBox[{"Normal", "[", "dgas", "]"}]], "Input",
+ CellChangeTimes->{{3.922663973623714*^9, 3.922663977850451*^9}},
+ CellLabel->
+  "In[371]:=",ExpressionUUID->"00b3650e-50dd-482d-896c-c6d4f21926c5"],
+
+Cell[BoxData[
+ RowBox[{"Normal", "[", "dgas", "]"}]], "Input",
+ CellChangeTimes->{{3.922663993350164*^9, 3.922663995441284*^9}},
+ CellLabel->
+  "In[373]:=",ExpressionUUID->"034653e0-991c-4c32-9d68-53eafe1d1f80"],
+
+Cell[BoxData[
+ RowBox[{"dgfb", " ", "=", " ", 
+  RowBox[{"fb", "[", 
+   RowBox[{"GroupBy", "[", "\"\<Start Date\>\"", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.922652892190144*^9, 3.922652916918923*^9}, {
+   3.922653015694901*^9, 3.922653075009056*^9}, {3.922654811834771*^9, 
+   3.922654827581936*^9}, {3.922655138406058*^9, 3.922655139865397*^9}, 
+   3.922657438771587*^9, 3.922657588576412*^9, {3.922657716460239*^9, 
+   3.922657716625606*^9}, {3.922662564770574*^9, 3.922662594352832*^9}, {
+   3.922663662490907*^9, 3.922663716277162*^9}},
+ CellLabel->
+  "In[360]:=",ExpressionUUID->"232c5875-4d57-4e1c-b5b9-ff39df362385"],
+
+Cell[BoxData[
+ RowBox[{"Head", "[", "dgas", "]"}]], "Input",
+ CellChangeTimes->{{3.922663899714138*^9, 3.922663903366445*^9}},
+ CellLabel->
+  "In[366]:=",ExpressionUUID->"70c1252c-c658-488d-a8ca-ba7e0e21af3d"],
+
+Cell[BoxData[
+ RowBox[{"dtas", " ", "=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Normal", "[", 
+     RowBox[{"#", "[", 
+      RowBox[{"[", 
+       RowBox[{"All", ",", " ", "\"\<Start Time\>\""}], "]"}], "]"}], "]"}], 
+    "&"}], " ", "/@", " ", "dgas"}]}]], "Input",
+ CellChangeTimes->{{3.922652892190144*^9, 3.922652916918923*^9}, {
+   3.922653015694901*^9, 3.922653075009056*^9}, {3.922654811834771*^9, 
+   3.922654827581936*^9}, {3.922655138406058*^9, 3.922655139865397*^9}, 
+   3.922657438771587*^9, 3.922657588576412*^9, {3.922657716460239*^9, 
+   3.922657716625606*^9}, {3.922662564770574*^9, 3.922662594352832*^9}, {
+   3.922663662490907*^9, 3.922663718507863*^9}},
+ CellLabel->
+  "In[370]:=",ExpressionUUID->"d78125b0-926f-4da9-96c3-1a8b5bedb288"],
+
+Cell[BoxData[
+ RowBox[{"dtfb", " ", "=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Normal", "[", 
+     RowBox[{"#", "[", 
+      RowBox[{"[", 
+       RowBox[{"All", ",", " ", "\"\<Start Time\>\""}], "]"}], "]"}], "]"}], 
+    "&"}], " ", "/@", " ", "dgfb"}]}]], "Input",
+ CellChangeTimes->{{3.922652892190144*^9, 3.922652916918923*^9}, {
+   3.922653015694901*^9, 3.922653075009056*^9}, {3.922654811834771*^9, 
+   3.922654827581936*^9}, {3.922655138406058*^9, 3.922655139865397*^9}, 
+   3.922657438771587*^9, 3.922657588576412*^9, {3.922657716460239*^9, 
+   3.922657716625606*^9}, {3.922662564770574*^9, 3.922662594352832*^9}, {
+   3.922663662490907*^9, 
+   3.922663723463294*^9}},ExpressionUUID->"8a7cf38f-61e6-4bfe-9227-\
+54bc2199bd3f"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"sas", " ", "=", " ", 
+   RowBox[{"KeyValueMap", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"DateString", "[", "#1", "]"}], "<>", "\"\<\\n\>\"", "<>", 
+       RowBox[{"StringRiffle", "[", 
+        RowBox[{"#2", ",", " ", "\"\<\\n\>\""}], "]"}]}], "&"}], ",", " ", 
+     RowBox[{"Normal", "[", "dtas", "]"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"sfb", " ", "=", " ", 
+   RowBox[{"KeyValueMap", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"DateString", "[", "#1", "]"}], "<>", "\"\<\\n\>\"", "<>", 
+       RowBox[{"StringRiffle", "[", 
+        RowBox[{"#2", ",", " ", "\"\<\\n\>\""}], "]"}]}], "&"}], ",", " ", 
+     RowBox[{"Normal", "[", "dtfb", "]"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"sffb", " ", "=", " ", 
+   RowBox[{"StringRiffle", "[", 
+    RowBox[{"sfb", ",", " ", "\"\<\\n\>\""}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{"sfas", " ", "=", 
+   RowBox[{"StringRiffle", "[", 
+    RowBox[{"sas", ",", " ", "\"\<\\n\>\""}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+  "StringTemplate", "[", 
+   "\"\<FB HQ:\\n`FB DT`:\\n\\nAll Souls:\\n`AS DT`\>\"", "]"}], "[", 
+  RowBox[{"<|", 
+   RowBox[{
+    RowBox[{"\"\<FB DT\>\"", "->", "sffb"}], ",", 
+    RowBox[{"\"\<AS DT\>\"", "->", "sfas"}]}], "|>"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.922652892190144*^9, 3.922652916918923*^9}, {
+   3.922653015694901*^9, 3.922653075009056*^9}, {3.922654811834771*^9, 
+   3.922654827581936*^9}, {3.922655138406058*^9, 3.922655139865397*^9}, 
+   3.922657438771587*^9, 3.922657588576412*^9, {3.922657716460239*^9, 
+   3.922657716625606*^9}, {3.922662564770574*^9, 3.922662594352832*^9}, {
+   3.922663662490907*^9, 
+   3.922663721257973*^9}},ExpressionUUID->"a0058ab6-711b-4248-8732-\
+62f05623d6e8"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.922652892190144*^9, 3.922652916918923*^9}, {
+   3.922653015694901*^9, 3.922653075009056*^9}, {3.922654811834771*^9, 
+   3.922654827581936*^9}, {3.922655138406058*^9, 3.922655139865397*^9}, 
+   3.922657438771587*^9, 3.922657588576412*^9, {3.922657716460239*^9, 
+   3.922657716625606*^9}, {3.922662564770574*^9, 3.922662594352832*^9}, {
+   3.922663662490907*^9, 
+   3.92266369650737*^9}},ExpressionUUID->"6d436eca-0196-473d-a0b8-\
+16dbf43f3bae"]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{556, Automatic}, {70, Automatic}},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Chatbook.nb",
+ExpressionUUID->"9350daa5-d40e-4500-bd1a-b7195971df8c"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 703, 19, 288, "Text",ExpressionUUID->"fa3eab1c-85ba-46eb-86d3-be36b129d53a"],
+Cell[1264, 41, 269, 11, 173, "Text",ExpressionUUID->"b5768bb7-3f0e-465e-adcd-9d4d8a3c8592"],
+Cell[1536, 54, 76, 0, 55, "ChatInput",ExpressionUUID->"89ba633e-603a-4d96-9c11-695331b267eb"],
+Cell[1615, 56, 285, 7, 104, "Text",ExpressionUUID->"811ab3d4-ca16-4c2d-b7b5-9dcaeb26052f"],
+Cell[1903, 65, 188, 6, 58, "Text",ExpressionUUID->"852e83d4-e18a-4bd1-9b1e-ef42a92ed322"],
+Cell[2094, 73, 468, 11, 30, "Input",ExpressionUUID->"025b7a7d-282f-486a-ab02-d125ff494465"],
+Cell[2565, 86, 110, 1, 30, "Input",ExpressionUUID->"9a80d355-57e7-4867-9dd1-07c08e19432c"],
+Cell[2678, 89, 208, 3, 30, "Input",ExpressionUUID->"a3b67522-5674-4d47-b163-8f5725ed10fb"],
+Cell[2889, 94, 8089, 164, 199, "Input",ExpressionUUID->"4391bb34-1ad8-4768-b4a5-523edb1c99a9"],
+Cell[10981, 260, 395, 10, 30, "Input",ExpressionUUID->"93f4cfee-ec06-424c-a5fd-5778f205ea05"],
+Cell[11379, 272, 134, 3, 30, "Input",ExpressionUUID->"65261825-e4b0-4448-be37-f228076f2661"],
+Cell[11516, 277, 671, 17, 52, "Input",ExpressionUUID->"e5ad4f47-73df-4068-9550-af0d4647448e"],
+Cell[12190, 296, 783, 20, 30, "Input",ExpressionUUID->"5d197f0b-8761-4873-8674-0c8897ba7ac6"],
+Cell[12976, 318, 1167, 25, 30, "Input",ExpressionUUID->"8733de1f-4c2e-4daa-a63f-077960fa219e"],
+Cell[14146, 345, 733, 16, 30, "Input",ExpressionUUID->"3a99053e-d547-4bb3-a4a0-586a983e124b"],
+Cell[14882, 363, 568, 13, 30, "Input",ExpressionUUID->"5bf3888c-d83f-44b1-bb8b-dd22b52cb230"],
+Cell[15453, 378, 16603, 351, 666, "Input",ExpressionUUID->"fe6ff7a4-ade1-4be3-92af-2408707d3fba"],
+Cell[CellGroupData[{
+Cell[32081, 733, 649, 10, 30, "Input",ExpressionUUID->"8ac75465-9aca-424a-bdb6-86fd43bad4f7"],
+Cell[32733, 745, 311, 7, 39, "PrintTemporary",ExpressionUUID->"468ffeb9-7962-4b4b-a8f5-f2e498881904"]
+}, Open  ]],
+Cell[33059, 755, 629, 11, 30, "Input",ExpressionUUID->"c9691196-7f06-4271-97a5-c9df97bfbac9"],
+Cell[33691, 768, 579, 10, 30, "Input",ExpressionUUID->"cc6e9075-84a0-461e-ad54-5dc028f35a24"],
+Cell[34273, 780, 746, 16, 30, "Input",ExpressionUUID->"2847922b-1df3-493c-b15f-513cc3943ded"],
+Cell[35022, 798, 799, 17, 30, "Input",ExpressionUUID->"d6ed0d72-24e7-4ed6-a75b-3bf90a6d6222"],
+Cell[35824, 817, 833, 15, 30, "Input",ExpressionUUID->"ffbfb18d-16af-4ad2-9739-e82f62dc0f6c"],
+Cell[36660, 834, 3017, 83, 115, "Input",ExpressionUUID->"4c14338a-e22d-488d-a301-07d2095128b2"],
+Cell[39680, 919, 211, 4, 30, "Input",ExpressionUUID->"00b3650e-50dd-482d-896c-c6d4f21926c5"],
+Cell[39894, 925, 211, 4, 30, "Input",ExpressionUUID->"034653e0-991c-4c32-9d68-53eafe1d1f80"],
+Cell[40108, 931, 632, 11, 30, "Input",ExpressionUUID->"232c5875-4d57-4e1c-b5b9-ff39df362385"],
+Cell[40743, 944, 209, 4, 30, "Input",ExpressionUUID->"70c1252c-c658-488d-a8ca-ba7e0e21af3d"],
+Cell[40955, 950, 757, 16, 30, "Input",ExpressionUUID->"d78125b0-926f-4da9-96c3-1a8b5bedb288"],
+Cell[41715, 968, 735, 16, 30, "Input",ExpressionUUID->"8a7cf38f-61e6-4bfe-9227-54bc2199bd3f"],
+Cell[42453, 986, 1785, 44, 115, "Input",ExpressionUUID->"a0058ab6-711b-4248-8732-62f05623d6e8"],
+Cell[44241, 1032, 492, 8, 30, "Input",ExpressionUUID->"6d436eca-0196-473d-a0b8-16dbf43f3bae"]
+}
+]
+*)
+

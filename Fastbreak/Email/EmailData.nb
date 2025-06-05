@@ -1,0 +1,382 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     15152,        374]
+NotebookOptionsPosition[     12747,        325]
+NotebookOutlinePosition[     13147,        341]
+CellTagsIndexPosition[     13104,        338]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"MailServerConnect", "[", 
+  RowBox[{"MailSettings", "->", 
+   RowBox[{"<|", 
+    RowBox[{"\"\<IncomingMailServer\>\"", "->", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"\"\<Host\>\"", "->", "\"\<outlook.office365.com\>\""}], ",", 
+       RowBox[{"\"\<Username\>\"", "->", "\"\<will@fastbreakkids.com\>\""}], 
+       ",", " ", 
+       RowBox[{"\"\<Password\>\"", "->", "\"\<\>\""}]}], "|>"}]}], "|>"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.92572683412978*^9, 3.925726862442452*^9}, {
+  3.9258303741035137`*^9, 3.92583039211757*^9}, {3.935834205632682*^9, 
+  3.935834217476533*^9}},ExpressionUUID->"830ec91c-af62-4014-8a62-\
+422d66cd0d02"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "MailServerConnect", "auth", 
+   "\"\\!\\(\\*RowBox[{\\\"\\\\\\\"Login denied\\\\\\\"\\\"}]\\)\"", 2, 20, 
+   16, 27603799753699595432, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.925830173741055*^9, 3.9258301816804247`*^9}, 
+   3.925830406455961*^9, 3.925830466739155*^9, {3.9258316953468328`*^9, 
+   3.925831714135735*^9}},
+ CellLabel->
+  "During evaluation of \
+In[20]:=",ExpressionUUID->"0279d8fc-f829-4071-a6e5-8e76c619d2f5"],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{
+  3.925726865210882*^9, 3.925727031036274*^9, 3.925727213181312*^9, 
+   3.9257272618456798`*^9, 3.925727346510816*^9, 3.925728899942729*^9, 
+   3.925728979902335*^9, {3.925830173921915*^9, 3.9258301817332473`*^9}, 
+   3.925830406672682*^9, 3.925830466824759*^9, {3.9258316954510117`*^9, 
+   3.925831714213203*^9}},
+ CellLabel->"Out[20]=",ExpressionUUID->"e35afcf5-acec-4127-abc3-7565d7856b70"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MailServerConnect", "[", "]"}]], "Input",
+ CellChangeTimes->{{3.9358325236354218`*^9, 3.93583252698917*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"68d498f6-a6e2-44be-ab93-8e4df8c9ce99"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "MailServerConnect", "auth", 
+   "\"\\!\\(\\*RowBox[{\\\"\\\\\\\"Login denied\\\\\\\"\\\"}]\\)\"", 2, 6, 5, 
+   27670027800769791199, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9358325333313847`*^9, 3.935832570716916*^9, 
+  3.935833407169417*^9, 3.935833469519142*^9, 3.935833993364594*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"19ca683d-63df-4a7f-8531-41d0ab205105"],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.935832533416544*^9, 3.935832570851482*^9, 
+  3.9358334072681303`*^9, 3.935833469614223*^9, 3.935833993441153*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"f37a11ca-b88d-43e6-89d2-b36c3e3bd6ab"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SendMail", "[", "\"\<wrn2001@gmail.com\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.925830484710043*^9, 3.9258305006851873`*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"55fc634f-647c-4de5-b1de-f4f7a5ca8279"],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{
+   TagBox["Success",
+    "SummaryHead"], "[", 
+   DynamicModuleBox[{Typeset`open$$ = False, Typeset`embedState$$ = "Ready"}, 
+    
+    TemplateBox[{
+      PaneSelectorBox[{False -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxOpener"]], 
+              ButtonFunction :> (Typeset`open$$ = True), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            FrameBox[
+             StyleBox["\"\[Checkmark]\"", 
+              Directive[
+               RGBColor[
+               0.3607843137254902, 0.596078431372549, 0.3803921568627451], 
+               25], StripOnInput -> False], ContentPadding -> False, 
+             FrameStyle -> None, FrameMargins -> {{0, 0}, {0, 0}}, 
+             StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox[
+                  TemplateBox[{"\"Message\"", "\": \""}, "RowDefault"], 
+                  "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                 TagBox["\"Mail sent.\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox[
+                  TemplateBox[{"\"Recipient\"", "\": \""}, "RowDefault"], 
+                  "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                 TagBox["\"wrn2001@gmail.com\"", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}], True -> GridBox[{{
+            PaneBox[
+             ButtonBox[
+              DynamicBox[
+               FEPrivate`FrontEndResource["FEBitmaps", "SummaryBoxCloser"]], 
+              ButtonFunction :> (Typeset`open$$ = False), Appearance -> None, 
+              BaseStyle -> {}, Evaluator -> Automatic, Method -> 
+              "Preemptive"], Alignment -> {Center, Center}, ImageSize -> 
+             Dynamic[{
+               Automatic, 
+                3.5 (CurrentValue["FontCapHeight"]/AbsoluteCurrentValue[
+                 Magnification])}]], 
+            FrameBox[
+             StyleBox["\"\[Checkmark]\"", 
+              Directive[
+               RGBColor[
+               0.3607843137254902, 0.596078431372549, 0.3803921568627451], 
+               25], StripOnInput -> False], ContentPadding -> False, 
+             FrameStyle -> None, FrameMargins -> {{0, 0}, {0, 0}}, 
+             StripOnInput -> False], 
+            GridBox[{{
+               RowBox[{
+                 TagBox[
+                  TemplateBox[{"\"Message\"", "\": \""}, "RowDefault"], 
+                  "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                 TagBox["\"Mail sent.\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox[
+                  TemplateBox[{"\"Recipient\"", "\": \""}, "RowDefault"], 
+                  "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                 TagBox["\"wrn2001@gmail.com\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox[
+                  TemplateBox[{"\"MessageID\"", "\": \""}, "RowDefault"], 
+                  "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                 TagBox[
+                 "\"181a042d-a843-416c-aa7e-df3446d1f56e.WolframLanguage.will@\
+fastbreakkids.com\"", "SummaryItem"]}]}, {
+               RowBox[{
+                 TagBox[
+                  TemplateBox[{"\"Tag\"", "\": \""}, "RowDefault"], 
+                  "SummaryItemAnnotation"], "\[InvisibleSpace]", 
+                 TagBox["\"MailSent\"", "SummaryItem"]}]}}, 
+             GridBoxAlignment -> {
+              "Columns" -> {{Left}}, "Rows" -> {{Automatic}}}, AutoDelete -> 
+             False, GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+             GridBoxSpacings -> {"Columns" -> {{2}}, "Rows" -> {{Automatic}}},
+              BaseStyle -> {
+              ShowStringCharacters -> False, NumberMarks -> False, 
+               PrintPrecision -> 3, ShowSyntaxStyles -> False}]}}, 
+          GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Top}}}, 
+          AutoDelete -> False, 
+          GridBoxItemSize -> {
+           "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+          BaselinePosition -> {1, 1}]}, 
+       Dynamic[Typeset`open$$], ImageSize -> Automatic]},
+     "SummaryPanel"],
+    DynamicModuleValues:>{}], "]"}],
+  Success[
+  "MailSent", <|
+   "MessageTemplate" :> MessageName[SendMail, "success"], "Recipient" -> 
+    "wrn2001@gmail.com", "MessageID" -> 
+    "181a042d-a843-416c-aa7e-df3446d1f56e.WolframLanguage.will@fastbreakkids.\
+com"|>],
+  Editable->False,
+  SelectWithContents->True,
+  Selectable->False]], "Output",
+ CellChangeTimes->{3.9258305093942537`*^9, 3.9358330761318607`*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"c5690f25-fae1-4d14-9564-924510c1f3b4"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"m", " ", "=", " ", 
+  RowBox[{"MailServerConnect", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.925727371872014*^9, 3.925727375430032*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"10e5bdd6-212f-4460-acaf-d6d62b2e1f84"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "MailServerConnect", "auth", 
+   "\"\\!\\(\\*RowBox[{\\\"\\\\\\\"Login denied\\\\\\\"\\\"}]\\)\"", 2, 6, 6, 
+   27603799753699595432, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.925727376771139*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"54b58b13-2cc8-4312-906f-cfb5e534cf5f"],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.925727376860876*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"de58fe34-2585-47f8-9b14-da3619abfee0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"t1", ",", " ", "t2", ",", " ", "t3"}], "}"}]], "Input",
+ CellChangeTimes->{{3.925727514153241*^9, 3.925727545199256*^9}, {
+  3.925727595746866*^9, 
+  3.925727596417871*^9}},ExpressionUUID->"3fd094af-3354-4f07-a23f-\
+15f93fc7e88b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"t1", ",", "t2", ",", "t3", ",", "t4", ",", "t5"}], "}"}]], "Output",\
+
+ CellChangeTimes->{3.9257275461489067`*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"babacf1a-c023-411c-959a-3325ee187406"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"a1", ",", " ", "a2"}], "}"}]], "Input",
+ CellChangeTimes->{{3.92572754786103*^9, 3.925727560056986*^9}, {
+  3.9257275924094057`*^9, 
+  3.925727593617404*^9}},ExpressionUUID->"193c481c-7d47-481e-9bee-\
+fb3104ab3da3"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"a1", ",", "a2", ",", "a3", ",", "a4", ",", "a5"}], "}"}]], "Output",\
+
+ CellChangeTimes->{3.925727560366261*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"4b9e6246-6695-47d4-a550-52ff9990e3c0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"m", " ", "=", " ", 
+  RowBox[{"MailServerConnection", "[", "]"}]}]], "Input",
+ CellChangeTimes->{{3.925728894831704*^9, 3.925728895345784*^9}, {
+  3.925729022924518*^9, 3.925729031736349*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"45819260-b3a8-49ce-8360-53abf3be8e7a"],
+
+Cell[BoxData[
+ RowBox[{"MailServerConnection", "[", "]"}]], "Output",
+ CellChangeTimes->{3.925729032333315*^9},
+ CellLabel->"Out[11]=",ExpressionUUID->"a26c724e-ed10-431e-85e0-41ce09031041"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"MailServerConnect", "[", 
+  RowBox[{"MailSettings", "->", 
+   RowBox[{"<|", 
+    RowBox[{"\"\<IncomingMailServer\>\"", "->", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"\"\<Host\>\"", "->", "\"\<outlook.office365.com\>\""}], ",", 
+       RowBox[{"\"\<Username\>\"", "->", "\"\<will@fastbreakkids.com\>\""}], 
+       ",", " ", 
+       RowBox[{"\"\<Password\>\"", "->", "\"\<cclfbzcyfsftbjkf\>\""}]}], 
+      "|>"}]}], "|>"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.925729072603681*^9, 3.925729105626488*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"a9d41e3c-5325-4c9a-aaf4-f9b90d1ee099"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "MailServerConnect", "auth", 
+   "\"\\!\\(\\*RowBox[{\\\"\\\\\\\"Login denied\\\\\\\"\\\"}]\\)\"", 2, 7, 6, 
+   27670027800769791199, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.925729110665578*^9, 3.935834222148497*^9},
+ CellLabel->
+  "During evaluation of \
+In[7]:=",ExpressionUUID->"9215547f-c861-48e1-bf37-7272b522d664"],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.925729110742269*^9, 3.935834222241029*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"60b546db-66fd-464e-a1ac-c6059fdd9b90"]
+}, Open  ]]
+},
+WindowSize->{935, 857},
+WindowMargins->{{Automatic, -1027}, {69, Automatic}},
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"0be558c7-08e3-408f-859a-fe0c9f78cded"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 676, 15, 94, "Input",ExpressionUUID->"830ec91c-af62-4014-8a62-422d66cd0d02"],
+Cell[1259, 39, 490, 11, 28, "Message",ExpressionUUID->"0279d8fc-f829-4071-a6e5-8e76c619d2f5"],
+Cell[1752, 52, 448, 7, 34, "Output",ExpressionUUID->"e35afcf5-acec-4127-abc3-7565d7856b70"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2237, 64, 210, 3, 30, "Input",ExpressionUUID->"68d498f6-a6e2-44be-ab93-8e4df8c9ce99"],
+Cell[2450, 69, 454, 10, 28, "Message",ExpressionUUID->"19ca683d-63df-4a7f-8531-41d0ab205105"],
+Cell[2907, 81, 247, 3, 34, "Output",ExpressionUUID->"f37a11ca-b88d-43e6-89d2-b36c3e3bd6ab"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3191, 89, 231, 3, 30, "Input",ExpressionUUID->"55fc634f-647c-4de5-b1de-f4f7a5ca8279"],
+Cell[3425, 94, 5693, 120, 61, "Output",ExpressionUUID->"c5690f25-fae1-4d14-9564-924510c1f3b4"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9155, 219, 242, 4, 30, "Input",ExpressionUUID->"10e5bdd6-212f-4460-acaf-d6d62b2e1f84"],
+Cell[9400, 225, 361, 9, 28, "Message",ExpressionUUID->"54b58b13-2cc8-4312-906f-cfb5e534cf5f"],
+Cell[9764, 236, 154, 2, 34, "Output",ExpressionUUID->"de58fe34-2585-47f8-9b14-da3619abfee0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9955, 243, 270, 6, 30, "Input",ExpressionUUID->"3fd094af-3354-4f07-a23f-15f93fc7e88b"],
+Cell[10228, 251, 232, 5, 34, "Output",ExpressionUUID->"babacf1a-c023-411c-959a-3325ee187406"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[10497, 261, 255, 6, 30, "Input",ExpressionUUID->"193c481c-7d47-481e-9bee-fb3104ab3da3"],
+Cell[10755, 269, 230, 5, 34, "Output",ExpressionUUID->"4b9e6246-6695-47d4-a550-52ff9990e3c0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11022, 279, 295, 5, 30, "Input",ExpressionUUID->"45819260-b3a8-49ce-8360-53abf3be8e7a"],
+Cell[11320, 286, 190, 3, 34, "Output",ExpressionUUID->"a26c724e-ed10-431e-85e0-41ce09031041"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[11547, 294, 619, 13, 94, "Input",ExpressionUUID->"a9d41e3c-5325-4c9a-aaf4-f9b90d1ee099"],
+Cell[12169, 309, 383, 9, 28, "Message",ExpressionUUID->"9215547f-c861-48e1-bf37-7272b522d664"],
+Cell[12555, 320, 176, 2, 34, "Output",ExpressionUUID->"60b546db-66fd-464e-a1ac-c6059fdd9b90"]
+}, Open  ]]
+}
+]
+*)
+

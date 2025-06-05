@@ -1,0 +1,156 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[      5395,        148]
+NotebookOptionsPosition[      5050,        134]
+NotebookOutlinePosition[      5444,        150]
+CellTagsIndexPosition[      5401,        147]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Options", "[", "PlotDifferences2", "]"}], " ", "=", " ", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"\"\<Trim\>\"", " ", "->", " ", 
+      RowBox[{"{", 
+       RowBox[{"1", ",", " ", "10"}], "}"}]}], ",", " ", 
+     RowBox[{"ColorRules", " ", "->", " ", 
+      RowBox[{"Join", "[", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"0", " ", "->", " ", "White"}], ",", " ", 
+          RowBox[{
+           RowBox[{"-", "100"}], " ", "->", " ", 
+           RowBox[{"GrayLevel", "[", ".8", "]"}]}]}], "}"}], ",", " ", "\n", 
+        " ", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"0", "\[Rule]", 
+           TemplateBox[<|"color" -> GrayLevel[1]|>,
+            "GrayLevelColorSwatchTemplate"]}], ",", 
+          RowBox[{"1", "\[Rule]", 
+           TemplateBox[<|"color" -> Hue[0.06, 1, 1]|>,
+            "HueColorSwatchTemplate"]}], ",", 
+          RowBox[{"2", "\[Rule]", 
+           TemplateBox[<|"color" -> Hue[0.73, 1, 1]|>,
+            "HueColorSwatchTemplate"]}], ",", 
+          RowBox[{"3", "\[Rule]", 
+           TemplateBox[<|"color" -> Hue[0.14, 0.81, 0.99]|>,
+            "HueColorSwatchTemplate"]}]}], "}"}], ",", "\n", "    ", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"-", "#1"}], " ", ":>", " ", 
+           RowBox[{"Lighter", "[", 
+            RowBox[{"#2", ",", " ", ".7"}], "]"}]}], " ", "&"}], " ", "@@@", 
+         " ", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"0", "\[Rule]", 
+            TemplateBox[<|"color" -> GrayLevel[1]|>,
+             "GrayLevelColorSwatchTemplate"]}], ",", 
+           RowBox[{"1", "\[Rule]", 
+            TemplateBox[<|"color" -> Hue[0.06, 1, 1]|>,
+             "HueColorSwatchTemplate"]}], ",", 
+           RowBox[{"2", "\[Rule]", 
+            TemplateBox[<|"color" -> Hue[0.73, 1, 1]|>,
+             "HueColorSwatchTemplate"]}], ",", 
+           RowBox[{"3", "\[Rule]", 
+            TemplateBox[<|"color" -> Hue[0.14, 0.81, 0.99]|>,
+             "HueColorSwatchTemplate"]}]}], "}"}]}]}], "]"}]}]}], "}"}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{"PlotDifferences2", "[", 
+   RowBox[{"arr1_", ",", " ", "arr2_", ",", " ", 
+    RowBox[{"OptionsPattern", "[", 
+     RowBox[{"{", 
+      RowBox[{"PlotDifferences2", ",", " ", "ArrayPlot"}], "}"}], "]"}]}], 
+   "]"}], " ", ":=", " ", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "locs", ",", " ", "vals", ",", " ", "rus", ",", " ", "highlighted", ",", 
+      " ", "trimmed", ",", " ", "colrules"}], "}"}], ",", "\n", "    ", 
+    RowBox[{
+     RowBox[{"locs", " ", "=", " ", 
+      RowBox[{"LocationDifferences", "[", 
+       RowBox[{"arr1", ",", " ", "arr2"}], "]"}]}], ";", "\n", "    ", 
+     RowBox[{"vals", " ", "=", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"arr2", "[", 
+         RowBox[{"[", 
+          RowBox[{"#1", ",", " ", "#2"}], "]"}], "]"}], " ", "&"}], " ", "@@@",
+        " ", "locs"}]}], ";", "\n", "    ", 
+     RowBox[{"rus", " ", "=", " ", 
+      RowBox[{"MapThread", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"#1", " ", "->", " ", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"#2", " ", "==", " ", "0"}], ",", " ", 
+            RowBox[{"-", "100"}], ",", " ", 
+            RowBox[{"-", "#2"}]}], "]"}]}], " ", "&"}], ",", " ", 
+        RowBox[{"{", 
+         RowBox[{"locs", ",", " ", "vals"}], "}"}]}], "]"}]}], ";", "\n", 
+     "    ", 
+     RowBox[{"highlighted", " ", "=", " ", 
+      RowBox[{"ReplacePart", "[", 
+       RowBox[{"arr1", ",", " ", "rus"}], "]"}]}], ";", "\n", "    ", 
+     RowBox[{"trimmed", " ", "=", " ", 
+      RowBox[{"TrimArray", "[", 
+       RowBox[{"highlighted", ",", " ", 
+        RowBox[{"OptionValue", "[", "\"\<Trim\>\"", "]"}]}], "]"}]}], ";", 
+     "\n", "    ", 
+     RowBox[{"ArrayPlot", "[", 
+      RowBox[{"trimmed", ",", " ", 
+       RowBox[{"ColorRules", " ", "->", " ", 
+        RowBox[{"OptionValue", "[", "ColorRules", "]"}]}], ",", " ", 
+       RowBox[{"MeshStyle", " ", "->", " ", 
+        RowBox[{"Opacity", "[", "0.1", "]"}]}], ",", " ", 
+       RowBox[{"ImageSize", " ", "->", " ", 
+        RowBox[{"OptionValue", "[", "ImageSize", "]"}]}]}], "]"}]}]}], "\n", 
+   "    ", "]"}], " "}]}], "Input",
+ CellChangeTimes->{{3.9431407799722424`*^9, 3.943140829408785*^9}, {
+  3.943140887462928*^9, 3.943140898149803*^9}},
+ CellLabel->
+  "In[248]:=",ExpressionUUID->"db4a5275-3e9d-4c96-8d07-85d9485825c0"]
+},
+WindowSize->{808, 911},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"14.2 for Mac OS X ARM (64-bit) (December 6, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"c8ec4555-cba5-4167-8395-bbac957b5907"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[561, 20, 4485, 112, 294, "Input",ExpressionUUID->"db4a5275-3e9d-4c96-8d07-85d9485825c0"]
+}
+]
+*)
+

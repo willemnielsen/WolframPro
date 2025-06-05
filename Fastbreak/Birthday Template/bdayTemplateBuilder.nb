@@ -1,0 +1,2477 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    147638,       2469]
+NotebookOptionsPosition[    145450,       2432]
+NotebookOutlinePosition[    145957,       2451]
+CellTagsIndexPosition[    145914,       2448]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"events", " ", "=", 
+   RowBox[{
+   "SemanticImport", "[", 
+    "\"\</Users/erichegonzales/Downloads/EventSearch Result - DaySmart Rec \
+Admin-2.csv\>\"", " ", "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.922651488598799*^9, 3.92265156548909*^9}, {
+   3.9226516146120033`*^9, 3.922651681851708*^9}, 3.922657524554914*^9, {
+   3.92266591160703*^9, 3.922665928639427*^9}, {3.922667462924217*^9, 
+   3.922667463786694*^9}},
+ CellLabel->"In[51]:=",ExpressionUUID->"0400ad66-1a4f-4751-aaca-b0d3b20373f2"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ne", " ", "=", " ", 
+   RowBox[{"events", "[", 
+    RowBox[{"Select", "[", 
+     RowBox[{
+      RowBox[{"#Type", " ", "==", " ", "\"\<Birthday Time Slot\>\""}], "&"}], 
+     "]"}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.922708627888419*^9, 3.922708650715232*^9}},
+ CellLabel->"In[53]:=",ExpressionUUID->"630ca122-178a-4659-9164-ca4d66d7a162"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"di", " ", "=", " ", 
+   RowBox[{"DateInterval", "[", 
+    RowBox[{"{", 
+     RowBox[{"Today", ",", 
+      RowBox[{"DatePlus", "[", 
+       RowBox[{"Today", ",", " ", "90"}], "]"}]}], "}"}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"nne", " ", "=", " ", 
+   RowBox[{"ne", "[", 
+    RowBox[{
+     RowBox[{"Select", "[", 
+      RowBox[{
+       RowBox[{"IntervalMemberQ", "[", 
+        RowBox[{"di", ",", " ", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", "\"\<Start Date\>\"", "]"}], "]"}]}], "]"}], "&"}], 
+      "]"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<Resource\>\"", ",", " ", "\"\<Start Date\>\"", ",", " ", 
+       "\"\<Start Time\>\""}], "}"}]}], "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.922708684178915*^9, 3.922708699804325*^9}, 
+   3.922710407187688*^9, {3.9227112716113787`*^9, 3.922711272414907*^9}},
+ CellLabel->
+  "In[122]:=",ExpressionUUID->"562047d8-d737-44fe-951b-e20b792635dd"],
+
+Cell[BoxData[
+ RowBox[{"tn", " ", "=", " ", 
+  RowBox[{"nne", "[", 
+   RowBox[{"GroupBy", "[", "\"\<Resource\>\"", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.922708767927924*^9, 3.922708784189166*^9}, 
+   3.922710415342351*^9},
+ CellLabel->
+  "In[124]:=",ExpressionUUID->"4274681b-2f77-4dd8-b710-197c0c17b557"],
+
+Cell[BoxData[
+ RowBox[{"ntn", " ", "=", " ", 
+  RowBox[{"Values", "[", "tn", "]"}]}]], "Input",
+ CellChangeTimes->{{3.922708767927924*^9, 3.922708787430043*^9}, 
+   3.922710418686029*^9},
+ CellLabel->
+  "In[125]:=",ExpressionUUID->"9be24fbc-6c2f-48ac-bf3e-0d38f02e541a"],
+
+Cell[BoxData[
+ RowBox[{"as", "  ", "=", " ", 
+  RowBox[{
+   RowBox[{"GroupBy", "[", 
+    RowBox[{
+     RowBox[{"ntn", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], ",", " ", "\"\<Resource\>\""}], "]"}], 
+   "[", 
+   RowBox[{"[", "1", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.922708767927924*^9, 3.922708790259574*^9}, 
+   3.9227104215243073`*^9},
+ CellLabel->
+  "In[126]:=",ExpressionUUID->"e7c58849-b17e-45bf-aaf3-3a27b3310e61"],
+
+Cell[BoxData[
+ RowBox[{"fb", " ", "=", " ", 
+  RowBox[{
+   RowBox[{"GroupBy", "[", 
+    RowBox[{
+     RowBox[{"ntn", "[", 
+      RowBox[{"[", "2", "]"}], "]"}], ",", " ", "\"\<Resource\>\""}], "]"}], 
+   "[", 
+   RowBox[{"[", "1", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.922708767927924*^9, 3.922708792636141*^9}, 
+   3.922710424595673*^9},
+ CellLabel->
+  "In[127]:=",ExpressionUUID->"1eba002f-9fb4-40a0-9914-0c522cc74800"],
+
+Cell[BoxData[
+ RowBox[{"dgas", " ", "=", " ", 
+  RowBox[{"as", "[", 
+   RowBox[{"GroupBy", "[", "\"\<Start Date\>\"", "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.922708767927924*^9, 3.9227087957050533`*^9}, 
+   3.922710427164608*^9},
+ CellLabel->
+  "In[128]:=",ExpressionUUID->"ad043108-7af4-4cde-8467-3e76a8a35f22"],
+
+Cell[BoxData[
+ RowBox[{"dtas", " ", "=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Normal", "[", 
+     RowBox[{"#", "[", 
+      RowBox[{"[", 
+       RowBox[{"All", ",", " ", "\"\<Start Time\>\""}], "]"}], "]"}], "]"}], 
+    "&"}], " ", "/@", " ", "dgas"}]}]], "Input",
+ CellChangeTimes->{{3.922708767927924*^9, 3.9227087983577347`*^9}, 
+   3.922710429942809*^9},
+ CellLabel->
+  "In[129]:=",ExpressionUUID->"394f7177-1f4b-4e2a-a6b4-e84aed52181f"],
+
+Cell[BoxData[
+ RowBox[{"dtas", " ", "=", " ", 
+  RowBox[{"Quiet", "[", 
+   RowBox[{"Check", "[", " ", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       RowBox[{"Normal", "[", 
+        RowBox[{"#", "[", 
+         RowBox[{"[", 
+          RowBox[{"All", ",", " ", "\"\<Start Time\>\""}], "]"}], "]"}], 
+        "]"}], "&"}], " ", "/@", " ", "dgas"}], ",", " ", 
+     RowBox[{"{", "}"}]}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.922710529764624*^9, 3.9227105649299107`*^9}, {
+  3.922711328429121*^9, 3.922711334181878*^9}},
+ CellLabel->
+  "In[131]:=",ExpressionUUID->"12351aae-718b-4a0f-89f7-8d79cd2dbe7c"],
+
+Cell[BoxData["dtas"], "Input",
+ CellChangeTimes->{{3.922710577414178*^9, 3.922710578184819*^9}},
+ CellLabel->"In[99]:=",ExpressionUUID->"8cd44114-dc81-42de-9c95-a5e4835f38a3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"dgfb", " ", "=", " ", 
+   RowBox[{"fb", "[", 
+    RowBox[{"GroupBy", "[", "\"\<Start Date\>\"", "]"}], "]"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.922708767927924*^9, 3.922708813944347*^9}},
+ CellLabel->"In[63]:=",ExpressionUUID->"b5c86c08-ed88-4871-8c26-f45c03b92fcd"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"dtas", " ", "=", " ", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Normal", "[", 
+      RowBox[{"#", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", " ", "\"\<Start Time\>\""}], "]"}], "]"}], "]"}], 
+     "&"}], " ", "/@", " ", "dgas"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.922708767927924*^9, 
+  3.922708821732531*^9}},ExpressionUUID->"943d7536-8b08-4baa-9fb0-\
+751058411834"],
+
+Cell[BoxData["dtas"], "Input",
+ CellChangeTimes->{{3.922708864333753*^9, 3.922708864962715*^9}},
+ CellLabel->"In[64]:=",ExpressionUUID->"385ba833-7c5c-421a-a06a-de3c5f538e9b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"dtfb", " ", "=", " ", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Normal", "[", 
+         RowBox[{"#", "[", 
+          RowBox[{"[", 
+           RowBox[{"All", ",", " ", "\"\<Start Time\>\""}], "]"}], "]"}], 
+         "]"}], "&"}], " ", "/@", " ", "dgfb"}]}], ";"}], "\n", 
+    RowBox[{
+     RowBox[{"sdtas", " ", "=", " ", 
+      RowBox[{"Map", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"DateString", "[", 
+          RowBox[{"#", ",", " ", 
+           RowBox[{"<|", 
+            RowBox[{
+             RowBox[{"\"\<Elements\>\"", "->", 
+              RowBox[{"{", 
+               RowBox[{"\"\<Hour12\>\"", ",", " ", "\"\<Minute\>\""}], 
+               "}"}]}], ",", " ", 
+             RowBox[{"\"\<Delimiters\>\"", "->", " ", "\"\<:\>\""}]}], 
+            "|>"}]}], "]"}], "&"}], ",", " ", "dtas", ",", " ", 
+        RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}], "\n", 
+    RowBox[{
+     RowBox[{"sdtfb", " ", "=", " ", 
+      RowBox[{"Map", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"DateString", "[", 
+          RowBox[{"#", ",", " ", 
+           RowBox[{"<|", 
+            RowBox[{
+             RowBox[{"\"\<Elements\>\"", "->", 
+              RowBox[{"{", 
+               RowBox[{"\"\<Hour12\>\"", ",", " ", "\"\<Minute\>\""}], 
+               "}"}]}], ",", " ", 
+             RowBox[{"\"\<Delimiters\>\"", "->", " ", "\"\<:\>\""}]}], 
+            "|>"}]}], "]"}], "&"}], ",", " ", "dtfb", ",", " ", 
+        RowBox[{"{", "2", "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"sas", " ", "=", " ", 
+      RowBox[{"KeyValueMap", "[", "\n", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"ToString", "[", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"DateString", "[", "#1", "]"}], ",", "Italic"}], "]"}], 
+            ",", " ", "StandardForm"}], "]"}], " ", "<>", " ", "\n", 
+          RowBox[{"ToString", "[", 
+           RowBox[{"\"\<\\n\>\"", ",", " ", "StandardForm"}], "]"}], " ", "<>",
+           " ", "\n", 
+          RowBox[{"ToString", "[", 
+           RowBox[{
+            RowBox[{"StringRiffle", "[", 
+             RowBox[{"#", ",", " ", "\"\<, \>\""}], "]"}], ",", " ", 
+            "StandardForm"}], "]"}]}], "&"}], ",", " ", 
+        RowBox[{"Normal", "[", "sdtas", "]"}]}], "]"}]}], ";"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"sfb", " ", "=", " ", 
+      RowBox[{"KeyValueMap", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"ToString", "[", 
+           RowBox[{
+            RowBox[{"Style", "[", 
+             RowBox[{
+              RowBox[{"DateString", "[", "#1", "]"}], ",", "Italic"}], "]"}], 
+            ",", " ", "StandardForm"}], "]"}], " ", "<>", " ", 
+          RowBox[{"ToString", "[", 
+           RowBox[{"\"\<\\n\>\"", ",", " ", "StandardForm"}], "]"}], " ", "<>",
+           " ", 
+          RowBox[{"ToString", "[", 
+           RowBox[{
+            RowBox[{"StringRiffle", "[", 
+             RowBox[{"#2", ",", " ", "\"\<, \>\""}], "]"}], ",", " ", 
+            "StandardForm"}], "]"}]}], " ", "&"}], ",", " ", 
+        RowBox[{"Normal", "[", "sdtfb", "]"}]}], "]"}]}], ";"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"sffb", " ", "=", " ", 
+      RowBox[{"StringRiffle", "[", 
+       RowBox[{"sfb", ",", " ", "\"\<\\n\>\""}], "]"}]}], ";"}], 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"StringTemplate", "[", "\n", 
+     RowBox[{
+      RowBox[{"ToString", "[", 
+       RowBox[{
+        RowBox[{"Style", "[", 
+         RowBox[{
+         "\"\<Available Birthdays\\n\>\"", ",", " ", "\"\<Subtitle\>\""}], 
+         "]"}], ",", " ", "StandardForm"}], "]"}], " ", "<>", "\n", 
+      RowBox[{"ToString", "[", 
+       RowBox[{
+        RowBox[{"Style", "[", 
+         RowBox[{
+         "\"\<Fastbreak Headquarters Main Court\>\"", ",", " ", "Bold"}], 
+         "]"}], ",", " ", "StandardForm"}], "]"}], " ", "<>", " ", "\n", 
+      "\"\<\\n`FB DT`\\n\\n\>\"", " ", "<>", " ", "\n", 
+      RowBox[{"ToString", "[", 
+       RowBox[{
+        RowBox[{"Style", "[", 
+         RowBox[{"\"\<All Souls Court\>\"", ",", " ", "Bold"}], "]"}], ",", 
+        " ", "StandardForm"}], "]"}], " ", "<>", " ", "\n", 
+      "\"\<\\n`AS DT`\>\""}], "]"}], "\n", 
+    RowBox[{"[", 
+     RowBox[{"<|", 
+      RowBox[{
+       RowBox[{"\"\<FB DT\>\"", "->", "sffb"}], ",", 
+       RowBox[{"\"\<AS DT\>\"", "->", "sfas"}]}], "|>"}], "]"}]}], "]"}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.922708767927924*^9, 3.922708821732531*^9}, 
+   3.922710852127905*^9},
+ EmphasizeSyntaxErrors->
+  True,ExpressionUUID->"dc1ffef6-e0ad-42c3-aae3-30784d72682b"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.922708658281888*^9, 3.922708659119391*^9}, {
+  3.922708707322587*^9, 3.922708707870153*^9}},
+ CellLabel->"In[54]:=",ExpressionUUID->"2b736d36-4f52-4392-8b2f-f8623ce5b9da"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.922673181569483*^9, 3.922673227559579*^9}, {
+   3.922673265869102*^9, 3.922673309831522*^9}, {3.922673632046703*^9, 
+   3.922673632747072*^9}, {3.92267367728321*^9, 3.922673702724927*^9}, 
+   3.92267974326355*^9},ExpressionUUID->"7af62a6b-7945-45ea-9527-\
+60999df2d26e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"getTemplate", "[", "data_", "]"}], ":=", " ", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Module", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "tn", ",", " ", "ntn", ",", " ", "as", ",", " ", "fb", ",", " ", "dgas",
+        ",", " ", "dgfb", ",", " ", "dtas", ",", " ", "dtfb", ",", " ", "sas",
+        ",", " ", "sfb", ",", " ", "sffb", ",", " ", "sfas", ",", " ", 
+       "sdtas", ",", " ", "sdtfb"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"tn", " ", "=", " ", 
+       RowBox[{"data", "[", 
+        RowBox[{"GroupBy", "[", "\"\<Resource\>\"", "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"ntn", " ", "=", " ", 
+       RowBox[{"Values", "[", "tn", "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"as", "  ", "=", " ", 
+       RowBox[{
+        RowBox[{"GroupBy", "[", 
+         RowBox[{
+          RowBox[{"ntn", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], ",", " ", "\"\<Resource\>\""}], 
+         "]"}], "[", 
+        RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"fb", " ", "=", " ", 
+       RowBox[{
+        RowBox[{"GroupBy", "[", 
+         RowBox[{
+          RowBox[{"ntn", "[", 
+           RowBox[{"[", "2", "]"}], "]"}], ",", " ", "\"\<Resource\>\""}], 
+         "]"}], "[", 
+        RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"dgas", " ", "=", " ", 
+       RowBox[{"as", "[", 
+        RowBox[{"GroupBy", "[", "\"\<Start Date\>\"", "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"dgfb", " ", "=", " ", 
+       RowBox[{"fb", "[", 
+        RowBox[{"GroupBy", "[", "\"\<Start Date\>\"", "]"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"dtas", " ", "=", " ", 
+       RowBox[{"Quiet", "[", 
+        RowBox[{"Check", "[", " ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"Normal", "[", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", 
+               RowBox[{"All", ",", " ", "\"\<Start Time\>\""}], "]"}], "]"}], 
+             "]"}], "&"}], " ", "/@", " ", "dgas"}], ",", " ", 
+          RowBox[{"{", "}"}]}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"dtfb", " ", "=", " ", 
+       RowBox[{"Quiet", "[", 
+        RowBox[{"Check", "[", " ", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{"Normal", "[", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", 
+               RowBox[{"All", ",", " ", "\"\<Start Time\>\""}], "]"}], "]"}], 
+             "]"}], "&"}], " ", "/@", " ", "dgfb"}], ",", " ", 
+          RowBox[{"{", "}"}]}], "]"}], "]"}]}], ";", "\n", 
+      RowBox[{"sdtas", " ", "=", " ", 
+       RowBox[{"Map", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"DateString", "[", 
+           RowBox[{
+            RowBox[{"DateObject", "[", "#", "]"}], ",", " ", 
+            "\"\<LocalTimeCompact\>\""}], "]"}], "&"}], ",", " ", "dtas", ",",
+          " ", 
+         RowBox[{"{", "2", "}"}]}], "]"}]}], ";", "\n", 
+      RowBox[{"sdtfb", " ", "=", " ", 
+       RowBox[{"Map", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"DateString", "[", 
+           RowBox[{"#", ",", " ", 
+            RowBox[{"<|", 
+             RowBox[{
+              RowBox[{"\"\<Elements\>\"", "->", 
+               RowBox[{"{", 
+                RowBox[{"\"\<Hour12\>\"", ",", " ", "\"\<Minute\>\""}], 
+                "}"}]}], ",", " ", 
+              RowBox[{"\"\<Delimiters\>\"", "->", " ", "\"\<:\>\""}]}], 
+             "|>"}]}], "]"}], "&"}], ",", " ", "dtfb", ",", " ", 
+         RowBox[{"{", "2", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"sas", " ", "=", " ", 
+       RowBox[{"Quiet", "[", 
+        RowBox[{"Check", "[", 
+         RowBox[{
+          RowBox[{"KeyValueMap", "[", "\n", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"ToString", "[", 
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{
+                  RowBox[{"DateString", "[", "#1", "]"}], ",", "Italic"}], 
+                 "]"}], ",", " ", "StandardForm"}], "]"}], " ", "<>", " ", 
+              "\n", 
+              RowBox[{"ToString", "[", 
+               RowBox[{"\"\<\\n\>\"", ",", " ", "StandardForm"}], "]"}], " ", 
+              "<>", " ", "\n", 
+              RowBox[{"ToString", "[", 
+               RowBox[{
+                RowBox[{"StringRiffle", "[", 
+                 RowBox[{"#2", ",", " ", "\"\<, \>\""}], "]"}], ",", " ", 
+                "StandardForm"}], "]"}]}], "&"}], ",", " ", 
+            RowBox[{"Normal", "[", "sdtas", "]"}]}], "]"}], ",", " ", 
+          RowBox[{"{", "}"}]}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"sfb", " ", "=", " ", 
+       RowBox[{"Quiet", "[", 
+        RowBox[{"Check", "[", 
+         RowBox[{
+          RowBox[{"KeyValueMap", "[", "\n", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              RowBox[{"ToString", "[", 
+               RowBox[{
+                RowBox[{"Style", "[", 
+                 RowBox[{
+                  RowBox[{"DateString", "[", "#1", "]"}], ",", "Italic"}], 
+                 "]"}], ",", " ", "StandardForm"}], "]"}], " ", "<>", " ", 
+              "\n", 
+              RowBox[{"ToString", "[", 
+               RowBox[{"\"\<\\n\>\"", ",", " ", "StandardForm"}], "]"}], " ", 
+              "<>", " ", "\n", 
+              RowBox[{"ToString", "[", 
+               RowBox[{
+                RowBox[{"StringRiffle", "[", 
+                 RowBox[{"#2", ",", " ", "\"\<, \>\""}], "]"}], ",", " ", 
+                "StandardForm"}], "]"}]}], "&"}], ",", " ", 
+            RowBox[{"Normal", "[", "sdtfb", "]"}]}], "]"}], ",", " ", 
+          RowBox[{"{", "}"}]}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"sffb", " ", "=", " ", 
+       RowBox[{"StringRiffle", "[", 
+        RowBox[{"sfb", ",", " ", "\"\<\\n\>\""}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"sfas", " ", "=", 
+       RowBox[{"StringRiffle", "[", 
+        RowBox[{"sas", ",", " ", "\"\<\\n\>\""}], "]"}]}], ";", " ", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"StringTemplate", "[", "\n", 
+        RowBox[{
+         RowBox[{"ToString", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+            "\"\<Available Birthdays\\n\>\"", ",", " ", "\"\<Subtitle\>\""}], 
+            "]"}], ",", " ", "StandardForm"}], "]"}], " ", "<>", "\n", 
+         RowBox[{"ToString", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+            "\"\<Fastbreak Headquarters Main Court\>\"", ",", " ", "Bold"}], 
+            "]"}], ",", " ", "StandardForm"}], "]"}], " ", "<>", " ", "\n", 
+         "\"\<\\n`FB DT`\\n\\n\>\"", " ", "<>", " ", "\n", 
+         RowBox[{"ToString", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<All Souls Court\>\"", ",", " ", "Bold"}], "]"}], ",",
+            " ", "StandardForm"}], "]"}], " ", "<>", " ", "\n", 
+         "\"\<\\n`AS DT`\>\""}], "]"}], "\n", "[", 
+       RowBox[{"<|", 
+        RowBox[{
+         RowBox[{"\"\<FB DT\>\"", "->", "sffb"}], ",", 
+         RowBox[{"\"\<AS DT\>\"", "->", "sfas"}]}], "|>"}], "]"}]}]}], 
+    "]"}]}], ";"}], "\n", 
+ RowBox[{"With", "[", "\n", 
+  RowBox[{
+   RowBox[{"{", " ", "\n", 
+    RowBox[{"ne", " ", "=", " ", 
+     RowBox[{
+      RowBox[{"Dataset", "[", 
+       InterpretationBox[
+        DynamicModuleBox[{Typeset`open = True}, 
+         TemplateBox[{"List", "ListIcon", 
+           GridBox[{{
+              RowBox[{
+                TagBox["\"Head: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                TagBox["List", "IconizedItem"]}]}, {
+              RowBox[{
+                TagBox["\"Length: \"", "IconizedLabel"], "\[InvisibleSpace]", 
+                
+                TagBox["110", "IconizedItem"]}]}, {
+              RowBox[{
+                TagBox["\"Byte count: \"", "IconizedLabel"], 
+                "\[InvisibleSpace]", 
+                TagBox["446984", "IconizedItem"]}]}}, 
+            GridBoxAlignment -> {"Columns" -> {{Left}}}, DefaultBaseStyle -> 
+            "Column", 
+            GridBoxItemSize -> {
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], 
+           Dynamic[Typeset`open]},
+          "IconizedObject"]],
+        {<|
+         "Event ID" -> 207494, "Type" -> "Birthday - Court", "Description" -> 
+          "Lincoln's 6th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Alison Smith", "Email" -> "alisonrsmith@gmail.com", "Phone" -> 
+          8563134457, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "All Souls Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 4, 20}, "Day"], 
+          "Start Time" -> TimeObject[{11, 15}, "Minute"], "End Time" -> 
+          TimeObject[{13, 15}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 0, 55}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207195, "Type" -> "Birthday - Court", "Description" -> 
+          "Jesse's 8th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Meggan Guberman", "Email" -> "megtmc@yahoo.com", "Phone" -> 
+          6149754565, "Mobile" -> 6149754565, "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 4, 20}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207533, "Type" -> "Birthday - Court", "Description" -> 
+          "Arav's 6th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Arusha Niyogi", "Email" -> "arushaghosh@gmail.com", "Phone" -> 
+          9173045447, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "All Souls Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 4, 20}, "Day"], 
+          "Start Time" -> TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 3, 4}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 227025, "Type" -> "Birthday - Court", "Description" -> 
+          "Greyson's 7th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Stacy Ferrandino", "Email" -> "stacyferrandino@gmail.com", "Phone" -> 
+          6317869575, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 4, 20}, "Day"], "Start Time" -> 
+          TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2024, 1, 11, 12, 37, 27}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207572, "Type" -> "Birthday - Court", "Description" -> 
+          "Liam's 9th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Sydell Imas", "Email" -> "sydell@gmail.com", "Phone" -> 6466415682,
+           "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "All Souls Court", "Sub-Resource" -> Missing["Empty"],
+           "Start Date" -> DateObject[{2024, 4, 20}, "Day"], "Start Time" -> 
+          TimeObject[{16, 15}, "Minute"], "End Time" -> 
+          TimeObject[{17, 45}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 5, 8}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207366, "Type" -> "Birthday - Court", "Description" -> 
+          "Sophia's 6th birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Lauren Sulewska", "Email" -> "Lauren.Sulewska@gmail.com", "Phone" -> 
+          8457052638, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 4, 20}, "Day"], "Start Time" -> 
+          TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 229546, "Type" -> "Birthday - Court", "Description" -> 
+          "Avery's 4th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Yanwen Qi", "Email" -> "qi.yanwen@gmail.com", "Phone" -> 
+          7348349524, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 4, 21}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2024, 2, 15, 10, 35, 44}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207281, "Type" -> "Birthday - Court", "Description" -> 
+          "Spencer's 9th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Ben Grad", "Email" -> "bengrad98@yahoo.com", "Phone" -> 9175894076,
+           "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 4, 21}, "Day"], 
+          "Start Time" -> TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207367, "Type" -> "Birthday - Court", "Description" -> 
+          "Mile's 5th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Jessie Kaliner", "Email" -> "jbs5062@gmail.com", "Phone" -> 
+          2157156752, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 4, 21}, "Day"], "Start Time" -> 
+          TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207495, "Type" -> "Birthday Time Slot", "Description" -> 
+          "OPEN", "Published" -> "No", "Booking ID" -> Missing["Empty"], 
+          "Booking Name" -> Missing["Empty"], "Customer" -> "", "Email" -> 
+          Missing["Empty"], "Phone" -> Missing["Empty"], "Mobile" -> 
+          Missing["Empty"], "Location" -> "Fastbreak Sports", "Resource" -> 
+          "All Souls Court", "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 4, 27}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 0, 55}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207534, "Type" -> "Birthday - Court", "Description" -> 
+          "James' 4th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Reston Blumwest", "Email" -> "rblumwest@gmail.com", "Phone" -> 
+          9173016437, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 4, 27}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 30}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 3, 4}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207197, "Type" -> "Birthday - Court", "Description" -> 
+          "Nico 8th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Beaty Mordkoff", "Email" -> "beatrice@lolli-ghetti.com", "Phone" -> 
+          2022779629, "Mobile" -> 9175894846, "Location" -> 
+          "Fastbreak Sports", "Resource" -> "All Souls Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 4, 27}, "Day"], 
+          "Start Time" -> TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207282, "Type" -> "Birthday - Court", "Description" -> 
+          "Kai's 8th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Carnegie Rea", "Email" -> "c_pierjules@yahoo.com", "Phone" -> 
+          6468530147, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 4, 27}, "Day"], "Start Time" -> 
+          TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207573, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Party Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "All Souls Court", "Sub-Resource" -> Missing["Empty"],
+           "Start Date" -> DateObject[{2024, 4, 27}, "Day"], "Start Time" -> 
+          TimeObject[{16, 15}, "Minute"], "End Time" -> 
+          TimeObject[{17, 45}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 5, 8}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207368, "Type" -> "Birthday - Court", "Description" -> 
+          "Austins 5th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Wendy Goldberg", "Email" -> "wflgold@gmail.com", "Phone" -> 
+          9179216221, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 4, 27}, "Day"], "Start Time" -> 
+          TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207198, "Type" -> "Birthday - Court", "Description" -> 
+          "Hudson's 5th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Lacey Morgan", "Email" -> "laceymorgan@gmail.com", "Phone" -> 
+          5855065803, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 4, 28}, "Day"], "Start Time" -> 
+          TimeObject[{11, 15}, "Minute"], "End Time" -> 
+          TimeObject[{12, 45}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207283, "Type" -> "Birthday - Court", "Description" -> 
+          "George's 5th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Stephanie Stamas", "Email" -> "hybydanisue@gmail.com", "Phone" -> 
+          9175842033, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 4, 28}, "Day"], "Start Time" -> 
+          TimeObject[{13, 45}, "Minute"], "End Time" -> 
+          TimeObject[{15, 15}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207369, "Type" -> "Birthday - Court", "Description" -> 
+          "Charley's 4th birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Blair Dver", "Email" -> "blairdver@gmail.com", "Phone" -> 
+          2019213433, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 4, 28}, "Day"], "Start Time" -> 
+          TimeObject[{16, 15}, "Minute"], "End Time" -> 
+          TimeObject[{18, 15}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 230964, "Type" -> "Birthday - Court", "Description" -> 
+          "Ari and Kal's 6th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Danielle Sassoon", "Email" -> "danielle.sassoon@gmail.com", 
+          "Phone" -> 9175384605, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "Ramaz School", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 5, 1}, "Day"], 
+          "Start Time" -> TimeObject[{15, 30}, "Minute"], "End Time" -> 
+          TimeObject[{16, 30}, "Minute"], "Length (min)" -> 60, "Created" -> 
+          DateObject[{2024, 3, 13, 14, 34, 8}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207199, "Type" -> "Birthday - Court", "Description" -> 
+          "Brook's 7th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Elizabeth Mausner", "Email" -> "elizabeth.mausner@gmail.com", 
+          "Phone" -> 5162365551, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 5, 4}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207535, "Type" -> "Birthday - Court", "Description" -> 
+          "Matthew's 10th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Julia Belladonna", "Email" -> "Juliambelladonna@gmail.com", 
+          "Phone" -> 9175452330, "Mobile" -> 9175452330, "Location" -> 
+          "Fastbreak Sports", "Resource" -> "All Souls Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 5, 4}, "Day"], 
+          "Start Time" -> TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 3, 4}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207284, "Type" -> "Birthday - Court", "Description" -> 
+          "James 5th birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Jaclyn Berdugo", "Email" -> "jaclynberdugo@gmail.com", "Phone" -> 
+          6126166003, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 5, 4}, "Day"], "Start Time" -> 
+          TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207496, "Type" -> "Birthday - Court", "Description" -> 
+          "Yuv's 5th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Nidhi Agrawal", "Email" -> "Dr.viks@gmail.com", "Phone" -> 
+          7039013283, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "All Souls Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 5, 4}, "Day"], 
+          "Start Time" -> TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 0, 55}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 229458, "Type" -> "Birthday - Court", "Description" -> 
+          "James' 7th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Alexandra West", "Email" -> "alexrebecca.west@gmail.com", "Phone" -> 
+          9175395943, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "All Souls Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 5, 4}, "Day"], 
+          "Start Time" -> TimeObject[{16, 15}, "Minute"], "End Time" -> 
+          TimeObject[{17, 45}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2024, 2, 12, 9, 50, 20}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207574, "Type" -> "Birthday - Court", "Description" -> 
+          "Connor's 7th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Kristin Nicholas", "Email" -> "kristinbelletieri@gmail.com", 
+          "Phone" -> 5515740422, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 5, 4}, "Day"], "Start Time" -> 
+          TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 30}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 5, 8}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207200, "Type" -> "Birthday - Court", "Description" -> 
+          "Jonah's and Nate's 4th!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Sarah Rosenberg", "Email" -> "sarahzrosenberg@gmail.com", "Phone" -> 
+          8476241577, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 5, 5}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207285, "Type" -> "Birthday - Court", "Description" -> 
+          "Moses 6th birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Cindy Levi", "Email" -> "cindymelamedpac@yahoo.com", "Phone" -> 
+          9174453015, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 5, 5}, "Day"], "Start Time" -> 
+          TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 224304, "Type" -> "Birthday - Court", "Description" -> 
+          "Ari's 6th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Alison Darling", "Email" -> "Alisonbdarling@gmail.com", "Phone" -> 
+          4135190702, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "All Souls Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 5, 5}, "Day"], 
+          "Start Time" -> TimeObject[{15, 0}, "Minute"], "End Time" -> 
+          TimeObject[{17, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2023, 12, 6, 16, 33, 30}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207371, "Type" -> "Birthday - Court", "Description" -> 
+          "Julian's 6th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Jamie Stern", "Email" -> "jamie.stern1@gmail.com", "Phone" -> 
+          5166807021, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 5, 5}, "Day"], "Start Time" -> 
+          TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207497, "Type" -> "Birthday - Court", "Description" -> 
+          "Luca's 8th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Kristen Semanision", "Email" -> "semanisionk@gmail.com", "Phone" -> 
+          5702121719, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "All Souls Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 5, 11}, "Day"], 
+          "Start Time" -> TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 0, 55}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 226019, "Type" -> "Birthday - Court", "Description" -> 
+          "Jordan's 7th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Jamie Zucker", "Email" -> "Jamie.zucker199@gmail.com", "Phone" -> 
+          9173553864, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 5, 11}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 12, 19, 14, 2, 31}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207536, "Type" -> "Birthday - Court", "Description" -> 
+          "Myles 4th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Giselle Rendon", "Email" -> "Giselle.rendon@gmail.com", "Phone" -> 
+          9175159299, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "All Souls Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 5, 11}, "Day"], 
+          "Start Time" -> TimeObject[{13, 45}, "Minute"], "End Time" -> 
+          TimeObject[{15, 45}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 3, 4}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207286, "Type" -> "Birthday - Court", "Description" -> 
+          "Ethan 4th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Molly Dince", "Email" -> "Molly.dince@gmail.com", "Phone" -> 
+          9172826545, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 5, 11}, "Day"], "Start Time" -> 
+          TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207575, "Type" -> "Birthday - Court", "Description" -> 
+          "Owen Lehpamer's 9th and Declan\[CloseCurlyQuote]s 10th Birthday !",
+           "Published" -> "No", "Booking ID" -> Missing["Empty"], 
+          "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Rebecca Gingold Lehpamer", "Email" -> "rgingold@hotmail.com", 
+          "Phone" -> 9177471781, "Mobile" -> 9177471781, "Location" -> 
+          "Fastbreak Sports", "Resource" -> "All Souls Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 5, 11}, "Day"], 
+          "Start Time" -> TimeObject[{16, 15}, "Minute"], "End Time" -> 
+          TimeObject[{17, 45}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 5, 8}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207372, "Type" -> "Birthday - Court", "Description" -> 
+          "Henry's 6th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Brena Gooberman", "Email" -> "brena.casbini@gmail.com", "Phone" -> 
+          6465731046, "Mobile" -> 6465731046, "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 5, 11}, "Day"], "Start Time" -> 
+          TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207202, "Type" -> "Birthday Time Slot", "Description" -> 
+          "OPEN", "Published" -> "No", "Booking ID" -> Missing["Empty"], 
+          "Booking Name" -> Missing["Empty"], "Customer" -> "", "Email" -> 
+          Missing["Empty"], "Phone" -> Missing["Empty"], "Mobile" -> 
+          Missing["Empty"], "Location" -> "Fastbreak Sports", "Resource" -> 
+          "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+          "Start Date" -> DateObject[{2024, 5, 12}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207287, "Type" -> "Birthday Time Slot", "Description" -> 
+          "OPEN", "Published" -> "No", "Booking ID" -> Missing["Empty"], 
+          "Booking Name" -> Missing["Empty"], "Customer" -> "", "Email" -> 
+          Missing["Empty"], "Phone" -> Missing["Empty"], "Mobile" -> 
+          Missing["Empty"], "Location" -> "Fastbreak Sports", "Resource" -> 
+          "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+          "Start Date" -> DateObject[{2024, 5, 12}, "Day"], "Start Time" -> 
+          TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207373, "Type" -> "Birthday - Court", "Description" -> 
+          "Alexander's 7th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Gilbert Tang", "Email" -> "gilbert.tang@gmail.com", "Phone" -> 
+          3473800123, "Mobile" -> 3473800123, "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 5, 12}, "Day"], "Start Time" -> 
+          TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207498, "Type" -> "Birthday - Court", "Description" -> 
+          "Rome 4th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Marcella Guarino", "Email" -> "cella682@gmail.com", "Phone" -> 
+          9175743293, "Mobile" -> 9175743293, "Location" -> 
+          "Fastbreak Sports", "Resource" -> "All Souls Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 5, 18}, "Day"], 
+          "Start Time" -> TimeObject[{11, 0}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 0, 55}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207203, "Type" -> "Birthday - Court", "Description" -> 
+          "Charlie's 7th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Rebecca Blacker", "Email" -> "rebecca.blacker1@gmail.com", "Phone" -> 
+          9176671030, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 5, 18}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 230849, "Type" -> "Birthday - Court", "Description" -> 
+          "Hayden and Sawyer's 7th Birthday!", "Published" -> "No", 
+          "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+          Missing["Empty"], "Customer" -> "Carly Streisfeld", "Email" -> 
+          "carly.streisfeld@gmail.com", "Phone" -> 6106137975, "Mobile" -> 
+          Missing["Empty"], "Location" -> "Fastbreak Sports", "Resource" -> 
+          "Dwight Athletic Center", "Sub-Resource" -> Missing["Empty"], 
+          "Start Date" -> DateObject[{2024, 5, 18}, "Day"], "Start Time" -> 
+          TimeObject[{12, 0}, "Minute"], "End Time" -> 
+          TimeObject[{14, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2024, 3, 12, 11, 59, 2}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207288, "Type" -> "Birthday - Court", "Description" -> 
+          "Arthur and Richard's 4th Birthday!", "Published" -> "No", 
+          "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+          Missing["Empty"], "Customer" -> "Leora Haber", "Email" -> 
+          "leorahaber1@gmail.com", "Phone" -> 2016812919, "Mobile" -> 
+          Missing["Empty"], "Location" -> "Fastbreak Sports", "Resource" -> 
+          "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+          "Start Date" -> DateObject[{2024, 5, 18}, "Day"], "Start Time" -> 
+          TimeObject[{13, 45}, "Minute"], "End Time" -> 
+          TimeObject[{15, 45}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207537, "Type" -> "Birthday - Court", "Description" -> 
+          "Charlie 5th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Jamie Manning", "Email" -> "jrosenmanning@gmail.com", "Phone" -> 
+          9177578747, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "All Souls Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 5, 18}, "Day"], 
+          "Start Time" -> TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 3, 4}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207576, "Type" -> "Birthday - Court", "Description" -> 
+          "Charles and Julien's 5th Birthday", "Published" -> "No", 
+          "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+          Missing["Empty"], "Customer" -> "Julien Brill", "Email" -> 
+          "brill.marie@gmail.com", "Phone" -> 6465840534, "Mobile" -> 
+          Missing["Empty"], "Location" -> "Fastbreak Sports", "Resource" -> 
+          "All Souls Court", "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 5, 18}, "Day"], "Start Time" -> 
+          TimeObject[{16, 15}, "Minute"], "End Time" -> 
+          TimeObject[{17, 45}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 5, 8}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207374, "Type" -> "Birthday - Court", "Description" -> 
+          "Sammy's 9th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Clifton Jackness", "Email" -> "clifton.jackness@gmail.com", 
+          "Phone" -> 3474523571, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "Dwight Athletic Center", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 5, 18}, "Day"], "Start Time" -> 
+          TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 30}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 226091, "Type" -> "Birthday - Court", "Description" -> 
+          "June's 8th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Chigusa Katoku", "Email" -> "chigusakato.0904@gmail.com", "Phone" -> 
+          9294358041, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 5, 18}, "Day"], "Start Time" -> 
+          TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 12, 20, 14, 33, 58}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207204, "Type" -> "Birthday - Court", "Description" -> 
+          "Emma's 3rd and Jacob's 1st Birthday!", "Published" -> "No", 
+          "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+          Missing["Empty"], "Customer" -> "Samantha Gaspar", "Email" -> 
+          "Samanthagaspar48@gmail.com", "Phone" -> 6178779710, "Mobile" -> 
+          Missing["Empty"], "Location" -> "Fastbreak Sports", "Resource" -> 
+          "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+          "Start Date" -> DateObject[{2024, 5, 19}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207289, "Type" -> "Birthday - Court", "Description" -> 
+          "Irwin's 6th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Jessica Scherban", "Email" -> "jessica.scherban@gmail.com", 
+          "Phone" -> 9175534893, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 5, 19}, "Day"], "Start Time" -> 
+          TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207375, "Type" -> "Birthday - Court", "Description" -> 
+          "Brennans 6th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Catherine Lee", "Email" -> "Catherine.r.curley@gmail.com", "Phone" -> 
+          9178552574, "Mobile" -> 2034152595, "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 5, 19}, "Day"], "Start Time" -> 
+          TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207499, "Type" -> "Birthday - Court", "Description" -> 
+          "Ami's 6th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Jennifer Gillenwater", "Email" -> "jgillenw@gmail.com", "Phone" -> 
+          4107903763, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "All Souls Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 1}, "Day"], 
+          "Start Time" -> TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 0, 55}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 230066, "Type" -> "Birthday - Court", "Description" -> 
+          "Oscar's 5th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Pamela Ortega", "Email" -> "pamelajordanortega@gmail.com", "Phone" -> 
+          9143293726, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 1}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2024, 2, 27, 14, 46, 23}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 231428, "Type" -> "Birthday - Court", "Description" -> 
+          "Haydens 5th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Lina Wallach", "Email" -> "Lina.wallach@gmail.com", "Phone" -> 
+          6462677635, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 1}, "Day"], "Start Time" -> 
+          TimeObject[{13, 0}, "Minute"], "End Time" -> 
+          TimeObject[{17, 30}, "Minute"], "Length (min)" -> 270, "Created" -> 
+          DateObject[{2024, 3, 25, 11, 17, 18}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207538, "Type" -> "Birthday - Court", "Description" -> 
+          "Easton's 5th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Randi Schwartz", "Email" -> "randischwartz80@gmail.com", "Phone" -> 
+          5162388396, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "All Souls Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 1}, "Day"], 
+          "Start Time" -> TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 3, 4}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207577, "Type" -> "Birthday - Court", "Description" -> 
+          "Nicolas' 6th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Despina Kozulcali", "Email" -> "DKozulcali@gmail.com", "Phone" -> 
+          6462693727, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "All Souls Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 1}, "Day"], 
+          "Start Time" -> TimeObject[{16, 15}, "Minute"], "End Time" -> 
+          TimeObject[{17, 45}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 5, 8}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 235527, "Type" -> "Birthday - Court", "Description" -> 
+          "Jacks 8th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Laurie Zuckerman", "Email" -> "laurie.bibbo@gmail.com", "Phone" -> 
+          9175495443, "Mobile" -> 9175495443, "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 1}, "Day"], "Start Time" -> 
+          TimeObject[{18, 30}, "Minute"], "End Time" -> 
+          TimeObject[{20, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2024, 4, 17, 11, 57, 25}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207206, "Type" -> "Birthday - Court", "Description" -> 
+          "Jack's 8th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Emily Tarkan", "Email" -> "erwashkowitz@mac.com", "Phone" -> 
+          9173715200, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 2}, "Day"], "Start Time" -> 
+          TimeObject[{11, 15}, "Minute"], "End Time" -> 
+          TimeObject[{12, 45}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207291, "Type" -> "Birthday - Court", "Description" -> 
+          "Minho's 7th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Lauren Rhee", "Email" -> "hyshins@yahoo.com", "Phone" -> 
+          2014070134, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 2}, "Day"], "Start Time" -> 
+          TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207377, "Type" -> "Birthday (Hold)", "Description" -> 
+          "OPEN", "Published" -> "No", "Booking ID" -> Missing["Empty"], 
+          "Booking Name" -> Missing["Empty"], "Customer" -> "Eddie Woolsey", 
+          "Email" -> "eddie@fastbreakkids.com", "Phone" -> 2016586650, 
+          "Mobile" -> 2016586650, "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 2}, "Day"], 
+          "Start Time" -> TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 235004, "Type" -> "Birthday - Court", "Description" -> 
+          "Graham's 8th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Ali Kasner", "Email" -> "ali.copell@gmail.com", "Phone" -> 
+          5163842866, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "All Souls Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 7}, "Day"], 
+          "Start Time" -> TimeObject[{16, 0}, "Minute"], "End Time" -> 
+          TimeObject[{17, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2024, 4, 8, 15, 11, 3}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207207, "Type" -> "Birthday Time Slot", "Description" -> 
+          "OPEN", "Published" -> "No", "Booking ID" -> Missing["Empty"], 
+          "Booking Name" -> Missing["Empty"], "Customer" -> "", "Email" -> 
+          Missing["Empty"], "Phone" -> Missing["Empty"], "Mobile" -> 
+          Missing["Empty"], "Location" -> "Fastbreak Sports", "Resource" -> 
+          "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+          "Start Date" -> DateObject[{2024, 6, 8}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207500, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Party Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "All Souls Court", "Sub-Resource" -> Missing["Empty"],
+           "Start Date" -> DateObject[{2024, 6, 8}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 0, 55}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207539, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Party Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "All Souls Court", "Sub-Resource" -> Missing["Empty"],
+           "Start Date" -> DateObject[{2024, 6, 8}, "Day"], "Start Time" -> 
+          TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 3, 4}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 234444, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Open", "Published" -> "No", "Booking ID" -> Missing["Empty"], 
+          "Booking Name" -> Missing["Empty"], "Customer" -> "", "Email" -> 
+          Missing["Empty"], "Phone" -> Missing["Empty"], "Mobile" -> 
+          Missing["Empty"], "Location" -> "Fastbreak Sports", "Resource" -> 
+          "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+          "Start Date" -> DateObject[{2024, 6, 8}, "Day"], "Start Time" -> 
+          TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2024, 4, 1, 17, 54, 27}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207578, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Party Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "All Souls Court", "Sub-Resource" -> Missing["Empty"],
+           "Start Date" -> DateObject[{2024, 6, 8}, "Day"], "Start Time" -> 
+          TimeObject[{16, 15}, "Minute"], "End Time" -> 
+          TimeObject[{17, 45}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 5, 8}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207378, "Type" -> "Birthday - Court", "Description" -> 
+          "Sid's 7th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Meredith Gitomer", "Email" -> "meredith.ross@gmail.com", "Phone" -> 
+          4014407726, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 8}, "Day"], "Start Time" -> 
+          TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207208, "Type" -> "Birthday - Court", "Description" -> 
+          "Miles' Rubin Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Jillian Rubin", "Email" -> "jillianmrubin@gmail.com", "Phone" -> 
+          5166723272, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 9}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207293, "Type" -> "Birthday - Court", "Description" -> 
+          "Lucas' 7th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Candice Roy", "Email" -> "candice.picarillo@gmail.com", "Phone" -> 
+          6462624887, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 9}, "Day"], "Start Time" -> 
+          TimeObject[{13, 45}, "Minute"], "End Time" -> 
+          TimeObject[{15, 45}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207379, "Type" -> "Birthday - Court", "Description" -> 
+          "Jamie's 9th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Devora Allon", "Email" -> "devora.allon@gmail.com", "Phone" -> 
+          2124465967, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 9}, "Day"], "Start Time" -> 
+          TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 228008, "Type" -> "Birthday - Court", "Description" -> 
+          "Asher's 3rd Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Samantha Algaze", "Email" -> "samanthabalgaze@gmail.com", "Phone" -> 
+          5164280811, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 10}, "Day"], "Start Time" -> 
+          TimeObject[{16, 0}, "Minute"], "End Time" -> 
+          TimeObject[{17, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 228010, "Type" -> "Birthday - Court", "Description" -> 
+          "Skyler's 4th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Lauren Bernstein", "Email" -> "lauren.a.jacobson@gmail.com", 
+          "Phone" -> 5162367806, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 11}, "Day"], "Start Time" -> 
+          TimeObject[{16, 0}, "Minute"], "End Time" -> 
+          TimeObject[{17, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 230526, "Type" -> "Birthday - Court", "Description" -> 
+          "Charlie's 5th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Emily Mulflur", "Email" -> "emily719@gmail.com", "Phone" -> 
+          3475410203, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 12}, "Day"], "Start Time" -> 
+          TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2024, 3, 6, 9, 54, 28}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 228011, "Type" -> "Birthday Time Slot", "Description" -> 
+          "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 13}, "Day"], 
+          "Start Time" -> TimeObject[{16, 0}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 228012, "Type" -> "Birthday Time Slot", "Description" -> 
+          "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 14}, "Day"], 
+          "Start Time" -> TimeObject[{16, 0}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207501, "Type" -> "Birthday - Court", "Description" -> 
+          "Madeline's 4th Birthday", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Thelis Negron", "Email" -> "princessthelis@gmail.com", "Phone" -> 
+          2014194591, "Mobile" -> 6462452508, "Location" -> 
+          "Fastbreak Sports", "Resource" -> "All Souls Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 15}, "Day"], 
+          "Start Time" -> TimeObject[{11, 0}, "Minute"], "End Time" -> 
+          TimeObject[{14, 30}, "Minute"], "Length (min)" -> 210, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 0, 55}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207209, "Type" -> "Birthday - Court", "Description" -> 
+          "Reyan's 7th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Nidhi Agrawal", "Email" -> "Dr.viks@gmail.com", "Phone" -> 
+          7039013283, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 15}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207294, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Birthday Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 15}, "Day"], 
+          "Start Time" -> TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207579, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Party Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "All Souls Court", "Sub-Resource" -> Missing["Empty"],
+           "Start Date" -> DateObject[{2024, 6, 15}, "Day"], "Start Time" -> 
+          TimeObject[{15, 30}, "Minute"], "End Time" -> 
+          TimeObject[{17, 30}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 5, 8}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207380, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Birthday Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 15}, "Day"], 
+          "Start Time" -> TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 234902, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Open Time Slot!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 16}, "Day"], 
+          "Start Time" -> TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2024, 4, 5, 9, 12, 15}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207295, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Birthday Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 16}, "Day"], 
+          "Start Time" -> TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207381, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Birthday Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 16}, "Day"], 
+          "Start Time" -> TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 228013, "Type" -> "Birthday - Court", "Description" -> 
+          "Leon's 7th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Lilly Lebovich", "Email" -> "Lillylebovich@gmail.com", "Phone" -> 
+          7329965952, "Mobile" -> 7329965952, "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 17}, "Day"], "Start Time" -> 
+          TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 228014, "Type" -> "Birthday Time Slot", "Description" -> 
+          "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 18}, "Day"], 
+          "Start Time" -> TimeObject[{16, 0}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 228015, "Type" -> "Birthday - Court", "Description" -> 
+          "Landon's 9 Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Leyla Cole", "Email" -> "coleleyla@yahoo.com", "Phone" -> 
+          8327221221, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 19}, "Day"], "Start Time" -> 
+          TimeObject[{16, 0}, "Minute"], "End Time" -> 
+          TimeObject[{17, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 228016, "Type" -> "Birthday Time Slot", "Description" -> 
+          "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 20}, "Day"], 
+          "Start Time" -> TimeObject[{16, 0}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 228017, "Type" -> "Birthday Time Slot", "Description" -> 
+          "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 21}, "Day"], 
+          "Start Time" -> TimeObject[{16, 0}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207211, "Type" -> "Birthday Time Slot", "Description" -> 
+          "OPEN PARTY TIME!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 22}, "Day"], 
+          "Start Time" -> TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207502, "Type" -> "Birthday - Court", "Description" -> 
+          "Grant's 6th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Stacy Wong", "Email" -> "spwong@gmail.com", "Phone" -> 7328220133, 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "All Souls Court", "Sub-Resource" -> Missing["Empty"],
+           "Start Date" -> DateObject[{2024, 6, 22}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 0, 55}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207296, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Birthday Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 22}, "Day"], 
+          "Start Time" -> TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207541, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Party Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "All Souls Court", "Sub-Resource" -> Missing["Empty"],
+           "Start Date" -> DateObject[{2024, 6, 22}, "Day"], "Start Time" -> 
+          TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 3, 4}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207580, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Party Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "All Souls Court", "Sub-Resource" -> Missing["Empty"],
+           "Start Date" -> DateObject[{2024, 6, 22}, "Day"], "Start Time" -> 
+          TimeObject[{16, 15}, "Minute"], "End Time" -> 
+          TimeObject[{17, 45}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 5, 8}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207382, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Birthday Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 22}, "Day"], 
+          "Start Time" -> TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207212, "Type" -> "Birthday - Court", "Description" -> 
+          "Theodore's 6th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Adam Zacharius", "Email" -> "azacharius@kensingtonbooks.com", 
+          "Phone" -> 2124521570, "Mobile" -> Missing["Empty"], "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 23}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207297, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Birthday Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 23}, "Day"], 
+          "Start Time" -> TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207383, "Type" -> "Birthday - Court", "Description" -> 
+          "JJ's 3rd Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Kathryn Reese", "Email" -> "kathrynwayirwin@gmail.com", "Phone" -> 
+          6166339312, "Mobile" -> 6166339312, "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 23}, "Day"], "Start Time" -> 
+          TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 228018, "Type" -> "Birthday Time Slot", "Description" -> 
+          "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 24}, "Day"], 
+          "Start Time" -> TimeObject[{16, 0}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 228019, "Type" -> "Birthday Time Slot", "Description" -> 
+          "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 25}, "Day"], 
+          "Start Time" -> TimeObject[{16, 0}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 228020, "Type" -> "Birthday Time Slot", "Description" -> 
+          "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 26}, "Day"], 
+          "Start Time" -> TimeObject[{16, 0}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 228021, "Type" -> "Birthday Time Slot", "Description" -> 
+          "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 27}, "Day"], 
+          "Start Time" -> TimeObject[{16, 0}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 228022, "Type" -> "Birthday Time Slot", "Description" -> 
+          "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 28}, "Day"], 
+          "Start Time" -> TimeObject[{16, 0}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+          DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207213, "Type" -> "Birthday Time Slot", 
+          "Description" -> "OPEN PARTY TIME!", "Published" -> "No", 
+          "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+          Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+          "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+          "Location" -> "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 29}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207503, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Party Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "All Souls Court", "Sub-Resource" -> Missing["Empty"],
+           "Start Date" -> DateObject[{2024, 6, 29}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 0, 55}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207298, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Birthday Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 29}, "Day"], 
+          "Start Time" -> TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207542, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Party Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "All Souls Court", "Sub-Resource" -> Missing["Empty"],
+           "Start Date" -> DateObject[{2024, 6, 29}, "Day"], "Start Time" -> 
+          TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 3, 5}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207581, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Party Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "All Souls Court", "Sub-Resource" -> Missing["Empty"],
+           "Start Date" -> DateObject[{2024, 6, 29}, "Day"], "Start Time" -> 
+          TimeObject[{16, 15}, "Minute"], "End Time" -> 
+          TimeObject[{17, 45}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 11, 5, 8}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207384, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Birthday Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 29}, "Day"], 
+          "Start Time" -> TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207214, "Type" -> "Birthday - Court", "Description" -> 
+          "Miles and Logan's 3rd Birthday!", "Published" -> "No", 
+          "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+          Missing["Empty"], "Customer" -> "Jennifer Gershowitz", "Email" -> 
+          "jensgersh@gmail.com", "Phone" -> 2014527007, "Mobile" -> 
+          Missing["Empty"], "Location" -> "Fastbreak Sports", "Resource" -> 
+          "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+          "Start Date" -> DateObject[{2024, 6, 30}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207299, "Type" -> "Birthday Time Slot", "Description" -> 
+          "Birthday Time Slot", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+          "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+          "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+          Missing["Empty"], "Start Date" -> DateObject[{2024, 6, 30}, "Day"], 
+          "Start Time" -> TimeObject[{14, 0}, "Minute"], "End Time" -> 
+          TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 207385, "Type" -> "Birthday - Court", "Description" -> 
+          "Michael's 5th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Antigone Demetis", "Email" -> "ADemetis927@gmail.com", "Phone" -> 
+          9176563792, "Mobile" -> 9176563792, "Location" -> 
+          "Fastbreak Sports", "Resource" -> "FB HQ Main Court", 
+          "Sub-Resource" -> Missing["Empty"], "Start Date" -> 
+          DateObject[{2024, 6, 30}, "Day"], "Start Time" -> 
+          TimeObject[{16, 30}, "Minute"], "End Time" -> 
+          TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+            "Gregorian", -4.]|>, <|
+         "Event ID" -> 234941, "Type" -> "Birthday - Court", "Description" -> 
+          "Asher's 5th Birthday!", "Published" -> "No", "Booking ID" -> 
+          Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+          "Whitney Mostafiz-Levinson", "Email" -> 
+          "whitney.mostafiz@gmail.com", "Phone" -> 5167656488, "Mobile" -> 
+          Missing["Empty"], "Location" -> "Fastbreak Sports", "Resource" -> 
+          "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+          "Start Date" -> DateObject[{2024, 7, 14}, "Day"], "Start Time" -> 
+          TimeObject[{11, 30}, "Minute"], "End Time" -> 
+          TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+          DateObject[{2024, 4, 7, 16, 50, 30}, "Instant", "Gregorian", -4.]|>},
+        SelectWithContents->True,
+        Selectable->False], "]"}], "[", 
+      RowBox[{"Select", "[", 
+       RowBox[{
+        RowBox[{"#Type", " ", "==", " ", "\"\<Birthday Time Slot\>\""}], 
+        "&"}], "]"}], "]"}]}], "\n", "}"}], ",", "\n", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"di", ",", " ", "nne"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"di", " ", "=", " ", 
+         RowBox[{"DateInterval", "[", 
+          RowBox[{"{", 
+           RowBox[{"d1", ",", "d2"}], "}"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"nne", " ", "=", " ", 
+         RowBox[{"ne", "[", 
+          RowBox[{
+           RowBox[{"Select", "[", 
+            RowBox[{
+             RowBox[{"IntervalMemberQ", "[", 
+              RowBox[{"di", ",", " ", 
+               RowBox[{"#", "[", 
+                RowBox[{"[", "\"\<Start Date\>\"", "]"}], "]"}]}], "]"}], 
+             "&"}], "]"}], ",", " ", 
+           RowBox[{"{", 
+            RowBox[{
+            "\"\<Resource\>\"", ",", " ", "\"\<Start Date\>\"", ",", " ", 
+             "\"\<Start Time\>\""}], "}"}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"getTemplate", "[", "nne", "]"}]}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"d1", ",", "Today", ",", "\"\<Date\>\""}], "}"}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ResourceFunction", "[", "\"\<DateSetter\>\"", "]"}], "[", 
+         "##", "]"}], "&"}]}], "}"}], ",", " ", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"d2", ",", 
+         RowBox[{"DateObject", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"2024", ",", "6", ",", "4"}], "}"}], ",", "\"\<Day\>\"", 
+           ",", "\"\<Gregorian\>\"", ",", 
+           RowBox[{"-", "5.`"}]}], "]"}], ",", "\"\<Date\>\""}], "}"}], ",", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ResourceFunction", "[", "\"\<DateSetter\>\"", "]"}], "[", 
+         "##", "]"}], "&"}]}], "}"}]}], "]"}]}], "]"}]}], "Code",
+ CellChangeTimes->{{3.922676492937498*^9, 3.922676508164994*^9}, {
+   3.922676574929627*^9, 3.922676697659279*^9}, {3.922676849887163*^9, 
+   3.922676868123966*^9}, {3.922677022666159*^9, 3.92267702762096*^9}, {
+   3.922677065868114*^9, 3.92267713303389*^9}, 3.92267716326112*^9, {
+   3.922677213702703*^9, 3.922677216524687*^9}, {3.922677250668*^9, 
+   3.922677259868861*^9}, 3.922677308997395*^9, {3.922677379399405*^9, 
+   3.922677407423704*^9}, {3.9226784819761453`*^9, 3.922678515456586*^9}, {
+   3.922678797896302*^9, 3.922678828467653*^9}, {3.92267903025262*^9, 
+   3.922679063235539*^9}, {3.9226791112824507`*^9, 3.922679112175934*^9}, {
+   3.922679256870809*^9, 3.922679263646352*^9}, {3.922679408588985*^9, 
+   3.922679409992468*^9}, {3.922679545737268*^9, 3.92267954910035*^9}, {
+   3.922679746017571*^9, 3.922679752081808*^9}, {3.922703300939106*^9, 
+   3.922703344196618*^9}, {3.922703383868073*^9, 3.922703384344206*^9}, {
+   3.92270538653689*^9, 3.9227053866865377`*^9}, {3.922705684665988*^9, 
+   3.9227058425522842`*^9}, 3.92270589522994*^9, {3.922706097057502*^9, 
+   3.922706149727654*^9}, {3.922706236953292*^9, 3.922706275705249*^9}, {
+   3.922706307891325*^9, 3.9227063223077087`*^9}, {3.922706362458106*^9, 
+   3.922706593829917*^9}, 3.9227068379907703`*^9, {3.922706914051858*^9, 
+   3.922706963394371*^9}, {3.9227071396792727`*^9, 3.9227071811987762`*^9}, {
+   3.922707298944714*^9, 3.922707303789022*^9}, 3.922707420073134*^9, {
+   3.922707455627061*^9, 3.922707457145958*^9}, 3.9227076415669107`*^9, {
+   3.922707869358981*^9, 3.922707905541065*^9}, {3.92270797552634*^9, 
+   3.922707988890058*^9}, {3.922708033966666*^9, 3.9227081203455763`*^9}, {
+   3.9227082089305964`*^9, 3.922708259811488*^9}, 3.922709031324465*^9, {
+   3.922710277406529*^9, 3.922710299184383*^9}, {3.922710441867436*^9, 
+   3.9227105133598003`*^9}, {3.922710657761804*^9, 3.9227106861194773`*^9}, {
+   3.922710730923204*^9, 3.9227107643987703`*^9}, {3.9227108979022207`*^9, 
+   3.922710921703849*^9}, {3.922711106933983*^9, 3.9227111087429333`*^9}, {
+   3.922711152270295*^9, 3.9227111809430428`*^9}, {3.922711346862763*^9, 
+   3.922711351622036*^9}, {3.922724581075281*^9, 3.9227245869271183`*^9}, {
+   3.922724704113188*^9, 3.922724708754879*^9}},
+ CellLabel->
+  "In[203]:=",ExpressionUUID->"f50b7f7b-8517-4e1a-a515-fe09563f5064"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`d1$$ = 
+    DateObject[{2024, 4, 21}, "Day"], $CellContext`d2$$ = 
+    DateObject[{2024, 6, 4}, "Day", "Gregorian", -5.], Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`d1$$], 
+       DateObject[{2024, 4, 21}, "Day"], "Date"}, ResourceFunction[
+      "DateSetter"][
+       SlotSequence[1]]& , ControlType -> DateAndTime`DateSetter}, {{
+       Hold[$CellContext`d2$$], 
+       DateObject[{2024, 6, 4}, "Day", "Gregorian", -5.], "Date"}, 
+      ResourceFunction["DateSetter"][
+       SlotSequence[1]]& , ControlType -> DateAndTime`DateSetter}}, 
+    Typeset`size$$ = {332., {189.4361686706543, 21.36}}, Typeset`update$$ = 0,
+     Typeset`initDone$$, Typeset`skipInitDone$$ = True}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`d1$$ = 
+        DateObject[{2024, 4, 21}, "Day"], $CellContext`d2$$ = 
+        DateObject[{2024, 6, 4}, "Day", "Gregorian", -5.]}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Module[{$CellContext`di$, $CellContext`nne$}, $CellContext`di$ = 
+         DateInterval[{$CellContext`d1$$, $CellContext`d2$$}]; \
+$CellContext`nne$ = 
+         Dataset[{<|
+            "Event ID" -> 207495, "Type" -> "Birthday Time Slot", 
+             "Description" -> "OPEN", "Published" -> "No", "Booking ID" -> 
+             Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+             "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+             "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+             "Resource" -> "All Souls Court", "Sub-Resource" -> 
+             Missing["Empty"], "Start Date" -> 
+             DateObject[{2024, 4, 27}, "Day"], "Start Time" -> 
+             TimeObject[{11, 30}, "Minute"], "End Time" -> 
+             TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 11, 0, 55}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207573, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Party Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "All Souls Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 4, 27}, "Day"], "Start Time" -> 
+             TimeObject[{16, 15}, "Minute"], "End Time" -> 
+             TimeObject[{17, 45}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 11, 5, 8}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207202, "Type" -> "Birthday Time Slot", 
+             "Description" -> "OPEN", "Published" -> "No", "Booking ID" -> 
+             Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+             "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+             "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+             "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+             Missing["Empty"], "Start Date" -> 
+             DateObject[{2024, 5, 12}, "Day"], "Start Time" -> 
+             TimeObject[{11, 30}, "Minute"], "End Time" -> 
+             TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207287, "Type" -> "Birthday Time Slot", 
+             "Description" -> "OPEN", "Published" -> "No", "Booking ID" -> 
+             Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+             "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+             "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+             "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+             Missing["Empty"], "Start Date" -> 
+             DateObject[{2024, 5, 12}, "Day"], "Start Time" -> 
+             TimeObject[{14, 0}, "Minute"], "End Time" -> 
+             TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207207, "Type" -> "Birthday Time Slot", 
+             "Description" -> "OPEN", "Published" -> "No", "Booking ID" -> 
+             Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+             "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+             "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+             "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+             Missing["Empty"], "Start Date" -> 
+             DateObject[{2024, 6, 8}, "Day"], "Start Time" -> 
+             TimeObject[{11, 30}, "Minute"], "End Time" -> 
+             TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207500, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Party Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "All Souls Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 8}, "Day"], "Start Time" -> 
+             TimeObject[{11, 30}, "Minute"], "End Time" -> 
+             TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 11, 0, 55}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207539, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Party Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "All Souls Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 8}, "Day"], "Start Time" -> 
+             TimeObject[{14, 0}, "Minute"], "End Time" -> 
+             TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 11, 3, 4}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 234444, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Open", "Published" -> "No", "Booking ID" -> 
+             Missing["Empty"], "Booking Name" -> Missing["Empty"], "Customer" -> 
+             "", "Email" -> Missing["Empty"], "Phone" -> Missing["Empty"], 
+             "Mobile" -> Missing["Empty"], "Location" -> "Fastbreak Sports", 
+             "Resource" -> "FB HQ Main Court", "Sub-Resource" -> 
+             Missing["Empty"], "Start Date" -> 
+             DateObject[{2024, 6, 8}, "Day"], "Start Time" -> 
+             TimeObject[{14, 0}, "Minute"], "End Time" -> 
+             TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2024, 4, 1, 17, 54, 27}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207578, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Party Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "All Souls Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 8}, "Day"], "Start Time" -> 
+             TimeObject[{16, 15}, "Minute"], "End Time" -> 
+             TimeObject[{17, 45}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 11, 5, 8}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 228011, "Type" -> "Birthday Time Slot", 
+             "Description" -> "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 13}, "Day"], "Start Time" -> 
+             TimeObject[{16, 0}, "Minute"], "End Time" -> 
+             TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+             DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 228012, "Type" -> "Birthday Time Slot", 
+             "Description" -> "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 14}, "Day"], "Start Time" -> 
+             TimeObject[{16, 0}, "Minute"], "End Time" -> 
+             TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+             DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207294, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Birthday Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 15}, "Day"], "Start Time" -> 
+             TimeObject[{14, 0}, "Minute"], "End Time" -> 
+             TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207579, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Party Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "All Souls Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 15}, "Day"], "Start Time" -> 
+             TimeObject[{15, 30}, "Minute"], "End Time" -> 
+             TimeObject[{17, 30}, "Minute"], "Length (min)" -> 120, "Created" -> 
+             DateObject[{2023, 4, 26, 11, 5, 8}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207380, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Birthday Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 15}, "Day"], "Start Time" -> 
+             TimeObject[{16, 30}, "Minute"], "End Time" -> 
+             TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 234902, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Open Time Slot!", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 16}, "Day"], "Start Time" -> 
+             TimeObject[{11, 30}, "Minute"], "End Time" -> 
+             TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2024, 4, 5, 9, 12, 15}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207295, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Birthday Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 16}, "Day"], "Start Time" -> 
+             TimeObject[{14, 0}, "Minute"], "End Time" -> 
+             TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207381, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Birthday Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 16}, "Day"], "Start Time" -> 
+             TimeObject[{16, 30}, "Minute"], "End Time" -> 
+             TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 228014, "Type" -> "Birthday Time Slot", 
+             "Description" -> "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 18}, "Day"], "Start Time" -> 
+             TimeObject[{16, 0}, "Minute"], "End Time" -> 
+             TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+             DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 228016, "Type" -> "Birthday Time Slot", 
+             "Description" -> "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 20}, "Day"], "Start Time" -> 
+             TimeObject[{16, 0}, "Minute"], "End Time" -> 
+             TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+             DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 228017, "Type" -> "Birthday Time Slot", 
+             "Description" -> "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 21}, "Day"], "Start Time" -> 
+             TimeObject[{16, 0}, "Minute"], "End Time" -> 
+             TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+             DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207211, "Type" -> "Birthday Time Slot", 
+             "Description" -> "OPEN PARTY TIME!", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 22}, "Day"], "Start Time" -> 
+             TimeObject[{11, 30}, "Minute"], "End Time" -> 
+             TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207296, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Birthday Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 22}, "Day"], "Start Time" -> 
+             TimeObject[{14, 0}, "Minute"], "End Time" -> 
+             TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207541, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Party Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "All Souls Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 22}, "Day"], "Start Time" -> 
+             TimeObject[{14, 0}, "Minute"], "End Time" -> 
+             TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 11, 3, 4}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207580, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Party Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "All Souls Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 22}, "Day"], "Start Time" -> 
+             TimeObject[{16, 15}, "Minute"], "End Time" -> 
+             TimeObject[{17, 45}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 11, 5, 8}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207382, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Birthday Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 22}, "Day"], "Start Time" -> 
+             TimeObject[{16, 30}, "Minute"], "End Time" -> 
+             TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207297, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Birthday Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 23}, "Day"], "Start Time" -> 
+             TimeObject[{14, 0}, "Minute"], "End Time" -> 
+             TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 228018, "Type" -> "Birthday Time Slot", 
+             "Description" -> "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 24}, "Day"], "Start Time" -> 
+             TimeObject[{16, 0}, "Minute"], "End Time" -> 
+             TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+             DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 228019, "Type" -> "Birthday Time Slot", 
+             "Description" -> "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 25}, "Day"], "Start Time" -> 
+             TimeObject[{16, 0}, "Minute"], "End Time" -> 
+             TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+             DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 228020, "Type" -> "Birthday Time Slot", 
+             "Description" -> "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 26}, "Day"], "Start Time" -> 
+             TimeObject[{16, 0}, "Minute"], "End Time" -> 
+             TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+             DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 228021, "Type" -> "Birthday Time Slot", 
+             "Description" -> "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 27}, "Day"], "Start Time" -> 
+             TimeObject[{16, 0}, "Minute"], "End Time" -> 
+             TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+             DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 228022, "Type" -> "Birthday Time Slot", 
+             "Description" -> "OPEN BIRTHDAY TIME SLOT", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 28}, "Day"], "Start Time" -> 
+             TimeObject[{16, 0}, "Minute"], "End Time" -> 
+             TimeObject[{18, 0}, "Minute"], "Length (min)" -> 120, "Created" -> 
+             DateObject[{2024, 1, 23, 10, 45, 59}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207213, "Type" -> "Birthday Time Slot", 
+             "Description" -> "OPEN PARTY TIME!", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 29}, "Day"], "Start Time" -> 
+             TimeObject[{11, 30}, "Minute"], "End Time" -> 
+             TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 10, 53, 33}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207503, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Party Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "All Souls Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 29}, "Day"], "Start Time" -> 
+             TimeObject[{11, 30}, "Minute"], "End Time" -> 
+             TimeObject[{13, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 11, 0, 55}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207298, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Birthday Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 29}, "Day"], "Start Time" -> 
+             TimeObject[{14, 0}, "Minute"], "End Time" -> 
+             TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207542, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Party Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "All Souls Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 29}, "Day"], "Start Time" -> 
+             TimeObject[{14, 0}, "Minute"], "End Time" -> 
+             TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 11, 3, 5}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207581, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Party Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "All Souls Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 29}, "Day"], "Start Time" -> 
+             TimeObject[{16, 15}, "Minute"], "End Time" -> 
+             TimeObject[{17, 45}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 11, 5, 8}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207384, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Birthday Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 29}, "Day"], "Start Time" -> 
+             TimeObject[{16, 30}, "Minute"], "End Time" -> 
+             TimeObject[{18, 0}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 10, 56, 42}, "Instant", 
+               "Gregorian", -4.]|>, <|
+            "Event ID" -> 207299, "Type" -> "Birthday Time Slot", 
+             "Description" -> "Birthday Time Slot", "Published" -> "No", 
+             "Booking ID" -> Missing["Empty"], "Booking Name" -> 
+             Missing["Empty"], "Customer" -> "", "Email" -> Missing["Empty"], 
+             "Phone" -> Missing["Empty"], "Mobile" -> Missing["Empty"], 
+             "Location" -> "Fastbreak Sports", "Resource" -> 
+             "FB HQ Main Court", "Sub-Resource" -> Missing["Empty"], 
+             "Start Date" -> DateObject[{2024, 6, 30}, "Day"], "Start Time" -> 
+             TimeObject[{14, 0}, "Minute"], "End Time" -> 
+             TimeObject[{15, 30}, "Minute"], "Length (min)" -> 90, "Created" -> 
+             DateObject[{2023, 4, 26, 10, 55, 2}, "Instant", 
+               "Gregorian", -4.]|>}, 
+           TypeSystem`Vector[
+            
+            TypeSystem`Struct[{
+             "Event ID", "Type", "Description", "Published", "Booking ID", 
+              "Booking Name", "Customer", "Email", "Phone", "Mobile", 
+              "Location", "Resource", "Sub-Resource", "Start Date", 
+              "Start Time", "End Time", "Length (min)", "Created"}, {
+              TypeSystem`Atom[Integer], 
+              TypeSystem`Atom[
+               TypeSystem`Enumeration["Birthday Time Slot"]], 
+              TypeSystem`Atom[String], 
+              TypeSystem`Atom[
+               TypeSystem`Enumeration["No"]], TypeSystem`UnknownType, 
+              TypeSystem`UnknownType, 
+              TypeSystem`Atom[
+               TypeSystem`Enumeration[""]], TypeSystem`UnknownType, 
+              TypeSystem`UnknownType, TypeSystem`UnknownType, 
+              TypeSystem`Atom[
+               TypeSystem`Enumeration["Fastbreak Sports"]], 
+              TypeSystem`Atom[
+               TypeSystem`Enumeration["All Souls Court", "FB HQ Main Court"]],
+               TypeSystem`UnknownType, 
+              TypeSystem`Atom[DateObject], 
+              TypeSystem`Atom[TimeObject], 
+              TypeSystem`Atom[TimeObject], 
+              TypeSystem`Atom[Integer], 
+              TypeSystem`Atom[DateObject]}], 38], <||>][
+           Select[IntervalMemberQ[$CellContext`di$, 
+             Part[#, "Start Date"]]& ], {
+           "Resource", "Start Date", 
+            "Start Time"}]; $CellContext`getTemplate[$CellContext`nne$]], 
+      "Specifications" :> {{{$CellContext`d1$$, 
+          DateObject[{2024, 4, 21}, "Day"], "Date"}, ResourceFunction[
+         "DateSetter"][
+          SlotSequence[1]]& }, {{$CellContext`d2$$, 
+          DateObject[{2024, 6, 4}, "Day", "Gregorian", -5.], "Date"}, 
+         ResourceFunction["DateSetter"][
+          SlotSequence[1]]& }}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{386., {182., 189.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.922724627454961*^9, 3.922724709287821*^9},
+ CellLabel->
+  "Out[204]=",ExpressionUUID->"1cbc886c-4093-40a8-a0d7-84eba8d7a440"]
+}, Open  ]]
+},
+WindowSize->{Full, Full},
+WindowMargins->{{556, Automatic}, {Automatic, 50}},
+PrivateNotebookOptions->{"CloudPublishPath"->"/Published/bdayTemplateBuilder.\
+nb"},
+Magnification->1.25,
+FrontEndVersion->"14.0 for Mac OS X x86 (64-bit) (December 12, 2023)",
+StyleDefinitions->"Chatbook.nb",
+ExpressionUUID->"c860fd81-1d1c-4be5-bca0-3533458ebfa5"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 536, 11, 37, "Input",ExpressionUUID->"0400ad66-1a4f-4751-aaca-b0d3b20373f2"],
+Cell[1097, 33, 386, 9, 37, "Input",ExpressionUUID->"630ca122-178a-4659-9164-ca4d66d7a162"],
+Cell[1486, 44, 985, 27, 64, "Input",ExpressionUUID->"562047d8-d737-44fe-951b-e20b792635dd"],
+Cell[2474, 73, 315, 7, 37, "Input",ExpressionUUID->"4274681b-2f77-4dd8-b710-197c0c17b557"],
+Cell[2792, 82, 270, 6, 37, "Input",ExpressionUUID->"9be24fbc-6c2f-48ac-bf3e-0d38f02e541a"],
+Cell[3065, 90, 434, 12, 37, "Input",ExpressionUUID->"e7c58849-b17e-45bf-aaf3-3a27b3310e61"],
+Cell[3502, 104, 431, 12, 37, "Input",ExpressionUUID->"1eba002f-9fb4-40a0-9914-0c522cc74800"],
+Cell[3936, 118, 320, 7, 37, "Input",ExpressionUUID->"ad043108-7af4-4cde-8467-3e76a8a35f22"],
+Cell[4259, 127, 445, 12, 37, "Input",ExpressionUUID->"394f7177-1f4b-4e2a-a6b4-e84aed52181f"],
+Cell[4707, 141, 611, 16, 37, "Input",ExpressionUUID->"12351aae-718b-4a0f-89f7-8d79cd2dbe7c"],
+Cell[5321, 159, 175, 2, 37, "Input",ExpressionUUID->"8cd44114-dc81-42de-9c95-a5e4835f38a3"],
+Cell[5499, 163, 311, 7, 37, "Input",ExpressionUUID->"b5c86c08-ed88-4871-8c26-f45c03b92fcd"],
+Cell[5813, 172, 419, 12, 37, "Input",ExpressionUUID->"943d7536-8b08-4baa-9fb0-751058411834"],
+Cell[6235, 186, 175, 2, 37, "Input",ExpressionUUID->"385ba833-7c5c-421a-a06a-de3c5f538e9b"],
+Cell[6413, 190, 4738, 124, 454, "Input",ExpressionUUID->"dc1ffef6-e0ad-42c3-aae3-30784d72682b"],
+Cell[11154, 316, 220, 3, 37, "Input",ExpressionUUID->"2b736d36-4f52-4392-8b2f-f8623ce5b9da"],
+Cell[11377, 321, 319, 5, 37, "Input",ExpressionUUID->"7af62a6b-7945-45ea-9527-60999df2d26e"],
+Cell[CellGroupData[{
+Cell[11721, 330, 98773, 1556, 1134, "Code",ExpressionUUID->"f50b7f7b-8517-4e1a-a515-fe09563f5064"],
+Cell[110497, 1888, 34937, 541, 394, "Output",ExpressionUUID->"1cbc886c-4093-40a8-a0d7-84eba8d7a440"]
+}, Open  ]]
+}
+]
+*)
+
